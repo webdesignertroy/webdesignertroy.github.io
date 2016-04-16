@@ -101,6 +101,7 @@ img{
 	color: #E8F2FA;
 }
 
+
 /* ---- Shared Values---- */
 
 .banner, footer, .main{
@@ -118,7 +119,7 @@ img{
 .container{
 	width: 100%;
 	margin: 0 auto;
-	padding: 1em;
+	padding: 1em 0;
 	text-align:center;
 }
 
@@ -276,7 +277,8 @@ footer p{
 	box-shadow: inset 15px 15px 55px rgba(0,0,0,0.1), inset -15px -15px 55px rgba(0,0,0,0.1);
 	max-width: 377px;
 	max-height: 277px;
-	padding: 20px 10px 15px 10px;
+	padding: 20px 10px;
+	margin: 0 auto;
 }
 
 .profile-image{
@@ -318,7 +320,6 @@ footer{
 		margin:0;
 	}
 	.banner{
-		margin: 0 auto;
 		padding:2em 0;
 	}
 		
