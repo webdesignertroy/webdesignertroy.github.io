@@ -345,13 +345,15 @@ input[type=reset]:focus, input[type=reset]:hover {
 	left: 3px;
 	position: absolute;
 }
+/*
+@Tester: This is here for later revisit
 input:focus + .help {
 	display: inline-block;
 	transition: all .5s;
 	-webkit-opacity: 1;
 	-moz-opacity: 1;
-	opacity: 1;
-}
+	/*opacity: 1;  
+}*/
 /* ================================= 
   Page Elements
 ==================================== */
