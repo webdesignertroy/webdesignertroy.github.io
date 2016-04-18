@@ -3,6 +3,7 @@
 /* ================================= 
   Base Element Styles
 ==================================== */
+
 * {
 	box-sizing: border-box
 }
@@ -32,6 +33,7 @@ h3 {
 h4 {
 	font-size: .8em;
 }
+
 /*  Form  */
 
 label {
@@ -45,6 +47,7 @@ fieldset {
 input[id=zip-code] {
 	max-width: 50%;
 }
+
 /*  Combinators  */
 
 input[type=checkbox], input[type=radio] {
@@ -103,6 +106,7 @@ fieldset legend {
 .pull-down, input[type=checkbox] + label::before, input[type=radio] + label::before {
 	background: rgba(189,184,192,1);
 }
+
 /* ================================= 
   Base Layout Styles
 ==================================== */
@@ -140,6 +144,7 @@ fieldset legend {
 	font-weight: 300;
 	color: #EDEBED;
 }
+
 /*  Combinators  */
 
 h1, h4, .greeting {
@@ -160,7 +165,6 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, input[ty
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
-
 
 /*  Form   */
 
@@ -189,6 +193,7 @@ input::-webkit-input-placeholder {
  font-size: .8em;
  color: #F0F0F0;
 }
+
 /*----- Pull-down Menu Style -----*/
 
 .pull-down {
@@ -217,6 +222,7 @@ input::-webkit-input-placeholder {
 	border-right: .8em solid transparent;
 	border-top: .8em solid rgba(52,6,78,1);
 }
+
 /*----- Checkbox Style -----*/
 
 input[type=checkbox] {
@@ -252,6 +258,7 @@ input[type=checkbox]:checked + label::after {
 	font-size: .8em;
 	color: #34064E;
 }
+
 /*----- Radio Button Style -----*/
 
 input[type=radio] {
@@ -291,6 +298,7 @@ input[type=radio]:checked + label::after {
 	border-radius: 50%;
 	background: rgba(52,6,78,1);
 }
+
 /*----- Submit and Reset Button Styles -----*/
 
 input[type=submit], input[type=reset] {
@@ -319,6 +327,7 @@ input[type=reset]:focus, input[type=reset]:hover {
 .buttons {
 	padding: 0 1em;
 }
+
 /*----- Validation Styles -----*/
 
 .row-container {
@@ -345,6 +354,7 @@ input[type=reset]:focus, input[type=reset]:hover {
 	left: 3px;
 	position: absolute;
 }
+
 /*
 @Tester: This is here for later revisit
 input:focus + .help {
@@ -354,6 +364,7 @@ input:focus + .help {
 	-moz-opacity: 1;
 	/*opacity: 1;  
 }*/
+
 /* ================================= 
   Page Elements
 ==================================== */
