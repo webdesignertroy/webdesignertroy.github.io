@@ -352,7 +352,7 @@ input[type=submit]{
 	color: #f4f4f4;	
 }
 
-input[type=submit]:focus{
+input[type=submit]:focus, input[type=submit]:hover{
 	background: #E23C00;
 	border-color: #E23C00;
 	color: #f4f4f4;
@@ -364,7 +364,7 @@ input[type=reset]{
 	color: #f4f4f4;	
 }
 
-input[type=reset]:focus{
+input[type=reset]:focus, input[type=reset]:hover{
 	background: #34064E;
 	border-color: #34064E;
 	color: #f4f4f4;
@@ -430,10 +430,7 @@ input[type=reset]:focus{
 	fieldset[class=primary] label{
 		width: 150px;
 	}
-	
-	label[id=topics]{
-	}
-	
+		
 	input[type=text], input[type=email], input[type=tel], select, .pull-down{
 		width: 464px;		
 	}
