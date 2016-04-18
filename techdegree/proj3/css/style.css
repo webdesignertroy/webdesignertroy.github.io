@@ -8,10 +8,13 @@
 }
 
 body{
-	font-family: "Merriweather Sans", sans-serif;
+	font-family: Roboto, sans-serif;
 	line-height: 1.6;
 	color: rgba(52,6,78,1);
-	background: #FEFEFE;
+	background: url(../img/bg-code40percent.jpg) #FEFEFE;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top left;
 }
 
 p{
@@ -25,7 +28,7 @@ h1{
 }
 
 h2{
-	font-size:1.2em;	
+	font-size:2em;	
 }
 
 h3{
@@ -38,10 +41,10 @@ h4{
 
 /*  Form  */
 
-
 label {
 	display:inline-block;
 	margin-top: 1em;
+	width: 100%;
 }
 
 fieldset{
@@ -51,6 +54,7 @@ fieldset{
 input[id=zip-code]{
 	max-width: 50%;
 }
+
 /*  Combinators  */
 
 input[type=checkbox], input[type=radio]{
@@ -64,6 +68,7 @@ input[type=checkbox], input[type=radio]{
 	background: none;
 	width: 100%;
 	z-index:1;
+	cursor: pointer;
 }
 
 select {
@@ -73,36 +78,51 @@ select {
 	display: block;
 	padding: .7em .5em;
 	margin: 0;
-	border:3px solid rgba(231,230,232,1);
+	border:3px solid rgba(189,184,192,1) ;
 	background: none;
 	width: 100%;
 	z-index:1;
+	transition: all .5s;
 }
 
-input[type=email], input[type=text], input[type=tel], input[type=submit]{
+textarea{
+	margin-top: .7em;	
+}
+
+input[type=email], input[type=text], input[type=tel], textarea{
 	display: block;
-	border:3px solid rgba(231,230,232,1);
+	border:3px solid rgba(189,184,192,1);
 	width:100%;
 	padding: .7em;
-	background: rgba(231,230,232,1);
-	border-radius: 5px;		
+	background: rgba(189,184,192,1);
+	color: rgba(52,6,78,1);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;	
+	transition: all .5s;	
 }
 
+input[type=submit], input[type=reset]{
+	display: block;
+	border:3px solid rgba(189,184,192,1);
+	padding: .7em;
+	background: rgba(189,184,192,1);
+	width:100%;
+	color: rgba(52,6,78,1);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;	
+	transition: all .5s;	
+}
 
 fieldset legend{
 	font-size: 1.5em;
-	padding-top: 1em;
-	
-}
-
-.pull-down{
-	border-radius: 3px;
+	padding-top: 1em;	
 }
 
 .pull-down, input[type=checkbox] + label::before, input[type=radio] + label::before{
-	background: rgba(231,230,232,1);	
+	background: rgba(189,184,192,1);	
 }
-
 
 
 /* ================================= 
@@ -110,7 +130,21 @@ fieldset legend{
 ==================================== */
 
 .wrapper{
+	width: 100%;
 	/*height: calc(100vh - 74px);*/ /* Uncomment in FINAL */
+}
+
+.bg-cover{
+	background-color: rgba(243,243,243,0.95);
+	width: 95%;
+	max-width: 760px;
+	margin: 40px auto;
+	box-shadow: 4px 4px 20px rgba(0,0,0,.25), -4px -4px 20px rgba(0,0,0,.25) ;
+	border-radius: 20px;
+	padding-top: 1.5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	padding-bottom: 1.5em;
 }
 
 .container{
@@ -118,7 +152,7 @@ fieldset legend{
 }
 
 .banner{
-	background: #836395;
+	background: rgba(131,99,149,1);
 	color: #EDEBED;
 	padding: .1em 0;
 }
@@ -134,8 +168,6 @@ fieldset legend{
 	font-weight:300;
 	color:#EDEBED;
 }
-/*  DRY Styles  */
-
 
 /*  Combinators  */
 
@@ -153,44 +185,54 @@ select, .pull-down{
 	padding-bottom: 2em;
 }
 
-input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=submit]:focus, select:focus{
+input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=submit]:focus, input[type=reset]:focus, select:focus, textarea:focus{
 	outline: none;
 	border: 3px solid rgba(52,6,78,1);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border-radius: 5px;
 }
 
 
-/*  Form  */
+/*  Form   */
 
 /*----- Placehoder Hack -----*/
 input::-webkit-input-placeholder{
 	font-style: italic;
 	text-align: right;
-	font-size: .7em;
+	font-size: .8em;
+	color: #F0F0F0;
 }
 
 input::-moz-placeholder { 
 	font-style: italic;
 	text-align: right;
-	font-size: .7em;
+	font-size: .8em;
+	color: #F0F0F0;
 }
 
 input:-moz-placeholder { 
 	font-style: italic;
 	text-align: right;
-	font-size: .7em;
+	font-size: .8em;
+	color: #F0F0F0;
 }
 
 input:-ms-input-placeholder { 
 	font-style: italic;
 	text-align: right;
-	font-size: .7em;
+	font-size: .8em;
+	color: #F0F0F0;
 }
 
 
 /*----- Pull-down Menu Style -----*/
+
 .pull-down{
 	z-index:2;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .pull-down:after{
@@ -201,7 +243,7 @@ input:-ms-input-placeholder {
 	font-size: .8em;
 	border-left: .8em solid transparent;
 	border-right: .8em solid transparent;
-	border-top: .8em solid rgba(231,230,232,1);
+	border-top: .8em solid rgba(189,184,192,1);
 }
 
 .pull-down:before{
@@ -232,20 +274,24 @@ input[type=checkbox] + label::before{
 	margin-right: 12px;
 	width: 20px;
 	height: 20px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	border: 2px solid rgba(52,6,78,0);
 	vertical-align: middle;
+	transition: all .5s;
 }
 
 input[type=checkbox]:checked + label::before{
 	border: 2px solid rgba(52,6,78,1);
+	transition: all .5s;
 }
 
 input[type=checkbox]:checked + label::after{
-	content:"\2714";
+	content: url(../img/checkmark22x23.png);
 	position: absolute;
-	top: 5px;
-	left: 7px;
+	top: -1px;
+	left: 3px;
 	font-size: .8em;
 	color: #34064E;
 }
@@ -268,13 +314,17 @@ input[type=radio] + label::before{
 	margin-right: 12px;
 	width: 20px;
 	height: 20px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	border: 2px solid rgba(52,6,78,0);
 	vertical-align: middle;
+	transition: all .5s;
 }
 
 input[type=radio]:checked + label::before{
 	border: 2px solid rgba(52,6,78,1);
+	transition: all .5s;
 }
 
 input[type=radio]:checked + label::after{
@@ -284,23 +334,44 @@ input[type=radio]:checked + label::after{
 	left: 6px;
 	width: 12px;
 	height: 12px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
 	border-radius: 50%;
 	background: rgba(52,6,78,1);
 }
 
-/*----- Submit Button Style -----*/
+/*----- Submit and Reset Button Styles -----*/
+
+input[type=submit], input[type=reset]{
+	margin-top: 1.5em;
+}
 
 input[type=submit]{
-	margin-top: 1.5em;
 	background: coral;
 	border-color: coral;
-	color: #f4f4f4;
+	color: #f4f4f4;	
 }
+
 input[type=submit]:focus{
-	margin-top: 1.5em;
 	background: #E23C00;
 	border-color: #E23C00;
 	color: #f4f4f4;
+}
+
+input[type=reset]{
+	background: #836395;
+	border-color: #836395;
+	color: #f4f4f4;	
+}
+
+input[type=reset]:focus{
+	background: #34064E;
+	border-color: #34064E;
+	color: #f4f4f4;
+}
+
+.buttons{
+	padding: 0 1em;
 }
 
 
@@ -315,9 +386,9 @@ input[type=submit]:focus{
 }
 
 .main-header h2{
-	margin-top: 2em;
 	padding-bottom:0;
 	margin-bottom:0;
+	line-height: 1.2em;
 }
 
 .main-header p, .main-header h2, .separator, .separator-2{
@@ -346,6 +417,62 @@ input[type=submit]:focus{
   Media Queries
 ==================================== */
 
-@media (min-width:759){
+@media (min-width:759px){
 	
+	fieldset[class=primary] label, input[type=text], input[type=email], input[type=tel], .pull-down, textarea{
+		display: inline-block;
+	}
+	
+	input[id=zip-code]{
+		width: 190px !important;
+	}
+	
+	fieldset[class=primary] label{
+		width: 150px;
+	}
+	
+	label[id=topics]{
+	}
+	
+	input[type=text], input[type=email], input[type=tel], select, .pull-down{
+		width: 464px;		
+	}
+	
+	.row-container{
+		margin-top: 1em;
+	}
+}
+
+@media (min-width:1050px){
+	
+	fieldset.secondary .col{
+		display: inline-block;
+		width: 308px;
+		vertical-align: top;
+	}
+	
+	fieldset.secondary .col:nth-child(2){
+		margin-left: 3px;
+	}
+	
+	fieldset h3{
+		display:inline-block;
+		min-width: 100%;
+		vertical-align: text-bottom;
+	}
+	
+	fieldset.buttons{
+		margin:0 auto;
+	}
+	
+	fieldset.buttons input {
+		width:49.5%;
+		float: left;
+		clear: right;
+	}	
+	
+	fieldset.buttons input:last-child{
+		margin-left: 5px;
+	}
+		
 }
