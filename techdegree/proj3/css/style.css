@@ -394,8 +394,8 @@ input:focus + .help {
 fieldset[class=primary] label, input[type=text], input[type=email], input[type=tel], .pull-down, textarea {
 	display: inline-block;
 }
-input[id=zip-code] {
-	width: 190px !important;
+input#zip-code {
+	width: 190px;
 }
 fieldset[class=primary] label {
 	width: 150px;
