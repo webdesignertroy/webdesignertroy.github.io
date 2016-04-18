@@ -266,6 +266,7 @@ input[type=checkbox]{
 input[type=checkbox] + label{
 	display: block;
 	position: relative;
+	cursor: pointer;
 }
 
 input[type=checkbox] + label::before{
@@ -306,6 +307,7 @@ input[type=radio]{
 input[type=radio] + label{
 	display: block;
 	position: relative;
+	cursor: pointer;
 }
 
 input[type=radio] + label::before{
