@@ -63,7 +63,6 @@ input[type=checkbox], input[type=radio] {
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
 	display: block;
 	padding: .7em .5em;
 	margin: 0;
@@ -72,6 +71,9 @@ select {
 	width: 100%;
 	z-index: 1;
 	transition: all .5s;
+}
+select::-ms-expand { /* for IE 11 */
+    display: none;
 }
 textarea {
 	margin-top: .7em;
