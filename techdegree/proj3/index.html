@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="css/normalize.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 	<div class="wrapper">
             <div class="main-header">
@@ -26,30 +25,30 @@
                         <legend><span class="">Contact Information</span></legend>
                         <div class="row-container">
                             <label for="full-name">Full Name</label>
-                            <input type="text" id="full-name" placeholder="(e.g. Joan Smith)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_name" required aria-describedby="name-format" aria-required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="Format: first_name last_name"/>          		
+                            <input class="shared-style" type="text" id="full-name" placeholder="(e.g. Joan Smith)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_name" required aria-describedby="name-format" aria-required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="Format: first_name last_name"/>          		
                         <span id="name-format" class="help">Format: first_name last_name</span>	
                         </div>
                         <div class="row-container">
                              <label for="mail">Email Address</label>
-                             <input type="email" id="mail" placeholder="(e.g. joan89@gmail.com)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_email" required aria-describedby="email-format" aria-required="true" >
+                             <input class="shared-style" type="email" id="mail" placeholder="(e.g. joan89@gmail.com)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_email" required aria-describedby="email-format" aria-required="true" >
                              <span id="email-format" class="help">Format: email@domain.com</span>
                          </div>
                         <div class="row-container">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone"  name="user_phone" placeholder="(e.g. 555-555-5555)" value=""/>
+                            <input class="shared-style" type="tel" id="phone"  name="user_phone" placeholder="(e.g. 555-555-5555)" value=""/>
                         </div>
                             <div class="row-container">
                             <label for="address">Street Address</label>
-                            <input type="text" id="address"  name="user_address" placeholder="(e.g. 125 E. Oak Street)" value=""/>
+                            <input class="shared-style" type="text" id="address"  name="user_address" placeholder="(e.g. 125 E. Oak Street)" value=""/>
                         </div>
                         <div class="row-container">
                             <label for="city">City</label>
-                            <input type="text" id="city" name="user_city" placeholder="(e.g. Los Angeles)" value="" />
+                            <input class="shared-style" type="text" id="city" name="user_city" placeholder="(e.g. Los Angeles)" value="" />
                         </div>
                         <div class="row-container">
                             <label for="state">State</label>
                             <div class="pull-down">
-                                <select id="state" name="user_state"> 
+                                <select class="shared-style" id="state" name="user_state"> 
                                     <option selected disabled>- Choose State -</option>
                                     <option value="Alabama">Alabama</option> 
                                     <option value="Alaska">Alaska</option>
@@ -106,7 +105,7 @@
                          </div>
                         <div class="row-container">
                             <label for="zip-code">Zip Code</label>
-                            <input type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value=""/>
+                            <input class="shared-style" type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value=""/>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
@@ -130,7 +129,7 @@
                         </div>
                         <div class="row-container">
                             <label for="topics">Other topics you'd like to hear about</label>
-                            <textarea id="topics" name="user_topics"></textarea>
+                            <textarea class="shared-style" id="topics" name="user_topics"></textarea>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
@@ -147,14 +146,14 @@
                             <label for="other">Other</label>
                             <div id="show-other" class="row-container">
                                 <label for="other-explained">If you chose <strong>Other</strong>, please explain</label>
-                                <textarea id="other-explained" name="user_other_explained"></textarea>
+                                <textarea class="shared-style" id="other-explained" name="user_other_explained"></textarea>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="buttons"> 
                         <div class="col">
-                            <input type="submit" value="Sign Up" name="user_sumbit" > 
-                            <input type="reset" value="Reset Form" name="user_sumbit" > 
+                            <input class="shared-style" type="submit" value="Sign Up" name="user_sumbit" > 
+                            <input class="shared-style" type="reset" value="Reset Form" name="user_sumbit" > 
                         </div>
                      </fieldset>
                 </form>
