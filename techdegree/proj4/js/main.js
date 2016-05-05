@@ -16,6 +16,8 @@ var $currentCaption;
 var $currentTitle;
 var imageLocation;
 
+
+
 //Add image to overlay
 $overlay.append($img).append($description);
 
@@ -77,14 +79,18 @@ $tab.click(function(event){
 
 //Fade out overlay when [MOUSE] is clicked
 $('.container').click(function(){
-  //Hide the overlay on mouse click
-  $container.fadeOut(100);
+ 	//Hide the overlay on mouse click
+ 	$container.fadeOut(100);
+	//Clean up overlay
+	$("body").detach(".container");
 });
 
 //Fade out overlay when [ESC] is keyed
 $(this).keyup(function(event){
-  //Hide the overlay on keypress  
-  if(event.keyCode === 27){
+  	//Hide the overlay on keypress  
+  	if(event.keyCode === 27){
  	$container.fadeOut(100);
+	//Clean up overlay
+	$("body").detach(".container");
   }
 });
