@@ -134,6 +134,7 @@ image-link {
 	border-radius: 5px;
 	transition: .5s;
 	overflow: hidden;
+	opacity: 0;
 }
 
 .caption-info:after{
