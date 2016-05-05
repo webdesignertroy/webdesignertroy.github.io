@@ -48,6 +48,53 @@ Detail:
 </footer>
 <script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script> 
 <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script>
+//Preload Images
+function preloader() {
+	if (document.images) {
+		var img01 = new Image();
+		var img02 = new Image();
+		var img03 = new Image();
+		var img04 = new Image();
+		var img05 = new Image();
+		var img06 = new Image();
+		var img07 = new Image();
+		var img08 = new Image();
+		var img09 = new Image();
+		var img10 = new Image();
+		var img11 = new Image();
+		var img12 = new Image();
+
+
+		img01.src = "images/photos/01.jpg";
+		img02.src = "images/photos/02.jpg";
+		img03.src = "images/photos/03.jpg";
+		img04.src = "images/photos/04.jpg";
+		img05.src = "images/photos/05.jpg";
+		img06.src = "images/photos/06.jpg";
+		img07.src = "images/photos/07.jpg";
+		img08.src = "images/photos/08.jpg";
+		img09.src = "images/photos/09.jpg";
+		img10.src = "images/photos/10.jpg";
+		img11.src = "images/photos/11.jpg";
+		img12.src = "images/photos/12.jpg";
+	}
+}
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(preloader);
+</script>
 	
 </body>
 </html>
