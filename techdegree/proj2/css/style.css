@@ -40,12 +40,7 @@ h3:after {
 }
 img {
 	width: 100%;
-	border-radius: 4px;
 }
-footer {
-	padding: 1em 15%;
-}
-
 /* ================================= 
   Base Layout Styles
 ==================================== */
@@ -93,11 +88,9 @@ footer {
 /* ---- Shared Values---- */
 
 .banner, footer, .main {
+	padding: 1em 15%;
 	text-align: center;
 	margin: 0 auto;
-}
-.banner, .main {
-	padding: 1em;
 }
 .skills h2, footer h2, .container h2 {
 	padding-top: 1.5em;
@@ -119,9 +112,6 @@ footer {
 }
 .skills-stretch-row {
 	background: #2878B8;
-	-moz-box-shadow: inset 15px 15px 55px rgba(0,0,0,0.3), inset -15px -15px 55px rgba(0,0,0,0.3);
-	-webkit-box-shadow: inset 15px 15px 55px rgba(0,0,0,0.3), inset -15px -15px 55px rgba(0,0,0,0.3);
-	box-shadow: inset 15px 15px 55px rgba(0,0,0,0.3), inset -15px -15px 55px rgba(0,0,0,0.3);
 }
 .skills {
 	width: 100%;
@@ -159,7 +149,7 @@ footer {
 	bottom: 0;
 	left: 0;
 	background: #fafafa;
-	padding: 0 1.3em;
+	padding: 1.3em;
 	margin: 0;
 	z-index: 1000;
 }
@@ -180,15 +170,13 @@ footer {
 	display: inline-block;
 	padding: .5em 1em;
 	margin: .2em .2em;
-	border-radius: 20px 2px;
+	border-radius: 15px;
+	-moz-box-shadow: inset 5px 5px 15px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.1);
+	-webkit-box-shadow: inset 5px 5px 15px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.1);
+	box-shadow: inset 5px 5px 15px rgba(0,0,0,0.1), inset -5px -5px 15px rgba(0,0,0,0.1);
 	font-weight: 400;
 	letter-spacing: .02em;
 	color: #000;
-	transition: all .8s ease;
-	cursor: crosshair;
-}
-.skillset li:hover {
-	box-shadow: 2px 2px 4px rgba(0,0,0,0.5), -2px -2px 4px rgba(0,0,0,0.5);
 }
 .skillset li {
 	background: #FBB101; /* Yellow Font */
@@ -197,7 +185,7 @@ footer {
 	background: #42C966; /* Green Font */
 }
 .skillset li:nth-child(3n-3) {
-	background: coral; /* Red Font */
+	background: #F13232; /* Red Font */
 }
 
 /* ---- Page Elements ---- */
@@ -239,8 +227,8 @@ footer p {
 	float: right;
 }
 .image-shadow {
-	background: #fed36d;
 	border-radius: 4px;
+	background: #fed36d;
 	-moz-box-shadow: inset 15px 15px 55px rgba(0,0,0,0.1), inset -15px -15px 55px rgba(0,0,0,0.1);
 	-webkit-box-shadow: inset 15px 15px 55px rgba(0,0,0,0.1), inset -15px -15px 55px rgba(0,0,0,0.1);
 	box-shadow: inset 15px 15px 55px rgba(0,0,0,0.1), inset -15px -15px 55px rgba(0,0,0,0.1);
@@ -334,9 +322,6 @@ figure {
 }
 .back-to-top {
 	display: none;
-}
-.footer-end {
-	padding: 1.3em;
 }
 }
 
