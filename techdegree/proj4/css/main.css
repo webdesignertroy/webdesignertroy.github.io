@@ -39,10 +39,11 @@ image-link {
 ==================================== */
 .container:before{
 	content: "Click Anywhere to Close(X)";
-	background: rgba(0,0,0,0.25);
+	background: rgba(0,0,0,0.85);
 	color: #969696;
 	font-size: .8em;
 	position: fixed;
+	z-index: 2000;
 	width: 100%;
 	padding: 1em;
 	top:0;
