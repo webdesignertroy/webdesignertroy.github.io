@@ -99,7 +99,9 @@ image-link {
     height: 90px;
 	border-radius: 0 7px 7px 0;
 	border: 1px solid rgba(113,113,113,0.83);
-    background: rgba(0,0,0,0.85);
+    background: url(../images/left-arrow36x63.png) rgba(0,0,0,0.85);
+	background-position: center;
+	background-repeat: no-repeat;
     font-size: 2em;
     color: rgba(0,0,0,0.85);
     position: fixed;
@@ -115,7 +117,9 @@ image-link {
     height: 90px;
 	border-radius: 7px 0 0 7px;
 	border: 1px solid rgba(113,113,113,0.83);
-    background: rgba(0,0,0,0.85);
+    background: url(../images/right-arrow36x63.png) rgba(0,0,0,0.85);
+	background-position: center;
+	background-repeat: no-repeat;
     font-size: 2em;
     color: rgba(0,0,0,0.85);
     position: fixed;
