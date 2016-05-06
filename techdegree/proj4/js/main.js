@@ -19,8 +19,10 @@ var $currentTitle;
 var imageLocation;
 var imageArray = [];
 var imageCaption = [];
+var imageTitle = [];
 var newImg;
 var newCaption;
+var newTitle;
 
 
 
@@ -37,7 +39,7 @@ $("body").append($arrowLeft).append($arrowRight);
 $("body").append($container);
 
 
-//Display image and caption on [HOVER]
+//Display thumb and caption on [HOVER]
 $caption.css("opacity", 0);
 
 $caption.mouseenter(function(){
@@ -49,7 +51,7 @@ $caption.mouseenter(function(){
 	$(this).css("opacity", 0);
 });
 
-// Display image and caption on [TAB]	
+// Display thumb and caption on [TAB]	
 $tab.focus(function(){
 	$(this).find('span').css("opacity", 1);
 	$currentCaption = $(this).find('img').attr('alt');
@@ -71,7 +73,7 @@ $caption.click(function(event){
 	$img.attr("src", imageLocation);
 	
 	//Update image description
-	$description.html($currentCaption);	
+	$description.html('<strong>' + $currentTitle + '</strong>: ' + $currentCaption);	
 	
 	
 	//Show overlay	
@@ -130,49 +132,58 @@ $(this).keyup(function(event){
 });
 
 //[DIRECTIONS KEY CONTROLS]
+
+//Mouse Arrow Left
 $arrowLeft.click(function(){	
 	$( ".col" ).children().each(function() {
 		imageArray.push($(this).attr("href"));
 		imageCaption.push($(this).children().attr("alt"));
+		imageTitle.push($(this).children().attr("title"));
 	});
 	for ( var i = 0 ; i < imageArray.length; i++ ){
 		if ( $img.attr("src") === imageArray[i] ) {
 			if ( i !== 0 ) {
 				newImg = imageArray[i - 1];
 				newCaption = imageCaption[i - 1];
+				newTitle = imageTitle[i - 1];
 			} else {
 				newImg = imageArray[imageArray.length];
 				newCaption = imageCaption[imageArray.length];
+				newTitle = imageTitle[imageArray.length];
 			}
 		} 
 	}
 		$description.fadeOut('fast');	
 		$img.fadeOut('fast', function(){
 			$img.attr("src", newImg).fadeIn('slow');
-			$description.html(newCaption).fadeIn('slow');
+			$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
 	});
 });
 
+//Mouse Arrow Right
 $arrowRight.click(function(){
 	$( ".col" ).children().each(function() {
 		imageArray.push($(this).attr("href"));
 		imageCaption.push($(this).children().attr("alt"));
+		imageTitle.push($(this).children().attr("title"));
 	});
 	for ( var i = 0 ; i < imageArray.length; i++){
 		if ( $img.attr("src") === imageArray[i] ) {
 			if ( i !== imageArray.length - 1 ) {
 				newImg = imageArray[i + 1];
 				newCaption = imageCaption[i + 1];
+				newTitle = imageTitle[i + 1];
 			} else {
 				newImg = imageArray[0];
 				newCaption = imageCaption[0];
+				newTitle = imageTitle[0];
 			}
 		}
 	}
 	$description.fadeOut('fast');	
 	$img.fadeOut('fast', function(){
 		$img.attr("src", newImg).fadeIn('slow');
-		$description.html(newCaption).fadeIn('slow');
+		$description.html('<strong>' + newTitle + '</strong>: ' +newCaption).fadeIn('slow');
 	});
 });
 
