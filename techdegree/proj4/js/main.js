@@ -8,13 +8,19 @@ Problems:
 var $caption = $('.image-link span');
 var $description = $("<p></p>");
 var $tab = $('.image-link');
-var $container = $('<div class="container"></div>');
 var $overlay = $('<div id="overlay"></div>');
+var $arrowLeft = $('<div class="arrow-left"></div>');
+var $arrowRight = $('<div class="arrow-right"></div>');
+var $container = $('<div class="container"></div>');
 var $img = $("<img>");
 var currentSpan;
 var $currentCaption;
 var $currentTitle;
 var imageLocation;
+var imageArray = [];
+var imageCaption = [];
+var newImg;
+var newCaption;
 
 
 
@@ -23,6 +29,11 @@ $overlay.append($img).append($description);
 
 //Add overlay
 $container.append($overlay);
+
+//Add directional arrows
+$("body").append($arrowLeft).append($arrowRight);
+
+//Add container
 $("body").append($container);
 
 
@@ -64,7 +75,11 @@ $caption.click(function(event){
 	
 	
 	//Show overlay	
-	$container.fadeIn(400);	
+	$container.fadeIn(400);
+	$arrowLeft.fadeIn(400);
+	$arrowRight.fadeIn(400);
+	
+	return imageLocation;
 	
 });
 
@@ -75,12 +90,18 @@ $tab.click(function(event){
 	//Update image src
 	$img.attr("src", imageLocation);
 	$container.fadeIn(400);
+	$arrowLeft.fadeIn(400);
+	$arrowRight.fadeIn(400);
+	
+	return imageLocation;
 });
 
 //Fade out overlay when [MOUSE] is clicked
 $('.container').click(function(){
  	//Hide the overlay on mouse click
  	$container.fadeOut(100);
+	$arrowLeft.fadeOut(100);
+	$arrowRight.fadeOut(100);
 	//Clean up overlay
 	$("body").detach(".container");
 });
@@ -90,6 +111,8 @@ $(this).keyup(function(event){
   	//Hide the overlay on keypress  
   	if(event.keyCode === 27){
  	$container.fadeOut(100);
+	$arrowLeft.fadeOut(100);
+	$arrowRight.fadeOut(100);
 	//Clean up overlay
 	$("body").detach(".container");
   }
@@ -107,6 +130,52 @@ $(this).keyup(function(event){
 });
 
 //[DIRECTIONS KEY CONTROLS]
+$arrowLeft.click(function(){	
+	$( ".col" ).children().each(function() {
+		imageArray.push($(this).attr("href"));
+		imageCaption.push($(this).children().attr("alt"));
+	});
+	for ( var i = 0 ; i < imageArray.length; i++ ){
+		if ( $img.attr("src") === imageArray[i] ) {
+			if ( i !== 0 ) {
+				newImg = imageArray[i - 1];
+				newCaption = imageCaption[i - 1];
+			} else {
+				newImg = imageArray[imageArray.length];
+				newCaption = imageCaption[imageArray.length];
+			}
+		} 
+	}
+		$description.fadeOut('fast');	
+		$img.fadeOut('fast', function(){
+			$img.attr("src", newImg).fadeIn('slow');
+			$description.html(newCaption).fadeIn('slow');
+	});
+});
+
+$arrowRight.click(function(){
+	$( ".col" ).children().each(function() {
+		imageArray.push($(this).attr("href"));
+		imageCaption.push($(this).children().attr("alt"));
+	});
+	for ( var i = 0 ; i < imageArray.length; i++){
+		if ( $img.attr("src") === imageArray[i] ) {
+			if ( i !== imageArray.length - 1 ) {
+				newImg = imageArray[i + 1];
+				newCaption = imageCaption[i + 1];
+			} else {
+				newImg = imageArray[0];
+				newCaption = imageCaption[0];
+			}
+		}
+	}
+	$description.fadeOut('fast');	
+	$img.fadeOut('fast', function(){
+		$img.attr("src", newImg).fadeIn('slow');
+		$description.html(newCaption).fadeIn('slow');
+	});
+});
+
 
 $(this).keyup(function(event){
 	if(event.keyCode === 39) {
@@ -114,3 +183,5 @@ $(this).keyup(function(event){
 		$(this).closest('.col').next($tab).focus();
 	}
 });
+
+	
