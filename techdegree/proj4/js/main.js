@@ -147,9 +147,9 @@ $arrowLeft.click(function(){
 				newCaption = imageCaption[i - 1];
 				newTitle = imageTitle[i - 1];
 			} else {
-				newImg = imageArray[imageArray.length];
-				newCaption = imageCaption[imageArray.length];
-				newTitle = imageTitle[imageArray.length];
+				newImg = imageArray[imageArray.length-1];
+				newCaption = imageCaption[imageArray.length-1];
+				newTitle = imageTitle[imageArray.length-1];
 			}
 		} 
 	}
