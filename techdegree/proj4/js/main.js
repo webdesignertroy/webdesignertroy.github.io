@@ -106,9 +106,11 @@ $(this).keyup(function(event){
 	}
 });
 
-//[LEFT KEY CONTROL]
+//[DIRECTIONS KEY CONTROLS]
+
 $(this).keyup(function(event){
 	if(event.keyCode === 39) {
+		
 		$(this).closest('.col').next($tab).focus();
 	}
 });
