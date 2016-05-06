@@ -9,7 +9,9 @@
 }
 
 body {
-	font-family: 1em/1.5 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.5;
 	background: rgba(255,252,250,1.00);  /* @Tester: I know they said white, but I didn't like it*/
 	position: relative;
 }
@@ -210,7 +212,7 @@ image-link {
 }
 
 span.caption-info {
-	postion: absolute;
+	position: absolute;
 	display: block;
 	padding: 1.3em .5em 1em .5em;
 	text-align: center;
