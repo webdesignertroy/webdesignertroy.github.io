@@ -37,7 +37,19 @@ image-link {
 /* ================================= 
   Base Layout Styles
 ==================================== */
-	
+.container:before{
+	content: "Click Anywhere to Close(X)";
+	background: rgba(0,0,0,0.25);
+	color: #969696;
+	font-size: .8em;
+	position: fixed;
+	width: 100%;
+	padding: 1em;
+	top:0;
+	left:0;
+	text-align: center;
+	text-transform: uppercase;
+}
 .container {
 	background: rgba(0,0,0,0.75);
 	width: 100%;
@@ -79,7 +91,6 @@ image-link {
 	bottom: 8vh;	
 	text-shadow: 1px 1px 5px rgba(0,0,0,1.0), -1px -1px 5px rgba(0,0,0,1.0);
 }
-
 
 /* ================================= 
   Page Elements
@@ -180,6 +191,7 @@ span.caption-info {
 	font-weight: bold;
 }
 
+
 /* ================================= 
   Form Elements
 ==================================== */
@@ -244,6 +256,10 @@ input::-webkit-input-placeholder {
 	
 	#overlay p {
 		font-size: 1.2em;
+	}
+	
+	.container:before{
+		display: none;
 	}
 
 }
