@@ -81,17 +81,18 @@ image-link {
 	width: 100%;
 }
 
-
 #overlay p {
 	display: block;
 	position:fixed;
 	color: #ccc;
-	width: 100%;
+	max-width: 600px;
+	left:0;
+	right:0;
 	font-size: 1.2em;
 	font-weight: 300;
 	text-align: center;
 	margin: 0 auto;
-	padding: 0 10%;
+	padding: 0 10px;
 	bottom: 8vh;	
 	text-shadow: 1px 1px 5px rgba(0,0,0,1.0), -1px -1px 5px rgba(0,0,0,1.0);
 }
