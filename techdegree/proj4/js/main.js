@@ -85,7 +85,7 @@ $('.container').click(function(){
 	$("body").detach(".container");
 });
 
-//Fade out overlay when [ESC] is keyed
+//Fade out overlay when [ESC=27] is keyed
 $(this).keyup(function(event){
   	//Hide the overlay on keypress  
   	if(event.keyCode === 27){
@@ -93,4 +93,22 @@ $(this).keyup(function(event){
 	//Clean up overlay
 	$("body").detach(".container");
   }
+});
+
+// [ENTER=13] is keyed
+$(this).keyup(function(event){	 
+  	if(event.keyCode === 13  && $(this) === $tab) {
+		event.preventDefault();
+		var imageLocation = $(this).attr("href");
+		//Update image src
+		$img.attr("src", imageLocation);
+		$container.fadeIn(400);
+	}
+});
+
+//[LEFT KEY CONTROL]
+$(this).keyup(function(event){
+	if(event.keyCode === 39) {
+		$(this).closest('.col').next($tab).focus();
+	}
 });
