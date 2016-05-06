@@ -23,7 +23,9 @@ var imageTitle = [];
 var newImg;
 var newCaption;
 var newTitle;
-
+var d = new Date();
+var n = d.getFullYear();
+var $currentYear;
 
 
 //Add image to overlay
@@ -195,4 +197,10 @@ $(this).keyup(function(event){
 	}
 });
 
-	
+
+function $currentYear() {
+    var d = new Date();
+    var n = d.getFullYear();
+    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - Image Gallery';
+}
+$currentYear();
