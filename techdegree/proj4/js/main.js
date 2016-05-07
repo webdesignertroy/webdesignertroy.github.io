@@ -198,6 +198,14 @@ $(this).keyup(function(event){
 });
 
 
+// Search function sets the "active" class to filtered items and hides the rest
+$('#searchbox').keyup(function(){
+	console.log('This works');
+  
+});
+
+
+//Copyright Auto Year
 function $currentYear() {
     var d = new Date();
     var n = d.getFullYear();
