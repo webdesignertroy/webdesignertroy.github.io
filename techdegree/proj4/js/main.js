@@ -1,9 +1,9 @@
 /*
 Problems:
 1) Search needs to filter images BASED ON CAPTIONS
-2) Images need to create a lightbox on mouse-click/keyboard press
-3) Navigation left right  on mouse-click/keyboard press 
-4) Need to streamline bulky code after first pass
+2) Images need to create a lightbox on mouse-click/keyboard press (Done)
+3) Navigation left right  on mouse-click/keyboard press  (Done)
+4) Need to streamline bulky code after first pass (Done)
 */
 
 /* ================================= 
@@ -22,10 +22,9 @@ var currentSpan;
 var $currentCaption;
 var $currentTitle;
 var imageLocation;
-var imageArray;
+var imageHref;
 var imageTitle;
 var imageCaption;
-var imageHref;
 var newImg;
 var newCaption;
 var newTitle;
@@ -83,7 +82,7 @@ function $hideThumbOnBlur(element){
 function $arrayGenerator(){
 	"use strict";
 	$( ".col" ).children().each(function() {
-		imageArray.push($(this).attr("href"));
+		imageHref.push($(this).attr("href"));
 		imageCaption.push($(this).children().attr("alt"));
 		imageTitle.push($(this).children().attr("title"));
 	});
@@ -97,6 +96,14 @@ function $slideAnimation(){
 		$img.attr("src", newImg).fadeIn('slow');
 		$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
 	});
+}
+
+//Function generates a current year and adds language for copyright notice.
+function $currentYear() {
+	"use strict";
+    var d = new Date();
+    var n = d.getFullYear();
+    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - Image Gallery';
 }
 
 //Set Image's href, caption and title
@@ -130,25 +137,25 @@ function $getImage(element){
 	$showImage(imageLocation, newTitle, newCaption);
 }
 
-//Function for showing Image
+//Function for showing Image.
 function $showImage(iL, $cT, $cC){
 	"use strict";	
-	//Update image src
+	//Update image src.
 	$img.attr("src", iL);
 	
-	//Update image description
+	//Update image description.
 	$description.html('<strong>' + $cT + '</strong>: ' + $cC);	
 	
-	//Show overlay	
+	//Show overlay.	
 	$container.fadeIn(400);
 	$arrowLeft.fadeIn(400);
 	$arrowRight.fadeIn(400);	
 }
 
-//Fade Out Image
+//Function to fade out image.
 function $fadeOut(){
 	"use strict";
- 	//Hide the overlay on mouse click
+ 	//Hide the overlay on mouse click.
  	$container.fadeOut(100);
 	$arrowLeft.fadeOut(100);
 	$arrowRight.fadeOut(100);
@@ -160,18 +167,20 @@ function $fadeOut(){
   Append the Document
 ==================================== */
 
-//Add image to overlay
+//Add image to overlay.
 $overlay.append($img).append($description);
 
 //Add overlay
 $container.append($overlay);
 
-//Add directional arrows
+//Add directional arrows.
 $("body").append($arrowLeft).append($arrowRight);
 
-//Add container
+//Add container.
 $("body").append($container);
 
+//Call "always current" year
+$currentYear();
 
 /* ================================= 
   MOUSE & NATVE KEYBOARD EVENTS
@@ -196,63 +205,64 @@ $tab.focus(function(){
 	$hideThumbOnBlur(this);
 });
 
-//Capture the [MOUSE-CLICK] event on a link to an image
+//Capture the [MOUSE-CLICK] event on a link to an image.
 $caption.click(function(){
 	"use strict";
 	$getImage(this);
 });
 
+//Prevents [ENTER] press from activating .col a elment.  This is reserved for [MOUSE-CLICK].
 $tab.click(function(){
 	"use strict";
 	event.preventDefault();
 });
 
-//Fade out overlay when [MOUSE] is clicked
+//Fade out overlay when [MOUSE] is clicked.
 $('.container').click(function(){
 	"use strict";
 	$fadeOut();
 });
 
-//Image's Left-Arrow Directional Behavior on [MOUSE-CLICK]
+//Image's Left-Arrow Directional Behavior on [MOUSE-CLICK].
 $arrowLeft.click(function(){	
 "use strict";
-	imageArray = [];
+	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
 	$arrayGenerator();
 	
-	for ( var i = 0 ; i < imageArray.length; i++ ){
-		if ( $img.attr("src") === imageArray[i] ) {
+	for ( var i = 0 ; i < imageHref.length; i++ ){
+		if ( $img.attr("src") === imageHref[i] ) {
 			if ( i !== 0 ) {
-				newImg = imageArray[i - 1];
+				newImg = imageHref[i - 1];
 				newCaption = imageCaption[i - 1];
 				newTitle = imageTitle[i - 1];
 			} else {
-				newImg = imageArray[imageArray.length-1];
-				newCaption = imageCaption[imageArray.length-1];
-				newTitle = imageTitle[imageArray.length-1];
+				newImg = imageHref[imageHref.length-1];
+				newCaption = imageCaption[imageHref.length-1];
+				newTitle = imageTitle[imageHref.length-1];
 			}
 		} 
 	}
 	$slideAnimation();
 });
 
-//Image's Right-Arrow Directional Behavior on [MOUSE-CLICK]
+//Image's Right-Arrow Directional Behavior on [MOUSE-CLICK].
 $arrowRight.click(function(){
 	"use strict";
-	imageArray = [];
+	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
 	$arrayGenerator();
 	
-	for ( var i = 0 ; i < imageArray.length; i++){
-		if ( $img.attr("src") === imageArray[i] ) {
-			if ( i !== imageArray.length - 1 ) {
-				newImg = imageArray[i + 1];
+	for ( var i = 0 ; i < imageHref.length; i++){
+		if ( $img.attr("src") === imageHref[i] ) {
+			if ( i !== imageHref.length - 1 ) {
+				newImg = imageHref[i + 1];
 				newCaption = imageCaption[i + 1];
 				newTitle = imageTitle[i + 1];
 			} else {
-				newImg = imageArray[0];
+				newImg = imageHref[0];
 				newCaption = imageCaption[0];
 				newTitle = imageTitle[0];
 			}
@@ -265,43 +275,30 @@ $arrowRight.click(function(){
   KEYBOARD EVENTS
 ==================================== */
 
-//[KEY UP] Switch Statement
+//[KEY UP] Switch Statement.
 $(this).keyup(function(){
 	"use strict";
 	switch(event.keyCode) {
 		case 13:
 		case 27:
-			//Fade out overlay when [ENTER=13] and [ESC=27] is keyed
+			//Fade out overlay when [ENTER=13] and [ESC=27] is keyed.
 			$fadeOut();
 		break;
 		case 37:
-			//Advances slideshow left on left-arrow key
+			//Advances slideshow left on left-arrow [37] key.
 			$arrowLeft.trigger("click");
 		break;
 		case 39:
-			//Advances slideshow right on right-arrow key
+			//Advances slideshow right on right-arrow [39] key.
 			$arrowRight.trigger("click");
 		break;
 	}
 });
 
 
-// Search function sets the "active" class to filtered items and hides the rest
+// Search function sets the "active" class to filtered items and hides the rest.
 $('#searchbox').keyup(function(){
 	"use strict";
 	console.log('This works');
   
 });
-
-/* ================================= 
-  MISC
-==================================== */
-
-//Copyright Auto Year
-function $currentYear() {
-	"use strict";
-    var d = new Date();
-    var n = d.getFullYear();
-    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - Image Gallery';
-}
-$currentYear();
