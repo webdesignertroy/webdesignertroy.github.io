@@ -42,7 +42,6 @@ var $getImage;
 var $fadeOut;
 var $arrayGenerator;
 var $slideAnimation;
-var keysBoard;
 
 
 /* ================================= 

@@ -90,7 +90,7 @@ image-link {
 	left:0;
 	right:0;
 	font-size: 1.2em;
-	font-weight: 300;
+	font-weight: 700;
 	text-align: center;
 	margin: 0 auto;
 	padding: 0 10px;
@@ -200,7 +200,7 @@ image-link {
 }
 
 .caption-style{
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 1.1em;
 	text-decoration: underline;
 	display: inline-block;
@@ -294,6 +294,7 @@ input::-webkit-input-placeholder {
 	
 	#overlay p {
 		font-size: 1.2em;
+		font-weight: 300;
 		bottom: 5vh;
 	}
 	
