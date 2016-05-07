@@ -65,7 +65,7 @@ image-link {
 	z-index: 1000;
 	display: none;
 	margin: 0 auto 0 auto;
-	cursor: url(../images/close-icon.png),crosshair;
+	cursor: url(../images/photos/close-icon.png),crosshair;
 }
 
 #overlay img {
@@ -101,7 +101,7 @@ image-link {
 .arrow-left {
     width: 60px;
     height: 90px;
-    background: url(../images/left-arrow36x63.png);
+    background: url(../images/photos/left-arrow36x63.png);
 	background-position: center;
 	background-repeat: no-repeat;
     font-size: 2em;
@@ -117,7 +117,7 @@ image-link {
 .arrow-right {
     width: 60px;
     height: 90px;
-    background: url(../images/right-arrow36x63.png) ;
+    background: url(../images/photos/right-arrow36x63.png) ;
 	background-position: center;
 	background-repeat: no-repeat;
     font-size: 2em;
@@ -188,7 +188,7 @@ image-link {
 }
 
 .caption-info:after{
-	content: url(../images/link-icon-20x20.png);
+	content: url(../images/photos/link-icon-20x20.png);
 	position: absolute;
 	left: 75px;
 	bottom: 14px; 
