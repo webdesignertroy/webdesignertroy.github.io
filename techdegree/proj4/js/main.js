@@ -3,7 +3,12 @@ Problems:
 1) Search needs to filter images BASED ON CAPTIONS
 2) Images need to create a lightbox on mouse-click/keyboard press
 3) Navigation left right  on mouse-click/keyboard press 
+4) Need to streamline bulky code after first pass
 */
+
+/* ================================= 
+  Variables
+==================================== */
 
 var $caption = $('.image-link span');
 var $description = $("<p></p>");
@@ -17,16 +22,144 @@ var currentSpan;
 var $currentCaption;
 var $currentTitle;
 var imageLocation;
-var imageArray = [];
-var imageCaption = [];
-var imageTitle = [];
+var imageArray;
+var imageTitle;
+var imageCaption;
+var imageHref;
 var newImg;
 var newCaption;
 var newTitle;
 var d = new Date();
 var n = d.getFullYear();
+var $findData;
 var $currentYear;
+var $displayThumb;
+var $hideThumb;
+var $displayThumbOnFocus;
+var $hideThumbOnBlur;
+var $showImage;
+var $getImage;
+var $fadeOut;
+var $arrayGenerator;
+var $slideAnimation;
+var keysBoard;
 
+
+/* ================================= 
+  Functions
+==================================== */
+
+//Function for Displaying Thumb and Caption
+function $displayThumb(element){
+	"use strict";
+	$(element).css("opacity", 1);
+	$currentCaption = $(element).prev().attr('alt');
+	$currentTitle = $(element).prev().attr('title');
+	$(element).html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
+}
+
+//Function for Hiding Thumb and Caption
+function $hideThumb(element){
+	"use strict";	
+	$(element).css("opacity", 0);
+}
+
+//Function for Displaying Thumb and Caption on FOCUS
+function $displayThumbOnFocus(element){
+	"use strict";
+	$(element).find('span').css("opacity", 1);
+	$currentCaption = $(element).find('img').attr('alt');
+	$currentTitle = $(element).find('img').attr('title');	
+	$(element).find('.caption-info').html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
+}
+
+//Function for Hiding Thumb and Caption on FOCUS
+function $hideThumbOnBlur(element){
+	"use strict";
+	$(element).find('.caption-info').css('opacity',0);
+	currentSpan = $(element).find('span');
+}
+
+//Function generates Arrays using .col class
+function $arrayGenerator(){
+	"use strict";
+	$( ".col" ).children().each(function() {
+		imageArray.push($(this).attr("href"));
+		imageCaption.push($(this).children().attr("alt"));
+		imageTitle.push($(this).children().attr("title"));
+	});
+}
+
+//Function dictates slide animation;
+function $slideAnimation(){
+	"use strict";
+	$description.fadeOut('fast');	
+	$img.fadeOut('fast', function(){
+		$img.attr("src", newImg).fadeIn('slow');
+		$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
+	});
+}
+
+//Set Image's href, caption and title
+function $findData(imageSrc){
+	"use strict";
+	imageHref = [];
+	imageCaption = [];
+	imageTitle = [];
+	$( ".col" ).children().each(function() {
+		imageHref.push($(this).attr("href"));
+		imageCaption.push($(this).children().attr("alt"));
+		imageTitle.push($(this).children().attr("title"));
+	});
+	for ( var i = 0 ; i < imageHref.length; i++){
+		if ( imageSrc === imageHref[i] ) {
+			newCaption = imageCaption[i];
+			newTitle = imageTitle[i];
+		}
+	}
+}
+
+//Function for opening Image on [MOUSE-CLICK]
+function $getImage(element){
+	"use strict";
+	event.preventDefault();
+	imageLocation = $(element).parent().attr("href");	
+	
+	$findData(imageLocation);
+	
+	
+	$showImage(imageLocation, newTitle, newCaption);
+}
+
+//Function for showing Image
+function $showImage(iL, $cT, $cC){
+	"use strict";	
+	//Update image src
+	$img.attr("src", iL);
+	
+	//Update image description
+	$description.html('<strong>' + $cT + '</strong>: ' + $cC);	
+	
+	//Show overlay	
+	$container.fadeIn(400);
+	$arrowLeft.fadeIn(400);
+	$arrowRight.fadeIn(400);	
+}
+
+//Fade Out Image
+function $fadeOut(){
+	"use strict";
+ 	//Hide the overlay on mouse click
+ 	$container.fadeOut(100);
+	$arrowLeft.fadeOut(100);
+	$arrowRight.fadeOut(100);
+	//Clean up overlay
+	$("body").detach(".container");
+}
+
+/* ================================= 
+  Append the Document
+==================================== */
 
 //Add image to overlay
 $overlay.append($img).append($description);
@@ -41,107 +174,54 @@ $("body").append($arrowLeft).append($arrowRight);
 $("body").append($container);
 
 
-//Display thumb and caption on [HOVER]
-$caption.css("opacity", 0);
+/* ================================= 
+  MOUSE & NATVE KEYBOARD EVENTS
+==================================== */
 
-$caption.mouseenter(function(){
-	$(this).css("opacity", 1);
-	$currentCaption = $(this).prev().attr('alt');
-	$currentTitle = $(this).prev().attr('title');
-	$(this).html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
-}).mouseleave(function(){	
-	$(this).css("opacity", 0);
+//Display thumb and caption on [HOVER]. Hide thumb and caption on leave.
+$caption.css("opacity", 0); /* Initally Hide */
+$caption.mouseenter(function() {
+	"use strict";
+	$displayThumb(this);
+}).mouseleave(function() {
+	"use strict";
+	$hideThumb(this);
 });
 
-// Display thumb and caption on [TAB]	
+// Display thumb and caption on [FOCUS]. Hide thumb and caption on [BLUR].	
 $tab.focus(function(){
-	$(this).find('span').css("opacity", 1);
-	$currentCaption = $(this).find('img').attr('alt');
-	$currentTitle = $(this).find('img').attr('title');	
-	$(this).find('.caption-info').html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
+	"use strict";
+	$displayThumbOnFocus(this);
 }).blur(function(){
-	$(this).find('.caption-info').css('opacity',0);
-	currentSpan = $(this).find('span');
+	"use strict";
+	$hideThumbOnBlur(this);
 });
 
 //Capture the [MOUSE-CLICK] event on a link to an image
-$caption.click(function(event){
-	event.preventDefault();
-	imageLocation = $(this).parents().attr("href");	
-	$currentCaption = $(this).prev().attr('alt');
-	$currentTitle = $(this).prev().attr('title');
-	
-	//Update image src
-	$img.attr("src", imageLocation);
-	
-	//Update image description
-	$description.html('<strong>' + $currentTitle + '</strong>: ' + $currentCaption);	
-	
-	
-	//Show overlay	
-	$container.fadeIn(400);
-	$arrowLeft.fadeIn(400);
-	$arrowRight.fadeIn(400);
-	
-	return imageLocation;
-	
+$caption.click(function(){
+	"use strict";
+	$getImage(this);
 });
 
-//Capture the [ENTER] key event on a link to an image
-$tab.click(function(event){
+$tab.click(function(){
+	"use strict";
 	event.preventDefault();
-	var imageLocation = $(this).attr("href");
-	//Update image src
-	$img.attr("src", imageLocation);
-	$container.fadeIn(400);
-	$arrowLeft.fadeIn(400);
-	$arrowRight.fadeIn(400);
-	
-	return imageLocation;
 });
 
 //Fade out overlay when [MOUSE] is clicked
 $('.container').click(function(){
- 	//Hide the overlay on mouse click
- 	$container.fadeOut(100);
-	$arrowLeft.fadeOut(100);
-	$arrowRight.fadeOut(100);
-	//Clean up overlay
-	$("body").detach(".container");
+	"use strict";
+	$fadeOut();
 });
 
-//Fade out overlay when [ESC=27] is keyed
-$(this).keyup(function(event){
-  	//Hide the overlay on keypress  
-  	if(event.keyCode === 27){
- 	$container.fadeOut(100);
-	$arrowLeft.fadeOut(100);
-	$arrowRight.fadeOut(100);
-	//Clean up overlay
-	$("body").detach(".container");
-  }
-});
-
-// [ENTER=13] is keyed
-$(this).keyup(function(event){	 
-  	if(event.keyCode === 13  && $(this) === $tab) {
-		event.preventDefault();
-		var imageLocation = $(this).attr("href");
-		//Update image src
-		$img.attr("src", imageLocation);
-		$container.fadeIn(400);
-	}
-});
-
-//[DIRECTIONS KEY CONTROLS]
-
-//Mouse Arrow Left
+//Image's Left-Arrow Directional Behavior on [MOUSE-CLICK]
 $arrowLeft.click(function(){	
-	$( ".col" ).children().each(function() {
-		imageArray.push($(this).attr("href"));
-		imageCaption.push($(this).children().attr("alt"));
-		imageTitle.push($(this).children().attr("title"));
-	});
+"use strict";
+	imageArray = [];
+	imageCaption = [];
+	imageTitle = [];
+	$arrayGenerator();
+	
 	for ( var i = 0 ; i < imageArray.length; i++ ){
 		if ( $img.attr("src") === imageArray[i] ) {
 			if ( i !== 0 ) {
@@ -155,20 +235,17 @@ $arrowLeft.click(function(){
 			}
 		} 
 	}
-		$description.fadeOut('fast');	
-		$img.fadeOut('fast', function(){
-			$img.attr("src", newImg).fadeIn('slow');
-			$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
-	});
+	$slideAnimation();
 });
 
-//Mouse Arrow Right
+//Image's Right-Arrow Directional Behavior on [MOUSE-CLICK]
 $arrowRight.click(function(){
-	$( ".col" ).children().each(function() {
-		imageArray.push($(this).attr("href"));
-		imageCaption.push($(this).children().attr("alt"));
-		imageTitle.push($(this).children().attr("title"));
-	});
+	"use strict";
+	imageArray = [];
+	imageCaption = [];
+	imageTitle = [];
+	$arrayGenerator();
+	
 	for ( var i = 0 ; i < imageArray.length; i++){
 		if ( $img.attr("src") === imageArray[i] ) {
 			if ( i !== imageArray.length - 1 ) {
@@ -182,31 +259,48 @@ $arrowRight.click(function(){
 			}
 		}
 	}
-	$description.fadeOut('fast');	
-	$img.fadeOut('fast', function(){
-		$img.attr("src", newImg).fadeIn('slow');
-		$description.html('<strong>' + newTitle + '</strong>: ' +newCaption).fadeIn('slow');
-	});
+	$slideAnimation();
 });
 
+/* ================================= 
+  KEYBOARD EVENTS
+==================================== */
 
-$(this).keyup(function(event){
-	if(event.keyCode === 39) {
-		
-		$(this).closest('.col').next($tab).focus();
+//[KEY UP] Switch Statement
+$(this).keyup(function(){
+	"use strict";
+	switch(event.keyCode) {
+		case 13:
+		case 27:
+			//Fade out overlay when [ENTER=13] and [ESC=27] is keyed
+			$fadeOut();
+		break;
+		case 37:
+			//Advances slideshow left on left-arrow key
+			$arrowLeft.trigger("click");
+		break;
+		case 39:
+			//Advances slideshow right on right-arrow key
+			$arrowRight.trigger("click");
+		break;
 	}
 });
 
 
 // Search function sets the "active" class to filtered items and hides the rest
 $('#searchbox').keyup(function(){
+	"use strict";
 	console.log('This works');
   
 });
 
+/* ================================= 
+  MISC
+==================================== */
 
 //Copyright Auto Year
 function $currentYear() {
+	"use strict";
     var d = new Date();
     var n = d.getFullYear();
     document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - Image Gallery';
