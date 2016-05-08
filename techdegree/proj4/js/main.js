@@ -148,9 +148,9 @@ function $findData(imageSrc){
 }
 
 //Function for opening Image or Video on [MOUSE-CLICK]
-function $getImage(element){
+function $getImage(element, e){
 	"use strict";
-	event.preventDefault();
+	e.preventDefault();
 	if(mediaType === "image") {
 		$img.show();
 		$iframe.hide();
@@ -240,7 +240,7 @@ $tab.focus(function(){
 });
 
 //Capture the [MOUSE-CLICK] event on a link to an image.
-$caption.click(function(){
+$caption.click(function(e){
 	"use strict";
 	switch($(this).parent().attr("class")){
 		case "image-link":
@@ -251,13 +251,13 @@ $caption.click(function(){
 		break;
 	}
 	
-	$getImage(this);
+	$getImage(this, e);
 });
 
 //Prevents [ENTER] press from activating .col a elment.  This is reserved for [MOUSE-CLICK].
-$tab.click(function(){
+$tab.click(function(e){
 	"use strict";
-	event.preventDefault();
+	e.preventDefault();
 });
 
 //Fade out overlay when [MOUSE] is clicked.
@@ -391,9 +391,9 @@ $arrowRight.click(function(){
 ==================================== */
 
 //[KEY UP] Switch Statement.
-$(this).keyup(function(){
+$(this).keyup(function(e){
 	"use strict";
-	switch(event.keyCode) {
+	switch(e.keyCode) {
 		case 13:
 		case 27:
 			//Fade out overlay when [ENTER=13] and [ESC=27] is keyed.
