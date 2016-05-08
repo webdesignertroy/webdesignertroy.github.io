@@ -32,10 +32,11 @@ p{
 	color: #303030;
 }
 
-image-link {
+image-link, video-link {
 	display: inline-block;
 	margin-top: -5px
 }
+
 /* ================================= 
   Base Layout Styles
 ==================================== */
@@ -80,6 +81,17 @@ image-link {
 	padding-right: 3%;
 	margin: auto;
 	width: 100%;
+}
+
+#overlay iframe{
+    left:5vw;
+	right:5vw;
+	width: 90vw;
+	top: 3vh;
+	bottom: 5vh;
+    height: 80vh;
+    position:absolute;
+	margin: auto;
 }
 
 #overlay p {
@@ -152,7 +164,7 @@ image-link {
 	margin: 30px auto;
 }
 
-.image-link:focus {
+.image-link:focus, video-link:focus {
 	outline: none;
 }
 
@@ -286,7 +298,6 @@ input::-webkit-input-placeholder {
  color: #A6A6A6;
 }
 
-
 /* ================================= 
   Media Queries
 ==================================== */
@@ -305,7 +316,16 @@ input::-webkit-input-placeholder {
 	}
 	
 	.container:before{
-		display: none;
+		display: none;		
+	}
+	
+	#overlay iframe{
+    left:10vw;
+	right:10vw;
+	width: 80vw;
+	top: 3vh;
+	bottom: 8vh;
+	height: 60vh;
 	}
 
 }
@@ -314,6 +334,16 @@ input::-webkit-input-placeholder {
 	#overlay img {
 	padding-left: 25%;
 	padding-right: 25%;
+	}
+	
+	#overlay iframe{
+    left: 20vw;
+	right: 20vw;
+	width: 55vw;
+	max-width: 980px;
+	top: 3vh;
+	bottom: 8vh;
+	height: 60vh;
 	}
 }
 

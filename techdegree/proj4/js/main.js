@@ -18,6 +18,7 @@ var $arrowLeft = $('<div class="arrow-left"></div>');
 var $arrowRight = $('<div class="arrow-right"></div>');
 var $container = $('<div class="container"></div>');
 var $img = $("<img>");
+var $iframe = $("<iframe>");
 var currentSpan;
 var $currentCaption;
 var $currentTitle;
@@ -25,9 +26,11 @@ var imageLocation;
 var imageHref;
 var imageTitle;
 var imageCaption;
+var imageMedia;
 var newImg;
 var newCaption;
 var newTitle;
+var newMediaType;
 var d = new Date();
 var n = d.getFullYear();
 var $findData;
@@ -41,6 +44,7 @@ var $getImage;
 var $fadeOut;
 var $arrayGenerator;
 var $slideAnimation;
+var mediaType;
 
 
 /* ================================= 
@@ -81,8 +85,13 @@ function $hideThumbOnBlur(element){
 //Function generates Arrays using .col class
 function $arrayGenerator(){
 	"use strict";
+	imageHref = [];
+	imageCaption = [];
+	imageTitle = [];
+	imageMedia = [];
 	$( ".col" ).children().each(function() {
 		imageHref.push($(this).attr("href"));
+		imageMedia.push($(this).attr("class"));
 		imageCaption.push($(this).children().attr("alt"));
 		imageTitle.push($(this).children().attr("title"));
 	});
@@ -92,10 +101,23 @@ function $arrayGenerator(){
 function $slideAnimation(){
 	"use strict";
 	$description.fadeOut('fast');	
-	$img.fadeOut('fast', function(){
-		$img.attr("src", newImg).fadeIn('slow');
-		$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
-	});
+	if (mediaType === "image") {
+		$img.hide();
+		$iframe.fadeOut("slow", function(){	
+			$img.fadeOut("slow", function(){
+				$img.attr("src", newImg).fadeIn("slow");
+			});
+		});
+	} else {
+		$iframe.hide();
+		$img.fadeOut("slow", function(){
+			$iframe.fadeOut("slow", function(){
+				$iframe.attr("src", newImg).fadeIn("slow");
+			});
+		});
+	}
+	$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
+
 }
 
 //Function generates a current year and adds language for copyright notice.
@@ -125,10 +147,17 @@ function $findData(imageSrc){
 	}
 }
 
-//Function for opening Image on [MOUSE-CLICK]
+//Function for opening Image or Video on [MOUSE-CLICK]
 function $getImage(element){
 	"use strict";
 	event.preventDefault();
+	if(mediaType === "image") {
+		$img.show();
+		$iframe.hide();
+	} else {
+		$img.hide();
+		$iframe.show();
+	}
 	imageLocation = $(element).parent().attr("href");	
 	
 	$findData(imageLocation);
@@ -141,8 +170,11 @@ function $getImage(element){
 function $showImage(iL, $cT, $cC){
 	"use strict";	
 	//Update image src.
-	$img.attr("src", iL);
-	
+	if(mediaType === "image"){
+		$img.attr("src", iL);
+	} else {
+		$iframe.attr("src",iL);
+	}
 	//Update image description.
 	$description.html('<strong>' + $cT + '</strong>: ' + $cC);	
 	
@@ -168,7 +200,9 @@ function $fadeOut(){
 ==================================== */
 
 //Add image to overlay.
-$overlay.append($img).append($description);
+$overlay.append($img).append($iframe).append($description);
+$img.hide();
+$iframe.hide();
 
 //Add overlay
 $container.append($overlay);
@@ -208,6 +242,15 @@ $tab.focus(function(){
 //Capture the [MOUSE-CLICK] event on a link to an image.
 $caption.click(function(){
 	"use strict";
+	switch($(this).parent().attr("class")){
+		case "image-link":
+			mediaType = "image";
+		break;
+		case "image-link video":
+			mediaType = "video";
+		break;
+	}
+	
 	$getImage(this);
 });
 
@@ -226,23 +269,59 @@ $('.container').click(function(){
 //Image's Left-Arrow Directional Behavior on [MOUSE-CLICK].
 $arrowLeft.click(function(){	
 "use strict";
+
 	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
+	imageMedia = [];
+	
 	$arrayGenerator();
 	
 	for ( var i = 0 ; i < imageHref.length; i++ ){
-		if ( $img.attr("src") === imageHref[i] ) {
-			if ( i !== 0 ) {
-				newImg = imageHref[i - 1];
-				newCaption = imageCaption[i - 1];
-				newTitle = imageTitle[i - 1];
-			} else {
-				newImg = imageHref[imageHref.length-1];
-				newCaption = imageCaption[imageHref.length-1];
-				newTitle = imageTitle[imageHref.length-1];
-			}
-		} 
+		switch(mediaType){
+			case "image":
+				if ( $img.attr("src") === imageHref[i] ) {
+					if ( i !== 0 ) {
+						newImg = imageHref[i - 1];
+						newCaption = imageCaption[i - 1];
+						newTitle = imageTitle[i - 1];
+						newMediaType =  imageMedia[i - 1];
+					} else {
+						newImg = imageHref[imageHref.length - 1];
+						newCaption = imageCaption[imageHref.length - 1];
+						newTitle = imageTitle[imageHref.length - 1];
+						newMediaType = imageMedia[imageHref.length - 1];
+					}
+				} 
+			break;
+			case "video":			
+				if ( $iframe.attr("src") === imageHref[i] ) {
+					if ( i !== 0 ) {
+						newImg = imageHref[i - 1];
+						newCaption = imageCaption[i - 1];
+						newTitle = imageTitle[i - 1];
+						newMediaType =  imageMedia[i - 1];
+					} else {
+						newImg = imageHref[imageHref.length - 1];
+						newCaption = imageCaption[imageHref.length - 1];
+						newTitle = imageTitle[imageHref.length - 1];
+						newMediaType = imageMedia[imageHref.length - 1];
+					}
+				} 
+			break;
+		}
+	}
+	switch(newMediaType){
+	case "image-link":
+		mediaType = "image";
+		$img.show();
+		$iframe.hide();
+	break;
+	case "image-link video":
+		mediaType = "video";
+		$img.hide();
+		$iframe.show();
+	break;
 	}
 	$slideAnimation();
 });
@@ -253,21 +332,57 @@ $arrowRight.click(function(){
 	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
-	$arrayGenerator();
+	imageMedia = [];
 	
-	for ( var i = 0 ; i < imageHref.length; i++){
-		if ( $img.attr("src") === imageHref[i] ) {
-			if ( i !== imageHref.length - 1 ) {
-				newImg = imageHref[i + 1];
-				newCaption = imageCaption[i + 1];
-				newTitle = imageTitle[i + 1];
-			} else {
-				newImg = imageHref[0];
-				newCaption = imageCaption[0];
-				newTitle = imageTitle[0];
+	$arrayGenerator();
+		for ( var i = 0 ; i < imageHref.length; i++){
+			switch (mediaType) {
+				case "image" :
+					if ( $img.attr("src") === imageHref[i] ) {
+						if ( i !== imageHref.length - 1 ) {
+							newImg = imageHref[i + 1];
+							newCaption = imageCaption[i + 1];
+							newTitle = imageTitle[i + 1];
+							newMediaType = imageMedia[i + 1];
+						} else {
+							newImg = imageHref[0];
+							newCaption = imageCaption[0];
+							newTitle = imageTitle[0];
+							newMediaType = imageMedia[0];
+						}
+					}
+				break;
+				case "video":
+					if ( $iframe.attr("src") === imageHref[i] ) {
+						if ( i !== imageHref.length - 1 ) {
+							newImg = imageHref[i + 1];
+							newCaption = imageCaption[i + 1];
+							newTitle = imageTitle[i + 1];
+							newMediaType = imageMedia[i + 1];
+						} else {
+							newImg = imageHref[0];
+							newCaption = imageCaption[0];
+							newTitle = imageTitle[0];
+							newMediaType = imageMedia[0];
+						}
+					}
+				
+				break;				
 			}
 		}
+	switch(newMediaType){
+	case "image-link":
+		mediaType = "image";
+		$img.show();
+		$iframe.hide();
+	break;
+	case "image-link video":
+		mediaType = "video";
+		$img.hide();
+		$iframe.show();
+	break;
 	}
+	
 	$slideAnimation();
 });
 
