@@ -192,11 +192,17 @@ image-link {
 	position: absolute;
 	left: 75px;
 	bottom: 14px; 
-	transition: .5s;
+	transition: 0.4s ease-out;
+    -moz-transition:0.4s ease-out;
+    -webkit-transition:0.4s ease-out;
+	margin-bottom: -15px;
 }
 
-.caption-info:hover{
-	border: 3px solid #BA4900;
+.caption-info:hover:after{
+    -webkit-transform:rotate(75deg);
+    -moz-transform:rotate(75deg);
+	transform:rotate(75deg);
+	margin-bottom: 0;
 }
 
 .caption-style{
