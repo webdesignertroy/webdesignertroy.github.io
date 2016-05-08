@@ -17,6 +17,8 @@ body {
 }
 
 h1{
+	font-family: 'Bowlby One', sans-serif;
+	letter-spacing: 0.06em;
 	margin-top: 0px;
 	padding-top: 4%;
 	font-weight: 300;
@@ -42,7 +44,6 @@ image-link, video-link {
 ==================================== */
 .container:before{
 	content: "Click Anywhere to Close(X)";
-	/*background: rgba(0,0,0,0.55);*/
 	color: #969696;
 	font-size: .8em;
 	position: fixed;
@@ -241,10 +242,13 @@ span.caption-info {
 	text-align: center;
 }
 .copyright {
+	font-family: 'Bowlby One', sans-serif;
+	letter-spacing: 0.13em;
 	padding: 20px 1em;
 	color: #8A3600;
 	font-size: .7em;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 
@@ -297,6 +301,79 @@ input::-webkit-input-placeholder {
  font-size: .9em;
  color: #A6A6A6;
 }
+
+/* ================================= 
+  Animation
+==================================== */
+
+.rubberBand {
+	  -webkit-animation-name: rubberBand;
+	  animation-name: rubberBand;
+	  -webkit-animation-duration: 1s;
+	  animation-duration: 1s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+  }
+  @-webkit-keyframes rubberBand {
+	  0% {
+		  -webkit-transform: scale3d(1, 1, 1);
+		  transform: scale3d(1, 1, 1);
+	  }
+	  30% {
+		  -webkit-transform: scale3d(1.25, 0.75, 1);
+		  transform: scale3d(1.25, 0.75, 1);
+	  }
+	  40% {
+		  -webkit-transform: scale3d(0.75, 1.25, 1);
+		  transform: scale3d(0.75, 1.25, 1);
+	  }
+	  50% {
+		  -webkit-transform: scale3d(1.15, 0.85, 1);
+		  transform: scale3d(1.15, 0.85, 1);
+	  }
+	  65% {
+		  -webkit-transform: scale3d(.95, 1.05, 1);
+		  transform: scale3d(.95, 1.05, 1);
+	  }
+	  75% {
+		  -webkit-transform: scale3d(1.05, .95, 1);
+		  transform: scale3d(1.05, .95, 1);
+	  }
+	  100% {
+		  -webkit-transform: scale3d(1, 1, 1);
+		  transform: scale3d(1, 1, 1);
+	  }
+  }
+ @keyframes rubberBand {
+	  0% {
+		  -webkit-transform: scale3d(1, 1, 1);
+		  transform: scale3d(1, 1, 1);
+	  }
+	  30% {
+		  -webkit-transform: scale3d(1.25, 0.75, 1);
+		  transform: scale3d(1.25, 0.75, 1);
+	  }
+	  40% {
+		  -webkit-transform: scale3d(0.75, 1.25, 1);
+		  transform: scale3d(0.75, 1.25, 1);
+	  }
+	  50% {
+		  -webkit-transform: scale3d(1.15, 0.85, 1);
+		  transform: scale3d(1.15, 0.85, 1);
+	  }
+	  65% {
+		  -webkit-transform: scale3d(.95, 1.05, 1);
+		  transform: scale3d(.95, 1.05, 1);
+	  }
+	  75% {
+		  -webkit-transform: scale3d(1.05, .95, 1);
+		  transform: scale3d(1.05, .95, 1);
+	  }
+	  100% {
+		  -webkit-transform: scale3d(1, 1, 1);
+		  transform: scale3d(1, 1, 1);
+  }
+ } 
 
 /* ================================= 
   Media Queries

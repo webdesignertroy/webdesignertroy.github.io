@@ -100,12 +100,13 @@ function $arrayGenerator(){
 //Function dictates slide animation;
 function $slideAnimation(){
 	"use strict";
-	$description.fadeOut('fast');	
+	$description.fadeOut(100);	
 	if (mediaType === "image") {
 		$img.hide();
 		$iframe.fadeOut("slow", function(){	
 			$img.fadeOut("slow", function(){
 				$img.attr("src", newImg).fadeIn("slow");
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
 			});
 		});
 	} else {
@@ -113,10 +114,10 @@ function $slideAnimation(){
 		$img.fadeOut("slow", function(){
 			$iframe.fadeOut("slow", function(){
 				$iframe.attr("src", newImg).fadeIn("slow");
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
 			});
 		});
 	}
-	$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
 
 }
 
@@ -125,7 +126,7 @@ function $currentYear() {
 	"use strict";
     var d = new Date();
     var n = d.getFullYear();
-    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - Image Gallery';
+    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - The Gallery';
 }
 
 //Set Image's href, caption and title
@@ -191,6 +192,8 @@ function $fadeOut(){
  	$container.fadeOut(100);
 	$arrowLeft.fadeOut(100);
 	$arrowRight.fadeOut(100);
+	$img.attr("src","");
+	$iframe.attr("src","");
 	//Clean up overlay
 	$("body").detach(".container");
 }
@@ -314,13 +317,13 @@ $arrowLeft.click(function(){
 	switch(newMediaType){
 	case "image-link":
 		mediaType = "image";
-		$img.show();
-		$iframe.hide();
+		$img.show().attr("src","");
+		$iframe.hide().attr("src","");
 	break;
 	case "image-link video":
 		mediaType = "video";
-		$img.hide();
-		$iframe.show();
+		$img.hide().attr("src","");
+		$iframe.show().attr("src","");
 	break;
 	}
 	$slideAnimation();
@@ -373,13 +376,13 @@ $arrowRight.click(function(){
 	switch(newMediaType){
 	case "image-link":
 		mediaType = "image";
-		$img.show();
-		$iframe.hide();
+		$img.show().attr("src","");
+		$iframe.hide().attr("src","");
 	break;
 	case "image-link video":
 		mediaType = "video";
-		$img.hide();
-		$iframe.show();
+		$img.hide().attr("src","");
+		$iframe.show().attr("src","");
 	break;
 	}
 	
@@ -401,11 +404,19 @@ $(this).keyup(function(e){
 		break;
 		case 37:
 			//Advances slideshow left on left-arrow [37] key.
-			$arrowLeft.trigger("click");
+				if ( $container.is(":visible") ) {
+					$arrowLeft.trigger("click");
+				} else {
+					$caption.trigger("click");
+				}			
 		break;
 		case 39:
 			//Advances slideshow right on right-arrow [39] key.
-			$arrowRight.trigger("click");
+				if ( $container.is(":visible") ) {
+					$arrowRight.trigger("click");
+				} else {
+					$caption.trigger("click");
+				}
 		break;
 	}
 });
