@@ -89,7 +89,7 @@ image-link, video-link {
 	width: 90vw;
 	top: 3vh;
 	bottom: 5vh;
-    height: 60vh;
+    height: 40vh;
     position:absolute;
 	margin: auto;
 }
@@ -354,6 +354,14 @@ input::-webkit-input-placeholder {
 	
 	#overlay p {
 		bottom: 15vh;
+	}
+	
+}
+
+@media (max-height: 420px) {
+	
+	#overlay iframe{
+		height: 80vh;
 	}
 	
 }
