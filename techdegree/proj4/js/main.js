@@ -45,6 +45,7 @@ var $fadeOut;
 var $arrayGenerator;
 var $slideAnimation;
 var mediaType;
+var keyBoard;
 
 
 /* ================================= 
@@ -142,8 +143,17 @@ function $findData(imageSrc){
 	});
 	for ( var i = 0 ; i < imageHref.length; i++){
 		if ( imageSrc === imageHref[i] ) {
-			newCaption = imageCaption[i];
-			newTitle = imageTitle[i];
+			if(!keyBoard) {
+				newCaption = imageCaption[i];
+				newTitle = imageTitle[i];
+			} else {
+				$img.attr("src" , imageHref[0]);
+				imageLocation = imageHref[0];
+				newTitle = imageTitle[0];
+				newCaption = imageCaption[0];
+				$iframe.hide	();
+				$img.show();
+			}
 		}
 	}
 }
@@ -253,7 +263,6 @@ $caption.click(function(e){
 			mediaType = "video";
 		break;
 	}
-	
 	$getImage(this, e);
 });
 
@@ -407,6 +416,7 @@ $(this).keyup(function(e){
 				if ( $container.is(":visible") ) {
 					$arrowLeft.trigger("click");
 				} else {
+					keyBoard = true;
 					$caption.trigger("click");
 				}			
 		break;
@@ -415,6 +425,7 @@ $(this).keyup(function(e){
 				if ( $container.is(":visible") ) {
 					$arrowRight.trigger("click");
 				} else {
+					keyBoard = true;
 					$caption.trigger("click");
 				}
 		break;
