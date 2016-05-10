@@ -235,6 +235,8 @@ span.caption-info {
 	margin: 0 auto;
 }
 input[type=text] {
+	-moz-appearance: none;
+	webkit-appearance: none;
 	border: 3px solid #FF6400;
 	padding: .5em .8em;
 	border-radius: 6px;
@@ -264,6 +266,7 @@ button[id=reset] {
 	background-color: none;
 	border: none;
 	z-index: 100;
+	outline: none;
 }
 
 /*----- Placehoder Hack -----*/
