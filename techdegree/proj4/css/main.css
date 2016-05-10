@@ -229,6 +229,11 @@ span.caption-info {
   Form Elements
 ==================================== */
 
+.form-container {
+	position: relative;
+	width: 245px;
+	margin: 0 auto;
+}
 input[type=text] {
 	border: 3px solid #FF6400;
 	padding: .5em .8em;
@@ -237,6 +242,8 @@ input[type=text] {
 	outline: none;
 	transition: .5s;
 	font-style: normal;
+	position: relative;
+	z-index: 99;
 }
 input[placeholder] {
 	color: rgba(221,86,0,1);
@@ -244,6 +251,19 @@ input[placeholder] {
 input[type=text]:focus {
 	border: 3px solid #BA4900;
 	background: rgba(255,100,0, 0.15);
+}
+button[id=reset] {
+	position:absolute;
+	top: 2px;
+	right: 2px;
+	width: 25px;
+	height: 40px;
+	background: url(../images/photos/reset15x15.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: none;
+	border: none;
+	z-index: 100;
 }
 
 /*----- Placehoder Hack -----*/

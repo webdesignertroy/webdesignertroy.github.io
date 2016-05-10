@@ -1,5 +1,5 @@
 /* ================================= 
-  Variables
+  VARIABLES
 ==================================== */
 
 var $caption = $('.image-link span');
@@ -40,7 +40,7 @@ var mediaType;
 var keyBoard;
 
 /* ================================= 
-  Functions
+  FUNCTIONS
 ==================================== */
 
 //Function for Displaying Thumb and Caption.
@@ -191,7 +191,7 @@ function $fadeOut(){
 }
 
 /* ================================= 
-  Append the Document
+  APPEND THE DOCUMENT
 ==================================== */
 
 //Add image to overlay.
@@ -212,7 +212,7 @@ $("body").append($container);
 $currentYear();
 
 /* ================================= 
-  MOUSE & NATVE KEYBOARD EVENTS
+  MOUSE & NATIVE KEYBOARD EVENTS
 ==================================== */
 
 //Display thumb and caption on [HOVER]. Hide thumb and caption on leave.
@@ -401,7 +401,6 @@ $(this).keyup(function(e){
 				if ( $container.is(":visible") ) {
 					$arrowLeft.trigger("click");
 				} else {
-					keyBoard = true;
 					$caption.trigger("click");
 				}			
 		break;
@@ -417,7 +416,7 @@ $(this).keyup(function(e){
 });
 
 
-// Search function sets the "active" class to filtered items and hides the rest.
+// [SEARCH] function sets unfiltered to hidden and .hide() them. Sets filtered to show and .show() them.
 $('#searchbox').keyup(function(){
 	"use strict";
 	var searchValue = $("#searchbox").val().toLowerCase();	
