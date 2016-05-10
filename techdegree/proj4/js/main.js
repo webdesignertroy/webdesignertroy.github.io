@@ -37,7 +37,7 @@ var $fadeOut;
 var $arrayGenerator;
 var $slideAnimation;
 var mediaType;
-var keyBoard;
+var resetForm;
 
 /* ================================= 
   FUNCTIONS
@@ -188,6 +188,13 @@ function $fadeOut(){
 	$iframe.attr("src","");
 	//Clean up overlay
 	$("body").detach(".container");
+}
+//Function resets input field
+function resetForm() {
+	"use strict";
+    $("#searchbox").val(function() {
+        return $("searchbox").defaultValue;
+    });
 }
 
 /* ================================= 
@@ -427,4 +434,12 @@ $('#searchbox').keyup(function(){
 	$(".gallery").find("img").filter(function(index, element){
 		return $(element).attr("alt").toLowerCase().includes(searchValue) && $(element).attr("alt").toLowerCase().includes(searchValue);
 	}).attr("class" , "image").parent().fadeIn(1000);  
+});
+
+//Reset [SEARCH] input field without reloading browser.
+$( "#reset" ).bind( "click", function(e){
+	"use strict";
+	e.preventDefault();
+	resetForm();
+	$("#searchbox").trigger("keyup");
 });
