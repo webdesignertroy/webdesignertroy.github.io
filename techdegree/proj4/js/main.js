@@ -94,16 +94,20 @@ function $slideAnimation(){
 	"use strict";
 	$description.fadeOut(100);	
 	if (mediaType === "image") {
-		$img.fadeOut("fast");
-			$iframe.fadeOut("slow", function(){
-				$img.attr("src", newImg).fadeIn(1000);
-				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn(1000);
+		$img.hide();
+		$iframe.fadeOut("slow", function(){	
+			$img.fadeOut("600", function(){
+				$img.attr("src", newImg).fadeIn("600");
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('700');
+			});
 		});
 	} else {
-		$iframe.fadeOut("fast");
-			$img.fadeOut("slow", function(){
-				$iframe.attr("src", newImg).fadeIn(1000);
-				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn(1000);
+		$iframe.hide();
+		$img.fadeOut("slow", function(){
+			$iframe.fadeOut("600", function(){
+				$iframe.attr("src", newImg).fadeIn("600");
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('700');
+			});
 		});
 	}
 
