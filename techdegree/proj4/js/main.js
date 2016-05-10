@@ -94,20 +94,16 @@ function $slideAnimation(){
 	"use strict";
 	$description.fadeOut(100);	
 	if (mediaType === "image") {
-		$img.hide();
-		$iframe.fadeOut("slow", function(){	
-			$img.fadeOut("slow", function(){
-				$img.attr("src", newImg).fadeIn("slow");
-				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
-			});
+		$img.fadeOut("fast");
+			$iframe.fadeOut("slow", function(){
+				$img.attr("src", newImg).fadeIn(1000);
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn(1000);
 		});
 	} else {
-		$iframe.hide();
-		$img.fadeOut("slow", function(){
-			$iframe.fadeOut("slow", function(){
-				$iframe.attr("src", newImg).fadeIn("slow");
-				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn('slow');
-			});
+		$iframe.fadeOut("fast");
+			$img.fadeOut("slow", function(){
+				$iframe.attr("src", newImg).fadeIn(1000);
+				$description.html('<strong>' + newTitle + '</strong>: ' + newCaption).fadeIn(1000);
 		});
 	}
 
