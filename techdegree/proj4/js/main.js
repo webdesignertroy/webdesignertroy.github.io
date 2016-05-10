@@ -1,11 +1,3 @@
-/*
-Problems:
-1) Search needs to filter images BASED ON CAPTIONS
-2) Images need to create a lightbox on mouse-click/keyboard press (Done)
-3) Navigation left right  on mouse-click/keyboard press  (Done)
-4) Need to streamline bulky code after first pass (Done)
-*/
-
 /* ================================= 
   Variables
 ==================================== */
@@ -47,12 +39,11 @@ var $slideAnimation;
 var mediaType;
 var keyBoard;
 
-
 /* ================================= 
   Functions
 ==================================== */
 
-//Function for Displaying Thumb and Caption
+//Function for Displaying Thumb and Caption.
 function $displayThumb(element){
 	"use strict";
 	$(element).css("opacity", 1);
@@ -61,13 +52,13 @@ function $displayThumb(element){
 	$(element).html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
 }
 
-//Function for Hiding Thumb and Caption
+//Function for Hiding Thumb and Caption.
 function $hideThumb(element){
 	"use strict";	
 	$(element).css("opacity", 0);
 }
 
-//Function for Displaying Thumb and Caption on FOCUS
+//Function for Displaying Thumb and Caption on [FOCUS].
 function $displayThumbOnFocus(element){
 	"use strict";
 	$(element).find('span').css("opacity", 1);
@@ -76,29 +67,29 @@ function $displayThumbOnFocus(element){
 	$(element).find('.caption-info').html('<span class="caption-style">' +$currentTitle + '</span><br />' +$currentCaption);
 }
 
-//Function for Hiding Thumb and Caption on FOCUS
+//Function for Hiding Thumb and Caption on [FOCUS].
 function $hideThumbOnBlur(element){
 	"use strict";
 	$(element).find('.caption-info').css('opacity',0);
 	currentSpan = $(element).find('span');
 }
 
-//Function generates Arrays using .col class
+//Function generates Arrays using .col class.
 function $arrayGenerator(){
 	"use strict";
 	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
 	imageMedia = [];
-	$( ".col" ).children().each(function() {
-		imageHref.push($(this).attr("href"));
-		imageMedia.push($(this).attr("class"));
-		imageCaption.push($(this).children().attr("alt"));
-		imageTitle.push($(this).children().attr("title"));
+	$(".col").find(".image").each(function() {
+		imageHref.push($(this).parent().attr("href"));
+		imageMedia.push($(this).parent().attr("class"));
+		imageCaption.push($(this).attr("alt"));
+		imageTitle.push($(this).attr("title"));
 	});
 }
 
-//Function dictates slide animation;
+//Function dictates slide animation.
 function $slideAnimation(){
 	"use strict";
 	$description.fadeOut(100);	
@@ -130,35 +121,26 @@ function $currentYear() {
     document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - The Gallery';
 }
 
-//Set Image's href, caption and title
+//Function sets Image's href, caption and title.
 function $findData(imageSrc){
 	"use strict";
 	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
-	$( ".col" ).children().each(function() {
-		imageHref.push($(this).attr("href"));
-		imageCaption.push($(this).children().attr("alt"));
-		imageTitle.push($(this).children().attr("title"));
+	$(".col").find(".image").each(function() {
+		imageHref.push($(this).parent().attr("href"));
+		imageCaption.push($(this).attr("alt"));
+		imageTitle.push($(this).attr("title"));
 	});
 	for ( var i = 0 ; i < imageHref.length; i++){
 		if ( imageSrc === imageHref[i] ) {
-			if(!keyBoard) {
-				newCaption = imageCaption[i];
-				newTitle = imageTitle[i];
-			} else {
-				$img.attr("src" , imageHref[0]);
-				imageLocation = imageHref[0];
-				newTitle = imageTitle[0];
-				newCaption = imageCaption[0];
-				$iframe.hide	();
-				$img.show();
-			}
+			newCaption = imageCaption[i];
+			newTitle = imageTitle[i];			
 		}
 	}
 }
 
-//Function for opening Image or Video on [MOUSE-CLICK]
+//Function for opening Image or Video on [MOUSE-CLICK].
 function $getImage(element, e){
 	"use strict";
 	e.preventDefault();
@@ -217,7 +199,7 @@ $overlay.append($img).append($iframe).append($description);
 $img.hide();
 $iframe.hide();
 
-//Add overlay
+//Add overlay.
 $container.append($overlay);
 
 //Add directional arrows.
@@ -226,7 +208,7 @@ $("body").append($arrowLeft).append($arrowRight);
 //Add container.
 $("body").append($container);
 
-//Call "always current" year
+//Call "always current" year.
 $currentYear();
 
 /* ================================= 
@@ -255,15 +237,18 @@ $tab.focus(function(){
 //Capture the [MOUSE-CLICK] event on a link to an image.
 $caption.click(function(e){
 	"use strict";
-	switch($(this).parent().attr("class")){
-		case "image-link":
-			mediaType = "image";
-		break;
-		case "image-link video":
-			mediaType = "video";
-		break;
+	var thisImage = $(this).parent().find("img").attr("class");
+	if (thisImage === "image"){
+		switch($(this).parent().attr("class")){
+			case "image-link":
+				mediaType = "image";
+			break;
+			case "image-link video":
+				mediaType = "video";
+			break;
+		}
+		$getImage(this, e);
 	}
-	$getImage(this, e);
 });
 
 //Prevents [ENTER] press from activating .col a elment.  This is reserved for [MOUSE-CLICK].
@@ -425,7 +410,6 @@ $(this).keyup(function(e){
 				if ( $container.is(":visible") ) {
 					$arrowRight.trigger("click");
 				} else {
-					keyBoard = true;
 					$caption.trigger("click");
 				}
 		break;
@@ -436,6 +420,12 @@ $(this).keyup(function(e){
 // Search function sets the "active" class to filtered items and hides the rest.
 $('#searchbox').keyup(function(){
 	"use strict";
-	console.log('This works');
-  
+	var searchValue = $("#searchbox").val().toLowerCase();	
+	
+	$(".gallery").find("img").filter(function(index, element){
+		return !$(element).attr("alt").toLowerCase().includes(searchValue) && !$(element).attr("title").toLowerCase().includes(searchValue);			
+	}).attr("class", "image_hide").parent().fadeOut(1000);
+	$(".gallery").find("img").filter(function(index, element){
+		return $(element).attr("alt").toLowerCase().includes(searchValue) && $(element).attr("alt").toLowerCase().includes(searchValue);
+	}).attr("class" , "image").parent().fadeIn(1000);  
 });
