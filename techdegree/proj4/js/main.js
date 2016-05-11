@@ -430,7 +430,7 @@ $(this).keyup(function(e){
 
 
 // [SEARCH] function sets unfiltered to hidden and .hide() them. Sets filtered to show and .show() them.
-function filterGallery(){
+$('#searchbox').keyup(function(){
 	"use strict";
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	var targetImg = $(".gallery").find("img");
@@ -444,12 +444,12 @@ function filterGallery(){
         }
 	});	
 
-}
+});
 
 //Reset [SEARCH] input field without reloading browser.
 $( "#reset" ).bind( "click", function(e){
 	"use strict";
 	e.preventDefault();
 	resetForm();
-	filterGallery();
+	$("#searchbox").trigger("keyup");
 });
