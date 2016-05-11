@@ -151,7 +151,7 @@ image-link, video-link {
 .image-link:focus, video-link:focus {
 	outline: none;
 }
-.image {
+.image, .image_hide {
 	border-radius: 5px;
 	margin: 0 30px;
 	padding: 0;

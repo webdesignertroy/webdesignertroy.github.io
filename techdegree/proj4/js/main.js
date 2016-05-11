@@ -435,18 +435,11 @@ $('#searchbox').keyup(function(){
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	var targetImg = $(".gallery").find("img");
 	var searchThis;
-	var counter=0;
 	targetImg.each(function(){		
-		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();
-		console.log(searchThis);
-		console.log(searchValue);
-		counter ++;
-		console.log(counter);		
+		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) !== -1){
-			console.log("true");
 			$(this).attr("class" , "image").parent().parent().fadeIn(1000); 
         } else {
-			console.log("false");
 			$(this).attr("class" , "image_hide").parent().parent().fadeOut(1000); 
         }
 	});	
