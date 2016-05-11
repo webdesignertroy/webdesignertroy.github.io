@@ -197,6 +197,12 @@ function resetForm() {
     });
 }
 
+//No conflict fix
+(function ($) {
+	"use strict";
+   $(document);
+}(jQuery));
+
 /* ================================= 
   APPEND THE DOCUMENT
 ==================================== */
@@ -429,6 +435,7 @@ $('#searchbox').keyup(function(){
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	
 	$(".gallery").find("img").each(function(index, element){
+		console.log(element);
 		if ($(element).attr("alt").toLowerCase().includes(searchValue) && $(element).attr("alt").toLowerCase().includes(searchValue)) {
           $(element).attr("class" , "image").parent().parent().fadeIn(1000);
         } else {
