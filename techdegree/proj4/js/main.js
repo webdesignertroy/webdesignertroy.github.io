@@ -433,13 +433,21 @@ $(this).keyup(function(e){
 $('#searchbox').keyup(function(){
 	"use strict";
 	var searchValue = $("#searchbox").val().toLowerCase();	
-	
-	$(".gallery").find("img").each(function(index, element){
-		console.log(element);
-		if ($(element).attr("alt").toLowerCase().includes(searchValue) && $(element).attr("alt").toLowerCase().includes(searchValue)) {
-          $(element).attr("class" , "image").parent().parent().fadeIn(1000);
+	var targetImg = $(".gallery").find("img");
+	var searchThis;
+	var counter=0;
+	targetImg.each(function(){		
+		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();
+		console.log(searchThis);
+		console.log(searchValue);
+		counter ++;
+		console.log(counter);		
+		if (searchThis.indexOf(searchValue) !== -1){
+			console.log("true");
+			$(this).attr("class" , "image").parent().parent().fadeIn(1000); 
         } else {
-          $(element).attr("class" , "image_hide").parent().parent().fadeOut(1000);
+			console.log("false");
+			$(this).attr("class" , "image_hide").parent().parent().fadeOut(1000); 
         }
 	});	
 
