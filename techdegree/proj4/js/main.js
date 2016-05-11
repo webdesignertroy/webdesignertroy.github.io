@@ -430,10 +430,15 @@ $('#searchbox').keyup(function(){
 	
 	$(".gallery").find("img").filter(function(index, element){
 		return !$(element).attr("alt").toLowerCase().includes(searchValue) && !$(element).attr("title").toLowerCase().includes(searchValue);			
-	}).attr("class", "image_hide").parent().parent().fadeOut(1000);
+	}).attr("class", "image_hide").parent().parent().fadeOut(1000, function(){
+		$(this).css("display" , "none");
+	});
+	
 	$(".gallery").find("img").filter(function(index, element){
 		return $(element).attr("alt").toLowerCase().includes(searchValue) && $(element).attr("alt").toLowerCase().includes(searchValue);
-	}).attr("class" , "image").parent().parent().fadeIn(1000);  
+	}).attr("class" , "image").parent().parent().fadeIn(1000, function(){
+		$(this).css("display" , "inline-block");
+	});
 });
 
 //Reset [SEARCH] input field without reloading browser.
