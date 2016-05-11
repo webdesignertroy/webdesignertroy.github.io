@@ -85,7 +85,7 @@ image-link, video-link {
 	margin: auto;
 }
 #overlay p {
-	display: block;
+	display: inline-block;
 	position: fixed;
 	color: #ccc;
 	max-width: 600px;
@@ -94,7 +94,7 @@ image-link, video-link {
 	font-size: 1.2em;
 	font-weight: 700;
 	text-align: center;
-     _text-align:center; /*i.e. hack */
+	justify-content: center; /* I.E. fix */
 	margin: 0 auto;
 	padding: 0 10px;
 	bottom: 8vh;
