@@ -430,9 +430,8 @@ $(this).keyup(function(e){
 
 
 // [SEARCH] function sets unfiltered to hidden and .hide() them. Sets filtered to show and .show() them.
-$('#searchbox').bind("keyup", function(){
+function filterGallery(){
 	"use strict";
-	console.log("Is this firing in iPhone 6?");
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	var targetImg = $(".gallery").find("img");
 	var searchThis;
@@ -445,12 +444,12 @@ $('#searchbox').bind("keyup", function(){
         }
 	});	
 
-});
+}
 
 //Reset [SEARCH] input field without reloading browser.
 $( "#reset" ).bind( "click", function(e){
 	"use strict";
 	e.preventDefault();
 	resetForm();
-	$("#searchbox").trigger("keyup");
+	filterGallery();
 });
