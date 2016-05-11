@@ -95,7 +95,6 @@ image-link, video-link {
 	font-size: 1.2em;
 	font-weight: 700;
 	text-align: center;
-	justify-content: center; /* I.E. fix */
 	margin: 0 auto;
 	padding: 0 10px;
 	bottom: 8vh;
