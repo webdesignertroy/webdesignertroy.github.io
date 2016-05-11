@@ -436,13 +436,12 @@ $('#searchbox').keyup(function(){
 	var targetImg = $(".gallery").find("img");
 	var searchThis;
 	targetImg.each(function(){		
-		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();
-		$(this).parent().parent().fadeOut(300)
-			if (searchThis.indexOf(searchValue) !== -1){
-				$(this).attr("class", "image").parent().parent().fadeIn(600); 
-			} else {
-				$(this).attr("class", "image_hide"); 
-			}
+		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
+		if (searchThis.indexOf(searchValue) !== -1){
+			$(this).attr("class", "image").parent().parent().fadeIn(700); 
+        } else {
+			$(this).attr("class", "image_hide").parent().parent().fadeOut(200); 
+        }
 	});	
 
 });
