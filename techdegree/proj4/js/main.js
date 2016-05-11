@@ -430,7 +430,7 @@ $(this).keyup(function(e){
 
 
 // [SEARCH] function sets unfiltered to hidden and .hide() them. Sets filtered to show and .show() them.
-$('#searchbox').on("keyup", function(){
+$('#searchbox').bind("keyup", function(){
 	"use strict";
 	console.log("Is this firing in iPhone 6?");
 	var searchValue = $("#searchbox").val().toLowerCase();	
