@@ -84,8 +84,13 @@ image-link, video-link {
 	position: absolute;
 	margin: auto;
 }
+
+#overlay {
+	display: table;
+}
+
 #overlay p {
-	display: inline-block;
+	display: table-cell;
 	position: fixed;
 	color: #ccc;
 	max-width: 600px;
