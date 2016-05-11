@@ -85,15 +85,10 @@ image-link, video-link {
 	margin: auto;
 }
 
-#overlay {
-	display: table;
-}
-
 #overlay p {
-	display: table-cell;
 	position: fixed;
 	color: #ccc;
-	max-width: 600px;
+	width: 600px;
 	left: 0;
 	right: 0;
 	font-size: 1.2em;
