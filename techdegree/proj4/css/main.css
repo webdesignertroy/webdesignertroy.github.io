@@ -149,17 +149,18 @@ image-link, video-link {
 .col {
 	display: inline-block;
 	position: relative;
-	margin: 30px auto;
+	margin: 30px;
 }
+
 .image-link:focus, video-link:focus {
 	outline: none;
 }
 .image, .image_hide {
 	border-radius: 5px;
-	margin: 0 30px;
 	padding: 0;
-	width: 177px;
-	height: 177px;
+	margin: -2px;
+	width: 200px;
+	height: 200px;
 }
 
 .searchbox-container {
@@ -173,9 +174,9 @@ image-link, video-link {
 	position: absolute;
 	font-size: .8em;
 	z-index: 100;
+	margin: -2px;
 	top: 0;
-	left: 30px;
-	width: 177px;
+	width: 200px;
 	background: rgba(255,100,0,0.90);
 	border: 3px solid rgba(208,81,0,1.00);
 	border-radius: 5px;
@@ -235,7 +236,8 @@ span.caption-info {
 
 .form-container {
 	position: relative;
-	width: 245px;
+	padding: 0 1em;
+	max-width: 460px;
 	margin: 0 auto;
 }
 input[type=text] {
@@ -244,7 +246,7 @@ input[type=text] {
 	border: 3px solid #FF6400;
 	padding: .5em .8em;
 	border-radius: 6px;
-	min-width: 245px;
+	width: 100%;
 	outline: none;
 	transition: .5s;
 	font-style: normal;
@@ -262,7 +264,7 @@ input[type=text]:focus {
 button[id=reset] {
 	position:absolute;
 	top: 1px;
-	right: 2px;
+	right: 1.3em;
 	width: 25px;
 	height: 40px;
 	background: url(../images/photos/reset15x15.png);
@@ -409,6 +411,19 @@ input:-ms-input-placeholder {
 	z-index: 800;
 	width: 100%;
 }
+}
+
+@media (min-width: 991px){
+	
+	.col {
+	margin: 30px 60px 30px 0;
+	}
+	
+	.col:nth-child(4n+0) {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
 }
 
 @media (min-width: 1024px) {

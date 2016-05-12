@@ -265,7 +265,7 @@ $caption.click(function(e){
 	}
 });
 
-//Prevents [ENTER] press from activating .col a elment.  This is reserved for [MOUSE-CLICK].
+//Prevents [ENTER] press from activating .col a element.  This is reserved for [MOUSE-CLICK].
 $tab.click(function(e){
 	"use strict";
 	e.preventDefault();
