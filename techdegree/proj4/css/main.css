@@ -111,7 +111,7 @@ image-link, video-link {
 	color: rgba(0,0,0,0.85);
 	position: fixed;
 	z-index: 3001;
-	top: 45vh;
+	top: calc(50vh - 45px);
 	left: 10px;
 	cursor: pointer;
 	display: none;
@@ -126,7 +126,7 @@ image-link, video-link {
 	color: rgba(0,0,0,0.85);
 	position: fixed;
 	z-index: 3001;
-	top: 45vh;
+	top: calc(50vh - 45px);
 	right: 10px;
 	cursor: pointer;
 	display: none;
