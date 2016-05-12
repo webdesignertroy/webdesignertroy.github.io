@@ -228,7 +228,6 @@ span.caption-info {
 	text-align: center;
 }
 .copyright {
-	/*font-family: 'Bowlby One', sans-serif;*/
 	letter-spacing: 0.13em;
 	padding: 10px 1em;
 	color: #8A3600;
@@ -236,6 +235,7 @@ span.caption-info {
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
 /* ================================= 
   Form Elements
 ==================================== */
@@ -425,7 +425,10 @@ input:-ms-input-placeholder {
 		position: fixed;
 		z-index: 800;
 		width: 100%;
-	}.searchbox-container {	
+		bottom: 0;
+		left: 0;
+	}
+	.searchbox-container {	
 		padding: 20px 20px 20px 20px;
 	}
 }
