@@ -142,14 +142,21 @@ image-link, video-link {
 	width: 100%;
 	padding-bottom: 70px;
 }
-.title {
+.header{
 	background: rgba(255,255,255,1.0);
+	z-index: 900;
+	position: fixed;
+	width: 100%;
+	top: 0; 
+	left: 0;
+	
 }
 .gallery {
 	display: block;
 	text-align: center;
 	max-width: 980px;
 	margin: 0 auto;
+	margin-top: 145px;
 }
 .col, .col-hide {
 	display: inline-block;
@@ -167,7 +174,6 @@ image-link, video-link {
 	width: 200px;
 	height: 200px;
 }
-
 .caption-info {
 	color: #FFF8F3;
 	text-align: left;
@@ -187,7 +193,7 @@ image-link, video-link {
 .caption-info:after {
 	content: url(../images/photos/link-icon-20x20.png);
 	position: absolute;
-	left: 81px;
+	left: 82px;
 	bottom: 14px;
 	transition: 0.4s ease-out;
 	-moz-transition: 0.4s ease-out;
@@ -234,9 +240,7 @@ span.caption-info {
   Form Elements
 ==================================== */
 .searchbox-container {	
-	background: rgba(255,255,255,1.00);
 	padding: 0 20px 0 20px;
-	z-index: 900;
 	display: block;
 	text-align: center;
 	margin: 0;
@@ -415,6 +419,7 @@ input:-ms-input-placeholder {
 	}
 	.gallery {
 		padding-bottom: 100px;
+		margin-top: 200px;
 	}
 	.footer {
 		position: fixed;

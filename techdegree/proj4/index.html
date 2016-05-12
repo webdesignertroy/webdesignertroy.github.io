@@ -20,19 +20,19 @@ Detail:
 - Navigation will include a prev and next arrow (responsive)
 -->
   
-  <header>
-  	<div class="title">
-  		<h1 class="rubberBand">The Gallery</h1>
-    </div>
-  </header>
-  <div class="searchbox-container">
-    <form>
-      <div class="form-container">
-        <input type="text" id="searchbox" name="searchbox" placeholder="Search...">
-        <button id="reset" name="reset" title="Reset"></button>
+  <header class="header">
+      <div class="title">
+        <h1 class="rubberBand">The Gallery</h1>
       </div>
-    </form>
-  </div><!--/header-->
+      <div class="searchbox-container">
+        <form>
+          <div class="form-container">
+            <input type="text" id="searchbox" name="searchbox" placeholder="Search...">
+            <button id="reset" name="reset" title="Reset"></button>
+          </div>
+        </form>
+      </div>
+  </header><!--/header-->
   <div class="gallery">
     <div class="col"> <a href="images/photos/01.jpg" class="image-link"><img src="images/thumbs/01.jpg" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."  title="Hay Bales" class="image" /><span class="caption-info"></span></a> </div>
     <div class="col"> <a href="images/photos/02.jpg" class="image-link"><img src="images/thumbs/02.jpg" alt="The lake was so calm today. We had a great view of the snow on the mountains from&nbsp;here."  title="Lake" class="image" /><span class="caption-info"></span></a> </div>
@@ -55,8 +55,6 @@ Detail:
   <div id="copyright" class="copyright">&copy; The Gallery</div>
 </footer><!--/footer-->
 <script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script> 
-<script src="js/animsition/jquery.animsition.min.js"></script>
-<script src="js/sticky/sticky-kit.js"></script>   
 <script src="js/main.js" type="text/javascript" charset="utf-8"></script> 
 <script>
 //Preload Images
