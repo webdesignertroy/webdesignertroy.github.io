@@ -197,11 +197,12 @@ function resetForm() {
     });
 }
 
-//No conflict fix
+//Function insures 'no conflict' 
 (function ($) {
 	"use strict";
    $(document);
 }(jQuery));
+
 
 /* ================================= 
   APPEND THE DOCUMENT

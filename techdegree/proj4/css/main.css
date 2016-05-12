@@ -83,6 +83,7 @@ image-link, video-link {
 	height: 40vh;
 	position: absolute;
 	margin: auto;
+	border: none;
 }
 
 #overlay p {

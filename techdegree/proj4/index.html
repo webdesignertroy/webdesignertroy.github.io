@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -11,8 +10,8 @@
 </head>
 
 <body>
-<div class="wrapper">
-<!-- 
+<div class="wrapper"> 
+  <!-- 
 Create a Lightbox
 Page: Title, Search box, Place where photos go
 Plugin:  We are creating the jQuery plugin in js/main.js
@@ -20,41 +19,39 @@ Detail:
 - Each image will have a caption held by a <span>, which will be placed over the image using fixed, z-index
 - Navigation will include a prev and next arrow (responsive)
 -->
-
-<h1 class="rubberBand">The Gallery</h1>
-
-<div class="searchbox-container">
-  <form>
-    <div class="form-container">
+  
+  <h1 class="rubberBand">The Gallery</h1>
+  <div class="searchbox-container">
+    <form>
+      <div class="form-container">
         <input type="text" id="searchbox" name="searchbox" placeholder="Search...">
         <button id="reset" name="reset" title="Reset"></button>
-    </div>
-  </form>
-</div>
-
-<div class="gallery">
-  <div class="col"> <a href="images/photos/01.jpg" class="image-link"><img src="images/thumbs/01.jpg" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."  title="Hay Bales" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/02.jpg" class="image-link"><img src="images/thumbs/02.jpg" alt="The lake was so calm today. We had a great view of the snow on the mountains from&nbsp;here."  title="Lake" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/03.jpg" class="image-link"><img src="images/thumbs/03.jpg" alt="I hiked to the top of the mountain and got this picture of the canyon and trees&nbsp;below."  title="Canyon" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/04.jpg" class="image-link"><img src="images/thumbs/04.jpg" alt="It was amazing to see an iceberg up close, it was so cold but didn’t snow&nbsp;today."  title="Iceberg" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/05.jpg" class="image-link"><img src="images/thumbs/05.jpg" alt="The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the&nbsp;canyons."  title="Desert" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/06.jpg" class="image-link"><img src="images/thumbs/06.jpg" alt="Fall is coming, I love when the leaves on the trees start to change&nbsp;color."  title="Fall" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/07.jpg" class="image-link"><img src="images/thumbs/07.jpg" alt="I drove past this plantation yesterday, everything is so&nbsp;green!"  title="Plantation" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/08.jpg" class="image-link"><img src="images/thumbs/08.jpg" alt="My summer vacation to the Oregon Coast. I love the sandy&nbsp;dunes!"  title="Dunes" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/09.jpg" class="image-link"><img src="images/thumbs/09.jpg" alt="We enjoyed a quiet stroll down this countryside&nbsp;lane."  title="Countryside Lane" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/10.jpg" class="image-link"><img src="images/thumbs/10.jpg" alt="Sunset at the coast! The sky turned a lovely shade of&nbsp;orange."  title="Sunset" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/11.jpg" class="image-link"><img src="images/thumbs/11.jpg" alt="I did a tour of a cave today and the view of the landscape below was&nbsp;breathtaking."  title="Cave" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="images/photos/12.jpg" class="image-link"><img src="images/thumbs/12.jpg" alt="I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came&nbsp;in."  title="Bluebells" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="https://player.vimeo.com/video/71319358" class="image-link video"><img src="images/thumbs/13.jpg" alt="This is Travel Footage from eight countries." title="Travel Love" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="https://player.vimeo.com/video/72131557" class="image-link video"><img src="images/thumbs/14.jpg" alt="This film is a HDR hyperlapse postcard that will take you to a journey through Georgia." title="Hyper Travel" class="image" /><span class="caption-info"></span></a> </div>
-  <div class="col"> <a href="https://player.vimeo.com/video/52742614" class="image-link video"><img src="images/thumbs/15.jpg" alt="A mix of memories from past years adventures for my travelblog on ✈ flysleepy.com." title="Travel" class="image" /><span class="caption-info"></span></a> </div>
-</div>
+      </div>
+    </form>
+  </div>
+  <div class="gallery">
+    <div class="col"> <a href="images/photos/01.jpg" class="image-link"><img src="images/thumbs/01.jpg" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."  title="Hay Bales" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/02.jpg" class="image-link"><img src="images/thumbs/02.jpg" alt="The lake was so calm today. We had a great view of the snow on the mountains from&nbsp;here."  title="Lake" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/03.jpg" class="image-link"><img src="images/thumbs/03.jpg" alt="I hiked to the top of the mountain and got this picture of the canyon and trees&nbsp;below."  title="Canyon" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/04.jpg" class="image-link"><img src="images/thumbs/04.jpg" alt="It was amazing to see an iceberg up close, it was so cold but didn’t snow&nbsp;today."  title="Iceberg" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/05.jpg" class="image-link"><img src="images/thumbs/05.jpg" alt="The red cliffs were beautiful. It was really hot in the desert but we did a lot of walking through the&nbsp;canyons."  title="Desert" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/06.jpg" class="image-link"><img src="images/thumbs/06.jpg" alt="Fall is coming, I love when the leaves on the trees start to change&nbsp;color."  title="Fall" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/07.jpg" class="image-link"><img src="images/thumbs/07.jpg" alt="I drove past this plantation yesterday, everything is so&nbsp;green!"  title="Plantation" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/08.jpg" class="image-link"><img src="images/thumbs/08.jpg" alt="My summer vacation to the Oregon Coast. I love the sandy&nbsp;dunes!"  title="Dunes" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/09.jpg" class="image-link"><img src="images/thumbs/09.jpg" alt="We enjoyed a quiet stroll down this countryside&nbsp;lane."  title="Countryside Lane" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/10.jpg" class="image-link"><img src="images/thumbs/10.jpg" alt="Sunset at the coast! The sky turned a lovely shade of&nbsp;orange."  title="Sunset" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/11.jpg" class="image-link"><img src="images/thumbs/11.jpg" alt="I did a tour of a cave today and the view of the landscape below was&nbsp;breathtaking."  title="Cave" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="images/photos/12.jpg" class="image-link"><img src="images/thumbs/12.jpg" alt="I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came&nbsp;in."  title="Bluebells" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="https://player.vimeo.com/video/71319358" class="image-link video"><img src="images/thumbs/13.jpg" alt="This is Travel Footage from eight countries." title="Travel Love" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="https://player.vimeo.com/video/72131557" class="image-link video"><img src="images/thumbs/14.jpg" alt="This film is a HDR hyperlapse postcard that will take you to a journey through Georgia." title="Hyper Travel" class="image" /><span class="caption-info"></span></a> </div>
+    <div class="col"> <a href="https://player.vimeo.com/video/52742614" class="image-link video"><img src="images/thumbs/15.jpg" alt="A mix of memories from past years adventures for my travelblog on ✈ flysleepy.com." title="Travel" class="image" /><span class="caption-info"></span></a> </div>
+  </div>
 </div>
 <footer class="footer">
   <div id="copyright" class="copyright">&copy; The Gallery</div>
 </footer>
 <script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script> 
-<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script> 
 <script>
 //Preload Images
 function preloader() {
@@ -79,6 +76,6 @@ function addLoadEvent(func) {
 	}
 }
 addLoadEvent(preloader);
-</script>	
+</script>
 </body>
 </html>
