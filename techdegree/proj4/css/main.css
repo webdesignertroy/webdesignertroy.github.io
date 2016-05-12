@@ -233,13 +233,10 @@ span.caption-info {
 /* ================================= 
   Form Elements
 ==================================== */
-.container {
-	max-width: 100%;
-}
 .searchbox-container {	
 	background: rgba(255,255,255,1.00);
 	padding: 0 20px 0 20px;
-	z-index: 9999;
+	z-index: 900;
 	display: block;
 	text-align: center;
 	margin: 0;
