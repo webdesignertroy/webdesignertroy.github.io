@@ -20,7 +20,11 @@ Detail:
 - Navigation will include a prev and next arrow (responsive)
 -->
   
-  <h1 class="rubberBand">The Gallery</h1>
+  <header>
+  	<div class="title">
+  		<h1 class="rubberBand">The Gallery</h1>
+    </div>
+  </header>
   <div class="searchbox-container">
     <form>
       <div class="form-container">
@@ -28,7 +32,7 @@ Detail:
         <button id="reset" name="reset" title="Reset"></button>
       </div>
     </form>
-  </div>
+  </div><!--/header-->
   <div class="gallery">
     <div class="col"> <a href="images/photos/01.jpg" class="image-link"><img src="images/thumbs/01.jpg" alt="I love hay bales. Took this snap on a drive through the countryside past some straw fields."  title="Hay Bales" class="image" /><span class="caption-info"></span></a> </div>
     <div class="col"> <a href="images/photos/02.jpg" class="image-link"><img src="images/thumbs/02.jpg" alt="The lake was so calm today. We had a great view of the snow on the mountains from&nbsp;here."  title="Lake" class="image" /><span class="caption-info"></span></a> </div>
@@ -46,11 +50,13 @@ Detail:
     <div class="col"> <a href="https://player.vimeo.com/video/72131557" class="image-link video"><img src="images/thumbs/14.jpg" alt="This film is a HDR hyperlapse postcard that will take you to a journey through Georgia." title="Hyper Travel" class="image" /><span class="caption-info"></span></a> </div>
     <div class="col"> <a href="https://player.vimeo.com/video/52742614" class="image-link video"><img src="images/thumbs/15.jpg" alt="A mix of memories from past years adventures for my travelblog on ✈ flysleepy.com." title="Travel" class="image" /><span class="caption-info"></span></a> </div>
   </div>
-</div>
+</div><!--/.gallery-->
 <footer class="footer">
   <div id="copyright" class="copyright">&copy; The Gallery</div>
-</footer>
+</footer><!--/footer-->
 <script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script> 
+<script src="js/animsition/jquery.animsition.min.js"></script>
+<script src="js/sticky/sticky-kit.js"></script>   
 <script src="js/main.js" type="text/javascript" charset="utf-8"></script> 
 <script>
 //Preload Images

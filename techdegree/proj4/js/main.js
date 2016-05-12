@@ -203,6 +203,11 @@ function resetForm() {
    $(document);
 }(jQuery));
 
+/* ================================= 
+  CREATE STICKY HEADER
+==================================== */
+
+$(".searchbox-container").stick_in_parent();
 
 /* ================================= 
   APPEND THE DOCUMENT
