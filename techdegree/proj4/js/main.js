@@ -444,12 +444,29 @@ $('#searchbox').keyup(function(){
 	targetImg.each(function(){		
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) !== -1){
-			$(this).attr("class", "image").parent().parent().fadeIn(700); 
+			$(this).attr("class", "image").parent().parent().attr("class" , "col");
         } else {
-			$(this).attr("class", "image_hide").parent().parent().fadeOut(200); 
+			$(this).attr("class", "image_hide").parent().parent().attr("class" , "col-hide").fadeOut(200); 
         }
+	});		
+	// Replace all the span's with a div
+	var $span = $(".gallery .col");
+	var $div = $(".gallery .col-hide");
+	
+	$span.replaceWith(function () {
+		return $('<div/>', {
+			class: 'col',
+			html: this.innerHTML
+		});
+	});
+	$div.replaceWith(function () {
+		return $('<span/>', {
+			class: 'col-hide',
+			html: this.innerHTML
+		});
 	});	
-
+	$(".col").fadeIn(1000); 	
+	$(".col-hide").fadeOut(200); 
 });
 
 //Reset [SEARCH] input field without reloading browser.
