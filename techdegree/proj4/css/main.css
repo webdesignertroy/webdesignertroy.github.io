@@ -112,7 +112,7 @@ image-link, video-link {
 	position: fixed;
 	z-index: 3001;
 	top: 45vh;
-	left: -1px;
+	left: 10px;
 	cursor: pointer;
 	display: none;
 }
@@ -127,10 +127,11 @@ image-link, video-link {
 	position: fixed;
 	z-index: 3001;
 	top: 45vh;
-	right: -1px;
+	right: 10px;
 	cursor: pointer;
 	display: none;
 }
+
 /* ================================= 
   Page Elements
 ==================================== */
