@@ -38,6 +38,7 @@ var $arrayGenerator;
 var $slideAnimation;
 var mediaType;
 var resetForm;
+var noResults = '';
 
 /* ================================= 
 FUNCTIONS
@@ -202,6 +203,12 @@ function resetForm() {
 	$(document);
 }(jQuery));
 
+//Function for print
+function print(message){
+	"use strict";
+	var printOut = document.getElementById("response");
+	printOut.innerHTML = message;
+};
 
 /* ================================= 
 APPEND THE DOCUMENT
@@ -444,7 +451,20 @@ $('#searchbox').keyup(function(){
 				$(this).attr("style", "display: none");
 			});
 		}
-	});		
+	});	
+	//No results
+		var counter = 0;
+		$(".gallery").find(".col").each(function(){
+			counter++;			
+		});
+		if (counter < 1 ) {
+			noResults = "No Results for '" + searchValue + ".'";
+			print(noResults);
+			document.getElementById("response").style.display = "inherit";			
+		} else {			
+			document.getElementById("response").style.display = "none";	
+		}
+		
 });
 
 //Reset [SEARCH] input field without reloading browser.

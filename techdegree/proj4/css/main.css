@@ -237,6 +237,17 @@ span.caption-info {
 	font-weight: bold;
 	text-transform: uppercase;
 }
+.response-style {
+	font-size: 2em;
+	color: #FF9A58;
+	width: 100%;
+	max-width: 500px;
+	padding: 30vh 5px;
+	margin: 0 auto;
+}
+#response {
+	display: none;
+}
 /* ================================= 
   Form Elements
 ==================================== */
