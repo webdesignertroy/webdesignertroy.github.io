@@ -303,25 +303,29 @@ button[id=reset] {
 /*----- Placehoder Hack -----*/
 
 input::-webkit-input-placeholder {
-	font-style: italic;
+	font-style: normal;
+	font-weight: 300;
 	text-align: left;
 	font-size: 16px;
 	color: #A6A6A6;
 }
 input::-moz-placeholder {
-	font-style: italic;
+	font-style: normal;
+	font-weight: 300;
 	text-align: left;
 	font-size: 16px;
 	color: #A6A6A6;
 }
 input:-moz-placeholder {
-	font-style: italic;
+	font-style: normal;
+	font-weight: 300;
 	text-align: left;
 	font-size: 16px;
 	color: #A6A6A6;
 }
 input:-ms-input-placeholder {
-	font-style: italic;
+	font-style: normal;
+	font-weight: 300;
 	text-align: left;
 	font-size: 16px;
 	color: #A6A6A6;
