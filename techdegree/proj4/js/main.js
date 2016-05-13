@@ -439,9 +439,7 @@ $('#searchbox').keyup(function(){
 		if (searchThis.indexOf(searchValue) !== -1){
 			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display:none'></span>").wrap("<div class='col'></div>").fadeIn(700);
 		} else {
-			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").fadeOut(500, function(){
-				$(this).wrap("<span class='col-hide' style='display:none'></span>"); 
-			});
+			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide' style='display:none'></span>").fadeOut(500); 
 
 		}
 	});		
