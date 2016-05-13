@@ -436,33 +436,18 @@ $('#searchbox').keyup(function(){
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	var targetImg = $(".gallery").find("img");
 	var searchThis;
-	targetImg.each(function(){		
+	targetImg.each(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) !== -1){
-			$(this).attr("class", "image").parent().parent().attr("class" , "col");
+			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display:none'></span>").wrap("<div class='col'></div>").fadeIn(1000);
         } else {
-			$(this).attr("class", "image_hide").parent().parent().attr("class" , "col-hide").fadeOut(200); 
+			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide' style='display:none'></span>").fadeOut(200); 
+				
         }
 	});		
-	// Replace all the span's with a div
-	var $span = $(".gallery .col");
-	var $div = $(".gallery .col-hide");
-	
-	$span.replaceWith(function () {
-		return $('<div/>', {
-			class: 'col',
-			html: this.innerHTML
-		});
-	});
-	$div.replaceWith(function () {
-		return $('<span/>', {
-			class: 'col-hide',
-			html: this.innerHTML
-		});
-	});	
-	$(".col").fadeIn(1000); 	
-	$(".col-hide").fadeOut(200); 
 });
+
+
 
 //Reset [SEARCH] input field without reloading browser.
 $( "#reset" ).bind( "click", function(e){

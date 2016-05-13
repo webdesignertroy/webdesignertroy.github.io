@@ -244,7 +244,6 @@ span.caption-info {
 	display: block;
 	text-align: center;
 	margin: 0;
-	border-bottom: 1px solid #D7D6D6;
 }
 .form-container {
 	position: relative;
@@ -271,7 +270,6 @@ input[placeholder] {
 }
 input[type=text]:focus {
 	border: 3px solid #BA4900;
-	box-shadow: inset 2px 2px 20px rgba(0,0,0,0.25);
 	background: rgba(34,34,34,0.03);
 }
 button[id=reset] {
