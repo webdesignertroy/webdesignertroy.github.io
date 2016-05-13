@@ -10,7 +10,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;
 	line-height: 1.5;
-	background: rgba(255,252,250,1.00);  /* @Tester: I know they said white, but I didn't like it*/
+	background: rgba(255,252,250,1.00);  
 	position: relative;
 }
 h1 {
@@ -133,11 +133,9 @@ image-link, video-link {
 	cursor: pointer;
 	display: none;
 }
-
 /* ================================= 
   Page Elements
 ==================================== */
-
 .wrapper {
 	width: 100%;
 	padding-bottom: 70px;
@@ -148,8 +146,7 @@ image-link, video-link {
 	position: fixed;
 	width: 100%;
 	top: 0; 
-	left: 0;
-	
+	left: 0;	
 }
 .gallery {
 	display: block;
@@ -168,6 +165,8 @@ image-link, video-link {
 	outline: none;
 }
 .image, .image_hide {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	padding: 0;
 	margin: -2px;
@@ -185,6 +184,8 @@ image-link, video-link {
 	width: 200px;
 	background: rgba(255,100,0,0.90);
 	border: 3px solid rgba(208,81,0,1.00);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	transition: .5s;
 	overflow: hidden;
@@ -235,7 +236,6 @@ span.caption-info {
 	font-weight: bold;
 	text-transform: uppercase;
 }
-
 /* ================================= 
   Form Elements
 ==================================== */
@@ -256,6 +256,8 @@ input[type=text] {
 	-webkit-appearance: none;
 	border: 3px solid #FF6400;
 	padding: .5em .8em;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 	border-radius: 6px;
 	width: 100%;
 	outline: none;
@@ -286,7 +288,6 @@ button[id=reset] {
 	z-index: 100;
 	outline: none;
 }
-
 /*----- Placehoder Hack -----*/
 
 input::-webkit-input-placeholder {
@@ -316,7 +317,6 @@ input:-ms-input-placeholder {
 /* ================================= 
   Animation
 ==================================== */
-
 .rubberBand {
 	-webkit-animation-name: rubberBand;
 	animation-name: rubberBand;
@@ -389,7 +389,6 @@ input:-ms-input-placeholder {
 /* ================================= 
   Media Queries
 ==================================== */
-
 @media (min-width: 768px) {
 	#overlay img {
 		padding-left: 15%;
@@ -430,7 +429,6 @@ input:-ms-input-placeholder {
 		padding: 20px 20px 20px 20px;
 	}
 }
-
 @media (min-width: 991px){	
 	.col, .col-hide {
 	margin: 30px 60px 30px 0;
@@ -440,7 +438,6 @@ input:-ms-input-placeholder {
 		margin-left: 0;
 	}
 }
-
 @media (min-width: 1024px) {
 	#overlay img {
 		padding-left: 25%;
@@ -456,7 +453,6 @@ input:-ms-input-placeholder {
 		height: 60vh;
 	}
 }
-
 @media (max-height: 420px) {
 	#overlay iframe {
 		height: 80vh;

@@ -1,5 +1,5 @@
 /* ================================= 
-  VARIABLES
+VARIABLES
 ==================================== */
 
 var $caption = $('.image-link span');
@@ -40,7 +40,7 @@ var mediaType;
 var resetForm;
 
 /* ================================= 
-  FUNCTIONS
+FUNCTIONS
 ==================================== */
 
 //Function for Displaying Thumb and Caption.
@@ -116,9 +116,9 @@ function $slideAnimation(){
 //Function generates a current year and adds language for copyright notice.
 function $currentYear() {
 	"use strict";
-    var d = new Date();
-    var n = d.getFullYear();
-    document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - The Gallery';
+	var d = new Date();
+	var n = d.getFullYear();
+	document.getElementById("copyright").innerHTML = '&copy; ' + n + ' - The Gallery';
 }
 
 //Function sets Image's href, caption and title.
@@ -152,60 +152,60 @@ function $getImage(element, e){
 		$iframe.show();
 	}
 	imageLocation = $(element).parent().attr("href");	
-	
+
 	$findData(imageLocation);
-	
-	
+
+
 	$showImage(imageLocation, newTitle, newCaption);
 }
 
 //Function for showing Image.
 function $showImage(iL, $cT, $cC){
 	"use strict";	
-	//Update image src.
-	if(mediaType === "image"){
-		$img.attr("src", iL);
-	} else {
-		$iframe.attr("src",iL);
-	}
-	//Update image description.
-	$description.html('<strong>' + $cT + '</strong>: ' + $cC);	
-	
-	//Show overlay.	
-	$container.fadeIn(400);
-	$arrowLeft.fadeIn(400);
-	$arrowRight.fadeIn(400);	
+//Update image src.
+if(mediaType === "image"){
+	$img.attr("src", iL);
+} else {
+	$iframe.attr("src",iL);
+}
+//Update image description.
+$description.html('<strong>' + $cT + '</strong>: ' + $cC);	
+
+//Show overlay.	
+$container.fadeIn(400);
+$arrowLeft.fadeIn(400);
+$arrowRight.fadeIn(400);	
 }
 
 //Function to fade out image.
 function $fadeOut(){
 	"use strict";
- 	//Hide the overlay on mouse click.
- 	$container.fadeOut(100);
-	$arrowLeft.fadeOut(100);
-	$arrowRight.fadeOut(100);
-	$img.attr("src","");
-	$iframe.attr("src","");
-	//Clean up overlay
-	$("body").detach(".container");
+//Hide the overlay on mouse click.
+$container.fadeOut(100);
+$arrowLeft.fadeOut(100);
+$arrowRight.fadeOut(100);
+$img.attr("src","");
+$iframe.attr("src","");
+//Clean up overlay
+$("body").detach(".container");
 }
 //Function resets input field
 function resetForm() {
 	"use strict";
-    $("#searchbox").val(function() {
-        return $("searchbox").defaultValue;
-    });
+	$("#searchbox").val(function() {
+		return $("searchbox").defaultValue;
+	});
 }
 
 //Function insures 'no conflict' 
 (function ($) {
 	"use strict";
-   $(document);
+	$(document);
 }(jQuery));
 
 
 /* ================================= 
-  APPEND THE DOCUMENT
+APPEND THE DOCUMENT
 ==================================== */
 
 //Add image to overlay.
@@ -226,7 +226,7 @@ $("body").append($container);
 $currentYear();
 
 /* ================================= 
-  MOUSE & NATIVE KEYBOARD EVENTS
+MOUSE & NATIVE KEYBOARD EVENTS
 ==================================== */
 
 //Display thumb and caption on [HOVER]. Hide thumb and caption on leave.
@@ -255,10 +255,10 @@ $caption.click(function(e){
 	if (thisImage === "image"){
 		switch($(this).parent().attr("class")){
 			case "image-link":
-				mediaType = "image";
+			mediaType = "image";
 			break;
 			case "image-link video":
-				mediaType = "video";
+			mediaType = "video";
 			break;
 		}
 		$getImage(this, e);
@@ -279,60 +279,60 @@ $('.container').click(function(){
 
 //Image's Left-Arrow Directional Behavior on [MOUSE-CLICK].
 $arrowLeft.click(function(){	
-"use strict";
+	"use strict";
 
 	imageHref = [];
 	imageCaption = [];
 	imageTitle = [];
 	imageMedia = [];
-	
+
 	$arrayGenerator();
-	
+
 	for ( var i = 0 ; i < imageHref.length; i++ ){
 		switch(mediaType){
 			case "image":
-				if ( $img.attr("src") === imageHref[i] ) {
-					if ( i !== 0 ) {
-						newImg = imageHref[i - 1];
-						newCaption = imageCaption[i - 1];
-						newTitle = imageTitle[i - 1];
-						newMediaType =  imageMedia[i - 1];
-					} else {
-						newImg = imageHref[imageHref.length - 1];
-						newCaption = imageCaption[imageHref.length - 1];
-						newTitle = imageTitle[imageHref.length - 1];
-						newMediaType = imageMedia[imageHref.length - 1];
-					}
-				} 
+			if ( $img.attr("src") === imageHref[i] ) {
+				if ( i !== 0 ) {
+					newImg = imageHref[i - 1];
+					newCaption = imageCaption[i - 1];
+					newTitle = imageTitle[i - 1];
+					newMediaType =  imageMedia[i - 1];
+				} else {
+					newImg = imageHref[imageHref.length - 1];
+					newCaption = imageCaption[imageHref.length - 1];
+					newTitle = imageTitle[imageHref.length - 1];
+					newMediaType = imageMedia[imageHref.length - 1];
+				}
+			} 
 			break;
 			case "video":			
-				if ( $iframe.attr("src") === imageHref[i] ) {
-					if ( i !== 0 ) {
-						newImg = imageHref[i - 1];
-						newCaption = imageCaption[i - 1];
-						newTitle = imageTitle[i - 1];
-						newMediaType =  imageMedia[i - 1];
-					} else {
-						newImg = imageHref[imageHref.length - 1];
-						newCaption = imageCaption[imageHref.length - 1];
-						newTitle = imageTitle[imageHref.length - 1];
-						newMediaType = imageMedia[imageHref.length - 1];
-					}
-				} 
+			if ( $iframe.attr("src") === imageHref[i] ) {
+				if ( i !== 0 ) {
+					newImg = imageHref[i - 1];
+					newCaption = imageCaption[i - 1];
+					newTitle = imageTitle[i - 1];
+					newMediaType =  imageMedia[i - 1];
+				} else {
+					newImg = imageHref[imageHref.length - 1];
+					newCaption = imageCaption[imageHref.length - 1];
+					newTitle = imageTitle[imageHref.length - 1];
+					newMediaType = imageMedia[imageHref.length - 1];
+				}
+			} 
 			break;
 		}
 	}
 	switch(newMediaType){
-	case "image-link":
+		case "image-link":
 		mediaType = "image";
 		$img.show().attr("src","");
 		$iframe.hide().attr("src","");
-	break;
-	case "image-link video":
+		break;
+		case "image-link video":
 		mediaType = "video";
 		$img.hide().attr("src","");
 		$iframe.show().attr("src","");
-	break;
+		break;
 	}
 	$slideAnimation();
 });
@@ -344,61 +344,61 @@ $arrowRight.click(function(){
 	imageCaption = [];
 	imageTitle = [];
 	imageMedia = [];
-	
+
 	$arrayGenerator();
-		for ( var i = 0 ; i < imageHref.length; i++){
-			switch (mediaType) {
-				case "image" :
-					if ( $img.attr("src") === imageHref[i] ) {
-						if ( i !== imageHref.length - 1 ) {
-							newImg = imageHref[i + 1];
-							newCaption = imageCaption[i + 1];
-							newTitle = imageTitle[i + 1];
-							newMediaType = imageMedia[i + 1];
-						} else {
-							newImg = imageHref[0];
-							newCaption = imageCaption[0];
-							newTitle = imageTitle[0];
-							newMediaType = imageMedia[0];
-						}
-					}
-				break;
-				case "video":
-					if ( $iframe.attr("src") === imageHref[i] ) {
-						if ( i !== imageHref.length - 1 ) {
-							newImg = imageHref[i + 1];
-							newCaption = imageCaption[i + 1];
-							newTitle = imageTitle[i + 1];
-							newMediaType = imageMedia[i + 1];
-						} else {
-							newImg = imageHref[0];
-							newCaption = imageCaption[0];
-							newTitle = imageTitle[0];
-							newMediaType = imageMedia[0];
-						}
-					}
-				
-				break;				
+	for ( var i = 0 ; i < imageHref.length; i++){
+		switch (mediaType) {
+			case "image" :
+			if ( $img.attr("src") === imageHref[i] ) {
+				if ( i !== imageHref.length - 1 ) {
+					newImg = imageHref[i + 1];
+					newCaption = imageCaption[i + 1];
+					newTitle = imageTitle[i + 1];
+					newMediaType = imageMedia[i + 1];
+				} else {
+					newImg = imageHref[0];
+					newCaption = imageCaption[0];
+					newTitle = imageTitle[0];
+					newMediaType = imageMedia[0];
+				}
 			}
+			break;
+			case "video":
+			if ( $iframe.attr("src") === imageHref[i] ) {
+				if ( i !== imageHref.length - 1 ) {
+					newImg = imageHref[i + 1];
+					newCaption = imageCaption[i + 1];
+					newTitle = imageTitle[i + 1];
+					newMediaType = imageMedia[i + 1];
+				} else {
+					newImg = imageHref[0];
+					newCaption = imageCaption[0];
+					newTitle = imageTitle[0];
+					newMediaType = imageMedia[0];
+				}
+			}
+
+			break;				
 		}
+	}
 	switch(newMediaType){
-	case "image-link":
+		case "image-link":
 		mediaType = "image";
 		$img.show().attr("src","");
 		$iframe.hide().attr("src","");
-	break;
-	case "image-link video":
+		break;
+		case "image-link video":
 		mediaType = "video";
 		$img.hide().attr("src","");
 		$iframe.show().attr("src","");
-	break;
+		break;
 	}
-	
+
 	$slideAnimation();
 });
 
 /* ================================= 
-  KEYBOARD EVENTS
+KEYBOARD EVENTS
 ==================================== */
 
 //[KEY UP] Switch Statement.
@@ -407,26 +407,26 @@ $(this).keyup(function(e){
 	switch(e.keyCode) {
 		case 13:
 		case 27:
-			//Fade out overlay when [ENTER=13] and [ESC=27] is keyed.
-			$fadeOut();
-		break;
-		case 37:
-			//Advances slideshow left on left-arrow [37] key.
-				if ( $container.is(":visible") ) {
-					$arrowLeft.trigger("click");
-				} else {
-					$caption.trigger("click");
-				}			
-		break;
-		case 39:
-			//Advances slideshow right on right-arrow [39] key.
-				if ( $container.is(":visible") ) {
-					$arrowRight.trigger("click");
-				} else {
-					$caption.trigger("click");
-				}
-		break;
-	}
+//Fade out overlay when [ENTER=13] and [ESC=27] is keyed.
+$fadeOut();
+break;
+case 37:
+//Advances slideshow left on left-arrow [37] key.
+if ( $container.is(":visible") ) {
+	$arrowLeft.trigger("click");
+} else {
+	$caption.trigger("click");
+}			
+break;
+case 39:
+//Advances slideshow right on right-arrow [39] key.
+if ( $container.is(":visible") ) {
+	$arrowRight.trigger("click");
+} else {
+	$caption.trigger("click");
+}
+break;
+}
 });
 
 
@@ -440,10 +440,10 @@ $('#searchbox').keyup(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) !== -1){
 			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display:none'></span>").wrap("<div class='col'></div>").fadeIn(1000);
-        } else {
+		} else {
 			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide' style='display:none'></span>").fadeOut(200); 
-				
-        }
+
+		}
 	});		
 });
 
