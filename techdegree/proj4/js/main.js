@@ -155,7 +155,6 @@ function $getImage(element, e){
 
 	$findData(imageLocation);
 
-
 	$showImage(imageLocation, newTitle, newCaption);
 }
 
@@ -429,7 +428,6 @@ break;
 }
 });
 
-
 // [SEARCH] function sets unfiltered to hidden and .hide() them. Sets filtered to show and .show() them.
 $('#searchbox').keyup(function(){
 	"use strict";
@@ -439,15 +437,15 @@ $('#searchbox').keyup(function(){
 	targetImg.each(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) !== -1){
-			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display:none'></span>").wrap("<div class='col'></div>").fadeIn(1000);
+			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display:none'></span>").wrap("<div class='col'></div>").fadeIn(700);
 		} else {
-			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide' style='display:none'></span>").fadeOut(200); 
+			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").fadeOut(500, function(){
+				$(this).wrap("<span class='col-hide' style='display:none'></span>"); 
+			});
 
 		}
 	});		
 });
-
-
 
 //Reset [SEARCH] input field without reloading browser.
 $( "#reset" ).bind( "click", function(e){
