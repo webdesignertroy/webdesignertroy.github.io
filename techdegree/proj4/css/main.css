@@ -273,7 +273,7 @@ input[type=text] {
 	border-radius: 6px;
 	width: 100%;
 	outline: none;
-	transition: .5s;
+	transition: 0.5s;
 	font-style: normal;
 	position: relative;
 	z-index: 99;

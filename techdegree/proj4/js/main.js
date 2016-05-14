@@ -450,8 +450,10 @@ $('#searchbox').keyup(function(){
 			}
 		} else {
 			if( $(this).attr("class") !== "image" ) {
-				$(this).attr("class", "image").parent().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");
-				$(this).parent().parent().show(1000);
+				$(this).parent().parent().show(1000, function(){				
+					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");	
+				});		
+				$(this).attr("class", "image");	
 			}
 		}
 	});	
