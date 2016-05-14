@@ -443,13 +443,13 @@ $('#searchbox').keyup(function(){
 	var searchThis;
 	targetImg.each(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
-		if (searchThis.indexOf(searchValue) !== -1){
-			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display: none'></span>").wrap("<div class='col'></div>").fadeIn(700);
-		} else {
+		if (searchThis.indexOf(searchValue) === -1){
 			$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 
-			$(this).parent().parent().fadeOut(200, function(){
+			$(this).parent().parent().hide(1000, function(){
 				$(this).attr("style", "display: none");
 			});
+		} else {
+			$(this).attr("class", "image").parent().unwrap("<span class='col-hide' style='display: none'></span>").wrap("<div class='col'></div>").show(1000);
 		}
 	});	
 	//No results
