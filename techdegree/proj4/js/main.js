@@ -440,33 +440,42 @@ $('#searchbox').keyup(function(){
 	"use strict";
 	var searchValue = $("#searchbox").val().toLowerCase();	
 	var targetImg = $(".gallery").find("img");
+	var targetCol = $(".gallery").find(".col");
 	var searchThis;
+	var noResultsCounter = 0;
+	
+	targetCol.each(function(){
+		noResultsCounter++
+	});
+	
 	targetImg.each(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) === -1){
 			if( $(this).attr("class") !== "image_hide" ){
+				noResultsCounter--;
 				$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 
 				$(this).parent().parent().hide(1000);
 			}
 		} else {
-			if( $(this).attr("class") !== "image" ) {
+			if( $(this).attr("class") !== "image" ) {	
+				noResultsCounter++;
 				$(this).parent().parent().show(1000, function(){				
-					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");	
+					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");
 				});		
 				$(this).attr("class", "image");	
 			}
 		}
 	});	
-	//No results
-		var counter = 0;
-		$(".gallery").find(".col").each(function(){
-			counter++;			
-		});
-		if (counter < 1 ) {
+	console.log(noResultsCounter);
+	//No results		
+		if (noResultsCounter < 1 ) {	
+			console.log("did this fire on Show Response?");
 			noResults = "No Results for '" + searchValue + ".'";
 			print(noResults);
 			document.getElementById("response").style.display = "inherit";			
-		} else {			
+		} else {		
+			console.log("did this fire on Hide Response?");
+			noResults = "";	
 			document.getElementById("response").style.display = "none";	
 		}
 		
