@@ -32,7 +32,7 @@ p {
 	color: #303030;
 }
 image-link, video-link {
-	display: inline-block;
+	display: block;
 	margin-top: -5px
 }
 /* ================================= 
@@ -155,6 +155,7 @@ image-link, video-link {
 	max-width: 980px;
 	margin: 0 auto;
 	margin-top: 145px;
+	font-size: 0px; /* white-space caused by inline-block below */
 }
 .col, .col-hide {
 	display: inline-block;
@@ -170,7 +171,7 @@ image-link, video-link {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	padding: 0;
-	margin: -2px;
+	margin: 0;
 	width: 200px;
 	height: 200px;
 }
@@ -178,9 +179,9 @@ image-link, video-link {
 	color: #FFF8F3;
 	text-align: left;
 	position: absolute;
-	font-size: .8em;
+	font-size: 13.5px;
 	z-index: 100;
-	margin: -2px;
+	margin: 0;
 	top: 0;
 	width: 200px;
 	background: rgba(255,100,0,0.90);
@@ -188,7 +189,7 @@ image-link, video-link {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	transition: .5s;
+	transition: 0.5s;
 	overflow: hidden;
 	opacity: 0;
 }
@@ -196,17 +197,15 @@ image-link, video-link {
 	content: url(../images/photos/link-icon-20x20.png);
 	position: absolute;
 	left: 82px;
-	bottom: 14px;
+	bottom: 15px;
 	transition: 0.4s ease-out;
 	-moz-transition: 0.4s ease-out;
 	-webkit-transition: 0.4s ease-out;
-	margin-bottom: -15px;
 }
 .caption-info:hover:after {
 	-webkit-transform: rotate(75deg);
 	-moz-transform: rotate(75deg);
 	transform: rotate(75deg);
-	margin-bottom: 0;
 }
 .caption-style {
 	font-weight: bold;
@@ -222,7 +221,7 @@ span.caption-info {
 	display: block;
 	padding: 1.3em .5em 1em .5em;
 	text-align: center;
-	bottom: 5px;
+	bottom: 0;
 }
 .footer {
 	min-height: 30px;
@@ -441,9 +440,10 @@ input:-ms-input-placeholder {
 		left: 0;
 	}
 }
+/* Tester: Please note that the browswer scrollbar is around 12px */
 @media (min-width: 992px){	
 	.col, .col-hide {
-	margin: 30px 60px 30px 0;
+	margin: 30px 60px 30px -1px;
 	}	
 	div.col:nth-of-type(4n+0) {
 		margin-right: 0;
