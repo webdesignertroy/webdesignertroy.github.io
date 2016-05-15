@@ -246,6 +246,7 @@ span.caption-info {
 	top: 40vh;
 	left: 0;
 	right: 0;
+	text-align: center;
 }
 #response {
 	display: none;
@@ -453,7 +454,11 @@ input:-ms-input-placeholder {
 	.col, .col-hide {
 	margin: 30px 60px 30px -1px;
 	}	
-	div.col:nth-of-type(4n+0) {
+	div.col:nth-of-type(4n+0), div.col-hide:nth-of-type(4n+0) {
+		margin-right: 0;
+		margin-left: 0;
+	}	
+	.gallery div:last-child {
 		margin-right: 0;
 		margin-left: 0;
 	}
