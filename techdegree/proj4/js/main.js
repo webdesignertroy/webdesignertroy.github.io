@@ -469,12 +469,10 @@ $('#searchbox').keyup(function(){
 	console.log(noResultsCounter);
 	//No results		
 		if (noResultsCounter < 1 ) {	
-			console.log("did this fire on Show Response?");
 			noResults = "No Results for '" + searchValue + ".'";
 			print(noResults);
 			document.getElementById("response").style.display = "inline";			
-		} else {		
-			console.log("did this fire on Hide Response?");
+		} else {	
 			noResults = "";	
 			document.getElementById("response").style.display = "none";	
 		}
