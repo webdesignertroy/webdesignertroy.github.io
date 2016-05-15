@@ -471,7 +471,7 @@ $('#searchbox').keyup(function(){
 	});	 	 
 	setTimeout(function(){
 		showResults();
-	}, 610);
+	}, 620);
 	
 	function showResults(){
 	//No results		
