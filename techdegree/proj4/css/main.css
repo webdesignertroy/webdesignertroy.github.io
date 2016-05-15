@@ -237,15 +237,22 @@ span.caption-info {
 	text-transform: uppercase;
 }
 .response-style {
-	font-size: 2em;
+	font-size: 34px;
 	color: #FF9A58;
-	width: 100%;
-	max-width: 500px;
-	padding: 30vh 5px;
-	margin: 0 auto;
+	position: fixed;
+	width: 500px;
+	height: 200px;
+	margin: 5% auto; 
+	left: 0;
+	right: 0;
 }
 #response {
 	display: none;
+}
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
 }
 /* ================================= 
   Form Elements
