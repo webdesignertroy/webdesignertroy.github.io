@@ -162,7 +162,7 @@ function $getImage(element, e){
 //Function for showing Image.
 function $showImage(iL, $cT, $cC){
 	"use strict";	
-//Update image src.
+//Function updates image' source attribute.
 if(mediaType === "image"){
 	$img.attr("src", iL);
 } else {
@@ -171,13 +171,13 @@ if(mediaType === "image"){
 //Update image description.
 $description.html('<strong>' + $cT + '</strong>: ' + $cC);	
 
-//Show overlay.	
+//Method series fades in overlay.	
 $container.fadeIn(400);
 $arrowLeft.fadeIn(400);
 $arrowRight.fadeIn(400);	
 }
 
-//Function to fade out image.
+//Function fades out image.
 function $fadeOut(){
 	"use strict";
 //Hide the overlay on mouse click.
@@ -446,7 +446,7 @@ $('#searchbox').keyup(function(){
 	
 	
 	targetCol.each(function(){
-		noResultsCounter++
+		noResultsCounter++;
 	});
 	
 	targetImg.each(function(){
