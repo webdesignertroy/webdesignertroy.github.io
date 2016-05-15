@@ -458,7 +458,7 @@ input:-ms-input-placeholder {
 		margin-right: 0;
 		margin-left: 0;
 	}	
-	.gallery div:last-child {
+	div.col:last-of-type {
 		margin-right: 0;
 		margin-left: 0;
 	}
