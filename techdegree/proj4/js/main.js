@@ -454,12 +454,12 @@ $('#searchbox').keyup(function(){
 		if (searchThis.indexOf(searchValue) === -1){
 			if( $(this).attr("class") !== "image_hide" ){
 				$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 
-				$(this).parent().parent().delay(100).hide(300);				
+				$(this).parent().parent().delay(100).hide(500);				
 				noResultsCounter--;
 			}
 		} else {
 			if( $(this).attr("class") !== "image" ) {	
-				$(this).parent().parent().delay(100).show(300, function(){				
+				$(this).parent().parent().delay(100).show(500, function(){				
 					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");
 				});		
 				$(this).attr("class", "image");	
