@@ -444,6 +444,7 @@ $('#searchbox').keyup(function(){
 	var searchThis;
 	var noResultsCounter = 0;
 	
+	
 	targetCol.each(function(){
 		noResultsCounter++
 	});
@@ -452,31 +453,42 @@ $('#searchbox').keyup(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) === -1){
 			if( $(this).attr("class") !== "image_hide" ){
-				noResultsCounter--;
 				$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 
-				$(this).parent().parent().hide(1000);
+				$(this).parent().parent().delay(100).hide(300);				
+				noResultsCounter--;
 			}
 		} else {
 			if( $(this).attr("class") !== "image" ) {	
-				noResultsCounter++;
-				$(this).parent().parent().show(1000, function(){				
+				$(this).parent().parent().delay(100).show(300, function(){				
 					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");
 				});		
 				$(this).attr("class", "image");	
+									
+					noResultsCounter++;
 			}
 		}
-	});	
-	console.log(noResultsCounter);
+		
+	});	 	 
+	setTimeout(function(){
+		showResults();
+	}, 500);
+	
+	function showResults(){
 	//No results		
 		if (noResultsCounter < 1 ) {	
-			noResults = "No Results for '" + searchValue + ".'";
-			print(noResults);
-			document.getElementById("response").style.display = "inline";			
+				if (searchValue !== "") {
+					noResults = "No Results for '" + searchValue + ".'";
+					print(noResults);
+					document.getElementById("response").style.display = "inline";
+						noResults = "";	
+				} else {
+					document.getElementById("response").style.display = "none";					
+				}
 		} else {	
 			noResults = "";	
 			document.getElementById("response").style.display = "none";	
 		}
-		
+	}
 });
 
 //Reset [SEARCH] input field without reloading browser.
