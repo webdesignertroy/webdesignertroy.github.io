@@ -442,8 +442,7 @@ $('#searchbox').keyup(function(){
 	var targetImg = $(".gallery").find("img");
 	var targetCol = $(".gallery").find(".col");
 	var searchThis;
-	var noResultsCounter = 0;
-	
+	var noResultsCounter = 0;	
 	
 	targetCol.each(function(){
 		noResultsCounter++;
@@ -453,8 +452,7 @@ $('#searchbox').keyup(function(){
 		searchThis = $(this).attr("alt").toLowerCase() + $(this).attr("title").toLowerCase();		
 		if (searchThis.indexOf(searchValue) === -1){
 			if( $(this).attr("class") !== "image_hide" ){
-				$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 
-				$(this).parent().parent().delay(100).hide(500);				
+				$(this).attr("class", "image_hide").parent().unwrap("<div class='col'></div>").wrap("<span class='col-hide'></span>"); 				$(this).parent().parent().delay(100).hide(500);
 				noResultsCounter--;
 			}
 		} else {
@@ -462,9 +460,8 @@ $('#searchbox').keyup(function(){
 				$(this).parent().parent().delay(100).show(500, function(){				
 					$(this).children().unwrap("<span class='col-hide'></span>").wrap("<div class='col'></div>");
 				});		
-				$(this).attr("class", "image");	
-									
-					noResultsCounter++;
+				$(this).attr("class", "image");
+				noResultsCounter++;
 			}
 		}
 		
@@ -472,9 +469,8 @@ $('#searchbox').keyup(function(){
 	setTimeout(function(){
 		showResults();
 	}, 620);
-	
+	//Local Function displays message when there's 'No Results'
 	function showResults(){
-	//No results		
 		if (noResultsCounter < 1 ) {	
 				if (searchValue !== "") {
 					noResults = "No Results for '" + searchValue + ".'";
