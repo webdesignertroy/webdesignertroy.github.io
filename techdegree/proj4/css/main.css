@@ -341,7 +341,12 @@ input:-ms-input-placeholder {
 /* ================================= 
   Animation
 ==================================== */
-.rubberBand {
+
+/* NOTE: @Tester - This animation was originally for Title.
+   But, it was giving off a CSS error that should be allowed.
+   I'm keeping this sectin for my notes */
+   
+/*.rubberBand {
 	-webkit-animation-name: rubberBand;
 	animation-name: rubberBand;
 	-webkit-animation-duration: 1s;
@@ -408,7 +413,7 @@ input:-ms-input-placeholder {
 	 -webkit-transform: scale3d(1, 1, 1);
 	 transform: scale3d(1, 1, 1);
 	}
-}
+}*/
 
 /* ================================= 
   Media Queries
@@ -449,7 +454,7 @@ input:-ms-input-placeholder {
 		left: 0;
 	}
 }
-/* Tester: Please note that the browswer scrollbar is around 12px */
+/* @Tester: Please note that the width of the browswer's native scrollbar is around 12px */
 @media (min-width: 992px){	
 	.col, .col-hide {
 	margin: 30px 60px 30px -1px;
