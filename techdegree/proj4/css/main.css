@@ -298,7 +298,7 @@ button[id=reset] {
 	position:absolute;
 	margin-top: 15px;
 	top: 1px;
-	right: 1.3em;
+	right: 0.5em;
 	width: 25px;
 	height: 40px;
 	background: url(../images/photos/reset15x15.png);
