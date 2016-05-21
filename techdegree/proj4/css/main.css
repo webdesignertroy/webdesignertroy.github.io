@@ -342,9 +342,9 @@ input:-ms-input-placeholder {
   Animation
 ==================================== */
 
-/* NOTE: @Tester - This animation was originally for Title.
-   But, it was giving off a CSS error that should be allowed.
-   I'm keeping this sectin for my notes */
+/* NOTE: @Tester - This animation was originally for <title>.
+   But, it was giving off a CSS validation error that should be allowed.
+   I'm keeping this section for my notes */
    
 /*.rubberBand {
 	-webkit-animation-name: rubberBand;
