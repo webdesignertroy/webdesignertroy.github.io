@@ -454,7 +454,7 @@ input:-ms-input-placeholder {
 		left: 0;
 	}
 }
-/* @Tester: Please note that the width of the browswer's native scrollbar is around 12px */
+/* @Tester: Please note that the width of the browser's native scrollbar is around 12px */
 @media (min-width: 992px){	
 	.col, .col-hide {
 	margin: 30px 60px 30px -1px;
