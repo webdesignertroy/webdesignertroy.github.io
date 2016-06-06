@@ -1,0 +1,103 @@
+/*************** 
+Base Elements 
+****************/
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	color: #666;;
+}
+ 
+h2 {
+	font-size: 0.9em;
+	margin-bottom: 1em;
+}
+p, h3 {
+	font-size: 0.8em;
+}
+
+/*************** 
+ Layout
+****************/
+.movie-image {
+	position: absolute;
+	top: 1em; 
+	left: 1em;
+	width: 200px;
+	border-radius: 5px;
+	background-image:url(http://webdesignertroy.com/dump/blank-200.jpg);
+}
+
+.movie-description {
+	text-align: left;
+	margin-left: 220px;
+}
+a.poster-link {
+	text-decoration: none;
+	background: #FF4A00;
+	font-weight: 300;
+	font-size: 0.8em;
+	text-align: center;
+	color: #fff;
+	padding: 0.5em;
+	border-radius: 7px;
+	transition: 0.5s all;
+	margin-top: 20px;
+	display: block;
+	max-width: 100px;
+}
+a.poster-link:hover {
+	background: #6A6AA6;
+}
+.section {
+	position: relative;
+	margin: 3em 10px 3em 0;
+	padding: 1em;
+	display: inline-block;
+	width: 400px;
+	height: 400px;
+	background: #FCFAFA;
+	overflow: hidden;
+	
+}
+
+/*************** 
+ Page Elements
+****************/
+.wrapper  {
+	width: 100%;
+}
+.container {
+	margin: 20px auto;
+	max-width: 980px;
+	text-align: center;
+}
+
+/*************** 
+Form Class/Elments 
+****************/
+
+.button {
+	background: #1A1A59;
+	color: #fff;
+	outline: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	margin: 0 8px;
+	border: none;
+	cursor: pointer;
+	
+}
+.button:hover {
+	background: #343477;
+}
+
+/*************** 
+Layout Fixes 
+****************/
+
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
