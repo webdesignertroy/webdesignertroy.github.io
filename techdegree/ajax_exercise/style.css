@@ -24,8 +24,9 @@ p, h3 {
 	top: 1em; 
 	left: 1em;
 	width: 200px;
+	min-height:225px;
 	border-radius: 5px;
-	background-image:url(http://webdesignertroy.com/dump/blank-200.jpg);
+	background-image:url(http://webdesignertroy.com/dump/blank-200c.jpg);
 }
 
 .movie-description {
@@ -86,6 +87,7 @@ Form Class/Elments
 	margin: 0 8px;
 	border: none;
 	cursor: pointer;
+	transition: 0.5s all;
 	
 }
 .button:hover {
