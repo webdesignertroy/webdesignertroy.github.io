@@ -2,7 +2,7 @@
 
 'use strict';
   
-// Function that handles API call and Print
+// Function that handles API call to omdb
 var callAPI = function(url){
 	 	
 	// instansiate httprequest object
@@ -16,19 +16,19 @@ var callAPI = function(url){
 			// check to see if status is okay
 			if ( httpRequest.status === 200 ) {
 				
-				// create a data object and call it movieOject
+				// declare and define movieObject to hold omdb object
 				var movieObject = JSON.parse(httpRequest.responseText);
 
-					//reference
+					//reference source
 					var source = $('#movie-spot').html(); 
 					
 					//complile the source markup
 					var template = Handlebars.compile(source)
 					
-
+          			//Create a for loop with the length equaling number of found titles
 					for (var i = 0 ; i < movieObject.Search.length; i++) {
 						
-						// define the data object
+						// declare and define movieData object
 						var movieData = {
 							image: movieObject.Search[i].Poster,
 							title: movieObject.Search[i].Title,
@@ -37,10 +37,10 @@ var callAPI = function(url){
 							type: movieObject.Search[i].Type
 						};
 						
-						// pass data object to template
+						// pass movieData object to template
 						var fullText = template(movieData);
 						
-						//append
+						//append container class. Loop until done.
 						$('.container').append(fullText);
 					}
 	
@@ -49,7 +49,7 @@ var callAPI = function(url){
 		}
 	};
 
-	// initializes request
+	// initialize request
 	httpRequest.open('GET', url);	
 				
 	//send request
@@ -58,12 +58,8 @@ var callAPI = function(url){
 	
 };
 
-// On Button Click invoke callAPI function and pass OMD url and query: search X-men
+// On button click, invoke callAPI function and pass omdb url and query: search X-men
 document.getElementById('getCustomDataButton').onclick = function(){
 	var movieQuery = "http://www.omdbapi.com/?s=X-men&apikey=7fe29f8b";
 	callAPI(movieQuery);
 };
- 	
-
-	
-
