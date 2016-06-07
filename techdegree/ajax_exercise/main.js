@@ -32,7 +32,7 @@ var callAPI = function(url, name){
 						
 						// declare and define movieData object
 						var movieData = {
-							image: movieObject.Search[i].Poster,
+							image: "http://img.omdbapi.com/?i=" + movieObject.Search[i].imdbID + "&apikey=7fe29f8b",
 							title: movieObject.Search[i].Title,
 							year: movieObject.Search[i].Year,
 							imdb: movieObject.Search[i].imdbID,
@@ -84,7 +84,7 @@ $('#getCustomDataButton').on('click', function(e){
 		// get input box value and invoke callAPI function
 		var movieName = $('#movie-name').val().trim();
 		$('#movie-name').val("");
-		var movieQuery = "http://www.omdbapi.com/?s=" + movieName + "&apikey=7fe29f8b";
+		var movieQuery = "http://www.omdbapi.com/?apikey=7fe29f8b&s=" + movieName;
 		callAPI(movieQuery, movieName);
 	}
 });
