@@ -3,7 +3,7 @@
 'use strict';
   
 // Function that handles API call to omdb
-var callAPI = function(url){
+var callAPI = function(url, name){
 	 	
 	// instansiate httprequest object
 	var httpRequest = new XMLHttpRequest();
@@ -19,6 +19,8 @@ var callAPI = function(url){
 				// declare and define movieObject to hold omdb object
 				var movieObject = JSON.parse(httpRequest.responseText);
 
+				//Check to see if search revealed results
+				if ( movieObject.Search !== undefined) {
 					//reference source
 					var source = $('#movie-spot').html(); 
 					
@@ -43,7 +45,12 @@ var callAPI = function(url){
 						//append container class. Loop until done.
 						$('.container').append(fullText);
 					}
-	
+				} else {
+					// If No results post notificaton
+					$('#nothing-found').html("<h2>'" + name + "' Returned Nothing</<h2>");
+
+					return;
+				}
 			}
 
 		}
@@ -59,7 +66,27 @@ var callAPI = function(url){
 };
 
 // On button click, invoke callAPI function and pass omdb url and query: search X-men
-document.getElementById('getCustomDataButton').onclick = function(){
-	var movieQuery = "http://www.omdbapi.com/?s=X-men&apikey=7fe29f8b";
-	callAPI(movieQuery);
-};
+$('#getCustomDataButton').on('click', function(e){
+
+	// prevent natutal form submit event
+	e.preventDefault();
+	// check to see if search box has value
+	if( $('#movie-name').val().trim() === "" || $('#movie-name').val().trim() === null ) {
+		// if search box is empty, do nothing
+		return;
+	} else {
+		//  clear old results
+		$('.section').remove();
+
+		// clear 'no results' notification
+		$('#nothing-found').html("");
+
+		// get input box value and invoke callAPI function
+		var movieName = $('#movie-name').val().trim();
+		$('#movie-name').val("");
+		var movieQuery = "http://www.omdbapi.com/?s=" + movieName + "&apikey=7fe29f8b";
+		callAPI(movieQuery, movieName);
+	}
+});
+
+

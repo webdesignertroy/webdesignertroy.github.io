@@ -94,6 +94,17 @@ Form Class/Elments
 	background: #343477;
 }
 
+input[type=text] {
+	border-radius: 5px;
+	border: solid 2px #1A1A59;
+	padding: 6px 10px;
+	outline: none;
+	transition: 0.7s all;
+}
+input[type=text]:focus {
+	border: solid 2px #F20004;
+}
+
 /*************** 
 Layout Fixes 
 ****************/
@@ -102,4 +113,12 @@ Layout Fixes
 	content: " ";
 	display: table;
 	clear: both;
+}
+.fixed {
+    position: fixed;
+    font-size: 2em;
+    top: 45vh;
+    display: block;
+    width: 100%;
+    left: 0;
 }

@@ -9,9 +9,13 @@
 <body>
 <div class="wrapper">
 	<div class="container">
-    	<!-- <input type="button" name="button" class="button" id="getDataButton" value="Get Consumer Finance Data" disabled="disabled">-->
-    	<input type="button" name="button" class="button" id="getCustomDataButton" value="Get Movie Data">
-    	<div class="clearfix"></div>
+		<form>
+	    	<!-- <input type="button" name="button" class="button" id="getDataButton" value="Get Consumer Finance Data" disabled="disabled">-->
+	    	<input type="text" name="movie-name" class="textbox" id="movie-name" placeholder="search...">
+	    	<input type="submit" name="button" class="button" id="getCustomDataButton" value="Get Movie Data">
+	    </form>
+	    <div class="clearfix"></div>
+    	<div id="nothing-found" class="fixed"></div>
    	</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
@@ -28,6 +32,7 @@
 					<img class="movie-image" src="{{image}}" alt="{{title}}">
 				</div>	
 			</div>
+
 		</div>
 		</script>
 <script src="main.js" ></script>
