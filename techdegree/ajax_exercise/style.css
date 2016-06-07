@@ -5,7 +5,8 @@ Base Elements
 * {
 	box-sizing: border-box;
 	margin: 0;
-	color: #666;;
+	color: #666;
+	font-family: 'Questrial', san-serif;
 }
  
 h2 {
@@ -31,7 +32,7 @@ p, h3 {
 
 .movie-description {
 	text-align: left;
-	margin-left: 220px;ß
+	margin-left: 220px;
 }
 a.poster-link {
 	text-decoration: none;
