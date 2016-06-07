@@ -11,14 +11,26 @@
 	<div class="container">
     	<!-- <input type="button" name="button" class="button" id="getDataButton" value="Get Consumer Finance Data" disabled="disabled">-->
     	<input type="button" name="button" class="button" id="getCustomDataButton" value="Get Movie Data">
-        <div id="data"> 
-
-        </div>
+    	<div class="clearfix"></div>
    	</div>
 </div>
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script id="movie-spot" type="text/x-handlebars-template">
+		<div class="section">
+			<div class="movie-description">
+				<div id="movie-info">
+					<h2>{{title}}</h2>
+					<h3>{{year}} ({{type}})</h3>
+					<h3>IMDB ID: {{imdb}}</h3>
+					<a class="poster-link" href="http://www.imdb.com/title/{{imdb}}/" target="_blank">IMDB Page</a>
+					<img class="movie-image" src="{{image}}" alt="{{title}}">
+				</div>	
+			</div>
+		</div>
+		</script>
+<script src="main.js" ></script>
 
 </body>
 </html>
