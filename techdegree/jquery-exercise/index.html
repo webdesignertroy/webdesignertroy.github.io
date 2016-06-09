@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" >
+	<title>16-Day Weather Forecast</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="container">
+		<form>
+	    	<input type="text" name="city-name" class="textbox" id="city-name" placeholder="Type city (i.e., 'London')">
+	    	<input type="submit" name="button" class="button" id="getWeather" value="Get 7-Day Weather Forecast">
+	    </form>
+	    <h2 id="results" class="results"></h2>
+        <div class="clearfix"></div>
+    </div>
+ </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script id="weather-spot" type="text/x-handlebars-template">
+	<div class="section">
+		<h2 class="date">{{now}}</h2>
+		<div class="weather-description">
+			<div id="weather-info">
+				<h2>Average: {{average}}&deg;</h2>
+				<h3>High: {{high}}&deg;</h3>
+				<h3>Low: {{low}}&deg;</h3>
+                <h3>Morning: {{morning}}&deg;</h3>
+                <h3>Night: {{nighttime}}&deg;</h3>
+				<img class="cloud-image" src="http://webdesignertroy.com/dump/clouds/cloud-{{cloudInfo}}.jpg" alt="Cloud Conditions">
+			</div>	
+		</div>
+    </div>
+</script>
+<script src="main.js" ></script>
+
+</body>
+</html>
