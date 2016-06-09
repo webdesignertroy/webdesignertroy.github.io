@@ -10,6 +10,7 @@ var getFutureDate = function (day) {
 	var dd = someDate.getDate();
 	var mm = someDate.getMonth();
 	var y = someDate.getFullYear();
+	var d = someDate.getDay();
 
 	// convert month number to month name
 	var month = new Array();
@@ -26,9 +27,19 @@ var getFutureDate = function (day) {
 	month[10] = 'November';
 	month[11] = 'December';
 
-	var futureMonth = month[mm];
+	var day = new Array();
+	day[1] = 'Monday';
+	day[2] = 'Tuesday';
+	day[3] = 'Wednesday';
+	day[4] = 'Thursday'; 
+	day[5] = 'Friday';
+	day[6] = 'Saturday';
+	day[0] = 'Sunday';
 
-	var someFormattedDate = futureMonth + ' '+ dd + ', '+ y;
+	var futureMonth = month[mm];
+	var futureDay = day[d];
+
+	var someFormattedDate = futureDay + ", " + futureMonth + ' '+ dd + ', '+ y;
 
 	return someFormattedDate;
 }
