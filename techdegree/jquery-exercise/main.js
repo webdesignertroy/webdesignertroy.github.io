@@ -27,6 +27,7 @@ var getFutureDate = function (day) {
 	month[10] = 'November';
 	month[11] = 'December';
 
+	// convert day number into day name
 	var day = new Array();
 	day[1] = 'Monday';
 	day[2] = 'Tuesday';
@@ -45,31 +46,59 @@ var getFutureDate = function (day) {
 }
 // Function evaluates "clouds" conditions between 1 and 100 and returns image index
 var getClouds = function(clouds) {
-	var condition ;
+	
 	switch(true) {
 		case 100 < clouds && clouds < 90:
-			// return Cloudy
-			return condition = 6;
+			// return Cloudy Object
+			var condition = {
+				cloudNumber: 6,
+				cloudText: 'Cloudy'
+			};
+			return condition;
 		break;
 		case 89 < clouds && clouds < 60:
 			// return Mostly Cloudy
-			return condition = 5;
+			var condition = {
+				cloudNumber: 5,
+				cloudText: 'Mostly Cloudy'
+			};
+			return condition;
+
 		break;
 		case 59 < clouds && clouds < 30:
 			// return Partly Cloudy
-			return condition = 4;
+			var condition = {
+				cloudNumber: 4,
+				cloudText:'Partly Cloudy'
+			};
+			return condition;
+
 		break;
 		case 29 < clouds && clouds > 20:
 			// return Mostly Sunny
-			return condition = 3;
+			var condition =  {
+				cloudNumber: 3,
+				cloudText: 'Mostly Sunny'
+			};
+			return condition;
+
 		break;
 		case 19 > clouds && clouds > 10:
 			// return Sunny to Mostly Sunny
-			return condition = 2;
+			var condition = {
+				cloudNumber: 2,
+				cloudText: 'Sunny to Mostly Sunny'
+			};
+			return condition;
+
 		break;
 		default:
 			// return Sunny
-			return condition = 1;
+			var condition = {
+				cloudNumber: 1,
+				cloudText: 'Sunny'
+			};
+			return condition;
 	}
 }
 
@@ -87,6 +116,7 @@ var getWeather = function(theForecast) {
 		// get future dates
 		var futureDate = getFutureDate(i);
 		var cloudsCondition = getClouds(theForecast.list[i].clouds);
+		//console.log(cloudsCondition.cloudNumber);
 		// build weather data object for Handlebars
 		var weatherData = {
 			now: futureDate,
@@ -95,8 +125,10 @@ var getWeather = function(theForecast) {
 			low: Math.round(theForecast.list[i].temp.min),
 			morning: Math.round(theForecast.list[i].temp.morn),
 			nighttime: Math.round(theForecast.list[i].temp.night),
-			cloudInfo: cloudsCondition
+			cloudInfo: cloudsCondition.cloudNumber,
+			cloudInfoText: cloudsCondition.cloudText
 		}
+		console.log(weatherData.cloudInfoText)
 		// PASS weather data object to template via the variable "fullText"
 		var fullText = template(weatherData);
 
@@ -105,7 +137,7 @@ var getWeather = function(theForecast) {
 	}
 };
 
-// Function: Self-invoking.  Call api.openweathermap.com
+// Function: Call api.openweathermap.com
 var APICall = function(theCity) {
 	// get API url
 	var weatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + theCity;
