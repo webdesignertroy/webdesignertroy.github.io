@@ -174,9 +174,6 @@ $('#getWeather').on('click', function(e){
 		//  clear old results
 		$('.section').remove();
 
-		// clear 'no results' notification
-		$('#nothing-found').html("");
-
 		// get input box value and invoke APICall function
 		var cityName = $('#city-name').val().trim();
 		$('#city-name').val("");
