@@ -116,7 +116,7 @@ var getWeather = function(theForecast) {
 		// get future dates
 		var futureDate = getFutureDate(i);
 		var cloudsCondition = getClouds(theForecast.list[i].clouds);
-		//console.log(cloudsCondition.cloudNumber);
+		
 		// build weather data object for Handlebars
 		var weatherData = {
 			now: futureDate,
@@ -128,7 +128,7 @@ var getWeather = function(theForecast) {
 			cloudInfo: cloudsCondition.cloudNumber,
 			cloudInfoText: cloudsCondition.cloudText
 		}
-		console.log(weatherData.cloudInfoText)
+		
 		// PASS weather data object to template via the variable "fullText"
 		var fullText = template(weatherData);
 
