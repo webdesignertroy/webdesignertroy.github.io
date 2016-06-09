@@ -89,6 +89,7 @@ input[type=text] {
 	border: solid 2px #AA6339;
 	min-width: 220px;
 	padding: 8px 10px;
+	margin-bottom: 1em;
 	outline: none;
 	transition: 0.7s all;
 }
