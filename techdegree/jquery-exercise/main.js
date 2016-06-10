@@ -164,7 +164,7 @@ var APICall = function(theCity) {
 // On button click, invoke APICall() and pass input text box value
 $('#getWeather').on('click', function(e){
 
-	// prevent natutal form submit event
+	// prevent natural form submit event
 	e.preventDefault();
 	// check to see if search box has value
 	if( $('#city-name').val().trim() === "" || $('#city-name').val().trim() === null ) {
