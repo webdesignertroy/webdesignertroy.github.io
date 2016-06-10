@@ -46,59 +46,47 @@ var getFutureDate = function (day) {
 }
 // Function evaluates "clouds" conditions between 1 and 100 and returns image index
 var getClouds = function(clouds) {
-	
-	switch(true) {
-		case 100 < clouds && clouds < 90:
-			// return Cloudy Object
-			var condition = {
-				cloudNumber: 6,
-				cloudText: 'Cloudy'
-			};
-			return condition;
-		break;
-		case 89 < clouds && clouds < 60:
-			// return Mostly Cloudy
-			var condition = {
-				cloudNumber: 5,
-				cloudText: 'Mostly Cloudy'
-			};
-			return condition;
-
-		break;
-		case 59 < clouds && clouds < 30:
-			// return Partly Cloudy
-			var condition = {
-				cloudNumber: 4,
-				cloudText:'Partly Cloudy'
-			};
-			return condition;
-
-		break;
-		case 29 < clouds && clouds > 20:
-			// return Mostly Sunny
-			var condition =  {
-				cloudNumber: 3,
-				cloudText: 'Mostly Sunny'
-			};
-			return condition;
-
-		break;
-		case 19 > clouds && clouds > 10:
-			// return Sunny to Mostly Sunny
-			var condition = {
-				cloudNumber: 2,
-				cloudText: 'Sunny to Mostly Sunny'
-			};
-			return condition;
-
-		break;
-		default:
-			// return Sunny
-			var condition = {
-				cloudNumber: 1,
-				cloudText: 'Sunny'
-			};
-			return condition;
+	if ( 100 < clouds && clouds < 90 ) {
+		// return Cloudy Object
+		var condition = {
+			cloudNumber: 6,
+			cloudText: 'Cloudy'
+		};
+		return condition;
+	} else if ( 89 < clouds && clouds < 60 ) {
+		// return Mostly Cloudy
+		var condition = {
+			cloudNumber: 5,
+			cloudText: 'Mostly Cloudy'
+		};
+		return condition;
+	} else if ( 59 < clouds && clouds < 30 ) {
+		// return Partly Cloudy
+		var condition = {
+			cloudNumber: 4,
+			cloudText:'Partly Cloudy'
+		};
+	} else if (29 < clouds && clouds > 20) {
+		// return Mostly Sunny
+		var condition =  {
+			cloudNumber: 3,
+			cloudText: 'Mostly Sunny'
+		};
+		return condition;
+	} else if ( 19 > clouds && clouds > 10 ) {
+		// return Sunny to Mostly Sunny
+		var condition = {
+			cloudNumber: 2,
+			cloudText: 'Sunny to Mostly Sunny'
+		};
+		return condition;
+	} else {
+		// return Sunny
+		var condition = {
+			cloudNumber: 1,
+			cloudText: 'Sunny'
+		};
+		return condition;
 	}
 }
 
