@@ -1,6 +1,7 @@
 /************************
 Variables
 *************************/
+
 var $navBar = $("#main-nav");
 var $menuReveal = $("#menu-reveal");
 var $menuLi = $("#main-nav li");
@@ -12,16 +13,18 @@ var menuLength = 0;
 /************************
 Function Expressions
 *************************/
+
+// Function: hide menu items
 var hideMenu = function() {
 	$navBar.slideUp(600, "swing");
 };
 
-// Function: shows menu itesms
+// Function: show menu items
 var showMenu = function() {
 	$navBar.slideDown(600, "swing");
 };
 
-// Function: scrolls to and id on page
+// Function: scrolls to 'targeted id' on page
 var $scroll = function($hash, menuCount) {
 	$('html, body').animate({
 		scrollTop: $( $hash ).offset().top - 50 * menuCount
@@ -32,7 +35,7 @@ var $scroll = function($hash, menuCount) {
 On 'Click' Action
 *************************/
 
-// On menu click, reveal or hide
+// On menu click, reveal or hide mobile navigation
 $menuReveal.on("click", function(){
 
 	// toggles MenuReveal button
@@ -43,15 +46,15 @@ $menuReveal.on("click", function(){
 	}
 });
 
-// On Main Menu <li> click, hide menu and scroll to id
+// On Main Menu <li> click, hide menu and scroll to 'targeted id'
 $menuLi.on("click", function(e){
 	// prevent normal action
 	e.preventDefault();
 
-	// references id I'm looking for
+	// defines the href of the 'targeted id' I'm looking for
 	var $link = $(this).find("a").attr('href');
 
-	// counts menu items
+	// counts menu items to determine menu height
 	mq.addListener(function(changed) {
 		if(changed.matches) {
 			menuLength = $menuLi.length;
@@ -61,25 +64,25 @@ $menuLi.on("click", function(e){
 		}
 	});
 
-	// invokes hideMenu function
+	// invokes hideMenu()
 	if (mq.matches) {
 		hideMenu();
 	}
 
-	// invoke $makeCalls
+	// invokes $scoll()
 	$scroll($link, menuLength);
 
 });
 
-// On Sub Menu <li> click, scroll to id
+// On Sub Menu <li> click, scroll to 'targeted id'
 $backTop.on("click", function(e){
 	// prevent normal action
 	e.preventDefault();
 
-	// references id I'm looking for
+	// defines the href of the 'targeted id' I'm looking for
 	var $link = $navBar.first().find("a").attr('href');
 
-	// counts menu items
+	// counts menu items to determine menu height
 	mq.addListener(function(changed) {
 		if(changed.matches) {
 			menuLength = $menuLi.length;
@@ -89,19 +92,19 @@ $backTop.on("click", function(e){
 		}
 	});
 
-	// invoke $makeCalls
+	// invokes $scroll()
 	$scroll($link, menuLength);
 
 });
-// On Back-to-top link click, scroll to id
+// On Back-to-top link click, scroll to 'top id'
 $subMenuLi.on("click", function(e){
 	// prevent normal action
 	e.preventDefault();
 
-	// references id I'm looking for
+	// defines the href of the 'top id'
 	var $link = $(this).find("a").attr('href');
 
-	// counts menu items
+	// counts menu items to determine menu height
 	mq.addListener(function(changed) {
 		if(changed.matches) {
 			menuLength = $menuLi.length;
@@ -110,14 +113,14 @@ $subMenuLi.on("click", function(e){
 			menuLength = 0;
 		}
 	});
-	// invoke $makeCalls
+	// invokes $scroll()
 	$scroll($link, menuLength);
 
 });
 /************************
 Media Queries
 *************************/
-// if javascript works, show menu animation on smart phones
+// if javascript works, reveal menu for mobile phones
 
 if (mq.matches) {
 	$menuReveal.show();
@@ -128,8 +131,8 @@ if (mq.matches) {
 	menuLength = 0;
 }
 
-// if javascript is on and the media changes, 
-//    hide or show menu animation accordingly
+// if javascript is on and the media window changes, 
+//    hide or show appropriate menu
 mq.addListener(function(changed) {
 	if(changed.matches) {
 		$menuReveal.show();
