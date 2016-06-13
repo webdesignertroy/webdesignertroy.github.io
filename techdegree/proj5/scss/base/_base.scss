@@ -8,7 +8,7 @@ body {
 	background: $white;
 }
 p {
-	font-size: 1.2em;
+	font-size: #{$mobile-size}em;
 	line-height: 1.85em;
 }
 a {
@@ -54,6 +54,6 @@ footer {
 }
 @media (min-width: 769px) {
 	body {
-		font-size: .93em;
+		font-size: #{$display-size}em;
 	}
 }

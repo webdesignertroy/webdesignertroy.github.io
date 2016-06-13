@@ -1,7 +1,10 @@
 /* ---- Basic Colors---- */
 /* ---- Functional Colors---- */
+/* ---- Font Stack---- */
+/* ---- Font Sizes ---- */
 /* ---- Box Shadows---- */
 /* ---- Interpolation---- */
+/* ---- Media Query Break Points---- */
 h1, h2, h3, h4, h5, h6, .container, .name, .main-nav, .skillset {
   text-align: center; }
 
@@ -66,7 +69,7 @@ footer {
 
 @media (min-width: 769px) {
   body {
-    font-size: .93em; } }
+    font-size: 0.93em; } }
 /* ---- Page  Ids and Classes ---- */
 .col {
   padding: 0 0 4em 0; }
@@ -88,7 +91,7 @@ footer {
   clear: both; }
 
 /* ---- Media Queries---- */
-@media (min-width: 769px) and (max-width: 1049px) {
+@media (min-width: 769px) and (max-width: 1050px) {
   .col {
     width: 50%;
     vertical-align: top;
@@ -337,7 +340,7 @@ footer p, .wide {
   width: 31px; }
 
 body {
-  font-family: 'Oxygen', sans-serif;
+  font-family: "Oxygen", sans-serif, Arial;
   line-height: 1.6;
   color: #2a2a2a; }
 

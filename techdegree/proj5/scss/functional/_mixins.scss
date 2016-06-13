@@ -7,7 +7,7 @@
 }
 
 @mixin footer($pad) {
-	@media (min-width: 769px) {
+	@media #{$brk-narrow}  {
 		.footer-name {
 			padding: 0 0 0 $pad;
 			margin: 0;
@@ -38,7 +38,7 @@
 }
 
 @mixin columns($pad) {
-	@media  (min-width: 769px) and (max-width: 1049px) {
+	@media  #{$brk-narrow} and #{$brk-middle} {
 		.col{
 			width: 50%;
 			vertical-align: top;
@@ -52,7 +52,7 @@
 			display: inline-block;
 		}
 	}
-	@media (min-width: 1050px) {
+	@media #{$brk-wide} {
 		.col {
 			width: 33.3%;
 			vertical-align: top;
@@ -69,7 +69,7 @@
 }
 
 @mixin header {
-	@media (min-width: 769px) {
+	@media #{$brk-narrow} {
 		.name, #main-nav {
 			display: block;
 		}

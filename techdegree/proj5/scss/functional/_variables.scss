@@ -24,6 +24,14 @@ $img-shad                   : rgba($black, 0.1);
 $exp-shad                   : rgba($dusty-grey, 0.1);
 $skill-shad                 : rgba($black, 0.5);
 
+/* ---- Font Stack---- */
+$stack-sans-serif           : sans-serif, Arial;
+$stack-oxygen               : 'Oxygen', $stack-sans-serif;
+
+/* ---- Font Sizes ---- */
+$mobile-size                : 1.2;
+$display-size               : 0.93;
+
 /* ---- Box Shadows---- */
 $inset-top                  : 15px 15px 35px;
 $inset-bottom               : -15px -15px 35px;
@@ -39,3 +47,9 @@ $skill-inset-bottom         : unquote($sinset-bottom + " " +  $skill-shad); // P
 /* ---- Interpolation---- */
 
 $path-img                   : '../img';
+
+/* ---- Media Query Break Points---- */
+
+$brk-narrow    				: '(min-width: 769px)';
+$brk-wide     				: '(min-width: 1050px)';
+$brk-middle                 : '(max-width: 1050px)';
