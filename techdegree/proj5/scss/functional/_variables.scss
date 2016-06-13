@@ -17,12 +17,17 @@ $coral                      : coral; // 3rd background exp icons
 $golden-tainoi              : #FDCD5B; // profile img border
 $viking                     : #6EADDF; // .main-nav li background 
 $link-water                 : #E8F2FA; // .main-nave a:hover
+$plum                       : #74276D;
 
 /* ---- Functional Colors---- */
 
 $img-shad                   : rgba($black, 0.1);
 $exp-shad                   : rgba($dusty-grey, 0.1);
-$skill-shad                 : rgba($black, 0.5);
+$skill-shad                 : rgba($viking, 0.5);
+$emarald-transparent        : rgba($emerald, 0.70);
+$coral-transparent          : rgba($coral, 0.70);
+$plum-transparent           : rgba($plum, 0.70);
+$lite-opacity               : rgba($dusty-grey, 0.2);
 
 /* ---- Font Stack---- */
 $stack-sans-serif           : sans-serif, Arial;
@@ -32,17 +37,20 @@ $stack-oxygen               : 'Oxygen', $stack-sans-serif;
 $mobile-size                : 1.2;
 $display-size               : 0.93;
 
+/* ---- Text Shadows---- */
+$lite-text-shadow           : 1px 1px $lite-opacity;
+
 /* ---- Box Shadows---- */
 $inset-top                  : 15px 15px 35px;
 $inset-bottom               : -15px -15px 35px;
-$sinset-top                 : 2px 2px 4px;
-$sinset-bottom              : -2px -2px 4px;
+$skill-inset-top            : 2px 2px 10px;
+$skill-inset-bottom         : -2px -2px 10px;
 $img-inset-top              : unquote($inset-top + " " + $img-shad); // Profile image box Shadow top
 $img-inset-bottom           : unquote($inset-bottom + " " +  $img-shad); // Profile image box Shadow bottom
 $exp-inset-top              : unquote($inset-top + " " +  $exp-shad); // Profile image box Shadow top
 $exp-inset-bottom           : unquote($inset-bottom + " " +  $exp-shad); // Profile image box Shadow bottom
-$skill-inset-top            : unquote($sinset-top + " " +  $skill-shad); // Profile image box Shadow top
-$skill-inset-bottom         : unquote($sinset-bottom + " " +  $skill-shad); // Profile image box Shadow bottom
+$skill-inset-top            : unquote($skill-inset-top + " " +  $skill-shad); // Profile image box Shadow top
+$skill-inset-bottom         : unquote($skill-inset-bottom + " " +  $skill-shad); // Profile image box Shadow bottom
 
 /* ---- Interpolation---- */
 

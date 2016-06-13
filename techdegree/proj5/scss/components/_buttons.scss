@@ -11,6 +11,8 @@
 #menu-reveal span:after{
 	content: "";
 	background: url("#{$path-img}/hamburger-31x25.png");
+	-webkit-opactiy: 0.5;
+	-moz-opacity: 0.5;
 	opacity: 0.5;
 	position: absolute;
 	top: 12px;

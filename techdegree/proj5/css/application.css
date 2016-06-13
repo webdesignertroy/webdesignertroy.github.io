@@ -2,6 +2,7 @@
 /* ---- Functional Colors---- */
 /* ---- Font Stack---- */
 /* ---- Font Sizes ---- */
+/* ---- Text Shadows---- */
 /* ---- Box Shadows---- */
 /* ---- Interpolation---- */
 /* ---- Media Query Break Points---- */
@@ -303,23 +304,25 @@ footer p, .wide {
     font-weight: 300; }
   .skillset li {
     padding: .5em 1em;
-    margin: .2em .2em;
-    border-radius: 20px 2px;
+    margin: .2em;
+    border-radius: 5px;
     font-weight: 400;
     letter-spacing: .02em;
-    color: black;
+    color: #ffffff;
+    text-shadow: 1px 1px rgba(9, 9, 9, 0.2);
     transition: all .8s ease;
     cursor: crosshair;
-    background: #FBB101;
+    text-transform: uppercase;
+    background: rgba(78, 26, 73, 0.7);
     /* Yellow Font */ }
     .skillset li:nth-child(2n-2) {
-      background: #42C966;
+      background: rgba(66, 201, 102, 0.7);
       /* Green Font */ }
     .skillset li:nth-child(3n-3) {
-      background: coral;
+      background: rgba(255, 127, 80, 0.7);
       /* Red Font */ }
     .skillset li:hover {
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5); }
+      box-shadow: 2px 2px 10px rgba(110, 173, 223, 0.5), -2px -2px 10px rgba(110, 173, 223, 0.5); }
 
 #menu-reveal {
   height: 50px;
@@ -331,6 +334,8 @@ footer p, .wide {
 #menu-reveal span:after {
   content: "";
   background: url("../img/hamburger-31x25.png");
+  -webkit-opactiy: 0.5;
+  -moz-opacity: 0.5;
   opacity: 0.5;
   position: absolute;
   top: 12px;
