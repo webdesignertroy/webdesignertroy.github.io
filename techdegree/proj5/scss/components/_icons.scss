@@ -1,0 +1,31 @@
+// Icons
+
+.skillset {
+	@extend %display-block;
+	@extend %text-center;
+	padding: 2em 1em;
+	p {
+		font-weight: 300;
+	}
+	li {
+		@extend %display-inline;
+		padding: .5em 1em;
+		margin: .2em .2em;
+		border-radius: 20px 2px;
+		font-weight: 400;
+		letter-spacing: .02em;
+		color: $black;
+		transition: all .8s ease;
+		cursor: crosshair;
+		background: $yellow-sea; /* Yellow Font */
+		&:nth-child(2n-2) {
+			background: $emerald; /* Green Font */
+		}
+		&:nth-child(3n-3){
+			background: $coral; /* Red Font */
+		}
+		&:hover {
+			box-shadow: $skill-inset-top, $skill-inset-bottom;
+		}
+	}
+}

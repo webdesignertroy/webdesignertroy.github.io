@@ -1,0 +1,61 @@
+
+// Base Elements
+
+* {
+	box-sizing: border-box;
+}
+body {
+	background: $white;
+}
+p {
+	font-size: 1.2em;
+	line-height: 1.85em;
+}
+a {
+	&:hover {
+		color: $mariner ;
+	}
+	color: $havelock-blue;
+	text-decoration: none;
+	transition: all .5s;
+}
+h1, h2, h3, h4, h5, h6 {
+	@include pad0;
+	@extend %text-center;
+	text-transform: uppercase;
+}
+h3 {
+	&:before {
+		content: "- ";
+	}
+	&:after {
+		content: " -";
+	}
+	@extend %text-center;
+}
+img {
+	width: 100%;
+	@extend %radius;
+	@include pad0;
+}
+figure {
+	float: right;
+	width: 40%;
+	margin: 0;
+	margin-top: 1em;
+}
+footer {
+	p{
+		max-width: 550px;
+		margin: 0 auto;
+	}
+	background: $alabaster;
+	padding: 1em 1em 120px 1em;
+	border-top: 1px solid $silver ;
+	width: 100%;
+}
+@media (min-width: 769px) {
+	body {
+		font-size: .93em;
+	}
+}

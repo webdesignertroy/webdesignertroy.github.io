@@ -1,0 +1,40 @@
+// Header
+
+/* ---- Page  Ids and Classes ---- */
+.main-header {
+	background: $alabaster;
+	padding: 1em 0;
+	box-shadow: 0 1px 10px rgba(0,0,0, 0.2);
+	width: 100%;
+}
+.name, .main-nav {
+	@extend %text-center;
+	font-weight: 700;
+}
+.name {
+	padding-bottom: 1.7em;
+	text-transform: uppercase;
+}
+.main-nav li {
+	text-transform: uppercase;
+	margin: 5px 1em;
+	background: $white;
+	&:hover {
+		background: $viking;
+	}
+}
+.main-nav a {
+	padding: 12px 15px;
+	display: inline-block;
+	color: $mine-shaft;
+	text-decoration: none;
+	width: 100%;
+	&:hover {
+		color: $link-water;
+	}
+}
+.main-nav a, .main-nav li {
+	transition: all .5s;
+}
+/* ---- Media Queries ---- */
+@include header;

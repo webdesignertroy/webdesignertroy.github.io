@@ -1,0 +1,19 @@
+
+// Shared across sectionals
+
+footer p, .wide {
+	padding-top: 0.5em;
+}
+.banner, footer, .main {
+	text-align: center;
+	margin: 0 auto;
+}
+.banner, .main {
+	padding: 1em;
+}
+.skills h2, footer h2, .container h2 {
+	padding-top: 1.5em;
+}
+@media (min-width: 769px) {
+	@include shared;
+}

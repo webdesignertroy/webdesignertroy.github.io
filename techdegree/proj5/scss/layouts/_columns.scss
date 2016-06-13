@@ -1,0 +1,30 @@
+// Columns
+
+/* ---- Page  Ids and Classes ---- */
+.col {
+	padding: 0 0 4em 0;
+}
+.col-2 {
+	width: 50%;
+	vertical-align: top;
+	padding-left: 4px;
+	padding-right: 4px;
+	&:nth-child(2n+2) {
+		margin-left: -5px;
+	}
+}
+.primary-2, .secondary-2 {
+	@extend %display-inline;
+}
+.portfolio-padding {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.clearfix:after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+/* ---- Media Queries---- */
+@include columns(4px);

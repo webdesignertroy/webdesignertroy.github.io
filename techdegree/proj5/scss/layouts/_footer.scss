@@ -1,0 +1,32 @@
+// Footer
+
+/* ---- Page  Ids and Classes ---- */
+.footer-end {
+	border-top: 1px solid $silver;
+	width: 100%;
+	text-transform: uppercase;
+	font-size: .85em;
+	font-weight: 700;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: $alabaster;
+	padding: 0 1.3em;
+	margin: 0;
+	z-index: 1000;
+}
+
+.wide {
+	display: none;
+}
+.back-to-top {
+	@extend %display-inline;
+}
+.footer-name {
+	float: left;
+}
+.back-to-top, .wide {
+	float: right;
+}
+/* ---- Media Queries---- */
+@include footer(0.8em);

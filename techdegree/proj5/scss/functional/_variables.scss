@@ -1,0 +1,37 @@
+// Variables
+
+/* ---- Basic Colors---- */
+
+$white                      : #ffffff; // body background
+$black						: rgb(0,0,0); // global rgba black
+$dusty-grey				    : rgb(9,9,9); // global rgba black
+$mariner                    : #2878B8; // a
+$havelock-blue              : #60A5DC; // a:hover
+$goldenrod                  : #fed36d; // Profile image background
+$alabaster                  : #fafafa; // footer background
+$silver                     : #CACACA; // footer border-top
+$mine-shaft                 : #2a2a2a; // global font color
+$yellow-sea                 : #FBB101; // initial background exp icons
+$emerald                    : #42C966; // 2nd background exp icons
+$coral                      : coral; // 3rd background exp icons
+$golden-tainoi              : #FDCD5B; // profile img border
+$viking                     : #6EADDF; // .main-nav li background 
+$link-water                 : #E8F2FA; // .main-nave a:hover
+
+/* ---- Functional Colors---- */
+
+$img-shad                   : rgba($black, 0.1);
+$exp-shad                   : rgba($dusty-grey, 0.1);
+$skill-shad                 : rgba($black, 0.5);
+
+/* ---- Box Shadows---- */
+$inset-top                  : 15px 15px 35px;
+$inset-bottom               : -15px -15px 35px;
+$sinset-top                 : 2px 2px 4px;
+$sinset-bottom              : -2px -2px 4px;
+$img-inset-top              : unquote($inset-top + " " + $img-shad); // Profile image box Shadow top
+$img-inset-bottom           : unquote($inset-bottom + " " +  $img-shad); // Profile image box Shadow bottom
+$exp-inset-top              : unquote($inset-top + " " +  $exp-shad); // Profile image box Shadow top
+$exp-inset-bottom           : unquote($inset-bottom + " " +  $exp-shad); // Profile image box Shadow bottom
+$skill-inset-top            : unquote($sinset-top + " " +  $skill-shad); // Profile image box Shadow top
+$skill-inset-bottom         : unquote($sinset-bottom + " " +  $skill-shad); // Profile image box Shadow bottom

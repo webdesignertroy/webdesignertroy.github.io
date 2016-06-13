@@ -1,0 +1,316 @@
+/* ---- Basic Colors---- */
+/* ---- Functional Colors---- */
+/* ---- Box Shadows---- */
+h1, h2, h3, h4, h5, h6, .container, .name, .main-nav, .skillset {
+  text-align: center; }
+
+.skillset {
+  display: block; }
+
+.primary-2, .secondary-2, .back-to-top, .skillset li {
+  display: inline-block; }
+
+img, .image-shadow {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background: #ffffff; }
+
+p {
+  font-size: 1.2em;
+  line-height: 1.85em; }
+
+a {
+  color: #60A5DC;
+  text-decoration: none;
+  transition: all .5s; }
+  a:hover {
+    color: #2878B8; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase; }
+
+h3:before {
+  content: "- "; }
+h3:after {
+  content: " -"; }
+
+img {
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+figure {
+  float: right;
+  width: 40%;
+  margin: 0;
+  margin-top: 1em; }
+
+footer {
+  background: #fafafa;
+  padding: 1em 1em 120px 1em;
+  border-top: 1px solid #CACACA;
+  width: 100%; }
+  footer p {
+    max-width: 550px;
+    margin: 0 auto; }
+
+@media (min-width: 769px) {
+  body {
+    font-size: .93em; } }
+/* ---- Page  Ids and Classes ---- */
+.col {
+  padding: 0 0 4em 0; }
+
+.col-2 {
+  width: 50%;
+  vertical-align: top;
+  padding-left: 4px;
+  padding-right: 4px; }
+  .col-2:nth-child(2n+2) {
+    margin-left: -5px; }
+
+.portfolio-padding {
+  padding-left: 1em;
+  padding-right: 1em; }
+
+.clearfix:after {
+  content: " ";
+  display: table;
+  clear: both; }
+
+/* ---- Media Queries---- */
+@media (min-width: 769px) and (max-width: 1049px) {
+  .col {
+    width: 50%;
+    vertical-align: top;
+    padding-left: 4px;
+    padding-right: 4px; }
+    .col:nth-child(2n+2) {
+      margin-left: -5px; }
+
+  .primary, .secondary {
+    display: inline-block; } }
+@media (min-width: 1050px) {
+  .col {
+    width: 33.3%;
+    vertical-align: top;
+    padding-left: 4px;
+    padding-right: 4px; }
+    .col:nth-child(3n+3) {
+      margin-left: -8px; }
+
+  .primary, .secondary {
+    display: inline-block; } }
+/* ---- Layout Containers ---- */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1em 0; }
+  .container h2 {
+    padding-bottom: 1.5em; }
+  .container h3 {
+    padding-top: 1em; }
+
+/* ---- Page  Ids and Classes ---- */
+.contact {
+  font-weight: 700; }
+  .contact-greeting {
+    padding-bottom: 2em; }
+
+.image-shadow {
+  background: #fed36d;
+  -moz-box-shadow: inset 15px 15px 35px rgba(0, 0, 0, 0.1), inset -15px -15px 35px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 15px 15px 35px rgba(0, 0, 0, 0.1), inset -15px -15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 15px 15px 35px rgba(0, 0, 0, 0.1), inset -15px -15px 35px rgba(0, 0, 0, 0.1);
+  max-width: 377px;
+  max-height: 277px;
+  padding: 20px 10px;
+  margin: 0 auto; }
+
+.profile-image {
+  max-width: 183px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid #FDCD5B; }
+
+.skills-stretch-row {
+  background: #2878B8;
+  -moz-box-shadow: inset 15px 15px 35px rgba(9, 9, 9, 0.1), inset -15px -15px 35px rgba(9, 9, 9, 0.1);
+  -webkit-box-shadow: inset 15px 15px 35px rgba(9, 9, 9, 0.1), inset -15px -15px 35px rgba(9, 9, 9, 0.1);
+  box-shadow: inset 15px 15px 35px rgba(9, 9, 9, 0.1), inset -15px -15px 35px rgba(9, 9, 9, 0.1); }
+
+.skills {
+  width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+  padding-bottom: 2em; }
+  .skills h2, .skills h3, .skills p {
+    font-weight: 300; }
+  .skills h2 {
+    margin: 0; }
+  .skills h3 {
+    padding-top: 1.5em;
+    font-style: normal; }
+  .skills p {
+    text-align: left;
+    padding: 0 1em; }
+
+footer p, .wide {
+  padding-top: 0.5em; }
+
+.banner, footer, .main {
+  text-align: center;
+  margin: 0 auto; }
+
+.banner, .main {
+  padding: 1em; }
+
+.skills h2, footer h2, .container h2 {
+  padding-top: 1.5em; }
+
+@media (min-width: 769px) {
+  .container, .banner, .skills {
+    width: 90%;
+    max-width: 1050px; } }
+/* ---- Page  Ids and Classes ---- */
+.main-header {
+  background: #fafafa;
+  padding: 1em 0;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  width: 100%; }
+
+.name, .main-nav {
+  font-weight: 700; }
+
+.name {
+  padding-bottom: 1.7em;
+  text-transform: uppercase; }
+
+.main-nav li {
+  text-transform: uppercase;
+  margin: 5px 1em;
+  background: #ffffff; }
+  .main-nav li:hover {
+    background: #6EADDF; }
+
+.main-nav a {
+  padding: 12px 15px;
+  display: inline-block;
+  color: #2a2a2a;
+  text-decoration: none;
+  width: 100%; }
+  .main-nav a:hover {
+    color: #E8F2FA; }
+
+.main-nav a, .main-nav li {
+  transition: all .5s; }
+
+/* ---- Media Queries ---- */
+@media (min-width: 769px) {
+  .name, .main-nav {
+    display: block; }
+
+  .main-nav li {
+    display: inline-block;
+    margin: 0; }
+
+  .banner {
+    padding: 2em 0; }
+
+  .banner p {
+    float: left;
+    text-align: left;
+    width: 55%; } }
+@media (min-width: 1050px) {
+  .main-nav {
+    float: right; }
+
+  .banner {
+    padding-top: 0; } }
+/* ---- Page  Ids and Classes ---- */
+.footer-end {
+  border-top: 1px solid #CACACA;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: .85em;
+  font-weight: 700;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fafafa;
+  padding: 0 1.3em;
+  margin: 0;
+  z-index: 1000; }
+
+.wide {
+  display: none; }
+
+.footer-name {
+  float: left; }
+
+.back-to-top, .wide {
+  float: right; }
+
+/* ---- Media Queries---- */
+@media (min-width: 769px) {
+  .footer-name {
+    padding: 0 0 0 0.8em;
+    margin: 0; }
+
+  .back-to-top {
+    padding: 0 0.8em 0 0;
+    margin: 0; }
+
+  .wide {
+    display: inline-block; }
+    .wide li {
+      display: inline-block;
+      padding: 0 0.8em; }
+
+  .back-to-top {
+    display: none; }
+
+  .footer-end {
+    padding: 1.3em; } }
+@media (min-width: 1050px) {
+  .name {
+    float: left; } }
+.skillset {
+  padding: 2em 1em; }
+  .skillset p {
+    font-weight: 300; }
+  .skillset li {
+    padding: .5em 1em;
+    margin: .2em .2em;
+    border-radius: 20px 2px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    color: black;
+    transition: all .8s ease;
+    cursor: crosshair;
+    background: #FBB101;
+    /* Yellow Font */ }
+    .skillset li:nth-child(2n-2) {
+      background: #42C966;
+      /* Green Font */ }
+    .skillset li:nth-child(3n-3) {
+      background: coral;
+      /* Red Font */ }
+    .skillset li:hover {
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5); }
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  line-height: 1.6;
+  color: #2a2a2a; }
+
+/*# sourceMappingURL=application.css.map */
