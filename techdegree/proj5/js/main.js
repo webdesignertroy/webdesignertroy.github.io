@@ -16,12 +16,12 @@ Function Expressions
 
 // Function: hide menu items
 var hideMenu = function() {
-	$navBar.slideUp(600, "swing");
+	$navBar.slideUp(1000, "swing");
 };
 
 // Function: show menu items
 var showMenu = function() {
-	$navBar.slideDown(600, "swing");
+	$navBar.slideDown(1000, "swing");
 };
 
 // Function: scrolls to 'targeted id' on page
