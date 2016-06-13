@@ -70,12 +70,15 @@
 
 @mixin header {
 	@media (min-width: 769px) {
-		.name, .main-nav {
+		.name, #main-nav {
 			display: block;
 		}
 		.main-nav li {
 			display: inline-block;
 			margin: 0;
+		}
+		.hidden {
+			display: none;
 		}
 		.banner {
 			padding: 2em 0;

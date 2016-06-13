@@ -35,3 +35,7 @@ $exp-inset-top              : unquote($inset-top + " " +  $exp-shad); // Profile
 $exp-inset-bottom           : unquote($inset-bottom + " " +  $exp-shad); // Profile image box Shadow bottom
 $skill-inset-top            : unquote($sinset-top + " " +  $skill-shad); // Profile image box Shadow top
 $skill-inset-bottom         : unquote($sinset-bottom + " " +  $skill-shad); // Profile image box Shadow bottom
+
+/* ---- Interpolation---- */
+
+$path-img                   : '../img';

@@ -1,0 +1,18 @@
+//Buttons
+
+#menu-reveal {
+	@extend %menu-margin;
+	height: 50px;
+	background: darken($viking, 20%);
+	cursor: pointer;
+	position: relative;
+}
+#menu-reveal span:after{
+	content: "";
+	background: url("#{$path-img}/hamburger-31x25.png");
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	height: 25px;
+	width: 31px;
+}
