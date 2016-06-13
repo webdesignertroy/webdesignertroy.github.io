@@ -36,8 +36,5 @@
 .main-nav a, .main-nav li {
 	transition: all .5s;
 }
-.menu-reveal {
-	display: none;
-}
 /* ---- Media Queries ---- */
 @include header;

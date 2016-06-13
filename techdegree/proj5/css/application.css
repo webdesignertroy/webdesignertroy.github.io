@@ -220,9 +220,6 @@ footer p, .wide {
 .main-nav a, .main-nav li {
   transition: all .5s; }
 
-.menu-reveal {
-  display: none; }
-
 /* ---- Media Queries ---- */
 @media (min-width: 769px) {
   .name, #main-nav {
@@ -328,16 +325,19 @@ footer p, .wide {
   height: 50px;
   background: #2a7cbd;
   cursor: pointer;
-  position: relative; }
+  position: relative;
+  display: none; }
 
 #menu-reveal span:after {
   content: "";
   background: url("../img/hamburger-31x25.png");
+  opacity: 0.5;
   position: absolute;
   top: 12px;
   right: 12px;
   height: 25px;
-  width: 31px; }
+  width: 31px;
+  z-index: 1; }
 
 body {
   font-family: "Oxygen", sans-serif, Arial;
