@@ -39,7 +39,7 @@
 
 @mixin columns($pad) {
 	@media  (min-width: 769px) and (max-width: 1049px) {
-		.col {
+		.col{
 			width: 50%;
 			vertical-align: top;
 			padding-left: $pad;
@@ -84,10 +84,14 @@
 			float: left;
 			text-align: left;
 			width: 55%;
+		}
+		figure {
+			float: right;
+			width: 40%;
 		}	
 	}
 	@media (min-width: 1050px) {
-		.main-nav {
+		.main-nav{
 			float: right;
 		}
 		.banner {
@@ -100,5 +104,8 @@
 	.container, .banner, .skills {
 		width: 90%;
 		max-width: 1050px;
+	}
+	.col-2 {
+		width: 50%;
 	}
 }
