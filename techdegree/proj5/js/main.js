@@ -122,8 +122,10 @@ Media Queries
 if (mq.matches) {
 	$menuReveal.show();
 	$navBar.hide();
+	menuLength = $menuLi.length;
 } else {
 	$menuReveal.hide();
+	menuLength = 0;
 }
 
 // if javascript is on and the media changes, 
@@ -132,9 +134,11 @@ mq.addListener(function(changed) {
 	if(changed.matches) {
 		$menuReveal.show();
 		$navBar.hide();
+		menuLength = $menuLi.length;
 	} else {
 		$menuReveal.hide();
 		$navBar.show();
+		menuLength = 0;
 	}
 });
 
