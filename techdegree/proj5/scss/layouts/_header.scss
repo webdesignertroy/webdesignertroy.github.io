@@ -4,7 +4,7 @@
 .main-header {
 	background: $alabaster;
 	padding: 1em 0;
-	box-shadow: 0 1px 10px rgba(0,0,0, 0.2);
+	box-shadow: 0 1px 10px $black-transparent;
 	width: 100%;
 }
 .name, .main-nav {

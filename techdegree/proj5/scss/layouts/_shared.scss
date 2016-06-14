@@ -14,6 +14,5 @@ footer p, .wide {
 .skills h2, footer h2, .container h2 {
 	padding-top: 1.5em;
 }
-@media (min-width: 769px) {
-	@include shared;
-}
+/* ---- Media Queries---- */
+@include shared;

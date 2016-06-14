@@ -27,6 +27,7 @@ $skill-shad                 : rgba($viking, 0.5);
 $emarald-transparent        : rgba($emerald, 0.70);
 $coral-transparent          : rgba($coral, 0.70);
 $plum-transparent           : rgba($plum, 0.70);
+$black-transparent          : rgba($black, 0.2);
 $lite-opacity               : rgba($dusty-grey, 0.2);
 
 /* ---- Font Stack---- */
@@ -36,6 +37,8 @@ $stack-oxygen               : 'Oxygen', $stack-sans-serif;
 /* ---- Font Sizes ---- */
 $mobile-size                : 1.2;
 $display-size               : 0.93;
+$footer-mobile-size         : 0.85;
+$footer-display-size        : 0.8;
 
 /* ---- Text Shadows---- */
 $lite-text-shadow           : 1px 1px $lite-opacity;

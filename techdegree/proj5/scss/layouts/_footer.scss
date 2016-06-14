@@ -5,7 +5,7 @@
 	border-top: 1px solid $silver;
 	width: 100%;
 	text-transform: uppercase;
-	font-size: .85em;
+	font-size: #{$footer-mobile-size}em;
 	font-weight: 700;
 	position: fixed;
 	bottom: 0;
@@ -29,4 +29,4 @@
 	float: right;
 }
 /* ---- Media Queries---- */
-@include footer(0.8em);
+@include footer(#{$footer-display-size}em);

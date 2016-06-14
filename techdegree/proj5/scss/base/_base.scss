@@ -52,8 +52,5 @@ footer {
 	border-top: 1px solid $silver ;
 	width: 100%;
 }
-@media (min-width: 769px) {
-	body {
-		font-size: #{$display-size}em;
-	}
-}
+/* ---- Media Queries---- */
+@include body;

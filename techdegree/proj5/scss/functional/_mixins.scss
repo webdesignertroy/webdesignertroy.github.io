@@ -5,34 +5,10 @@
 	margin: 0;
 	padding: 0;
 }
-
-@mixin footer($pad) {
-	@media #{$brk-narrow}  {
-		.footer-name {
-			padding: 0 0 0 $pad;
-			margin: 0;
-		}
-		.back-to-top {
-			padding: 0 $pad 0 0;
-			margin: 0;
-		}
-		.wide {
-			display: inline-block;
-			li {
-				display: inline-block;
-				padding: 0 $pad;
-			}
-		}
-		.back-to-top {
-			display: none;
-		}
-		.footer-end {
-			padding: 1.3em;
-		}
-	}
-	@media (min-width: 1050px) {
-		.name {
-			float: left;
+@mixin body {
+	@media #{$brk-narrow} {
+		body {
+			font-size: #{$display-size}em;
 		}
 	}
 }
@@ -93,7 +69,7 @@
 			width: 40%;
 		}	
 	}
-	@media (min-width: 1050px) {
+	@media #{$brk-wide}  {
 		.main-nav{
 			float: right;
 		}
@@ -103,12 +79,45 @@
 	}
 }
 
-@mixin shared {
-	.container, .banner, .skills {
-		width: 90%;
-		max-width: 1050px;
+@mixin footer($pad) {
+	@media #{$brk-narrow}  {
+		.footer-name {
+			padding: 0 0 0 $pad;
+			margin: 0;
+		}
+		.back-to-top {
+			padding: 0 $pad 0 0;
+			margin: 0;
+		}
+		.wide {
+			display: inline-block;
+			li {
+				display: inline-block;
+				padding: 0 $pad;
+			}
+		}
+		.back-to-top {
+			display: none;
+		}
+		.footer-end {
+			padding: 1.3em;
+		}
 	}
-	.col-2 {
-		width: 50%;
+	@media (min-width: 1050px) {
+		.name {
+			float: left;
+		}
+	}
+}
+
+@mixin shared {
+	@media #{$brk-narrow} {
+		.container, .banner, .skills {
+			width: 90%;
+			max-width: 1050px;
+		}
+		.col-2 {
+			width: 50%;
+		}
 	}
 }
