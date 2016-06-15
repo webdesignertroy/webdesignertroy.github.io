@@ -69,12 +69,12 @@ $menuLi.on("click", function(e){
 		hideMenu();
 	}
 
-	// invokes $scoll()
+	// invokes $scroll()
 	$scroll($link, menuLength);
 
 });
 
-// On Sub Menu <li> click, scroll to 'targeted id'
+// On Back-to-top link click, scroll to 'top id' 
 $backTop.on("click", function(e){
 	// prevent normal action
 	e.preventDefault();
@@ -96,7 +96,7 @@ $backTop.on("click", function(e){
 	$scroll($link, menuLength);
 
 });
-// On Back-to-top link click, scroll to 'top id'
+// On Sub Menu <li> click, scroll to 'targeted id'
 $subMenuLi.on("click", function(e){
 	// prevent normal action
 	e.preventDefault();
@@ -120,7 +120,7 @@ $subMenuLi.on("click", function(e){
 /************************
 Media Queries
 *************************/
-// if javascript works, reveal menu for mobile phones
+// if javascript works, hide/show appropriate menues
 
 if (mq.matches) {
 	$menuReveal.show();
@@ -132,7 +132,7 @@ if (mq.matches) {
 }
 
 // if javascript is on and the media window changes, 
-//    hide or show appropriate menu
+//    hide/show appropriate menues
 mq.addListener(function(changed) {
 	if(changed.matches) {
 		$menuReveal.show();
