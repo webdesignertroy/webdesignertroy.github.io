@@ -92,7 +92,7 @@ Menu Icons
 #location-icon {
 	width: 14px;
 }
-/*.menu-icons li .st0 {
+.menu-icons li .st0 {
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
@@ -108,7 +108,7 @@ Menu Icons
 	-moz-transform: rotateY(360deg);
 	-ms-transform: rotateY(360deg);
 	transform: rotateY(360deg);
-}*/
+}
 
 /**********************
 Logo 
