@@ -121,6 +121,7 @@ Logo
 ***********************/
 #logo {
 	max-width: 140px;
+	height: 180px;
 }
 .logo-st0 {
 	fill: #BA8058;
@@ -137,6 +138,19 @@ Logo
 	text-transform: uppercase;
 	font-size: 0.5em;
 	letter-spacing: 0.25em;
+}
+/* Animation */
+@keyframes spin{
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.logo-st1 {
+	transform-origin: 70px 70px ;
+	animation: spin 20s infinite;
 }
 
 /**********************
