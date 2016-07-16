@@ -4,7 +4,12 @@ Tested on the following browsers:
 -Firefox 47 on OS X El Capitan
 -Chrome  51 on OS X El Capitan
 */
+/*
+Note to Tester
+-SVG transform not supported by MS Edge within CSS
+https://developer.microsoft.com/en-us/microsoft-edge/platform/documentation/dev-guide/graphics/svg/
 
+*/
 /**********************
 Body Elements
 ***********************/
