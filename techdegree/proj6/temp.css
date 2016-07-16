@@ -1,0 +1,678 @@
+/*===========================
+Notes:
+- Since quotes (\"\") cannot be escaped, 
+all \'content\' attributes located in VC-Extension
+Cusom CSS Tool
+===========================*/
+/*****************************
+Base Elements
+*****************************/
+* {
+   box-sizing: border-box;
+}
+.close, h1, h2, h3, h4, h5, h6 {
+  text-shadow: none;
+}
+/*****************************
+Global Page Classes
+*****************************/
+
+/* H2   subtitles */
+.subtitle h2,
+.subtitle h1{
+    font-size: 2em;
+    line-height: 1.7em;
+    font-weight: bold;
+    color: #5a5a5a;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+.subtitle h3 {
+   text-transform: uppercase;
+   margin-top: -0.5em;
+   font-size: 1.3em;
+   text-align: center;
+}
+.product-margin {
+   margin-top: 100px;
+}
+.product-margin-bottom {
+   margin-bottom: 50px;
+}
+.say-it-loud h3 {
+   color: #cc0000;
+   text-transform: uppercase;
+}
+.say-it-loud div p {
+   line-height: 2.2em;
+}
+
+/*  Removed entry titles to put in Manually */
+h1.entry-title, h2.entry-title {
+   display: none;
+}
+.featurette-divider {
+   border: none;
+}
+/*  Add top padding to entry content to compensate 
+for above */
+
+/* Advanced Image Overlay  */
+figure.ts-hover-effect-sadie h2 {
+   line-height: 1.1em;
+   text-shadow: 2px 2px 4px rgba(9, 9, 9, 0.6) ;
+   -webkit-opacity: 0.9;  
+   -moz-opacity: 0.9; 
+   opacity: 0.9;
+}
+.wpb_wrapper p {
+   margin-top: 1em;
+   font-size: 1.1em;
+   line-height: 1.7em;
+}
+
+
+/*****************************
+Header Classes
+*****************************/
+
+.entry-content {
+    position: relative;
+    margin-top:-200px !important;
+}
+
+/* Remove white space during header sticky event */
+
+header {
+   height: 161px !important;
+}
+header,
+navbar {
+   -webkit-opacity: 1;
+   -moz-opacity: 1;
+   opacity: 1;
+}
+header.tc-header {
+   position: relative;
+   z-index:12 !important;
+}
+#main-wrapper {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Takes out text-shadow on menu items */
+.nav>li>a {
+  text-shadow: none;
+}
+
+
+/* Hides unwanted header space and border */
+.tc-header {
+    border-bottom: 3px solid #ebebeb;
+}
+
+/*****************************
+Fade Logo (.brand) - Keyframes
+*****************************/
+@-webkit-keyframes fadeIn { 
+   from { 
+      opacity:0; 
+   } 
+   to { 
+      opacity:1; 
+    } 
+}
+@-moz-keyframes fadeIn { 
+   from { 
+      opacity:0; 
+   } 
+   to { 
+      opacity:1; 
+    } 
+}
+@keyframes fadeIn { 
+   from { 
+      opacity:0; 
+   } 
+   to { 
+      opacity:1; 
+    } 
+}
+
+/* Fade in Company Logo (.brand) - Style */
+
+.brand{
+   opacity: 0 ; 
+   -webkit-animation: fadeIn ease-in 1s !important;  
+   -moz-animation: fadeIn ease-in 1s !important; 
+   animation: fadeIn ease-in 1s !important; 
+
+   -webkit-animation-fill-mode: forwards !important;  
+   -moz-animation-fill-mode: forwards !important; 
+   animation-fill-mode: forwards !important; 
+
+   -webkit-animation-duration: 0.3s !important; 
+   -moz-animation-duration: 0.3s !important; 
+   animation-duration: 0.3s !important; 
+}
+
+.brand.pull-left {
+   -webkit-animation-delay: 0.05s !important; 
+   -moz-animation-delay: 0.05s!important; 
+   animation-delay: 0.05ss !important; 
+}
+
+
+/*****************************
+Navbar/ Horizontal & Vertical Menu
+*****************************/
+/* Update horizontal menu on desktops */
+.navbar .nav > li > a {
+   padding: 5px 20px;
+}
+/* Logo transition control  */
+
+.current-menu-item>a,
+.drop-down-menu> a,
+.drop-down-menu li a:hover,
+.nav li a:hover {
+   color: #AA5639 !important;
+}
+.dropdown-menu .current-menu-item a:before {
+    /* content attribute located in VC Ext CSS */
+   text-decoration: none;
+}
+@media (min-width: 980px) {
+
+   .navbar{
+          display: flex !important;
+          justify-content: space-around !important;
+   }
+    .menu-primary-container>ul {
+          display: flex !important;
+          justify-content: space-around !important;
+  }
+   .menu-item {
+      text-align: center !important;
+   }
+   .tc-hover-menu>li {
+        border-top: 1px solid  rgba(170, 86, 57, 0.0); 
+        margin-left: 3px;
+        transition: 0.5s all ease-in-out;
+   }
+   .current-menu-item,
+   .current-menu-ancestor,
+   .tc-hover-menu li:hover {
+        border-top: 1px solid  rgba(170, 86, 57,  1) !important; 
+   }
+   .dropdown-menu li,
+   .dropdown-menu li:hover, 
+   .dropdown-menu .current-menu-item {
+      border-top: none !important;
+   }
+   .dropdown-menu li a {
+     padding-left: 23px;
+     padding-right: 23px;
+     transition all .7s ease-out;
+   }
+   .dropdown-menu>li a {
+     padding-top: 7px;
+      padding-bottom: 7px;
+   }
+   .nav li:last-child {
+      padding-right: 0;
+   }
+   .nav>li:first-child {
+      padding-left: 20px;
+   }
+}
+/* Update Pull-down menu on mobiles */
+@media (max-width: 979px) {
+   .nav-collapse.collapse {
+        background: rgba(241,241,241,1) !important;
+   }
+   .nav li a {
+        font-size: 18px !important;
+        line-height: 24px !important;
+   }
+    .tc-hover-menu li {
+        margin-left: 0 ;
+   }
+   .dropdown-menu li a {
+      font-size: 0.93em !important;
+   }
+   .navbar .nav-collapse ul.nav > li li a {
+      padding-left: 0;
+   }
+   .current-menu-ancestor>a:before {
+       /* content attribute located in VC Ext CSS */
+       color:#AA5639 !important;
+   }
+}
+.tc-hover-menu {
+   padding-top: 3px;
+}
+
+/*****************************
+Footer Classes
+*****************************/
+/* Footer Top Margin - Removes unwanted white space */
+div#tc-page-wrap footer#footer {
+   margin-top: -25px !important;
+   padding-bottom: 20px;
+   background-color: #fbf2ef !important;
+   /*background-image: url(/wp-content/uploads/2016/06/bkg-template4x4b.jpg) !important;*/
+   border-top-width: 0 !important;
+}
+.colophon {
+   display:none !important;
+}
+
+footer#footer div.colophon {
+   padding-top: 20px !important;
+}
+.footer-text-no-shadow{
+   text-shadow:none !important /* For Footer Headers */
+}
+
+footer#footer h2, 
+footer#footer h3, 
+footer#footer h4 {
+   text-shadow: none;
+   text-align: left;
+   text-transform: uppercase;
+}
+
+footer#footer p, 
+footer#footer h2, 
+footer#footer h3,
+footer#footer h4,  
+footer#footer li ,
+footer#footer li a,
+footer#footer a {
+   color: #561600; /*  Light Blue   */
+}
+footer#footer h3 {
+    font-size: .95em;
+    line-height: .5em;
+}
+footer#footer p {
+    line-height: 1.6em;
+}
+footer#footer li  {
+    line-height: 1.7em;
+   cursor: pointer;
+}
+footer#footer li a {
+   text-decoration: none;
+}
+footer#footer a:hover {
+   cursor:pointer;
+}
+footer#footer li,
+footer#footer p,
+footer#footer li a,
+footer#footer a {
+    text-align: left;
+    font-size: 0.87em;
+}
+
+/*  Font Awesome Icons*/
+
+footer#footer p a {
+   letter-spacing: -0.65px;
+}
+footer#footer a:hover {
+   color: #29526D; /* Complement to font color #123952 */
+   text-decoration: none;
+}
+.fa:before {
+  position: relative;
+  margin-left: 7px
+}
+.fa:before {
+   position: relative;
+   top: 3px;
+   left: -5px;
+}
+/* Contains Copyright (year updated with js) */
+.fixed-footer {
+   -webkit-opacity: 0;
+   -moz-opacity: 0;
+   opacity: 0;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 35px;
+   background: #000033;
+   z-index: 15;
+   font-size: 0.65em;
+   text-transform: uppercase;
+   transition: 0.7s all ease-out ;
+}
+.fixed-footer p{
+   color: #f7f7f7 !important;
+}
+.show-me {
+   -webkit-opacity: 1;
+   -moz-opacity: 1;
+   opacity: 1;
+}
+@media(max-width: 768px) {
+   div.container.footer-widgets{
+      padding-left: 10px !important;
+      padding-right: 20px; !important;
+   }
+   .fixed-footer {
+      height: 55px;
+   }
+/* Fix footer links for touch screen small-devices */
+   footer#footer li  {
+      line-height: 3em;
+      border-bottom: 1px dashed #cccccc;
+   }
+}
+/* Adding 4th column footer */
+/* Special hook was added in function.php */
+/*#footer .footer-widgets .span4,
+#footer .footer-widgets .span12 {
+    width: 220px ;
+}
+@media (max-width: 979px) and (min-width: 768px)  {
+   #footer .footer-widgets .span4,
+   #footer .footer-widgets .span12 {
+        width: 164px ;
+   }
+}
+@media (max-width: 767px) {
+   #footer .footer-widgets .span4,
+   #footer .footer-widgets .span12 {
+          width: 100%;
+   }
+ }
+*/
+/* Removing two footer widgets */
+#footer .footer-widgets .span4,
+   #footer .footer-widgets .span12 {
+          width: 100%;
+   }
+.modify-footer {
+   width: 100%;
+}
+.modify-footer div {
+  max-width: 500px;
+   margin: 0 auto;
+}
+.modify-footer div ul> li {
+   display: inline-block !important;
+   text-transform: uppercase;
+   margin-left: 7px;
+   margin-right: 7px;
+}
+footer#footer ul {
+   margin: 20px 0 0 -40px;
+}
+ footer#footer ol, 
+ footer#footer li {
+   text-align: center;
+ }
+footer ol, footer ul {
+   text-align: center;
+    margin: 20px 0 0 -40px;
+}
+@media (max-width: 767px) {
+   .modify-footer div ul> li {
+      display: block !important;
+   }
+   footer#footer ul {
+      margin: 20px 0 0 0;
+   }
+}
+.modify-footer div ul>li:nth-child(4):after {
+   margin-left: 14px;
+   font-size: 20px
+}
+.social-footer {
+   margin: 0 !important;
+}
+
+/*****************************
+Back-to-Top Button
+*****************************/
+
+/* Back to Top Button */
+.tc-btt-wrapper {
+    background: rgba(3, 34, 54, 0.5);
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    border-radius: 10%;
+    bottom: 96px;
+    border: none;
+}
+.tc-btt-wrapper:hover {
+    background: rgba(3, 34, 54, 0.3);
+}
+
+.btt-arrow:before {
+   text-shadow: none;
+   color: #f7f7f7;
+}
+
+.tc-btt-wrapper i.btt-arrow {
+   line-height: 35px;
+   text-shadow: none;
+}
+
+/*****************************
+Page Classes
+*****************************/
+.stand-out {
+   display: inline-block;
+   font-weight: bold;
+   color: #29526D;
+   text-transform: uppercase;
+   letter-spacing: -1px;
+   line-height: 1.3em;
+}
+/*****************************
+Stickies
+*****************************/
+/*   Phone Number Sticky   */
+.phonebox {
+   display: block;
+   position: fixed ;
+   z-index: 101;
+   float :right;
+   color: #f5f5f5;
+   padding: 10px 15px;
+   text-transform: uppercase;
+   max-width: 240px;
+   text-align: center;
+   background-color: #C80C0F;
+   -moz-border-radius: 8px;
+   -webkit-border-radius: 8px;
+   border-radius: 8px;
+   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+   cursor: pointer;
+   transition: 0.7s all ease-out ;
+   -webkit-opacity: 0;
+   -moz-opacity: 0;
+   opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
+  filter: alpha(opacity = 0);
+}
+.phonebox a {
+   color: #ffffff;
+   text-decoration: none
+}
+.phonebox:hover a {
+   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.phonebox .wdt-message {
+   font-size: 11px;
+}
+.absolute {
+   position: absolute;
+   top: -10px;
+   right: 5px;
+}
+.fixed {
+   position: fixed;
+   top: 130px;
+   right: 10px;
+}
+
+@media (max-width: 768px)  {
+   .phonebox {
+        display: none;
+   }
+}
+/*   Custom logo on mobile view   */
+.custom-logo {
+   z-index: 101;
+   display: block;
+   position: fixed;
+   top: -7px; 
+   left: 0;
+   padding: 0;
+   margin: 0;
+   color: black;
+   transition: .25s all ease-in-out ;
+   -webkit-opacity: 0;
+   -moz-opacity: 0;
+   opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 0);
+  filter: alpha(opacity = 0);
+}
+.custom-logo img {
+   margin: 0 25px 10px 25px;
+}
+.admin-space {
+   top: 25px;
+}
+.row-fluid [class*=span] {
+   min-height: 58px;  /* make space for custom logo on mobile  */
+}
+/*   Shared classes   */
+.show-phone,
+.show-logo,
+.show-phone-always {
+   -webkit-opacity: 0.9;
+   -moz-opacity: 0.9;
+   opacity: 0.9;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 90);
+  filter: alpha(opacity = 90);
+}
+
+/* TS Image Grid Icon Suppression */
+ .no-link  .nchgrid-caption, 
+ .no-link div.nchgrid-item.nch-logo-link a .nchgrid-caption {
+   background-image: none !important;
+   cursor: default !important;   
+}
+.no-link div.nchgrid-item:hover  {
+   -webkit-box-shadow: none !important;
+   -moz-box-shadow: none !important;
+   box-shadow: none !important;
+}
+
+/* White Font */
+.whitefont,
+.text-box-white {
+   color: #ffffff !important;
+   text-shadow: 0 0 10px rgba(0, 0, 0, 1.0);
+}
+/*****************************
+Buttons
+*****************************/
+.button-improve a {
+   text-transform: uppercase !important;
+}
+
+/*******************************
+First Textbox Style
+*******************************/
+.text-box,
+.text-box-white {
+    padding: 0 2em;
+    margin: 0 2em;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 45px
+}
+.text-box ul li,
+.text-box-white ul  li:first-child {
+      margin-top: 40px;
+}
+.text-box ul li,
+.text-box-white ul li  {
+      margin-top: 20px;
+      font-size: 22px;
+      line-height: 28px;
+}
+.text-box span,
+.text-box-white span  {
+    display: inline;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.text-box p:first-child {
+   margin-top:  -10px;
+}
+.section-space {
+   padding-top: 3em;
+}
+@media (max-width: 979px) {
+    .text-box,
+    .text-box-white  {
+        margin: 0 5px;
+        padding: 0;
+    }
+}
+
+/*******************************
+Service Boxes
+*******************************/
+.circle-service h2 {
+   text-transform: uppercase;
+   color: #f2f2f2;
+   font-size: 1.5em
+}
+.circle-service .vc_box_border_circle {
+   padding: 3px !important;
+}
+.service-link {
+   color: #FF675B;
+   display: inline-block;
+   margin-left: 10px;
+   text-transform: uppercase;
+   text-shadow: none;
+   text-decoration: none !important;
+   transition: all .7s  !important;
+}
+
+.service-link:hover, 
+.service-link:visited {
+   color: #f32d1e !important;
+   text-decoration: none !important;
+}
+/*******************************
+Regular Text
+*******************************/
+.regular-text h1,
+.regular-text h2 {
+   text-transform: uppercase;
+}
+.regular-text  ul li {
+      margin-top: 15px;
+}
+.regular-text  ul li  {
+      margin-top: 10;
+      font-size: 1.1em;
+      line-height: 1.7em;
+}
