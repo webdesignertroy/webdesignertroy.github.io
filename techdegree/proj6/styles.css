@@ -112,8 +112,8 @@ Menu Icons
 	-ms-transform: rotateY(360deg);
 	transform: rotateY(360deg);
 }
-.nav-ie-fix {
-	display: inline-block !important;
+.nav-ie-fix a {
+	display: inline !important;
 }
 /**********************
 Logo 
