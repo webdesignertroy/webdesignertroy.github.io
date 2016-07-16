@@ -113,7 +113,7 @@ Menu Icons
 	transform: rotateY(360deg);
 }
 .nav-ie-fix {
-	display: inline-block;
+	display: inline-block !important;
 }
 /**********************
 Logo 
