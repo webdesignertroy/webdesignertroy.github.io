@@ -1,6 +1,6 @@
 /*
 Tested on the following browsers:
-
+-Safari 8 on Y
 */
 
 /**********************
@@ -90,11 +90,20 @@ Menu Icons
 	width: 14px;
 }
 .menu-icons li .st0 {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	-ms-transform-origin: center;
 	transform-origin: center;
 }
 .menu-icons li:hover .st0 {
 	fill: #111 !important;
+	-webkit-transform: rotateY(360deg);
+	-moz-transform: rotateY(360deg);
+	-ms-transform: rotateY(360deg);
 	transform: rotateY(360deg);
 }
 /**********************
