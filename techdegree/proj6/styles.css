@@ -121,7 +121,7 @@ Logo
 ***********************/
 #logo {
 	max-width: 140px;
-	height: 180px;
+	height: 160px;
 }
 .logo-st0 {
 	fill: #BA8058;
@@ -145,12 +145,12 @@ Logo
 		transform: rotate(0deg);
 	}
 	100% {
-		transform: rotate(360deg);
+		transform: rotate(359deg);
 	}
 }
 .logo-st1 {
 	transform-origin: 70px 70px ;
-	animation: spin 20s infinite;
+	animation: spin 20s linear infinite;
 }
 
 /**********************
