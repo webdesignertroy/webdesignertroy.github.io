@@ -97,12 +97,6 @@ Menu Icons
 	fill: #111 !important;
 	transform: rotateY(360deg);
 }
-.menu-icons a {
-	position: relative;
-	display: inline-block;
-	width: 100%;
-	transition: left 2px ease-out;
-}
 /**********************
 Logo 
 ***********************/
