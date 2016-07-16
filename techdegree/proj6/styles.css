@@ -82,6 +82,7 @@ footer {
 	padding-bottom: 30px;
 	color: #ba8058;
 }
+
 /**********************
 Menu Icons
 ***********************/
@@ -91,23 +92,24 @@ Menu Icons
 #location-icon {
 	width: 14px;
 }
-.menu-icons li .st0 {
+/*.menu-icons li .st0 {
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
-	/*-ms-transform-style: preserve-3d;*/
+	-ms-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: center;
 	-moz-transform-origin: center;
-	/*-ms-transform-origin: center;*/
+	-ms-transform-origin: center;
 	transform-origin: center;
 }
 .menu-icons li:hover .st0 {
 	fill: #111 !important;
 	-webkit-transform: rotateY(360deg);
 	-moz-transform: rotateY(360deg);
-	/*-ms-transform: rotateY(360deg);*/
+	-ms-transform: rotateY(360deg);
 	transform: rotateY(360deg);
-}
+}*/
+
 /**********************
 Logo 
 ***********************/
@@ -130,12 +132,16 @@ Logo
 	font-size: 0.5em;
 	letter-spacing: 0.25em;
 }
+
 /**********************
 Dogs
 ***********************/
+
+/* Dog Face Dim */
 #red_1, #fawn_1, #sable_1, #blacktan_1 {
 	width: 170px;
 }
+
 /* Corgi-Red */
 .red-st0 {
 	fill: #BA8058;
@@ -149,6 +155,7 @@ Dogs
 .red-st3 {
 	fill: #EAAA7F;
 }
+
 /* Corgi-Fawn */
 .fawn-st0 {
 	fill: #EAAA7F;
@@ -162,8 +169,8 @@ Dogs
 .fawn-st3 {
 	fill: #F4C6A6;
 }
-/* Corgi-Sable */
 
+/* Corgi-Sable */
 .sable-st0 {
 	fill: #844B24;
 }
@@ -176,8 +183,8 @@ Dogs
 .sable-st3 {
 	fill: #BA8058;
 }
-/* Corgi-Black and Tan */
 
+/* Corgi-Black and Tan */
 .blacktan-st0 {
 	fill: #BA8058;
 }
@@ -194,6 +201,8 @@ Dogs
 /**********************
 Media Queries
 ***********************/
+
+/* Logo - Company Name Tranisition */
 @media (max-width: 419px) {
 	.logo-st1 {
 		display: none;
