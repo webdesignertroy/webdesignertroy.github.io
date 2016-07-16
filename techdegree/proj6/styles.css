@@ -1,6 +1,8 @@
 /*
 Tested on the following browsers:
--Safari 8 on Y
+-Safari 9.1 on OS X El Capitan
+-Firefox 47 on OS X El Capitan
+-Chrome  51 on OS X El Capitan
 */
 
 /**********************
@@ -84,10 +86,10 @@ footer {
 Menu Icons
 ***********************/
 #heart-icon, #bubble-icon {
-	width: 13px;
+	height: 12px;
 }
 #location-icon {
-	width: 14px;
+	height: 15px;
 }
 .menu-icons li .st0 {
 	-webkit-transform-style: preserve-3d;
