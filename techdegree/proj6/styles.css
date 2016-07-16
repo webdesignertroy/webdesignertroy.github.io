@@ -147,6 +147,12 @@ Dogs
 #red_1, #fawn_1, #sable_1, #blacktan_1 {
 	width: 170px;
 }
+.stand-out {
+	transition: .3s ease-in-out;
+}
+.stand-out:hover {
+	transform: rotate(15deg) scale(1.05,1.05);
+}
 
 /* Corgi-Red */
 .red-st0 {
