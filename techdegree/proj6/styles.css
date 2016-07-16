@@ -87,11 +87,9 @@ Menu Icons
 ***********************/
 #heart-icon, #bubble-icon {
 	width: 13px;
-	height: 12px;
 }
 #location-icon {
 	width: 14px;
-	height: 15px;
 }
 .menu-icons li .st0 {
 	-webkit-transform-style: preserve-3d;
@@ -197,10 +195,10 @@ Dogs
 Media Queries
 ***********************/
 @media (max-width: 419px) {
-.logo-st1 {
-	display: none;
-}
-.logo-title {
-	display: block;
-}
+	.logo-st1 {
+		display: none;
+	}
+	.logo-title {
+		display: block;
+	}
 }
