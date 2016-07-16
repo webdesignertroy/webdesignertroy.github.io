@@ -155,14 +155,14 @@ Logo
 	}
 }
 .logo-st1 {
-	-ms-transform-origin: 70px 70px ;
-	-webkit-transform-origin: 70px 70px ;
-	-moz-transform-origin: 70px 70px ;
-	transform-origin: 70px 70px ;
+	-ms-transform-origin: 0 0;
+	-webkit-transform-origin: 70px 70px;
+	-moz-transform-origin: 70px 70px;
+	transform-origin: 70px 70px;
 	-ms-animation: spin 20s linear infinite;
 	-webkit-animation: spin 20s linear infinite;
 	-moz-animation: spin 20s linear infinite;
-	animation: spin 20s linear infinite;
+	animation: spin 20s infinite linear;
 }
 
 /**********************
