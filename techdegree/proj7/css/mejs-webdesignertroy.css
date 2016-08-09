@@ -1,0 +1,162 @@
+/*******************
+Controls
+********************/
+
+/*  Set Control Panel Height  */
+.mejs-webdesignertroy .mejs-controls {
+	height: 75px;
+	background: none;
+	transition: 0.75s ease-out;
+}
+/*  Modify Control Buttons Styles  */
+.mejs-webdesignertroy .mejs-controls .mejs-button button {
+	outline: none;
+	margin: 30px 5px;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-play button,
+.mejs-webdesignertroy .mejs-controls .mejs-pause button,
+.mejs-webdesignertroy .mejs-controls .mejs-fullscreen-button button,
+.mejs-webdesignertroy .mejs-controls .mejs-unfullscreen button,
+.mejs-webdesignertroy .mejs-controls .mejs-mute button,
+.mejs-webdesignertroy .mejs-controls .mejs-unmute button,
+.mejs-webdesignertroy .mejs-controls .mejs-captions-button button {
+	background-position: 0, 0;
+	height: 26px;
+	width: 26px;
+}
+.mejs-webdesignertroy .mejs-captions-button,
+.mejs-webdesignertroy .mejs-volume-button,
+.mejs-webdesignertroy .mejs-fullscreen-button {
+	position: absolute;
+}
+.mejs-webdesignertroy .mejs-volume-button,
+.mejs-webdesignertroy .mejs-fullscreen-button {
+	right: 30px;
+}
+.mejs-webdesignertroy .mejs-captions-button {
+	right: 140px;
+}
+.mejs-controls .mejs-volume-button .mejs-volume-slider {
+	left: -54px;
+	top: -85px;
+	background: rgba(50,50,50, 0.7);
+}
+
+/*  Replace Control Buttons Icons with Given */
+.mejs-webdesignertroy .mejs-play,
+.mejs-webdesignertroy .mejs-pause,
+.mejs-webdesignertroy .mejs-controls .mejs-play button {
+	background-image: url(../images/play-icon.png);
+	left: 20px;
+	position: absolute;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-pause button {
+	background-image: url(../images/pause-icon.png);
+	left: 20px;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-fullscreen-button button,
+.mejs-webdesignertroy .mejs-control .mejs-fullscreen button {
+	background-image: url(../images/fullscreen-icon.png);
+	background-position: 0;
+	right: 0;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-mute button {
+	background-image: url(../images/volume-on-icon.png);
+	right: 50px;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-unmute button {
+	background-image: url(../images/volume-off-icon.png);
+	right: 50px;
+}
+
+.mejs-webdesignertroy .mejs-controls .mejs-captions-button button  {
+	background: rgba(255, 255, 255, 0.9);
+	color: #333;
+	border-radius: 6px;
+	position: relative;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-captions-button button:after  {
+	content: "CC";
+	position: absolute;
+	font-size: 12px;
+	height: 20px;
+	width: 20px;
+	top: 14px;
+	left: 3px;
+}
+
+/*  Resolve the dissappearing "fullscreen" icon (Workaround)  */
+.mejs-fullscreen {
+	overflow: visible !important;
+}
+
+/*  Hide Controls (JS-related) */
+.hide-controls {
+	height: 25px !important;
+}
+
+/*******************
+Time Rail
+********************/
+
+/*  Modify Time Rail Style  */
+.mejs-webdesignertroy .mejs-controls .mejs-time-rail span {
+	height: 5px;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-time-rail .mejs-time-total {
+	background: rgba(255, 255, 255, 0.1);
+}
+.mejs-webdesignertroy .mejs-controls .mejs-time-rail .mejs-time-loaded {
+	background: rgba(111, 113, 112, 0.5);
+}
+.mejs-webdesignertroy .mejs-controls .mejs-time-rail .mejs-time-current  {
+	background: rgba(255, 153, 0, 1.0);
+}
+
+/*  Modify Floating Current Time Style  */
+.mejs-controls .mejs-time-rail .mejs-time-float {
+	background: none;
+	border: none;
+}
+.mejs-time-total span {
+	color: white;
+	text-shadow: 0 3px 5px rgba(0, 0, 0, 0.8);
+}
+.mejs-webdesignertroy .mejs-time {
+	transition: 0.25s ease-out;
+}
+
+/*******************
+Time
+********************/
+
+/*  Modify Current/Total Time Style  */
+.mejs-webdesignertroy .mejs-controls .mejs-time {
+	position: absolute;
+	left: 72px;
+	bottom: 20px;
+}
+.mejs-webdesignertroy  .mejs-controls div {
+	font-size: 14px;
+	line-height: 14px;
+}
+
+/* Hide Controls Current/Total Time (JS-related) */
+.hide-time {
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+
+/*******************
+Captions
+********************/
+.mejs-captions-layer {
+	bottom: 40px;
+}
+/* Highlight active captions (JS-related) */
+
+.highlight-active {
+	color: rgba(255, 153, 0, 1.0);
+	transition: .35s ease-out;
+}
