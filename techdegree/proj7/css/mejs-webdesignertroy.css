@@ -1,7 +1,10 @@
 /*******************
 Controls
 ********************/
-
+/*  Hids Display Overlay Button   */
+.mejs-overlay-button {
+	display: none;
+}
 /*  Set Control Panel Height  */
 .mejs-webdesignertroy .mejs-controls {
 	height: 75px;
