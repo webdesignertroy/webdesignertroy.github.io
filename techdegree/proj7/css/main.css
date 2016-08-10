@@ -31,10 +31,6 @@ Main Body Ids and Classes
 .container {
 	margin: 0 auto;
 	max-width: 780px;
-
-}
-#test-seekbar {
-	margin-top: 50px;
 }
 #html-caption p {
 	height: 180px;

@@ -133,9 +133,12 @@ $(document).ready(function(){
 			index++;
 			if ( captionList[index].captionStartTime <= interactiveVideo.currentTime && interactiveVideo.currentTime < captionList[index+1].captionStartTime  ) {
 				$(this).addClass("highlight-active");
-					$(this).parent().animate ({
-						scrollTop: this.offsetTop - firstSpanTop
-					}, 400);
+				// Non-animated scroll
+				$(this).parent().scrollTop(this.offsetTop - firstSpanTop);
+				// I will visit animated scroll at later date
+				/*$(this).parent().animate ({
+					scrollTop: this.offsetTop - firstSpanTop
+				}, 400);*/
 			} else {
 				$(this).removeClass("highlight-active");
 			}
