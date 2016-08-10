@@ -1,26 +1,26 @@
-	/************************
-	Prototypes
-	*************************/
-	/*  Loop Prototypes  */
-	MediaElementPlayer.prototype.buildloop = function(player, controls, layers, media) {
-	    var
-	        // create the loop button
-	        loop =
-	        $('<div class="mejs-buttons mejs-loop-button ' + ((player.options.loop) ? 'mejs-loop-on' : 'mejs-loop-off') + '">' +
-	            '<button type="button" title="Loop" aria-label="Loop"></button>' +
-	        '</div>')
-	        // append it to the toolbar
-	        .appendTo(controls)
-	        // add a click toggle event
-	        .click(function() {
-	            player.options.loop = !player.options.loop;
-	            if (player.options.loop) {
-	                loop.removeClass('mejs-loop-off').addClass('mejs-loop-on');
-	            } else {
-	                loop.removeClass('mejs-loop-on').addClass('mejs-loop-off');
-	            }
-	        });
-	}
+/************************
+Prototypes
+*************************/
+/*  Loop Prototype  */
+MediaElementPlayer.prototype.buildloop = function(player, controls, layers, media) {
+	var
+	// create the loop button
+	loop =
+	$('<div class="mejs-buttons mejs-loop-button ' + ((player.options.loop) ? 'mejs-loop-on' : 'mejs-loop-off') + '">' +
+		'<button type="button" title="Loop" aria-label="Loop"></button>' +
+		'</div>')
+	// append it to the toolbar
+	.appendTo(controls)
+	// add a click toggle event
+	.click(function() {
+		player.options.loop = !player.options.loop;
+		if (player.options.loop) {
+			loop.removeClass('mejs-loop-off').addClass('mejs-loop-on');
+		} else {
+			loop.removeClass('mejs-loop-on').addClass('mejs-loop-off');
+		}
+	});
+}
 
 $(document).ready(function(){
 
@@ -137,13 +137,11 @@ $(document).ready(function(){
 				$(this).parent().scrollTop(this.offsetTop - firstSpanTop);
 				// I will visit animated scroll at later date
 				/*$(this).parent().animate ({
-					scrollTop: this.offsetTop - firstSpanTop
+				scrollTop: this.offsetTop - firstSpanTop
 				}, 400);*/
 			} else {
 				$(this).removeClass("highlight-active");
 			}
-		
-		
 		});
 	});
 
@@ -176,7 +174,6 @@ $(document).ready(function(){
 			$(this).html(" / ");
 		}
 	});
-
 });
 
 
