@@ -45,8 +45,7 @@ Main Body Ids and Classes
 Media Element Classes
 *************************/
 video, audio, .mejs-webdesignertroy {
-  margin: 0 auto;
-  display: block;
+
 }
 .mejs-webdesignertroy {
 	overflow: hidden;
@@ -64,3 +63,36 @@ Media Rules
 		overflow: scroll;
 	}
 }
+@media (max-width:680px){
+
+	/* These declarations force the video element to resize with the browser. */
+	.video-container .mejs-container.svg.mejs-video,
+	.video-container .mejs-overlay.mejs-layer.mejs-overlay-play,
+	.video-container .mejs-poster.mejs-layer,
+	.video-container .mejs-captions-layer.mejs-layer,
+	.video-container video{
+		margin: 0 !important;
+		text-align: center;
+		width: 100% !important;
+		height: auto !important;
+	}
+	.video-container{
+		padding-bottom: 57%;
+		position: relative;
+	}
+
+
+	/* These declarations force the child elements that MEJS creates to render
+	relative to the video-container object. */
+
+	.video-container .mejs-layer, .video-container .mejs-container,
+	.video-container .mejs-overlay {
+		position: absolute !important;
+		top: 0 !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+		height: auto !important;
+	}
+}
+

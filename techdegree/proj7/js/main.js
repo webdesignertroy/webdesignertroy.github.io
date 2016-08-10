@@ -24,6 +24,7 @@ MediaElementPlayer.prototype.buildloop = function(player, controls, layers, medi
 
 $(document).ready(function(){
 
+
 	/************************
 	Variables
 	*************************/
