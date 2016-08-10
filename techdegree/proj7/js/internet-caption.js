@@ -1,5 +1,5 @@
 // Captions
-
+	
 var internetCaption = function() {
 	var captionHTML = "<p>";
 	captionHTML += "<span class='current-caption' id='1' data-start='000000'>";

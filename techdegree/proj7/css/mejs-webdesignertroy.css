@@ -19,14 +19,21 @@ Controls
 .mejs-webdesignertroy .mejs-controls .mejs-unfullscreen button,
 .mejs-webdesignertroy .mejs-controls .mejs-mute button,
 .mejs-webdesignertroy .mejs-controls .mejs-unmute button,
-.mejs-webdesignertroy .mejs-controls .mejs-captions-button button {
+.mejs-webdesignertroy .mejs-controls .mejs-captions-button button{
 	background-position: 0, 0;
 	height: 26px;
 	width: 26px;
 }
+.mejs-webdesignertroy .mejs-loop-button button {
+	background-position: 25px, 25px !important;
+	height: 26px !important;
+	width: 25px !important;
+	background-color: none;
+}
 .mejs-webdesignertroy .mejs-captions-button,
 .mejs-webdesignertroy .mejs-volume-button,
-.mejs-webdesignertroy .mejs-fullscreen-button {
+.mejs-webdesignertroy .mejs-fullscreen-button,
+.mejs-webdesignertroy .mejs-loop-button button  {
 	position: absolute;
 }
 .mejs-webdesignertroy .mejs-volume-button,
@@ -50,6 +57,7 @@ Controls
 	left: 20px;
 	position: absolute;
 }
+
 .mejs-webdesignertroy .mejs-controls .mejs-pause button {
 	background-image: url(../images/pause-icon.png);
 	left: 20px;
@@ -68,10 +76,23 @@ Controls
 	background-image: url(../images/volume-off-icon.png);
 	right: 50px;
 }
-
+.mejs-webdesignertroy .mejs-controls .mejs-loop-on button,
+.mejs-webdesignertroy .mejs-controls .mejs-loop-off button {
+	right: 180px;
+	top: 30px;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+}
+.mejs-webdesignertroy .mejs-controls .mejs-loop-on button {
+	background-image: url(../images/loop-off-icon.png);
+}
+.mejs-webdesignertroy .mejs-controls .mejs-loop-off button {
+	background-image: url(../images/loop-icon.png);
+}
 .mejs-webdesignertroy .mejs-controls .mejs-captions-button button  {
 	background: rgba(255, 255, 255, 0.9);
-	color: #333;
+	color: #999999;
 	border-radius: 6px;
 	position: relative;
 }
@@ -102,6 +123,7 @@ Time Rail
 /*  Modify Time Rail Style  */
 .mejs-webdesignertroy .mejs-controls .mejs-time-rail span {
 	height: 5px;
+	outline: none;
 }
 .mejs-webdesignertroy .mejs-controls .mejs-time-rail .mejs-time-total {
 	background: rgba(255, 255, 255, 0.1);
@@ -160,3 +182,22 @@ Captions
 	color: rgba(255, 153, 0, 1.0);
 	transition: .35s ease-out;
 }
+
+/*******************
+Media Rules
+********************/
+@media (max-width: 480px) {
+	.mejs-webdesignertroy .mejs-volume-button {
+		bottom: -500px;
+	}
+	.mejs-webdesignertroy .mejs-captions-button {
+		right: 80px;
+	}
+	.mejs-webdesignertroy .mejs-controls .mejs-loop-on button,
+	.mejs-webdesignertroy .mejs-controls .mejs-loop-off button {
+		right: 120px;
+	}
+}
+
+
+
