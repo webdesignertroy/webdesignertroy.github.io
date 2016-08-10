@@ -127,6 +127,9 @@ Time Rail
 ********************/
 
 /*  Modify Time Rail Style  */
+.mejs-webdesignertroy .mejs-controls div.mejs-time-rail {
+	margin-left: 25px;
+}
 .mejs-webdesignertroy .mejs-controls .mejs-time-rail span {
 	height: 5px;
 	outline: none;
