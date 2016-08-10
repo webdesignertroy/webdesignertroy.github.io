@@ -39,6 +39,9 @@ Controls
 .mejs-webdesignertroy .mejs-loop-button button  {
 	position: absolute;
 }
+.mejs-webdesignertroy .mejs-loop-button{
+	margin-top: -500px !important;
+}
 .mejs-webdesignertroy .mejs-volume-button,
 .mejs-webdesignertroy .mejs-fullscreen-button {
 	right: 30px;
