@@ -21,7 +21,10 @@
 /*******************
  Form Styles 
 *******************/
-
+.legend {
+	position: absolute;
+	left: -2000px;
+}
 form {
 	margin: 0 auto;
 	text-align: left;
