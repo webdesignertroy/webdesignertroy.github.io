@@ -105,7 +105,7 @@ input[type=email] {
 .button-padding {
 	padding: 0 10%;
 }
-#submit-text {
+.submit-text {
 	position: absolute;
 	left: -2000px;
 }
