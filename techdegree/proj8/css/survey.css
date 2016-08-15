@@ -88,18 +88,20 @@ input[type=email] {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	border: none;
-	background: red;
+	background: #b20000;
 	color: white;
 	margin-top: 15px;
 	transition: .25s ease-out;
 }
 .form-section button:hover {
 	background: white;
-	color: #02CBA4;
-	border: 3px solid red;
-}.form-section button:focus {
+	color: #b20000 !important;
+	border: 1px solid #b20000;
+}
+.form-section button:focus {
 	border-radius: 5px;
-	border: 3px solid #02CBA4;
+	border: 1px solid white;
+	color: white;
 	outline: none;
 }
 .button-padding {
@@ -109,7 +111,37 @@ input[type=email] {
 	position: absolute;
 	left: -2000px;
 }
+.radio-label {
+	position: relative;
+	cursor: pointer;
+}
+.radio-image {
+	display: inline-block;
+	position: absolute;
+	top: 4px;
+	left: -5px;
+	background: white;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+}
+.radio-image:after {
+	content: "";
+	padding-right: 5px;
+}
+input[type=radio] {
+	opacity: 0;
+}
+input[type=radio]:focus+span{
+	outline: none;
+	border: 3px solid #FF0D00;
+}
 
+input[type=radio]:checked+span{
+	background: black;
+	border: 3px solid #FF0D00;
+}
+	
 /*******************
  Styles for 
  Larger Screens
