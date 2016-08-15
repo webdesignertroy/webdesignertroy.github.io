@@ -21,6 +21,9 @@
 /*******************
  Form Styles 
 *******************/
+legend {
+	margin-bottom: 7px;
+}
 .legend {
 	position: absolute;
 	left: -2000px;
