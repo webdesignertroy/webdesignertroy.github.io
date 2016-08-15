@@ -31,37 +31,43 @@
       <div class="container">
         <form class = "survey">
           <div class="form-section">
-            <p>Who is your favorite band member:</p>
-            <input id="John" type="radio" name="res" value="John" tabindex="1">
-            <label for="John">John</label>
-            <input id="Hazzard" type="radio" name="res" value="Hazzard" tabindex="2">
-            <label for="Hazzard">Hazzard</label>
-            <input id="Bob" type="radio" name="res" value="Bob" tabindex="3">
-            <label for="Bob">Bob</label>
-            <input id="Sally" type="radio" name="res" value="Sally" tabindex="4">
-            <label for="Sally">Sally</label>
+          <fieldset>
+                <legend>Who is your favorite band member:</legend>
+                <input id="John" type="radio" name="res" value="John" tabindex="1">
+                <label for="John">John</label>
+                <input id="Hazzard" type="radio" name="res" value="Hazzard" tabindex="2">
+                <label for="Hazzard">Hazzard</label>
+                <input id="Bob" type="radio" name="res" value="Bob" tabindex="3">
+                <label for="Bob">Bob</label>
+                <input id="Sally" type="radio" name="res" value="Sally" tabindex="4">
+                <label for="Sally">Sally</label>
+            </fieldset>
           </div>
           <div class="form-section">
-            <p>What is your favorite album:</p>
-            <div class="form-select">
-              <select id="albums" name="select" tabindex="5">
-                <option value="1">Party For An Angel</option>
-                <option value="2">A Day Of Old</option>
-                <option value="3">Finding My Shadow</option>
-                <option value="4">Diamond Fireworks</option>
-                <option value="5">Enjoy Your Desire</option>
-                <option value="6">This Is For You</option>
-                <option value="7">Music Of My Life</option>
-                <option value="8">Song For Yesterday</option>
-                <option value="9">Heroic Forever</option>
-                <option value="10">Midnight Fires</option>
-                <option value="11">Street Of The Rider</option>
-              </select>
-            </div>
+          	<fieldset>
+                <legend>What is your favorite album:</legend>
+                <div class="form-select">
+                  <select id="albums" name="select" tabindex="5">
+                    <option value="1">Party For An Angel</option>
+                    <option value="2">A Day Of Old</option>
+                    <option value="3">Finding My Shadow</option>
+                    <option value="4">Diamond Fireworks</option>
+                    <option value="5">Enjoy Your Desire</option>
+                    <option value="6">This Is For You</option>
+                    <option value="7">Music Of My Life</option>
+                    <option value="8">Song For Yesterday</option>
+                    <option value="9">Heroic Forever</option>
+                    <option value="10">Midnight Fires</option>
+                    <option value="11">Street Of The Rider</option>
+                  </select>
+                </div>
+            </fieldset>
           </div>
           <div class="form-section">
-            <p>What is your favorite song:</p>
-            <textarea tabindex="6"></textarea >
+          	<fieldset>
+                <legend>What is your favorite song:</legend>
+                <textarea tabindex="6"></textarea >
+            </fieldset>
           </div>
         </form>
       </div>
@@ -72,6 +78,7 @@
     <div class="flex"> <img alt title="The Band" class="photo" src= "img/the_band.jpg">
       <div class="container">
         <form class="newsletter">
+        	<fieldset>
           <div class="form-section">
             <p>
               <label for="name">Name:</label>
@@ -91,8 +98,9 @@
             </p>
           </div>
           <div class="form-section button-padding">
-            <button type="submit">Sign Up</button>
+            <button type="submit" tabindex="10">Sign Up</button>
           </div>
+          </fieldset>
         </form>
       </div>
     </div>
