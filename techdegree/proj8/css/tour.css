@@ -20,7 +20,7 @@ pre {
 *******************/
  #tour-dates {
 	 width: 100%;
-	 max-width: 550px;
+	 max-width: 440px;
 	 margin-top: 20px;
  } 
  #tour-dates td,
@@ -33,4 +33,12 @@ pre {
  #tour-dates tr:nth-child(even) {
 	 background: black;;
  }
- 
+ /*******************
+ Styles for 
+ Larger Screens
+*******************/
+@media screen and (min-width: 1065px) {
+	#tour-dates {
+	 max-width: 600px;
+ 	} 
+}

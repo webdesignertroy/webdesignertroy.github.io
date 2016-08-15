@@ -65,7 +65,8 @@ img {
 .nav a {
 	transition: all .5s;
 }
-.nav a:hover {
+.nav a:hover,
+.active {
 	color: white
 }
 header {
@@ -92,6 +93,7 @@ header h2 {
 	color: #781125;
 	text-shadow: 1px 1px 2px rgba(255, 255, 255 , 0.7);
 	font-size: 1.8em;
+	text-transform: lowercase;
 }
 .tag {
 	color: black;
@@ -137,6 +139,9 @@ header .name {
 	color: #F83b55;
 	margin-top: 10px;
 }
+h1.heading {
+	font-weight: normal;
+}
 .initial-spacing {
 	margin-top: 35px ;
 }
@@ -171,12 +176,15 @@ a.social {
 	transition: all .5s;
 }
 a.twitter {
+	text-indent: -2000px;
 	background-image: url(../img/twitter-32.png);
 }
 a.youtube {
+	text-indent: -2000px;
 	background-image: url(../img/youtube-32.png);
 }
 a.spotify {
+	text-indent: -2000px;
 	background-image: url(../img/spotify-32.png);
 }
 a.social:hover {

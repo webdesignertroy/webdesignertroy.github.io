@@ -61,6 +61,10 @@ input[type=email]:focus {
 	border: 3px solid #FF0D00;
 	outline: none;
 }
+input[type=radio]:focus + label {
+	text-decoration: underline; 
+}
+
 #albums,
 textarea,
 input[type=text],
