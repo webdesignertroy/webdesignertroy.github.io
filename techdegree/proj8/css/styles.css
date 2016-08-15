@@ -13,12 +13,9 @@ body {
 	color: #02CBA4;
 	background: #2d2b30;
 }
-
-fieldset{
+fieldset {
 	border: none;
 }
-
-
 /*******************
  Link Styles
 *******************/
@@ -32,7 +29,6 @@ a:hover {
 img {
 	width: 100%;
 }
-
 /*******************
  Section Styles 
 *******************/
@@ -45,7 +41,7 @@ img {
 	text-align: center;
 }
 .nav {
-	display: -ms-flexbox;  
+	display: -ms-flexbox;
 	display: flex;
 	justify-content: space-around;
 	font-weight: 700;
@@ -65,8 +61,7 @@ img {
 .nav a {
 	transition: all .5s;
 }
-.nav a:hover,
-.active {
+.nav a:hover, .active {
 	color: white
 }
 header {
@@ -144,7 +139,7 @@ h1.heading {
 	font-weight: normal;
 }
 .initial-spacing {
-	margin-top: 35px ;
+	margin-top: 35px;
 }
 /*******************
  Footer Styles 
