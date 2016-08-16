@@ -114,10 +114,10 @@ header .name {
 	text-align: left;
 	border-top: 4px solid #F30021;
 	clear: both;
-	transition: 0.5s ease-out;
+	transition: 0.25s ease-out;
 }
 .card:hover {
-	border-color: #FFBC91;
+	border-color: #F66075;
 }
 .photo {
 	display: block;
