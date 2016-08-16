@@ -22,9 +22,10 @@ fieldset {
 a {
 	text-decoration: none;
 	color: #999;
+	transition: 0.25s ease-out;
 }
 a:hover {
-	color: #999;
+	color: #b20000;
 }
 img {
 	width: 100%;
