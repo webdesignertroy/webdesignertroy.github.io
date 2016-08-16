@@ -36,13 +36,15 @@ form.survey label {
 	display: inline-block;
 	margin-bottom: 7px;
 }
-input[type=text], input[type=email] {
+input[type=text], 
+input[type=email] {
 	width: 100% !important;
 	margin-top: 7px;
 	padding: 10px 3px;
 }
 .survey textarea {
 	width: 100%;
+	min-height: 80px;
 }
 .form-section p label {
 	display: inline-block;
@@ -121,7 +123,6 @@ input[type=radio] {
 }
 input[type=radio]:focus+span {
 	outline: none;
-	;
 }
 input[type=radio]:checked+span, input[type=radio]:focus+span {
 	background: black;
