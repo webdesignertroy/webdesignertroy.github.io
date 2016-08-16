@@ -1,6 +1,7 @@
 /* Tour page styles */
-.heading {
+h1.heading {
 	display: inline-block;
+	text-align: center;
 	margin: 0;
 }
 .pick {
