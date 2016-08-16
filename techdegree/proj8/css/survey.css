@@ -69,6 +69,7 @@ input[type=radio]:focus + label {
 #albums, textarea, input[type=text], input[type=email] {
 	border-radius: 5px;
 	border: 3px solid #02eabb;
+	color: #999;
 }
 .form-section button {
 	width: 100%;
@@ -125,7 +126,7 @@ input[type=radio]:focus+span {
 	outline: none;
 }
 input[type=radio]:checked+span, input[type=radio]:focus+span {
-	background: black;
+	background: #f2f2f2;
 	border: 3px solid #FF0D00;
 }
 
