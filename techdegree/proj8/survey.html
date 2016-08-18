@@ -48,7 +48,7 @@
           <fieldset>
             <legend class="legend"> Favorite Album </legend>
             <div class="form-section">
-              <label for="albums" >What is your favorite album:</label>
+              <label for="albums"  aria-describedby="albums">What is your favorite album:</label>
               <div class="form-select">
                 <select id="albums" name="select" tabindex="5">
                   <option value="1">A Day Of Old</option>
@@ -69,13 +69,13 @@
           <fieldset>
             <legend class="legend">Favorite Song</legend>
             <div class="form-section">
-              <label for="favorite">What is your favorite song:</label>
+              <label for="favorite" aria-describedby="favorite">What is your favorite song:</label>
               <textarea id="favorite" tabindex="6"></textarea >
             </div>
           </fieldset>
           <div class="form-section button-padding">
               <fieldset>
-                  <legend class="legend" aria-describedby="submit">Select button to Submit Survey</legend>
+                  <legend class="legend" aria-describedby="submit-survey">Select button to Submit Survey</legend>
                   <button id="submit-survey" type="submit" tabindex="7" >Submit</button>
                   <label class="submit-text" for="submit-survey">Submit</label>
               </fieldset>
@@ -93,25 +93,25 @@
             <legend class="legend"> Fill out form to receive Newsletter </legend>
             <div class="form-section">
               <p>
-                <label for="name">Name:</label>
+                <label for="name" aria-describedby="name">Name:</label>
                 <input id="name" type ="text" name="textfield" tabindex="20">
               </p>
             </div>
             <div class="form-section">
               <p>
-                <label for="email">Email:</label>
+                <label for="email" aria-describedby="email">Email:</label>
                 <input id="email" type ="email" name="textfield" tabindex="21">
               </p>
             </div>
             <div class="form-section">
               <p>
-                <label for="retype">Retype Email:</label>
+                <label for="retype" aria-describedby="retype">Retype Email:</label>
                 <input id="retype" type ="email" name="textfield" tabindex="22">
               </p>
             </div>
             <div class="form-section button-padding">
               <button id="submit" type="submit" tabindex="23" >Sign Up</button>
-              <label class="submit-text" for="submit">Submit</label>
+              <label class="submit-text" for="submit" aria-describedby="submit">Submit</label>
             </div>
           </fieldset>
         </form>
