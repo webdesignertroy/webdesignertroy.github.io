@@ -32,16 +32,16 @@
         <form class = "survey">
           <fieldset>
             <legend>Who is your favorite band member:</legend>
-            <label class="radio-label" for="Bob">
+            <label class="radio-label" for="Bob" aria-describedby="member">
               <input id="Bob" type="radio" name="res" value="Bob"  tabindex="1">
               <span class="radio-image"></span> Bob</label>
-            <label class="radio-label" for="Hazzard">
+            <label class="radio-label" for="Hazzard" aria-describedby="member">
               <input id="Hazzard" type="radio" name="res" value="Hazzard"  tabindex="2">
               <span class="radio-image"></span> Hazzard</label>
-            <label class="radio-label" for="John">
+            <label class="radio-label" for="John" aria-describedby="member">
               <input id="John" type="radio" name="res" value="John"  tabindex="3">
               <span class="radio-image"></span> John</label>
-            <label class="radio-label" for="Sally">
+            <label class="radio-label" for="Sally" aria-describedby="member">
               <input id="Sally" type="radio" name="res" value="Sally"  tabindex="4">
               <span class="radio-image"></span> Sally</label>
           </fieldset>
@@ -75,8 +75,8 @@
           </fieldset>
           <div class="form-section button-padding">
               <fieldset>
-                  <legend class="legend">Select button to Submit Survey</legend>
-                  <button id="submit-survey" type="submit" tabindex="7">Submit</button>
+                  <legend class="legend" aria-describedby="submit">Select button to Submit Survey</legend>
+                  <button id="submit-survey" type="submit" tabindex="7" >Submit</button>
                   <label class="submit-text" for="submit-survey">Submit</label>
               </fieldset>
           </div>
@@ -110,7 +110,7 @@
               </p>
             </div>
             <div class="form-section button-padding">
-              <button id="submit" type="submit" tabindex="23">Sign Up</button>
+              <button id="submit" type="submit" tabindex="23" >Sign Up</button>
               <label class="submit-text" for="submit">Submit</label>
             </div>
           </fieldset>
