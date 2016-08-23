@@ -38,7 +38,7 @@ $(document).ready(function(){
 				notification: "You have not verified your account.", note: "warning", message: "<p>This message is in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
 			},
 			{
-				notification: "50% off all or our prouducts in our store.", note: "marketing", message: "<p>This message is ALSO in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
+				notification: "Yout post has been approved and is ready for publication.", note: "marketing", message: "<p>This message is ALSO in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
 			}],
 		// Close the notification bar smoothly
 		closeNotify: function(divName) {
