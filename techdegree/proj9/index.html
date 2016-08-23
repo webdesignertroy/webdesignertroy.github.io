@@ -3,6 +3,7 @@
 <link rel ="stylesheet" type="text/css" href="css/normalize.css" />
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+
 <html>
 <head>
 	<title>Web App Dashboard</title>
@@ -47,7 +48,9 @@
 			<div class="clearfix"></div>
 			<div id="notification-placeholder"></div>
 			<div class="clearfix"></div>
-			<div id="traffic"> <span class="center">TRAFFIC</span></div>
+			<div id="traffic">
+				<canvas id="traffic-chart" height="300"></canvas>
+			</div>
 			<div id="daily-traffic"></div>
 			<div id="mobile-users"></div>
 		</div>
@@ -56,6 +59,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 	<script id="alert-area" type="text/x-handlebares-templates">
 		<div class="alert-box {{note}}">
 			<span class="alert-notification">

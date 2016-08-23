@@ -163,7 +163,7 @@ CLASS ELEMENTS
 
 /* alert box */
 #notification-placeholder {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	padding: 0 15px;
 }
@@ -242,15 +242,21 @@ CLASS ELEMENTS
 .hide-div {
 	display: none;
 }
-
+#traffic,
+#daily-traffic,
+#mobile-users {
+	margin: 30px 20px 20px 20px;
+}
 /* traffic */
 #traffic {
+	position: relative;
 	display: -ms-flexbox;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	text-align: center;
-	height: 500px;
+	height: 340px;
+	border: 3px solid blue;
 }
 #traffic span {
 	display: inline-block;
@@ -259,6 +265,13 @@ CLASS ELEMENTS
   content: " ";
   display: table;
   clear: both; 
+}
+#daily-traffic {
+	height: 300px;
+	border: 3px solid red;
+}#mobile-users {
+	height: 300px;
+	border: 3px solid green;
 }
 
 /******************************

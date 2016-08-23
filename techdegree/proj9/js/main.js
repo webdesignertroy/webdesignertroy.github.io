@@ -7,6 +7,7 @@ $(document).ready(function(){
 	var $members = $("#members");
 	var $charts = $("#charts");
 	var $settings = $("#settings");
+
 	var $notification = $("#notification");
 	var $alertArea = $("#alert-area");
 	var $alertMessage = $(".alert-message");
@@ -73,7 +74,7 @@ $(document).ready(function(){
 		}
 	}	
 
-/******************************
+	/******************************
 		BUILD ELEMENTS/HTML
 	******************************/
 	for (var i = 0; i < notify.messageList.length; i++) {
@@ -92,6 +93,38 @@ $(document).ready(function(){
 	 $("#notification-placeholder").append(fullText);
 	}
 
+	/******************************
+		BUILD CHARTS
+	******************************/
+	
+	  
+	  function trafficChart() {
+	    var data = {
+	      labels: ["January", "February", "March", "April", "May", "June", "July"],
+	      datasets: [
+	        {
+	          label: "My Second dataset",
+	          fillColor: "rgba(151,187,205,0.2)",
+	          strokeColor: "rgba(151,187,205,1)",
+	          pointColor: "rgba(151,187,205,1)",
+	          pointStrokeColor: "#fff",
+	          pointHighlightFill: "#fff",
+	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          data: [28, 48, 40, 19, 86, 27, 190]
+	        }
+	      ]
+	    };
+
+		Chart.defaults.global.responsive = true;
+
+	    var ctx = $("#traffic-chart")[0].getContext("2d");
+	    currentChart = new Chart(ctx).Line(data, {
+	    	pointDotRadius: 5,
+	    	bezierCurve: true
+	    });
+	  }
+	  trafficChart();
+	  
 	/******************************
 		EVENT LISTENERS/HANDLERS
 	******************************/
