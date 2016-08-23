@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel ="stylesheet" type="text/css" href="css/normalize.css" />
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<html>
+<head>
+	<title>Web App Dashboard</title>
+</head>
+<body>
+<header id="header">
+	Your<span class="no-bold">App<sup class="trademark">&trade;</sup></span>
+	<span id="member-block">
+		<span class="member-name">
+		    <span id="notification" class="center">
+		    	Notifications
+		    	<span class="alert"></span>
+		    </span>
+			<img src="images/members/member1.jpg" />
+			<span class="center">Sarah Seasons</span>
+		</span>
+	</span>
+</header>
+
+<nav id="nav">
+	<ul>
+		<li id="dashboard">dashboard</li>
+		<li id="members">members</li>
+		<li id="charts">charts</li>
+		<li id="settings">settings</li>
+
+	</ul>
+</nav>
+<div class="clearfix"></div>
+<div class="container">
+
+
+	<div id="title-area">
+		<div id="title">Dashboard</div>
+		<div id="search">
+			<form>
+				<input type="text" name="search" placeholder="Search Members" />
+			</form>
+
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div id="notification-placeholder"></div>
+	<div class="clearfix"></div>
+	<div id="traffic"> <span class="center">TRAFFIC</span></div>
+	<div id="daily-traffic"></div>
+	<div id="mobile-users"></div>
+
+
+</div>
+<footer></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script id="alert-area" type="text/x-handlebares-templates">
+		<div class="alert-box {{note}}">
+			<span class="alert-notification">
+				{{notification}}
+			</span>
+			<span class="alert-message">
+				{{{message}}}
+				<span class="message-close">Close Message</span>
+			</span>
+			<span class="close">Close</span>
+		</div>
+	</script>
+<script src="js/main.js"></script>
+</body>
+</html>
