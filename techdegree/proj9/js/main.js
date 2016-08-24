@@ -98,12 +98,12 @@ var lineTraffic = {
 	      datasets: [
 	        {
 	          label: "Hourly",
-	          fillColor: "rgba(151,187,205,0.2)",
-	          strokeColor: "rgba(151,187,205,1)",
-	          pointColor: "rgba(151,187,205,1)",
+	          fillColor: "rgba(255, 105, 105, 0.2)",
+	          strokeColor: "rgba(255, 105, 105, 1)",
+	          pointColor: "rgba(255, 105, 105, 1)",
 	          pointStrokeColor: "#fff",
 	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          pointHighlightStroke: "rgba(255, 105, 105, 1)",
 	          data: [31, 42, 25, 52, 89, 101, 66, 105, 63, 31, 25, 24, 20]
 	        }
 	      ]
@@ -117,12 +117,12 @@ var lineTraffic = {
 	      datasets: [
 	        {
 	          label: "Daily",
-	          fillColor: "rgba(151,187,205,0.2)",
-	          strokeColor: "rgba(151,187,205,1)",
-	          pointColor: "rgba(151,187,205,1)",
+	          fillColor: "rgba(170,153, 57, 0.1)",
+	          strokeColor: "rgba(170,153, 57, 1)",
+	          pointColor: "rgba(170,153, 57, 1)",
 	          pointStrokeColor: "#fff",
 	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          pointHighlightStroke: "rgba(170,153, 57, 1)",
 	          data: [305, 425, 633, 581, 233, 455, 365]
 	        }
 	      ]
@@ -136,12 +136,12 @@ var lineTraffic = {
 	      datasets: [
 	        {
 	          label: "Daily",
-	          fillColor: "rgba(151,187,205,0.2)",
-	          strokeColor: "rgba(151,187,205,1)",
-	          pointColor: "rgba(151,187,205,1)",
+	          fillColor: "rgba(136, 204, 136, 0.2)",
+	          strokeColor: "rgba(136, 204, 136, 1)",
+	          pointColor: "rgba(136, 204, 136, 1)",
 	          pointStrokeColor: "#fff",
 	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          pointHighlightStroke: "rgba(136, 204, 136, 1)",
 	          data: [1203, 1355, 902, 878, 1026]
 	        }
 	      ]
@@ -155,12 +155,12 @@ var lineTraffic = {
 	      datasets: [
 	        {
 	          label: "Monthly",
-	          fillColor: "rgba(151,187,205,0.2)",
-	          strokeColor: "rgba(151,187,205,1)",
-	          pointColor: "rgba(151,187,205,1)",
+	          fillColor: "rgba(151, 187, 205, 0.2)",
+	          strokeColor: "rgba(151, 187, 205, 1)",
+	          pointColor: "rgba(151, 187, 205, 1)",
 	          pointStrokeColor: "#fff",
 	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          pointHighlightStroke: "rgba(151, 187, 205 ,1)",
 	          data: [10233, 12682, 18523, 14629, 18923, 16234, 11231, 17234, 9973, 20323, 19234, 11323]
 	        }
 	      ]
@@ -169,16 +169,21 @@ var lineTraffic = {
  		lineTraffic.drawChart(months);
 	  },
 	  drawChart: function(data) {
-	  	Chart.defaults.global.responsive = true;
 
 	  	$("#traffic-chart").remove();
-	  	$("#traffic").append('<canvas id="traffic-chart" height="300"></canvas>');
+	  	$("#traffic").append('<canvas id="traffic-chart" height="300" width="500"></canvas>');
+	   
+	  	Chart.defaults.global.responsive = false;
 
-		var ctx = $("#traffic-chart")[0].getContext("2d");
+	  	canvas = document.querySelector("#traffic-chart");
+
+		var ctx = canvas.getContext("2d");
+
 		currentChart = new Chart(ctx).Line(data, {
 			pointDotRadius: 5,
 			bezierCurve: true
 		});
+
 	  },
 	  activeTraffic: function(divName, time){
 	  	// iterate through Traffic options

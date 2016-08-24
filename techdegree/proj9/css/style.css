@@ -311,6 +311,10 @@ CLASS ELEMENTS
     background: #2f2f2f;
     color: white;
 }
+#traffic-chart {
+	width: 100% !important;
+	height: auto !important;
+}
 .clearfix:after {
   content: " ";
   display: table;
