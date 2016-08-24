@@ -24,7 +24,12 @@ h1 {
 h2 {
 	font-size: 1.1em;
 }
-
+/******************************
+PRELOAD IMAGES
+******************************/
+#preload-01{
+	background: url(../images/icons/close-message.png) no-repeat -9999px -9999px;
+}
 /******************************
 CLASS ELEMENTS
 ******************************/
