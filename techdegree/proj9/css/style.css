@@ -234,13 +234,26 @@ CLASS ELEMENTS
     right:0;
     margin: 0 auto;
     background: lightyellow;
-    color: #333;
+    background: repeating-linear-gradient(
+    	#FFFF77,
+    	#FFFF77 19.5px,
+    	rgba(135,176,243, 0.8) 5px,
+    	#ccc 20px);
+    color: #2f2f2f;
+    font-weight: 400;
     padding: 17px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
     z-index: 55;
+}
+.alert-message a {
+	text-decoration: none;
+	color: #123293;
+}
+.alert-message a:hover {
+	text-decoration: underline;
 }
 .show-message {
 	display: block;
@@ -249,10 +262,10 @@ CLASS ELEMENTS
 	background: url(../images/icons/close-message.png) center center;
 	background-repeat: no-repeat;
 	position: absolute;
-	top: -7px;
-	left: -7px;
-	width: 21px;
-	height: 21px;
+	top: -10px;
+	left: -10px;
+	width: 26px;
+	height: 26px;
 	z-index: 56;
 	cursor: pointer;
 	text-indent: -2000px;

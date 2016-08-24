@@ -84,8 +84,17 @@ $(document).ready(function(){
 		closeMessage: function(divName) {
 			divName.parent().find(".alert-message").animate({
 				opacity: 0
+			}, function(){
+				$(this).parent().find(".alert-message").removeClass("show-message");
 			});
-			divName.parent().find(".alert-message").removeClass("show-message");
+			
+		},
+		openAll: function() {
+			$notificationPlaceholder.children().find(".alert-message").each(function(){
+				$(this).addClass("show-message").animate({
+					opacity: 1
+				});
+			});
 		}
 	}
 
@@ -264,6 +273,11 @@ var lineTraffic = {
 	$settings.click(function(){
 		nav.activeNav($(this));
 	});
+	// Notification Icon
+	$notification.click(function(){
+		notify.openAll();
+	});
+
 
 	/*******  TRAFFIC BUTTONS  *******/
 	// Hourly Option
