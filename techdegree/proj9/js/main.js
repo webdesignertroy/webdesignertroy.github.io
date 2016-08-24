@@ -39,7 +39,7 @@ $(document).ready(function(){
 				notification: "You have not verified your account.", note: "warning", message: "<p>This message is in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
 			},
 			{
-				notification: "Yout post has been approved and is ready for publication.", note: "marketing", message: "<p>This message is ALSO in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
+				notification: "Your post has been approved and is ready for publication.", note: "marketing", message: "<p>This message is ALSO in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
 			}],
 		// Close the notification bar smoothly
 		closeNotify: function(divName) {
@@ -72,33 +72,11 @@ $(document).ready(function(){
 			});
 			divName.parent().find(".alert-message").removeClass("show-message");
 		}
-	}	
-
-	/******************************
-		BUILD ELEMENTS/HTML
-	******************************/
-	for (var i = 0; i < notify.messageList.length; i++) {
-
-	// define the data object
-	var messageData = {
-		note: notify.messageList[i].note,
-		notification: notify.messageList[i].notification,
-		message: notify.messageList[i].message
-	};
-
-	// pass data object to template
-	var fullText = notificationTemplate(messageData);
-
-	 // append to to #alert-area
-	 $("#notification-placeholder").append(fullText);
 	}
 
-	/******************************
-		BUILD CHARTS
-	******************************/
-	
-	  
-	  function trafficChart() {
+//Chart Object
+var lineTraffic = {
+	trafficChart: function() {
 	    var data = {
 	      labels: ["January", "February", "March", "April", "May", "June", "July"],
 	      datasets: [
@@ -123,7 +101,33 @@ $(document).ready(function(){
 	    	bezierCurve: true
 	    });
 	  }
-	  trafficChart();
+	}
+	/******************************
+		BUILD ELEMENTS/HTML
+	******************************/
+	for (var i = 0; i < notify.messageList.length; i++) {
+
+	// define the data object
+	var messageData = {
+		note: notify.messageList[i].note,
+		notification: notify.messageList[i].notification,
+		message: notify.messageList[i].message
+	};
+
+	// pass data object to template
+	var fullText = notificationTemplate(messageData);
+
+	 // append to to #alert-area
+	 $("#notification-placeholder").append(fullText);
+	}
+
+	/******************************
+		BUILD CHARTS
+	******************************/
+	
+	  
+
+	  lineTraffic.trafficChart();
 	  
 	/******************************
 		EVENT LISTENERS/HANDLERS
