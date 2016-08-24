@@ -334,7 +334,7 @@ CLASS ELEMENTS
 }
 #traffic-chart {
 	width: 100% !important;
-	height: auto !important;
+	height: 300px !important;
 }
 .clearfix:after {
   content: " ";
