@@ -26,9 +26,9 @@
 <nav id="nav">
 	<ul>
 		<li id="dashboard">dashboard<span class="active"></span></li>
-		<li id="members">members</li>
-		<li id="charts">charts</li>
-		<li id="settings">settings</li>
+		<li id="members">members<span></span><</li>
+		<li id="charts">charts<span></span><</li>
+		<li id="settings">settings<span></span><</li>
 
 	</ul>
 </nav>
@@ -51,12 +51,14 @@
 			<div id="traffic">
 				<h2>Traffic</h2>
 				<ul>
-					<li>Hourly</li>
-					<li>Daily</li>
-					<li>Weekly</li>
-					<li>Monthly</li>
+					<li id="hourly">Hourly</li>
+					<li id="daily">Daily</li>
+					<li id="weekly">Weekly</li>
+					<li id="monthly" class="active-time">Monthly</li>
 				</ul>
-				<canvas id="traffic-chart" height="300"></canvas>
+				
+					<canvas id="traffic-chart" height="300"></canvas>
+				
 			</div>
 			<div id="daily-traffic"></div>
 			<div id="mobile-users"></div>

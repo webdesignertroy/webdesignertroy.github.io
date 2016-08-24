@@ -14,6 +14,11 @@ $(document).ready(function(){
 	var $alertBox = $(".alert-box");
 	var $notificationPlaceholder = $("#notification-placeholder");
 
+	var $hourly = $("#hourly");
+	var $daily = $("#daily");
+	var $weekly = $("#weekly");
+	var $monthly = $("#monthly");
+
 	/******************************
 		HELPER FUNCTIONS
 	******************************/
@@ -32,7 +37,17 @@ $(document).ready(function(){
 	/******************************
 		OBJECTS-ORIENTED VARIABLES
 	******************************/
-	// Notificaiton Object
+	// Navigation Object
+	var nav = {
+		activeNav: function(link) {
+			$("#nav ul").find("li").each(function(){
+				$(this).find("span").removeClass("active");
+			});
+			link.find("span").addClass("active");
+		}
+	}
+
+	// Notification Object
 	var notify = {
 		// Notification messages
 		messageList: [{
@@ -74,37 +89,132 @@ $(document).ready(function(){
 		}
 	}
 
-//Chart Object
+// Traffic Line Chart Object
 var lineTraffic = {
-	trafficChart: function() {
-	    var data = {
-	      labels: ["January", "February", "March", "April", "May", "June", "July"],
+
+	trafficHour: function() {
+	    var hours = {
+	      labels: ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"],
 	      datasets: [
 	        {
-	          label: "My Second dataset",
+	          label: "Hourly",
 	          fillColor: "rgba(151,187,205,0.2)",
 	          strokeColor: "rgba(151,187,205,1)",
 	          pointColor: "rgba(151,187,205,1)",
 	          pointStrokeColor: "#fff",
 	          pointHighlightFill: "#fff",
 	          pointHighlightStroke: "rgba(151,187,205,1)",
-	          data: [28, 48, 40, 19, 86, 27, 190]
+	          data: [31, 42, 25, 52, 89, 101, 66, 105, 63, 31, 25, 24, 20]
 	        }
 	      ]
 	    };
 
-		Chart.defaults.global.responsive = true;
+ 		lineTraffic.drawChart(hours);
+	  },
+	trafficDay: function() {
+	    var days = {
+	      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+	      datasets: [
+	        {
+	          label: "Daily",
+	          fillColor: "rgba(151,187,205,0.2)",
+	          strokeColor: "rgba(151,187,205,1)",
+	          pointColor: "rgba(151,187,205,1)",
+	          pointStrokeColor: "#fff",
+	          pointHighlightFill: "#fff",
+	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          data: [305, 425, 633, 581, 233, 455, 365]
+	        }
+	      ]
+	    };
 
-	    var ctx = $("#traffic-chart")[0].getContext("2d");
-	    currentChart = new Chart(ctx).Line(data, {
-	    	pointDotRadius: 5,
-	    	bezierCurve: true
-	    });
+ 		lineTraffic.drawChart(days);
+	  },
+	trafficWeek: function() {
+	    var week = {
+	      labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
+	      datasets: [
+	        {
+	          label: "Daily",
+	          fillColor: "rgba(151,187,205,0.2)",
+	          strokeColor: "rgba(151,187,205,1)",
+	          pointColor: "rgba(151,187,205,1)",
+	          pointStrokeColor: "#fff",
+	          pointHighlightFill: "#fff",
+	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          data: [1203, 1355, 902, 878, 1026]
+	        }
+	      ]
+	    };
+
+ 		lineTraffic.drawChart(week);
+	  },
+	trafficMonth: function() {
+	    var months = {
+	      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	      datasets: [
+	        {
+	          label: "Monthly",
+	          fillColor: "rgba(151,187,205,0.2)",
+	          strokeColor: "rgba(151,187,205,1)",
+	          pointColor: "rgba(151,187,205,1)",
+	          pointStrokeColor: "#fff",
+	          pointHighlightFill: "#fff",
+	          pointHighlightStroke: "rgba(151,187,205,1)",
+	          data: [10233, 12682, 18523, 14629, 18923, 16234, 11231, 17234, 9973, 20323, 19234, 11323]
+	        }
+	      ]
+	    };
+
+ 		lineTraffic.drawChart(months);
+	  },
+	  drawChart: function(data) {
+	  	Chart.defaults.global.responsive = true;
+
+	  	$("#traffic-chart").remove();
+	  	$("#traffic").append('<canvas id="traffic-chart" height="300"></canvas>');
+
+		var ctx = $("#traffic-chart")[0].getContext("2d");
+		currentChart = new Chart(ctx).Line(data, {
+			pointDotRadius: 5,
+			bezierCurve: true
+		});
+	  },
+	  activeTraffic: function(divName, time){
+	  	// iterate through Traffic options
+	  	//   remove active style
+	  	$("#traffic ul li").each(function(){
+	  		$(this).removeClass("active-time");
+	  	});
+	  	// Add active style to newly selected
+	  	//   Traffic option
+	  	divName.addClass("active-time");
+
+	  	// Switch Statement and run appropriate
+	  	//    Traffic chart
+
+	  	switch(time) {
+	  		case "days":
+	  			lineTraffic.trafficDay();
+	  		break;
+	  		case "hours":
+	  			lineTraffic.trafficHour();
+	  		break;
+	  		case "weeks":
+	  			lineTraffic.trafficWeek();
+	  		break;
+	  		case "months":
+	  			lineTraffic.trafficMonth();
+	  		break;
+	  	}
 	  }
 	}
 	/******************************
 		BUILD ELEMENTS/HTML
 	******************************/
+	// Instantiate notifications via Handlebars.js
+
+	// Iterate through messages
 	for (var i = 0; i < notify.messageList.length; i++) {
 
 	// define the data object
@@ -125,36 +235,59 @@ var lineTraffic = {
 		BUILD CHARTS
 	******************************/
 	
-	  
-
-	  lineTraffic.trafficChart();
+	  // Instantiate traffic line chart
+	  lineTraffic.trafficMonth();
 	  
 	/******************************
 		EVENT LISTENERS/HANDLERS
 	******************************/
+
 	/*******  NAV BUTTONS  *******/
 	// Dashboard Nav Item
 	$dashboard.click(function(){
-		console.log("Do Something on the Dashboard Buttons");
+		nav.activeNav($(this));
 	});
 	// Members Nav Item
 	$members.click(function(){
-		console.log("Do Something on the Members Button");
+		nav.activeNav($(this));
 	});
 	// Charts Nav Item
 	$charts.click(function(){
-		console.log("Do Something on the Charts Buttons");
+		nav.activeNav($(this));
 	});
 	// Settings Nav Item
 	$settings.click(function(){
-		console.log("Do Something on the Settings Buttons");
+		nav.activeNav($(this));
 	});
 
+	/*******  TRAFFIC BUTTONS  *******/
+	// Hourly Option
+	$hourly.click(function(){
+		hours = "hours";
+		lineTraffic.activeTraffic($(this), hours);
+	});
+	// Daily Option
+	$daily.click(function(){
+		days = "days";
+		lineTraffic.activeTraffic($(this), days);
+	});
+	// Weekly Option
+	$weekly.click(function(){
+		weeks = "weeks";
+		lineTraffic.activeTraffic($(this), weeks);
+	});
+	// Monthly Option
+	$monthly.click(function(){
+		months = "months";
+		lineTraffic.activeTraffic($(this), months);
+	});
 
 	/*******  BUBBLING EVENT BUTTONS  *******/
 	
 	$(".close").on("click", function() {
 		notify.closeNotify($(this));
+		
+		/*$(".alert").html(counter);*/
 	});
 	$(".alert-notification").on("click", function() {
 		notify.openMessage($(this));

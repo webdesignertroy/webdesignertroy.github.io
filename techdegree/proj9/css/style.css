@@ -139,6 +139,7 @@ CLASS ELEMENTS
     bottom: -13px;
     left: -2px;
     border-radius: 3px;
+	transition: .5s all ease-out;
 }
 #dashboard {
 	background: url(../images/icons/icon-dashboard.svg);
@@ -305,7 +306,8 @@ CLASS ELEMENTS
     cursor: pointer;
     transition: 0.15s ease-out;
 }
-#traffic ul li:hover {  
+#traffic ul li:hover,
+.active-time {  
     background: #2f2f2f;
     color: white;
 }
@@ -398,6 +400,7 @@ MEDIA QUERIES
 	    height: 71px;
 	    bottom: 35px;
 	    left: -30px;
+	    border-radius: 0 10px 10px 0;
 	}
 	.container {
 		margin-left: 125px;
@@ -418,6 +421,13 @@ MEDIA QUERIES
 	#search input[type=text] {
 	position: absolute;
 	right: 15px;
+	}
+	#traffic h2 {
+		align-self: flex-start;
+	}
+	#traffic ul {
+		align-self: flex-end;
+		margin: -41px 0 10px 0;
 	}
 }
 @media (min-width: 1108px) {
