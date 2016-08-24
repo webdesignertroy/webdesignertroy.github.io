@@ -51,10 +51,10 @@ $(document).ready(function(){
 	var notify = {
 		// Notification messages
 		messageList: [{
-				notification: "You have not verified your account.", note: "warning", message: "<p>This message is in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
+				notification: "You have not verified your account.", note: "warning", message: "<h3>You have not verified your account</h3><p>A confimation request was sent to your email. Please confirm your account by clicking the link provided</p>  <p>If you have any questions, please contact us at <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/acconts</a>.</p>"
 			},
 			{
-				notification: "Your post has been approved and is ready for publication.", note: "marketing", message: "<p>This message is ALSO in <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>HTML</a> format</p>"
+				notification: "Your ad has been approved and is ready for publication.", note: "marketing", message: "<h3>Congratulations</h3><p>Your ad has been approved. Visit <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/ads</a> for more information.</p>"
 			}],
 		// Close the notification bar smoothly
 		closeNotify: function(divName) {

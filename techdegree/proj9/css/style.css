@@ -67,8 +67,8 @@ CLASS ELEMENTS
     right: -21px;
 }
 .alert {
-    width: 7px;
-    height: 7px;
+    width: 12px;
+    height: 12px;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -240,6 +240,7 @@ CLASS ELEMENTS
     	rgba(135,176,243, 0.8) 5px,
     	#ccc 20px);
     color: #2f2f2f;
+    font-size: 0.85em;
     font-weight: 400;
     padding: 17px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
@@ -247,6 +248,8 @@ CLASS ELEMENTS
     -moz-border-radius: 2px;
     border-radius: 2px;
     z-index: 55;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 .alert-message a {
 	text-decoration: none;
