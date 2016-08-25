@@ -236,6 +236,7 @@ $(document).ready(function(){
 			var ctx = canvas.getContext("2d");
 
 			// remove old data before drawing new
+			var counter = 0;
 			if (lineChart != null) {
 				for( i=0; i < oldData.length + 1 ; i++ ) {
 					lineChart.removeData();
@@ -243,7 +244,9 @@ $(document).ready(function(){
 			}	
 
 			// draw new chart
-			var lineChart = new Chart(ctx).Line(data, {
+			//   lineChart and old Data need
+			//   to stay global as variables 
+			lineChart = new Chart(ctx).Line(data, {
 				pointDotRadius: 5,
 				bezierCurve: true
 			});
