@@ -18,7 +18,7 @@ $(document).ready(function(){
 	var $daily = $("#daily");
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
-	var currentChart = null;
+	var lineChart = null;
 	var oldData = null;
 
 	/******************************
@@ -92,12 +92,35 @@ $(document).ready(function(){
 			});
 			
 		},
+		// Show accompanying pop-up message
+		openMessageTest: function() {
+			$(".note").addClass("show-message");
+			$(".note").animate({
+				opacity: 1
+			});
+			setInterval(function(){
+				$(".note").animate({
+					opacity: 0
+				}, function(){
+					$(".note").removeClass("show-message");
+				});
+			}, 4000);
+		},
 		openAll: function() {
+			var counter = 0;
 			$notificationPlaceholder.children().find(".alert-message").each(function(){
 				$(this).addClass("show-message").animate({
 					opacity: 1
 				});
 			});
+			$notificationPlaceholder.children().each(function(){
+				if ( !$(this).hasClass("hide-div") ) {
+					counter++;
+				}
+			});
+			if ( counter < 1 ) {
+				notify.openMessageTest();
+			}
 		}
 	}
 
@@ -190,14 +213,14 @@ var lineTraffic = {
 		
 
 		// remove old data before drawing new
-		if (currentChart != null) {
+		if (lineChart != null) {
 			for( i=0; i < oldData.length + 1 ; i++ ) {
-				currentChart.removeData();
+				lineChart.removeData();
 			}
 		}	
 
 		// draw new chart
-		currentChart = new Chart(ctx).Line(data, {
+		lineChart = new Chart(ctx).Line(data, {
 			pointDotRadius: 5,
 			bezierCurve: true
 		});
@@ -265,10 +288,10 @@ var lineTraffic = {
 
 		var ctx = canvas.getContext("2d");
 
-		currentChart2 = new Chart(ctx).Bar(data, {
+		barChart = new Chart(ctx).Bar(data, {
 			pointDotRadius: 5
 		});
-		document.getElementById('daily-chart-legend').innerHTML = currentChart2.generateLegend();
+		document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
 	  }
 	}
 	/******************************
