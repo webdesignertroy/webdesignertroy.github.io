@@ -153,6 +153,7 @@ CLASS ELEMENTS
 	position: relative;
 	background-repeat: no-repeat;
 	text-indent: -2000px;
+	list-style: none;
 	width: 40px;
 	height: 40px;
 	margin: 0;
@@ -167,7 +168,8 @@ CLASS ELEMENTS
     bottom: -13px;
     left: -2px;
     border-radius: 3px;
-	transition: .5s all ease-out;
+    transition-property: width, height;
+	transition: .5s ease-out;
 }
 #dashboard {
 	background: url(../images/icons/icon-dashboard.svg);

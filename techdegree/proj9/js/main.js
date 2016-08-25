@@ -284,13 +284,13 @@ $(document).ready(function(){
 				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
 				datasets: [
 					{
-						label: "Unique",
+						label: "Unique Visits",
 						data: [125, 232, 411, 342, 55, 211, 118],
 						fillColor: "rgba(170,153, 57, 0.5)",
 						strokeColor: "rgba(170,153, 57, 1)"
 					},
 					{
-						label: "Return",
+						label: "Return Visits",
 						data: [255, 391, 522, 442, 200, 355, 234],
 						fillColor: "rgba(151, 187, 205, 0.5)",
 						strokeColor: "rgba(151, 187, 205, 1)"
