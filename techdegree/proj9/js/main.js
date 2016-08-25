@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	/******************************
-		VARIABLES
+	VARIABLES
 	******************************/
-	/* element to jQuery */
+	/* Element ==> jQuery */
 	var $dashboard = $("#dashboard");
 	var $members = $("#members");
 	var $charts = $("#charts");
@@ -18,29 +18,26 @@ $(document).ready(function(){
 	var $daily = $("#daily");
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
+
+	/* Other */
 	var lineChart = null;
 	var oldData = null;
 
 	/******************************
-		HELPER FUNCTIONS
+	HELPER DECLARATION FUNCTIONS
 	******************************/
-		function strip(message) {
-			var regex = /(<([^]+)>\n)/ig;
-			var results = message.replace(regex, "");
-			var results = results.trim();
-			return results;
-		}
-		//reference
-		var source = $alertArea.html();
-
-		//complile the source markup
-		var notificationTemplate = Handlebars.compile(source);
-
+	function strip(message) {
+		var regex = /(<([^]+)>\n)/ig;
+		var results = message.replace(regex, "");
+		var results = results.trim();
+		return results;
+	}
 
 	/******************************
-		OBJECTS-ORIENTED VARIABLES
+	OBJECTS-ORIENTED VARIABLES
 	******************************/
-	// Navigation Object
+
+	/*****  Navigation Object  *****/
 	var nav = {
 		activeNav: function(link) {
 			$("#nav ul").find("li").each(function(){
@@ -50,16 +47,19 @@ $(document).ready(function(){
 		}
 	}
 
-	// Notification Object
+	/*****  Notification Object  *****/
 	var notify = {
+
 		// Notification messages
 		messageList: [{
-				notification: "You have not verified your account.", note: "warning", message: "<h3>You have not verified your account</h3><p>A confimation request was sent to your email. Please confirm your account by clicking the link provided</p>  <p>If you have any questions, please contact us at <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/acconts</a>.</p>"
-			},
-			{
-				notification: "Your ad has been approved and is ready for publication.", note: "marketing", message: "<h3>Congratulations</h3><p>Your ad has been approved. Visit <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/ads</a> for more information.</p>"
-			}],
-		// Close the notification bar smoothly
+			notification: "You have not verified your account.", note: "warning", message: "<h3>You have not verified your account</h3><p>A confimation request was sent to your email. Please confirm your account by clicking the link provided.</p>  <p>If you have any questions, please contact us at <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/acconts</a>.</p>"
+		},
+		{
+			notification: "Your ad has been approved and is ready for publication.", note: "marketing", message: "<h3>Congratulations</h3><p>Your ad has been approved. Visit <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/ads</a> for more information.</p>"
+		}],
+
+		// Close the notification bar smoothly after
+		//  clicking attached close button
 		closeNotify: function(divName) {
 			var counter = -1;
 			divName.parent().animate({
@@ -76,23 +76,28 @@ $(document).ready(function(){
 				$notification.find("span").removeClass("alert");
 			}
 		},
-		// Show accompanying pop-up message
+
+		// Show accompanying pop-up message after
+		//   clicking notification bar
 		openMessage: function(divName) {
 			divName.parent().find(".alert-message").addClass("show-message");
 			divName.parent().find(".alert-message").animate({
 				opacity: 1
 			});
 		},
-		// Show accompanying pop-up message
+
+		// Close accompanying pop-up message after
+		//   clicking alert message
 		closeMessage: function(divName) {
 			divName.parent().find(".alert-message").animate({
 				opacity: 0
 			}, function(){
 				$(this).parent().find(".alert-message").removeClass("show-message");
 			});
-			
+
 		},
-		// Show accompanying pop-up message
+
+		// Handle missed requirement (delete after grading)
 		openMessageTest: function() {
 			$(".note").addClass("show-message");
 			$(".note").animate({
@@ -106,6 +111,8 @@ $(document).ready(function(){
 				});
 			}, 4000);
 		},
+
+		// Open all messages after selecting notification icon
 		openAll: function() {
 			var counter = 0;
 			$notificationPlaceholder.children().find(".alert-message").each(function(){
@@ -124,180 +131,203 @@ $(document).ready(function(){
 		}
 	}
 
-// Traffic Line Chart Object
-var lineTraffic = {
+	/*****  Traffic Line Chart Object  *****/
+	var lineTraffic = {
 
-	trafficHour: function() {
-	    var hours = {
-	      labels: ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"],
-	      datasets: [
-	        {
-	          label: "Hourly",
-	          fillColor: "rgba(255, 105, 105, 0.2)",
-	          strokeColor: "rgba(255, 105, 105, 1)",
-	          pointColor: "rgba(255, 105, 105, 1)",
-	          pointStrokeColor: "#fff",
-	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(255, 105, 105, 1)",
-	          data: [31, 42, 25, 52, 89, 101, 66, 105, 63, 31, 25, 24, 20]
-	        }
-	      ]
-	    };
+		// Hourly Data
+		trafficHour: function() {
+			var hours = {
+				labels: ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"],
+				datasets: [
+					{
+						label: "Hourly",
+						fillColor: "rgba(255, 105, 105, 0.2)",
+						strokeColor: "rgba(255, 105, 105, 1)",
+						pointColor: "rgba(255, 105, 105, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(255, 105, 105, 1)",
+						data: [31, 42, 25, 52, 89, 101, 66, 105, 63, 31, 25, 24, 20]
+					}
+				]
+			};
 
- 		lineTraffic.drawChart(hours);
-	  },
-	trafficDay: function() {
-	    var days = {
-	      labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
-	      datasets: [
-	        {
-	          label: "Daily",
-	          fillColor: "rgba(170,153, 57, 0.1)",
-	          strokeColor: "rgba(170,153, 57, 1)",
-	          pointColor: "rgba(170,153, 57, 1)",
-	          pointStrokeColor: "#fff",
-	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(170,153, 57, 1)",
-	          data: [305, 425, 633, 581, 233, 455, 365]
-	        }
-	      ]
-	    };
+			lineTraffic.drawChart(hours);
+		},
 
- 		lineTraffic.drawChart(days);
-	  },
-	trafficWeek: function() {
-	    var week = {
-	      labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
-	      datasets: [
-	        {
-	          label: "Daily",
-	          fillColor: "rgba(136, 204, 136, 0.2)",
-	          strokeColor: "rgba(136, 204, 136, 1)",
-	          pointColor: "rgba(136, 204, 136, 1)",
-	          pointStrokeColor: "#fff",
-	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(136, 204, 136, 1)",
-	          data: [1203, 1355, 902, 878, 1026]
-	        }
-	      ]
-	    };
+		// Daily Data
+		trafficDay: function() {
+			var days = {
+				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
+				datasets: [
+					{
+						label: "Daily",
+						fillColor: "rgba(170,153, 57, 0.1)",
+						strokeColor: "rgba(170,153, 57, 1)",
+						pointColor: "rgba(170,153, 57, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(170,153, 57, 1)",
+						data: [305, 425, 633, 581, 233, 455, 365]
+					}
+				]
+			};
 
- 		lineTraffic.drawChart(week);
-	  },
-	trafficMonth: function() {
-	    var months = {
-	      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-	      datasets: [
-	        {
-	          label: "Monthly",
-	          fillColor: "rgba(151, 187, 205, 0.2)",
-	          strokeColor: "rgba(151, 187, 205, 1)",
-	          pointColor: "rgba(151, 187, 205, 1)",
-	          pointStrokeColor: "#fff",
-	          pointHighlightFill: "#fff",
-	          pointHighlightStroke: "rgba(151, 187, 205 ,1)",
-	          data: [10233, 12682, 18523, 14629, 18923, 16234, 11231, 17234, 9973, 20323, 19234, 11323]
-	        }
-	      ]
-	    };
+			lineTraffic.drawChart(days);
+		},
 
- 		lineTraffic.drawChart(months);
-	  },
-	  drawChart: function(data) {
-	   
-	  	Chart.defaults.global.responsive = true;
+		// Weekly Data
+		trafficWeek: function() {
+			var week = {
+				labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
+				datasets: [
+					{
+						label: "Daily",
+						fillColor: "rgba(136, 204, 136, 0.2)",
+						strokeColor: "rgba(136, 204, 136, 1)",
+						pointColor: "rgba(136, 204, 136, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(136, 204, 136, 1)",
+						data: [1203, 1355, 902, 878, 1026]
+					}
+				]
+			};
 
-	  	canvas = document.querySelector("#traffic-chart");
+			lineTraffic.drawChart(week);
+		},
 
-		var ctx = canvas.getContext("2d");
-		
+		// Monthly Data
+		trafficMonth: function() {
+			var months = {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [
+					{
+						label: "Monthly",
+						fillColor: "rgba(151, 187, 205, 0.2)",
+						strokeColor: "rgba(151, 187, 205, 1)",
+						pointColor: "rgba(151, 187, 205, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(151, 187, 205 ,1)",
+						data: [10233, 12682, 18523, 14629, 18923, 16234, 11231, 17234, 9973, 20323, 19234, 11323]
+					}
+				]
+			};
 
-		// remove old data before drawing new
-		if (lineChart != null) {
-			for( i=0; i < oldData.length + 1 ; i++ ) {
-				lineChart.removeData();
+			lineTraffic.drawChart(months);
+		},
+
+		// Draw Chart
+		drawChart: function(data) {
+			//  Global options
+			Chart.defaults.global.responsive = true;
+
+			//  Variables
+			var canvas = document.querySelector("#traffic-chart");
+			var ctx = canvas.getContext("2d");
+
+			// remove old data before drawing new
+			if (lineChart != null) {
+				for( i=0; i < oldData.length + 1 ; i++ ) {
+					lineChart.removeData();
+				}
+			}	
+
+			// draw new chart
+			lineChart = new Chart(ctx).Line(data, {
+				pointDotRadius: 5,
+				bezierCurve: true
+			});
+
+			// Store current data to variable to use
+			//   on next option cycle
+			oldData = data.datasets[0].data;
+		},
+
+		// Select time option
+		activeTraffic: function(divName, time){
+			// iterate through Traffic options
+			//   remove active style
+			$("#traffic ul li").each(function(){
+				$(this).removeClass("active-time");
+			});
+			// Add active style to newly selected
+			//   Traffic option
+			divName.addClass("active-time");
+
+			// Switch Statement and draw appropriate
+			//    Traffic chart 
+			switch(time) {
+				case "days":
+				lineTraffic.trafficDay();
+				break;
+				case "hours":
+				lineTraffic.trafficHour();
+				break;
+				case "weeks":
+				lineTraffic.trafficWeek();
+				break;
+				case "months":
+				lineTraffic.trafficMonth();
+				break;
 			}
-		}	
-
-		// draw new chart
-		lineChart = new Chart(ctx).Line(data, {
-			pointDotRadius: 5,
-			bezierCurve: true
-		});
-
-		oldData = data.datasets[0].data;
-	  },
-	  activeTraffic: function(divName, time){
-	  	// iterate through Traffic options
-	  	//   remove active style
-	  	$("#traffic ul li").each(function(){
-	  		$(this).removeClass("active-time");
-	  	});
-	  	// Add active style to newly selected
-	  	//   Traffic option
-	  	divName.addClass("active-time");
-
-	  	// Switch Statement and run appropriate
-	  	//    Traffic chart
-
-	  	switch(time) {
-	  		case "days":
-	  			lineTraffic.trafficDay();
-	  		break;
-	  		case "hours":
-	  			lineTraffic.trafficHour();
-	  		break;
-	  		case "weeks":
-	  			lineTraffic.trafficWeek();
-	  		break;
-	  		case "months":
-	  			lineTraffic.trafficMonth();
-	  		break;
-	  	}
-	  }
+		}
 	}
-	// Daily Traffic Bar Chart Object
+	/*****  Daily Traffic Bar Chart Object  *****/
 
 	var barDailyTraffic = {
-	barDay: function() {
-	    var days = {
-	      labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
-	      datasets: [
-	        {
-	          label: "Unique",
-	          data: [125, 232, 411, 342, 55, 211, 118],
-	          fillColor: "rgba(170,153, 57, 0.5)",
-	          strokeColor: "rgba(170,153, 57, 1)"
-	        },
-	        {
-	          label: "Return",
-	          data: [255, 391, 522, 442, 200, 355, 234],
-	          fillColor: "rgba(151, 187, 205, 0.5)",
-	          strokeColor: "rgba(151, 187, 205, 1)"
-	        }
-	      ]
-	    };
 
- 		barDailyTraffic.drawBarChart(days);
-	  },
-	  drawBarChart: function(data) {
-	   
-	  	Chart.defaults.global.responsive = true;
+		// Daily Traffic data
+		barDay: function() {
+			var days = {
+				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
+				datasets: [
+					{
+						label: "Unique",
+						data: [125, 232, 411, 342, 55, 211, 118],
+						fillColor: "rgba(170,153, 57, 0.5)",
+						strokeColor: "rgba(170,153, 57, 1)"
+					},
+					{
+						label: "Return",
+						data: [255, 391, 522, 442, 200, 355, 234],
+						fillColor: "rgba(151, 187, 205, 0.5)",
+						strokeColor: "rgba(151, 187, 205, 1)"
+					}
+				]
+			};
 
-	  	canvas = document.querySelector("#daily-chart");
+			barDailyTraffic.drawBarChart(days);
+		},
 
-		var ctx = canvas.getContext("2d");
+		// Draw Chart
+		drawBarChart: function(data) {
 
-		barChart = new Chart(ctx).Bar(data, {
-			pointDotRadius: 5
-		});
-		document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
-	  }
+			Chart.defaults.global.responsive = true;
+
+			canvas = document.querySelector("#daily-chart");
+
+			var ctx = canvas.getContext("2d");
+
+			barChart = new Chart(ctx).Bar(data, {
+				pointDotRadius: 5
+			});
+			document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
+		}
 	}
 	/******************************
-		BUILD ELEMENTS/HTML
+	BUILD ELEMENTS/HTML
 	******************************/
-	// Instantiate notifications via Handlebars.js
+
+	// Instantiate notifications via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source = $alertArea.html();
+
+	//complile the source markup
+	var notificationTemplate = Handlebars.compile(source);
 
 	// Iterate through messages
 	for (var i = 0; i < notify.messageList.length; i++) {
@@ -312,23 +342,24 @@ var lineTraffic = {
 	// pass data object to template
 	var fullText = notificationTemplate(messageData);
 
-	 // append to to #alert-area
-	 $("#notification-placeholder").append(fullText);
+	// append to to #alert-area
+	$("#notification-placeholder").append(fullText);
 	}
 
 	/******************************
-		BUILD CHARTS
+	BUILD CHARTS
 	******************************/
-	
-	  // Instantiate traffic line chart
-	  lineTraffic.trafficMonth();
-	  barDailyTraffic.barDay();
-	  
+
+	// Instantiate Charts
+	lineTraffic.trafficMonth();
+	barDailyTraffic.barDay();
+
 	/******************************
-		EVENT LISTENERS/HANDLERS
+	EVENT LISTENERS/HANDLERS
 	******************************/
 
 	/*******  NAV BUTTONS  *******/
+
 	// Dashboard Nav Item
 	$dashboard.click(function(){
 		nav.activeNav($(this));
@@ -350,8 +381,8 @@ var lineTraffic = {
 		notify.openAll();
 	});
 
-
 	/*******  TRAFFIC BUTTONS  *******/
+
 	// Hourly Option
 	$hourly.click(function(){
 		hours = "hours";
@@ -374,10 +405,10 @@ var lineTraffic = {
 	});
 
 	/*******  BUBBLING EVENT BUTTONS  *******/
-	
+
 	$(".close").on("click", function() {
 		notify.closeNotify($(this));
-		
+
 		/*$(".alert").html(counter);*/
 	});
 	$(".alert-notification").on("click", function() {
@@ -387,7 +418,7 @@ var lineTraffic = {
 		notify.closeMessage($(this));
 	});
 });
-	
+
 
 
 
