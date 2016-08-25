@@ -169,7 +169,6 @@ CLASS ELEMENTS
     left: -2px;
     border-radius: 3px;
     transition-property: width, height;
-	transition: .5s ease-out;
 }
 #dashboard {
 	background: url(../images/icons/icon-dashboard.svg);
@@ -333,7 +332,7 @@ CLASS ELEMENTS
 	justify-content: center;
 	flex-direction: column;
 	text-align: center;
-	height: 340px;
+	/*height: 400px;*/
 }
 #traffic span {
 	display: inline-block;
@@ -358,9 +357,9 @@ CLASS ELEMENTS
     color: white;
 }
 #traffic-chart,
-#daily-chart {
-	width: 100% !important;
-	height: 300px !important;
+#daily-chart{
+	/*width: 100% !important;
+	height: 300px !important;*/
 }
 .clearfix:after {
   content: " ";
@@ -369,7 +368,7 @@ CLASS ELEMENTS
 }
 /* daily traffic */
 #daily-traffic {
-	height: 300px;
+	/*height: 400px;*/
 }
 #daily-chart-legend ul{
     width: 100%;
@@ -389,15 +388,57 @@ CLASS ELEMENTS
 	width: 12px;
 	height: 12px;
 }
-
+#daily-chart-legend ul li:nth-child(1):before {
+	background: rgba(170,153, 57, 0.5);
+}
 #daily-chart-legend ul li:nth-child(2):before {
 	background: rgba(151, 187, 205, 0.5);
 }
 /* mobile users */
 #mobile-users {
-	height: 300px;
+	/*height: 400px;*/
 }
-
+#mobile-chart {
+	/*width: 100% !important;
+	height: 300px !important;*/
+}
+#mobile-legend ul li:nth-child(n+1):before {
+	background: rgba(151, 187, 205, 0.5);
+}
+#mobile-legend ul li:nth-child(n+2):before {
+	background: rgba(170,153, 57, 0.5);
+}
+#mobile-legend ul li:nth-child(n+3):before {
+	background: rgba(136, 204, 136, 0.5);
+}
+#mobile-legend ul li:nth-child(n+4):before {
+	background: rgba(255, 105, 105, 0.5);
+}
+/* shared */
+#daily-chart-legend ul,
+#mobile-legend ul{
+    width: 100%;
+    text-align: center;
+}
+#daily-chart-legend ul li,
+#mobile-legend ul li {
+    display: inline-block;
+    padding: 5px 20px;
+    position: relative;
+}
+#daily-chart-legend ul li::before,
+#mobile-legend ul li::before {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 12px;
+	height: 12px;
+}
+#daily-traffic h2,
+#mobile-users h2 {
+	text-align: center;
+}
 /******************************
 FORM ELEMENTS
 ******************************/
@@ -422,7 +463,6 @@ FORM ELEMENTS
 	outline: none;
 	background: #e8e7e7;
 	border: 1px solid #cc0000;
-
 }
 
 /******************************

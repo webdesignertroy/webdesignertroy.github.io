@@ -124,7 +124,7 @@ $(document).ready(function(){
 				// display and animate
 				$(this).addClass("show-message").animate({
 					opacity: 1,
-					left: counter1 * 100
+					left: counter1 * 30
 				});
 				counter1++;
 			});
@@ -243,7 +243,7 @@ $(document).ready(function(){
 			}	
 
 			// draw new chart
-			lineChart = new Chart(ctx).Line(data, {
+			var lineChart = new Chart(ctx).Line(data, {
 				pointDotRadius: 5,
 				bezierCurve: true
 			});
@@ -314,16 +314,65 @@ $(document).ready(function(){
 
 			Chart.defaults.global.responsive = true;
 
-			canvas = document.querySelector("#daily-chart");
+			var canvas = document.querySelector("#daily-chart");
 
 			var ctx = canvas.getContext("2d");
 
-			barChart = new Chart(ctx).Bar(data, {
+			var barChart = new Chart(ctx).Bar(data, {
 				pointDotRadius: 5
 			});
 			document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
 		}
 	}
+
+	/*****  Mobile Users Doughnut Chart Object  *****/
+
+	var mobileUsers = {
+
+		//Mobile User data
+		mobile: function() {
+			var users = [
+				{	
+					label: "IOS",
+					value: 40,
+					color: "rgba(151, 187, 205, 0.5)"
+				},
+				{
+					label: "Android",
+					value: 30,
+					color: "rgba(170,153, 57, 0.5)"
+				},
+				{
+					label: "Windows",
+					value: 20,
+					color: "rgba(136, 204, 136, 0.5)"
+				},
+				{
+					label: "Other",
+					value: 10,
+					color: "rgba(255, 105, 105, 0.5)"
+				}
+			]
+			mobileUsers.drawDoughnutChart(users);
+		},
+
+		// Draw Chart
+		drawDoughnutChart: function(data) {
+
+			Chart.defaults.global.responsive = true;
+
+			var canvas = document.querySelector("#mobile-chart");
+
+			var ctx = canvas.getContext("2d");
+			var doughnutChart = new Chart(ctx).Doughnut(data, {
+			});
+			document.getElementById('mobile-legend').innerHTML = doughnutChart.generateLegend();
+		}
+
+	}
+
+
+
 	/******************************
 	BUILD ELEMENTS/HTML
 	******************************/
@@ -361,6 +410,7 @@ $(document).ready(function(){
 	// Instantiate Charts
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
+	mobileUsers.mobile();
 
 	/******************************
 	EVENT LISTENERS/HANDLERS
