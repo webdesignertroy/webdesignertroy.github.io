@@ -62,18 +62,22 @@
 			</div>
 			<div class="clearfix"></div>
 			<hr />
-			<section id="section2">
-				<div id="daily-traffic">
+			<section id="section2" class="two-columns">
+				<div id="daily-traffic" class="col">
 					<h2>Daily Traffic</h2>
 					<canvas id="daily-chart" width="500" height="300"></canvas>
 					<span id="daily-chart-legend" class="legend"></span>
 				</div>
 			<hr />
 				<div class="clearfix"></div>
-				<div id="mobile-users">
+				<div id="mobile-users" class="col">
 					<h2>Mobile Users</h2>
-					<canvas id="mobile-chart" width="500" height="300"></canvas>
-					<span id="mobile-legend" class="vlegend"></span>
+					<div class="two-columns2">
+						<div class="col2a">
+							<canvas id="mobile-chart" width="500" height="300"></canvas>
+						</div>
+						<span class="col2b" id="mobile-legend" class="vlegend"></span>
+					</div>
 				</div>
 			</section>
 		</div>

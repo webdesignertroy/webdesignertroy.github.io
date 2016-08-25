@@ -522,6 +522,29 @@ MEDIA QUERIES
 		margin-left: 125px;
 		width: auto ;
 	}
+	.two-columns {
+		display: flex;
+	}
+	.col {
+		width: 50%;
+	}
+	.two-columns2 {
+		padding: 0;
+		margin: 15% 0 0 0;
+		position: relative;
+
+	}
+	.col2a{
+	    width: 75% !important;
+	    position: absolute;
+	}
+	.col2b{
+	    width: 23%;
+	    display: inline-block;
+	    position: absolute;
+	    left: 53%;
+	    margin-left: 40px;
+	}
 	#title-area {
 		height: 90px;
 		text-align: initial;
