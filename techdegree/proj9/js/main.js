@@ -56,6 +56,9 @@ $(document).ready(function(){
 		},
 		{
 			notification: "Your ad has been approved and is ready for publication.", note: "marketing", message: "<h3>Congratulations</h3><p>Your ad has been approved. Visit <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/ads</a> for more information.</p>"
+		},
+		{
+			notification: "Invite your friends to use YourApp&trade;.", note: "marketing", message: "<h3>Invite Your<br />Friends Over</h3><p>Good friends don't let  friends pass on the promotions and deals <strong>YourApp&trade;</strong> offers.  Visit <a href='http://www.w3schools.com/tags/tag_html.asp' target='_blank'>http://yourapp.com/invite</a> for instructions on how to generate invites from your Facebook or email contact lists.</p>"
 		}],
 
 		// Close the notification bar smoothly after
@@ -90,7 +93,8 @@ $(document).ready(function(){
 		//   clicking alert message
 		closeMessage: function(divName) {
 			divName.parent().find(".alert-message").animate({
-				opacity: 0
+				opacity: 0,
+				left: 0
 			}, function(){
 				$(this).parent().find(".alert-message").removeClass("show-message");
 			});
@@ -114,18 +118,22 @@ $(document).ready(function(){
 
 		// Open all messages after selecting notification icon
 		openAll: function() {
-			var counter = 0;
+			var counter1 = 0;
+			var counter2 = 0;
 			$notificationPlaceholder.children().find(".alert-message").each(function(){
+				// display and animate
 				$(this).addClass("show-message").animate({
-					opacity: 1
+					opacity: 1,
+					left: counter1 * 100
 				});
+				counter1++;
 			});
 			$notificationPlaceholder.children().each(function(){
 				if ( !$(this).hasClass("hide-div") ) {
-					counter++;
+					counter2++;
 				}
 			});
-			if ( counter < 1 ) {
+			if ( counter2 < 1 ) {
 				notify.openMessageTest();
 			}
 		}
@@ -179,7 +187,7 @@ $(document).ready(function(){
 		// Weekly Data
 		trafficWeek: function() {
 			var week = {
-				labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
+				labels: ["(This Week)", "Week 2", "Week 3", "Week 4", "Week 5"],
 				datasets: [
 					{
 						label: "Daily",
