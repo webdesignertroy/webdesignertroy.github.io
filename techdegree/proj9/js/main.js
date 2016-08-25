@@ -18,6 +18,8 @@ $(document).ready(function(){
 	var $daily = $("#daily");
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
+	var currentChart = null;
+	var oldData = null;
 
 	/******************************
 		HELPER FUNCTIONS
@@ -123,7 +125,7 @@ var lineTraffic = {
 	  },
 	trafficDay: function() {
 	    var days = {
-	      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+	      labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
 	      datasets: [
 	        {
 	          label: "Daily",
@@ -179,21 +181,28 @@ var lineTraffic = {
  		lineTraffic.drawChart(months);
 	  },
 	  drawChart: function(data) {
-
-	  	$("#traffic-chart").remove();
-	  	$("#traffic").append('<canvas id="traffic-chart" height="300" width="500"></canvas>');
 	   
-	  	Chart.defaults.global.responsive = false;
+	  	Chart.defaults.global.responsive = true;
 
 	  	canvas = document.querySelector("#traffic-chart");
 
 		var ctx = canvas.getContext("2d");
+		
 
+		// remove old data before drawing new
+		if (currentChart != null) {
+			for( i=0; i < oldData.length + 1 ; i++ ) {
+				currentChart.removeData();
+			}
+		}	
+
+		// draw new chart
 		currentChart = new Chart(ctx).Line(data, {
 			pointDotRadius: 5,
 			bezierCurve: true
 		});
 
+		oldData = data.datasets[0].data;
 	  },
 	  activeTraffic: function(divName, time){
 	  	// iterate through Traffic options
@@ -229,7 +238,7 @@ var lineTraffic = {
 	var barDailyTraffic = {
 	barDay: function() {
 	    var days = {
-	      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+	      labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
 	      datasets: [
 	        {
 	          label: "Unique",
@@ -256,17 +265,10 @@ var lineTraffic = {
 
 		var ctx = canvas.getContext("2d");
 
-		currentChart = new Chart(ctx).Bar(data, {
-			pointDotRadius: 5,
-	    onAnimationComplete: function () {
-	        var ctx = this.chart.ctx;
-	        ctx.font = this.scale.font;
-	        ctx.fillStyle = this.scale.textColor
-	        ctx.textAlign = "center";
-	        ctx.textBaseline = "bottom";
-	    }
+		currentChart2 = new Chart(ctx).Bar(data, {
+			pointDotRadius: 5
 		});
-		document.getElementById('daily-chart-legend').innerHTML = currentChart.generateLegend();
+		document.getElementById('daily-chart-legend').innerHTML = currentChart2.generateLegend();
 	  }
 	}
 	/******************************
