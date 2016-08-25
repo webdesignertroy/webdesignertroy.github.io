@@ -34,7 +34,7 @@ PRELOAD IMAGES
 CLASS ELEMENTS
 ******************************/
 
-/* Header */
+/* Header: Us*/
 #header {
 	background: #4057B7;
 	width: 100%;
@@ -332,7 +332,8 @@ CLASS ELEMENTS
     background: #2f2f2f;
     color: white;
 }
-#traffic-chart {
+#traffic-chart,
+#daily-chart {
 	width: 100% !important;
 	height: 300px !important;
 }
@@ -341,9 +342,34 @@ CLASS ELEMENTS
   display: table;
   clear: both; 
 }
+/* daily traffic */
 #daily-traffic {
 	height: 300px;
-}#mobile-users {
+}
+#daily-chart-legend ul{
+    width: 100%;
+    text-align: center;
+}
+#daily-chart-legend ul li {
+    display: inline-block;
+    padding: 5px 20px;
+    position: relative;
+}
+#daily-chart-legend ul li::before {
+	content: "";
+	background: rgba(170,153, 57, 0.5);
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 12px;
+	height: 12px;
+}
+
+#daily-chart-legend ul li:nth-child(2):before {
+	background: rgba(151, 187, 205, 0.5);
+}
+/* mobile users */
+#mobile-users {
 	height: 300px;
 }
 

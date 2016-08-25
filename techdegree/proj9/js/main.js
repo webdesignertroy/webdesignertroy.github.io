@@ -34,6 +34,7 @@ $(document).ready(function(){
 		//complile the source markup
 		var notificationTemplate = Handlebars.compile(source);
 
+
 	/******************************
 		OBJECTS-ORIENTED VARIABLES
 	******************************/
@@ -122,7 +123,7 @@ var lineTraffic = {
 	  },
 	trafficDay: function() {
 	    var days = {
-	      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+	      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 	      datasets: [
 	        {
 	          label: "Daily",
@@ -223,6 +224,51 @@ var lineTraffic = {
 	  	}
 	  }
 	}
+	// Daily Traffic Bar Chart Object
+
+	var barDailyTraffic = {
+	barDay: function() {
+	    var days = {
+	      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+	      datasets: [
+	        {
+	          label: "Unique",
+	          data: [125, 232, 411, 342, 55, 211, 118],
+	          fillColor: "rgba(170,153, 57, 0.5)",
+	          strokeColor: "rgba(170,153, 57, 1)"
+	        },
+	        {
+	          label: "Return",
+	          data: [255, 391, 522, 442, 200, 355, 234],
+	          fillColor: "rgba(151, 187, 205, 0.5)",
+	          strokeColor: "rgba(151, 187, 205, 1)"
+	        }
+	      ]
+	    };
+
+ 		barDailyTraffic.drawBarChart(days);
+	  },
+	  drawBarChart: function(data) {
+	   
+	  	Chart.defaults.global.responsive = true;
+
+	  	canvas = document.querySelector("#daily-chart");
+
+		var ctx = canvas.getContext("2d");
+
+		currentChart = new Chart(ctx).Bar(data, {
+			pointDotRadius: 5,
+	    onAnimationComplete: function () {
+	        var ctx = this.chart.ctx;
+	        ctx.font = this.scale.font;
+	        ctx.fillStyle = this.scale.textColor
+	        ctx.textAlign = "center";
+	        ctx.textBaseline = "bottom";
+	    }
+		});
+		document.getElementById('daily-chart-legend').innerHTML = currentChart.generateLegend();
+	  }
+	}
 	/******************************
 		BUILD ELEMENTS/HTML
 	******************************/
@@ -251,6 +297,7 @@ var lineTraffic = {
 	
 	  // Instantiate traffic line chart
 	  lineTraffic.trafficMonth();
+	  barDailyTraffic.barDay();
 	  
 	/******************************
 		EVENT LISTENERS/HANDLERS
