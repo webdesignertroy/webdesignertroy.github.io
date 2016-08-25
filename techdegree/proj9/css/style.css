@@ -238,14 +238,14 @@ CLASS ELEMENTS
     left:0;
     right:0;
     margin: 0 auto;
-    background: lightyellow;
     background: repeating-linear-gradient(
     	#FFFF77,
     	#FFFF77 19.5px,
-    	rgba(135,176,243, 0.8) 5px,
-    	#ccc 20px);
+    	#e9e97b 5px,
+    	#e9e97b 20px);
     color: #2f2f2f;
     font-size: 0.85em;
+    text-align: center;
     font-weight: 400;
     padding: 17px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
