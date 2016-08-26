@@ -24,6 +24,15 @@ h1 {
 h2 {
 	font-size: 1.1em;
 }
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #999;
+	margin: 1em 0;
+	padding: 0;
+}
+
 /******************************
 PRELOAD IMAGES
 ******************************/
@@ -452,10 +461,65 @@ path.notification-svg {
 	left: 0;
 	width: 12px;
 	height: 12px;
+	}
+	#daily-traffic h2,
+	#mobile-users h2,
+	#social-media h2 {
+		text-align: center;
+	}
+/******************************
+SOCIAL STATS
+******************************/	
+.social-stats {
+	max-width: 400px;
+	min-width: 250px;
+	padding: 10px 7px;
+	border: 1px solid #999;
+	border-radius: 10px;
+	position: relative;
+	margin: 10px;
 }
-#daily-traffic h2,
-#mobile-users h2 {
-	text-align: center;
+.social-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#facebook-svg {
+	background: url(../images/icons/icon-facebook.svg);
+}
+#twitter-svg {
+	background: url(../images/icons/icon-twitter.svg);
+}
+#googleplus-svg {
+	background: url(../images/icons/icon-googleplus.svg);
+}
+#linkedin-svg {
+	background: url(../images/icons/icon-linkedin.svg);
+}
+.social-badge {
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 57px;
+	background-position: center center;
+	display: inline-block;
+}
+.social-label {
+    display: inline-block;
+    position: absolute;
+    left: 81px;
+    color: #4057B7;
+    top: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.social-data {
+    display: inline-block;
+    position: absolute;
+    top: 38px;
+    left: 81px;
+    font-size: 51px;
 }
 /******************************
 FORM ELEMENTS
