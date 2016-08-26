@@ -397,6 +397,72 @@ $(document).ready(function(){
 		]
 	}
 
+	/*****  Members Chart Object  *****/	
+
+	var members = {
+		memberData: [
+			{
+				id:1123, first: "Sharon", last:"Lee", profile:"sharon-1123", join:"Aug 8, 2012", email:"sharon.lee1985@example.com", recentActivity:"commented on Facebook's Changes for 2016", recentTime:"2 hours ago"
+			},
+
+			
+			{
+				id:2134, first: "John", last:"Warner", profile:"john-2134", join:"May 28, 2013", email:"johnny90064@example.com", recentActivity:"liked the post Facebook's Changes for 2016", recentTime:"3 hours ago"
+			},
+
+			{
+				id:9009, first: "Crystal", last:"Meyers", profile:"crystal-9009", join:"Aug 23, 2016", email:"crystal1989@example.com", recentActivity:"commented on YourApp's SEO Tips", recentTime:"4 hours ago"
+			},
+
+			{
+				id:9101, first: "Jackie", last:"Sun", profile:"jackie-9101", join:"Aug 23, 2016", email:"jackie.sun@example.com", recentActivity:"liked the post Facebook's Changes for 2016", recentTime:"5 hours ago"
+			},
+
+			{
+				id:9153, first: "Jill", last:"Scott", profile:"jill-9153", join:"Aug 25, 2016", email:"jillthehammer@example.com", recentActivity:"commented on Facebook's Changes for 2016", recentTime:"5 hours ago"
+			},
+
+			{
+				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", join:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips", recentTime:"1 day ago"
+			}
+		],
+
+		newMembers: function() {
+			// variables
+			var counter = 0;
+			var newMemberList = [];
+			var buildList = "";
+
+			// loop through all members
+			for (var index = members.memberData.length - 1; index > 0; index--) {
+
+				// I expect to search PHP to find
+				//   most recent and last index numbers
+				//   8000 and 10,000 will be given parameters
+				for( i = 8000; i < 10000; i++) {
+					var name = "";
+					var profile = "";
+					var email = "";
+					var join = ""
+					if( members.memberData[index].id === i ) {
+						name = members.memberData[index].first + " ";
+						name += members.memberData[index].last;
+						profile = members.memberData[index].profile;
+						email = members.memberData[index].email;
+						join = members.memberData[index].join;
+						newMemberList.push({name, profile, email, join});
+					}
+				}
+			}
+			return newMemberList;
+		},
+
+		recent: function() {
+			
+
+		}
+	}
+
 	/******************************
 	BUILD ELEMENTS/HTML
 	******************************/
@@ -454,6 +520,38 @@ $(document).ready(function(){
 		$("#social-container").append(fullText);
 	}
 
+	/**********   BUILD NEW MEMBERS  **********/
+	// Instantiate NEW MEMBERS LIST via Handlebars Templating Machine 
+	//   handlebars.js
+	var newMemberList = members.newMembers();
+
+	//reference
+	var source3 = $("#new-members").html();
+
+	//complile the source markup
+	var newMembersTemplate = Handlebars.compile(source3);
+
+	// Iterate through messages
+	for (var i = 0; i < 4; i++) {
+
+		// define the data object
+		var newMembersData = {
+			name: newMemberList[i].name,
+			profile: newMemberList[i].profile,
+			email: newMemberList[i].email,
+			join: newMemberList[i].join
+		};
+
+		// pass data object to template
+		var fullText = newMembersTemplate(newMembersData);
+
+		// append to to #alert-area
+		$("#member-container").append(fullText);
+	}
+
+	/**********   BUILD RECENT ACTIVITIES  **********/
+	
+	
 	/******************************
 	BUILD CHARTS
 	******************************/
@@ -462,6 +560,7 @@ $(document).ready(function(){
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
 	mobileUsers.mobile();
+
 
 	/******************************
 	EVENT LISTENERS/HANDLERS

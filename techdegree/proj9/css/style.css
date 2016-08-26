@@ -32,6 +32,15 @@ hr {
 	margin: 1em 0;
 	padding: 0;
 }
+a {
+	text-decoration: none;
+	color: #4057B7;
+	cursor: pointer;
+}
+a:hover {
+	color: #11298E;
+	text-decoration: underline;
+}
 
 /******************************
 PRELOAD IMAGES
@@ -515,6 +524,70 @@ SOCIAL STATS
     left: 81px;
     font-size: 51px;
 }
+
+/******************************
+MEMBERS
+******************************/	
+.new-build {
+    text-align: center;
+    position: relative;
+    min-height: 91px;
+    margin: 20px 20px 40px 20px;
+    border-bottom: 1px solid #999999;
+}
+.new-build:last-child {
+	border-bottom: none;
+}
+#manuel-9254 {
+	background: url(../images/members/manuel-ortiz.jpg);
+}
+#crystal-9009 {
+	background: url(../images/members/crystal-meyers.jpg);
+}
+#jackie-9101 {
+	background: url(../images/members/jackie-sun.jpg);
+}
+#jill-9153 {
+	background: url(../images/members/jill-scott.jpg);
+}
+#john-2134 {
+	background: url(../images/members/john-warner.jpg);
+}
+#sharon-1123 {
+	background: url(../images/members/sharon-lee.jpg);
+}
+.profile {
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 60px 60px !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    left: 0;
+}
+.name {
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    font-weight: 900;
+    left: 72px
+}
+.email {
+    display: inline-block;
+    position: absolute;
+    top: 27px;
+    left: 72px;
+}
+.join{
+    display: inline-block;
+    position: absolute;
+    top: 57px;
+    left: 72px;
+}
+
 /******************************
 FORM ELEMENTS
 ******************************/
@@ -544,7 +617,16 @@ FORM ELEMENTS
 /******************************
 MEDIA QUERIES
 ******************************/
-
+@media (min-width: 480px) {
+	.profile {
+		top: 0;
+	}
+	.join {
+		top: 27px;
+		right: 10px;
+		left: inherit;
+	}
+}
 @media (min-width: 765px) {
 	#header {
 		display: flex;
@@ -643,6 +725,21 @@ MEDIA QUERIES
 	#traffic ul {
 		align-self: flex-end;
 		margin: -41px 0 10px 0;
+	}
+	/* Members */
+	.join {
+	    top: 59px;
+	    left: 72px;
+	    right: inherit;
+	}
+}
+
+@media (min-width: 1043px) {
+	/* Members */
+	.join { 
+		top: 27px;
+	    left: inherit;
+	    right: 10px;
 	}
 }
 @media (min-width: 1108px) {

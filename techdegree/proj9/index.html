@@ -104,6 +104,8 @@
 			<section id="section4" class="two-columns">
 				<div id="member-sec" class="col">
 					<h2>New Members</h2>
+					<div id="member-container" class="member-container">
+					</div>
 				</div>
 				<div id="activities-sec" class="col">
 					<h2>Recent Activities</h2>
@@ -134,6 +136,14 @@
 			<span id="{{socialId}}" class="social-badge">{{socialMedia}} icon</span>
 			<span class="social-label">{{socialMedia}}</span>
 			<span class="social-data">{{value}}</span>
+		</div>
+	</script>
+	<script id="new-members" class="new-members"  type="text/x-handlebares-templates">
+		<div class="new-build">
+			<span class="profile" id="{{profile}}"></span>
+			<span class="name">{{name}}</span>
+			<span class="email"><a mailto="#">{{email}}</a></span>
+			<span class="join">{{join}}</span>
 		</div>
 	</script>
 <script src="js/main.js"></script>
