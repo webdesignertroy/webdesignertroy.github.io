@@ -228,8 +228,6 @@ $(document).ready(function(){
 
 		// Draw Chart
 		drawChart: function(data) {
-			//  Global options
-			Chart.defaults.global.responsive = true;
 
 			//  Variables
 			var canvas = document.querySelector("#traffic-chart");
@@ -248,7 +246,8 @@ $(document).ready(function(){
 			//   to stay global as variables 
 			lineChart = new Chart(ctx).Line(data, {
 				pointDotRadius: 5,
-				bezierCurve: true
+				bezierCurve: true,
+				responsive: true
 			});
 
 			// Store current data to variable to use
@@ -315,14 +314,12 @@ $(document).ready(function(){
 		// Draw Chart
 		drawBarChart: function(data) {
 
-			Chart.defaults.global.responsive = true;
-
 			var canvas = document.querySelector("#daily-chart");
 
 			var ctx = canvas.getContext("2d");
 
 			var barChart = new Chart(ctx).Bar(data, {
-				pointDotRadius: 5
+				responsive: true
 			});
 			document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
 		}
@@ -362,12 +359,11 @@ $(document).ready(function(){
 		// Draw Chart
 		drawDoughnutChart: function(data) {
 
-			Chart.defaults.global.responsive = true;
-
 			var canvas = document.querySelector("#mobile-chart");
 
 			var ctx = canvas.getContext("2d");
 			var doughnutChart = new Chart(ctx).Doughnut(data, {
+				responsive: true,
 				segmentShowStroke: false,
 				tooltipTemplate: "<%= value %>%"
 			});

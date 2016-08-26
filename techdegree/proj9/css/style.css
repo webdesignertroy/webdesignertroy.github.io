@@ -51,16 +51,34 @@ CLASS ELEMENTS
 .no-bold{
 	font-weight: 300 !important;
 }
+path.notification-svg {
+	fill: #ffffff;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+	transition: all .7s ease-out;
+}
 #notification {
-	background: url(../images/icons/icon-bell.svg);
-	background-repeat: no-repeat;
+	/*background: url(../images/icons/icon-bell.svg);
+	background-repeat: no-repeat;*/
 	width: 30px;
 	height: 30px;
-	text-indent: -2000px;
+	/*text-indent: -2000px;*/
 	position: relative;
 	margin-right: 33px;
 	position: relative;
 	cursor: pointer;
+}
+#notification:hover path.notification-svg {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
 #notification:before {
     content: " ";
