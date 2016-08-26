@@ -388,7 +388,7 @@ $(document).ready(function(){
 			},
 
 			{
-				socialMedia: "LinkeIn", value: "4,232", socialId: "linkedin-svg"
+				socialMedia: "LinkedIn", value: "4,232", socialId: "linkedin-svg"
 			},
 
 			{
