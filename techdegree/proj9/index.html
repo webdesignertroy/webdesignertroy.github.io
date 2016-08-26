@@ -95,35 +95,7 @@
 			<section id="section3" class="three-columns">
 				<div id="social-media">
 					<h2>Social Stats</h2>
-					<div class="social-container">
-						<div class="social-stats">
-							<span id="facebook-svg" class="social-badge">
-								
-							</span>
-							<span class="social-label">Facebook</span>
-							<span class="social-data">10215</span>
-						</div>
-						<div class="social-stats">
-							<span id="twitter-svg" class="social-badge">
-								
-							</span>
-							<span class="social-label">Facebook</span>
-							<span class="social-data">10215</span>
-						</div>
-						<div class="social-stats">
-							<span id="googleplus-svg" class="social-badge">
-								
-							</span>
-							<span class="social-label">Facebook</span>
-							<span class="social-data">10215</span>
-						</div>
-						<div class="social-stats">
-							<span id="linkedin-svg" class="social-badge">
-								
-							</span>
-							<span class="social-label">Facebook</span>
-							<span class="social-data">10215</span>
-						</div>
+					<div id="social-container" class="social-container">
 					</div>
 				</div>
 			</section>
@@ -146,6 +118,13 @@
 				<span class="message-close">Close Message</span>
 			</span>
 			<span class="close">Close</span>
+		</div>
+	</script>
+	<script id="social-handle" type="text/x-handlebares-templates">
+		<div class="social-stats" >
+			<span id="{{socialId}}" class="social-badge"></span>
+			<span class="social-label">{{socialMedia}}</span>
+			<span class="social-data">{{value}}</span>
 		</div>
 	</script>
 <script src="js/main.js"></script>

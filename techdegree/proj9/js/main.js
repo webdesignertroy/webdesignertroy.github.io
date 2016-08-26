@@ -371,14 +371,33 @@ $(document).ready(function(){
 		}
 
 	}
+	/*****  Social Stat Object  *****/
 
+	var social = {
+		media: [
+			{
+				socialMedia: "Facebook", value: "10,2015", socialId: "facebook-svg"
+			},
 
+			{
+				socialMedia: "Twitter", value: "6,525", socialId: "twitter-svg"
+			},
+
+			{
+				socialMedia: "Google+", value: "3,834", socialId: "googleplus-svg"
+			},
+
+			{
+				socialMedia: "LinkeIn", value: "4,232", socialId: "linkedin-svg"
+			}
+		]
+	}
 
 	/******************************
 	BUILD ELEMENTS/HTML
 	******************************/
-
-	// Instantiate notifications via Handlebars Templating Machine 
+	/**********   BUILD NOTIFICATIONS  **********/
+	// Instantiate NOTIFICATIONS via Handlebars Templating Machine 
 	//   handlebars.js
 
 	//reference
@@ -402,6 +421,33 @@ $(document).ready(function(){
 
 	// append to to #alert-area
 	$("#notification-placeholder").append(fullText);
+	}
+
+	/**********   BUILD SOCIAL STATS  **********/
+	// Instantiate SOCIAL STATS via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source2 = $("#social-handle").html();
+
+	//complile the source markup
+	var socialTemplate = Handlebars.compile(source2);
+
+	// Iterate through messages
+	for (var i = 0; i < social.media.length; i++) {
+
+		// define the data object
+		var messageData = {
+			socialId: social.media[i].socialId,
+			socialMedia: social.media[i].socialMedia,
+			value: social.media[i].value
+		};
+
+		// pass data object to template
+		var fullText = socialTemplate(messageData);
+
+		// append to to #alert-area
+		$("#social-container").append(fullText);
 	}
 
 	/******************************
