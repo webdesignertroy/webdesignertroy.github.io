@@ -348,7 +348,7 @@ path.notification-svg {
 }
 #traffic,
 #daily-traffic,
-#mobile-users {
+#mobile-users{
 	margin: 30px 20px 20px 20px;
 }
 /* traffic */
@@ -383,20 +383,12 @@ path.notification-svg {
     background: #2f2f2f;
     color: white;
 }
-#traffic-chart,
-#daily-chart{
-	/*width: 100% !important;
-	height: 300px !important;*/
-}
 .clearfix:after {
   content: " ";
   display: table;
   clear: both; 
 }
 /* daily traffic */
-#daily-traffic {
-	/*height: 400px;*/
-}
 #daily-chart-legend ul{
     width: 100%;
     text-align: center;
@@ -424,10 +416,6 @@ path.notification-svg {
 /* mobile users */
 #mobile-users {
 	/*height: 400px;*/
-}
-#mobile-chart {
-	/*width: 100% !important;
-	height: 300px !important;*/
 }
 #mobile-legend ul li:nth-child(n+1):before {
 	background: rgba(151, 187, 205, 0.5);
@@ -464,7 +452,9 @@ path.notification-svg {
 	}
 	#daily-traffic h2,
 	#mobile-users h2,
-	#social-media h2 {
+	#social-media h2,
+	#member-sec h2,
+	#activities-sec h2 {
 		text-align: center;
 	}
 /******************************
@@ -473,7 +463,7 @@ SOCIAL STATS
 .social-stats {
 	max-width: 400px;
 	min-width: 290px;
-	padding: 10px 7px;
+	padding: 15px 7px;
 	border: 1px solid #999;
 	border-radius: 10px;
 	position: relative;
@@ -498,12 +488,16 @@ SOCIAL STATS
 #linkedin-svg {
 	background: url(../images/icons/icon-linkedin.svg);
 }
+#instagram-svg {
+	background: url(../images/icons/icon-instagram.svg);
+}
 .social-badge {
 	background-repeat: no-repeat;
 	width: 57px;
 	height: 57px;
 	background-position: center center;
 	display: inline-block;
+	text-indent: -2000px;
 }
 .social-label {
     display: inline-block;

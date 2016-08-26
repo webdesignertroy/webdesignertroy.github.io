@@ -389,6 +389,10 @@ $(document).ready(function(){
 
 			{
 				socialMedia: "LinkeIn", value: "4,232", socialId: "linkedin-svg"
+			},
+
+			{
+				socialMedia: "Instagram", value: "8,900", socialId: "instagram-svg"
 			}
 		]
 	}

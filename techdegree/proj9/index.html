@@ -92,7 +92,7 @@
 			</section>
 			<div class="clearfix"></div>
 			<hr />
-			<section id="section3" class="three-columns">
+			<section id="section3" >
 				<div id="social-media">
 					<h2>Social Stats</h2>
 					<div id="social-container" class="social-container">
@@ -100,6 +100,15 @@
 				</div>
 			</section>
 			<div class="clearfix"></div>
+			<hr />
+			<section id="section4" class="two-columns">
+				<div id="member-sec" class="col">
+					<h2>New Members</h2>
+				</div>
+				<div id="activities-sec" class="col">
+					<h2>Recent Activities</h2>
+				</div>
+			</section>
 			<hr />
 		</article>
 	</div>
@@ -122,7 +131,7 @@
 	</script>
 	<script id="social-handle" type="text/x-handlebares-templates">
 		<div class="social-stats" >
-			<span id="{{socialId}}" class="social-badge"></span>
+			<span id="{{socialId}}" class="social-badge">{{socialMedia}} icon</span>
 			<span class="social-label">{{socialMedia}}</span>
 			<span class="social-data">{{value}}</span>
 		</div>
