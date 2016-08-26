@@ -337,22 +337,22 @@ $(document).ready(function(){
 			var users = [
 				{	
 					label: "IOS",
-					value: 40,
+					value: 43,
 					color: "rgba(151, 187, 205, 0.5)"
 				},
 				{
 					label: "Android",
-					value: 30,
+					value: 35,
 					color: "rgba(170,153, 57, 0.5)"
 				},
 				{
 					label: "Windows",
-					value: 20,
+					value: 15,
 					color: "rgba(136, 204, 136, 0.5)"
 				},
 				{
 					label: "Other",
-					value: 10,
+					value: 7,
 					color: "rgba(255, 105, 105, 0.5)"
 				}
 			]
@@ -368,6 +368,8 @@ $(document).ready(function(){
 
 			var ctx = canvas.getContext("2d");
 			var doughnutChart = new Chart(ctx).Doughnut(data, {
+				segmentShowStroke: false,
+				tooltipTemplate: "<%= value %>%"
 			});
 			document.getElementById('mobile-legend').innerHTML = doughnutChart.generateLegend();
 		}

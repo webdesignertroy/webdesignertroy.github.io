@@ -35,7 +35,7 @@
 <div class="clearfix"></div>
 <div id="wrapper">
 	<div class="container">
-		<div class="main">
+		<article class="main">
 			<div id="title-area">
 				<h1 id="title">Dashboard</h1>
 				<div id="search">
@@ -48,18 +48,20 @@
 			<div class="clearfix"></div>
 			<div id="notification-placeholder"></div>
 			<div class="clearfix"></div>
-			<div id="traffic">
-				<h2>Traffic</h2>
-				<ul>
-					<li id="hourly">Hourly</li>
-					<li id="daily">Daily</li>
-					<li id="weekly">Weekly</li>
-					<li id="monthly" class="active-time">Monthly</li>
-				</ul>
-				
-					<canvas id="traffic-chart" height="300" width="500"></canvas>
-				
-			</div>
+			<section id="section1">
+				<div id="traffic">
+					<h2>Traffic</h2>
+					<ul>
+						<li id="hourly">Hourly</li>
+						<li id="daily">Daily</li>
+						<li id="weekly">Weekly</li>
+						<li id="monthly" class="active-time">Monthly</li>
+					</ul>
+					
+						<canvas id="traffic-chart" height="300" width="500"></canvas>
+					
+				</div>
+			</section>
 			<div class="clearfix"></div>
 			<hr />
 			<section id="section2" class="two-columns">
@@ -76,11 +78,18 @@
 						<div class="col2a">
 							<canvas id="mobile-chart" width="500" height="300"></canvas>
 						</div>
-						<span class="col2b" id="mobile-legend" class="vlegend"></span>
+						<span class="col2b" id="mobile-legend"></span>
 					</div>
 				</div>
 			</section>
-		</div>
+			<div class="clearfix"></div>
+			<hr />
+			<section id="section3">
+				<div id="social-media">
+					<h2>Social Status</h2>
+				</div>
+			</section>
+		</article>
 	</div>
 <footer></footer>
 </div>
