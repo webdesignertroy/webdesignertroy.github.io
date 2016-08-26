@@ -109,6 +109,7 @@
 				</div>
 				<div id="activities-sec" class="col">
 					<h2>Recent Activities</h2>
+					<div id="new-activities" class="new-activities"></div>
 				</div>
 			</section>
 			<hr />
@@ -145,6 +146,13 @@
 			<span class="email"><a mailto="#">{{email}}</a></span>
 			<span class="join">{{join}}</span>
 		</div>
+	</script>
+	<script id="activity-handle" type="text/x-handlebares-templates">
+	<div class="new-build">
+		<span class="profile" id="{{profile}}"></span>
+		<span class="text">{{name}} {{{text}}}<a href="#" class="arrow">&nbsp;&nbsp;&rArr;</a></span>
+		<span class="recent">{{time}}</span>
+	</div>
 	</script>
 <script src="js/main.js"></script>
 </body>

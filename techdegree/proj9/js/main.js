@@ -402,28 +402,28 @@ $(document).ready(function(){
 	var members = {
 		memberData: [
 			{
-				id:1123, first: "Sharon", last:"Lee", profile:"sharon-1123", join:"Aug 8, 2012", email:"sharon.lee1985@example.com", recentActivity:"commented on Facebook's Changes for 2016", recentTime:"2 hours ago"
+				id:1123, first: "Sharon", last:"Lee", profile:"sharon-1123", join:"Aug 8, 2012", email:"sharon.lee1985@example.com", recentActivity:"commented on Facebook's Changes for 2016.", recentTime:"2 hours ago", activity: "commented"
 			},
 
 			
 			{
-				id:2134, first: "John", last:"Warner", profile:"john-2134", join:"May 28, 2013", email:"johnny90064@example.com", recentActivity:"liked the post Facebook's Changes for 2016", recentTime:"3 hours ago"
+				id:2134, first: "John", last:"Warner", profile:"john-2134", join:"May 28, 2013", email:"johnny90064@example.com", recentActivity:"posted Facebook's Changes for 2016.", recentTime:"3 hours ago", activity: "posted"
 			},
 
 			{
-				id:9009, first: "Crystal", last:"Meyers", profile:"crystal-9009", join:"Aug 23, 2016", email:"crystal1989@example.com", recentActivity:"commented on YourApp's SEO Tips", recentTime:"4 hours ago"
+				id:9009, first: "Crystal", last:"Meyers", profile:"crystal-9009", join:"Aug 23, 2016", email:"crystal1989@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"4 hours ago", activity: "commented"
 			},
 
 			{
-				id:9101, first: "Jackie", last:"Sun", profile:"jackie-9101", join:"Aug 23, 2016", email:"jackie.sun@example.com", recentActivity:"liked the post Facebook's Changes for 2016", recentTime:"5 hours ago"
+				id:9101, first: "Jackie", last:"Sun", profile:"jackie-9101", join:"Aug 25, 2016", email:"jackie.sun@example.com", recentActivity:"just joined YourApp&trade; a few hours ago.", recentTime:"5 hours ago", activity: "joined"
 			},
 
 			{
-				id:9153, first: "Jill", last:"Scott", profile:"jill-9153", join:"Aug 25, 2016", email:"jillthehammer@example.com", recentActivity:"commented on Facebook's Changes for 2016", recentTime:"5 hours ago"
+				id:9153, first: "Jill", last:"Scott", profile:"jill-9153", join:"Aug 25, 2016", email:"jillthehammer@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"5 hours ago", activity: "commented"
 			},
 
 			{
-				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", join:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips", recentTime:"1 day ago"
+				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", join:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips.", recentTime:"1 day ago", activity: "posted"
 			}
 		],
 
@@ -455,11 +455,6 @@ $(document).ready(function(){
 				}
 			}
 			return newMemberList;
-		},
-
-		recent: function() {
-			
-
 		}
 	}
 
@@ -550,8 +545,35 @@ $(document).ready(function(){
 	}
 
 	/**********   BUILD RECENT ACTIVITIES  **********/
-	
-	
+	// Instantiate NEW RECENT ACTIVITIES LIST via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source4 = $("#activity-handle").html();
+
+	//complile the source markup
+	var recentTemplate = Handlebars.compile(source4);
+
+	// Iterate through messages
+	for (var i = 0; i < 4; i++) {
+
+		var name = members.memberData[i].first + ' ' + members.memberData[i].last
+		
+		// define the data object
+		var recentsData = {
+			name: name,
+			profile: members.memberData[i].activity,
+			text: members.memberData[i].recentActivity,
+			time: members.memberData[i].recentTime
+		};
+
+		// pass data object to template
+		var fullText = recentTemplate(recentsData);
+
+		// append to to #alert-area
+		$("#new-activities").append(fullText);
+	}
+
 	/******************************
 	BUILD CHARTS
 	******************************/

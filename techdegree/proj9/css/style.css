@@ -534,6 +534,8 @@ MEMBERS
     min-height: 91px;
     margin: 20px 20px 40px 20px;
     border-bottom: 1px solid #999999;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 .new-build:last-child {
 	border-bottom: none;
@@ -580,12 +582,47 @@ MEMBERS
     position: absolute;
     top: 27px;
     left: 72px;
+    line-height: 14px;
+    text-align: left;
+    font-size: 0.8em;
 }
 .join{
     display: inline-block;
     position: absolute;
     top: 57px;
     left: 72px;
+}
+/******************************
+ACTIVITIES
+******************************/	
+#commented {
+	background: url(../images/activity/icon-comment.svg);
+}
+#posted {
+	background: url(../images/activity/icon-post.svg);
+}
+#joined {
+	background: url(../images/activity/icon-join.svg);
+}
+.recent {
+    display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.85em;
+}
+.arrow:hover {
+	text-decoration: none;
+}
+.text {
+    display: inline;
+    position: absolute;
+    top: 15px;
+    left: 71px;
+    max-width: 488px;
+    text-align: left;
+    line-height: 1.1em;
+    font-size: 0.8em;
 }
 
 /******************************
@@ -625,6 +662,15 @@ MEDIA QUERIES
 		top: 27px;
 		right: 10px;
 		left: inherit;
+	}
+	.email {
+		font-size: 1em;
+		line-height: 16px;
+	}
+	.text {
+	    line-height: inherit;
+	    font-size: inherit;
+	    top: 0;
 	}
 }
 @media (min-width: 765px) {
