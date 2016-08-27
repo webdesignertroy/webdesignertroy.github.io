@@ -19,6 +19,10 @@ $(document).ready(function(){
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
 
+	var $searchMember = $("#search-member");
+	var $messageMember = $("#message-member");
+	var $formButton = $("#form-button");
+
 	/* Other */
 	var lineChart = null;
 	var oldData = null;
@@ -26,11 +30,18 @@ $(document).ready(function(){
 	/******************************
 	HELPER DECLARATION FUNCTIONS
 	******************************/
+
+	// Use regex decode HTML
 	function strip(message) {
 		var regex = /(<([^]+)>\n)/ig;
 		var results = message.replace(regex, "");
 		var results = results.trim();
 		return results;
+	}
+	// Get enclosing element on an event (e.g. "click")
+	function targetChoice(e){
+		e = e || window.event;
+		return e.target || e.srcElement // Accommodate all browsers
 	}
 
 	/******************************
@@ -455,7 +466,121 @@ $(document).ready(function(){
 				}
 			}
 			return newMemberList;
-		}
+		},
+		
+		buildMemberArray: function(value) {
+		 	// Create an array of member choices
+
+			var sel = document.getElementById("list");
+		 	var searched = [];
+		 	var given = value.toLowerCase();
+		 	for ( i = 0; i < members.memberData.length; i++ ) {
+		 		var member = members.memberData[i].first + " " + members.memberData[i].last;
+		 		var member = member.toLowerCase();
+		 		if ( member.indexOf(given) !== -1 ) {
+		 			if (given !== "" ) {
+		 				searched.push(member);
+		 			}
+		 		}
+		 	}
+		 	return searched;
+		},
+		
+		 searchForm: function(value) {
+
+		 	// Create an array of member choices
+
+			var sel = document.getElementById("list");
+		 	var searched = [];
+		 	var given = value.toLowerCase();
+		 	for ( i = 0; i < members.memberData.length; i++ ) {
+		 		var member = members.memberData[i].first + " " + members.memberData[i].last;
+		 		var member = member.toLowerCase();
+		 		if ( member.indexOf(given) !== -1 ) {
+		 			if (given !== "" ) {
+		 				searched.push(member);
+		 			}
+		 		}
+		 	}
+		 	
+		 	//  Remove previous results from list
+		 	var selExists = sel.getElementsByTagName("li")[0];
+		 	if ( selExists !== undefined ) {
+		 		var selLength = sel.getElementsByTagName("li").length;
+		 		for ( i = 0; i < selLength  ; i++ ) {
+		 			if (sel.getElementsByTagName("li")[i] !== undefined ) {
+		 				sel.getElementsByTagName("li")[i].remove();
+		 			} else {
+		 				sel.getElementsByTagName("li")[0].remove(); 
+		 			}
+				}
+		 	}
+
+		 	// Propagate select
+		 	for ( i = 0; i < searched.length; i++ ) {
+		 		var li = document.createElement("li");
+		 		li.innerHTML = searched[i];
+		 		sel.appendChild(li);
+		 	}
+
+			// Hide list if no Choices
+		 	if ( searched.length > 0 ) {
+		 		$("#list").removeClass("hide-div");
+		 	} else {
+		 		$("#list").addClass("hide-div");
+		 	}
+		 },
+
+		 updateSearchField: function(li, e) {
+		 	$searchMember.val(li);
+			 		$searchMember.val(li);
+		 	$("#list").addClass("hide-div");
+		 },
+
+		 validateForm: function() {
+
+		 	var validateThis = function(fieldName, message) {
+		 		fieldName.html(strip(message));
+		 		fieldName.addClass("show-validate");
+		 	}
+
+		 	//  Check #search-member for val
+		 	if ( $searchMember.val() === "" ) {
+		 		var $helperField = $("#help-member");
+		 		var message = "Member field cannot be left blank (X)";
+		 		validateThis($helperField, message);
+		 	}
+
+		 	// Check #message-member for val
+		 	if ( $messageMember.val() === "" ) {
+		 		var $helperField = $("#help-write");
+		 		var message = "Please write something (X)";
+		 		validateThis($helperField, message);
+		 		return
+		 	}
+
+		 	// Check field against member list
+
+		 	var foundMember = members.buildMemberArray($searchMember.val());
+		 	if ( foundMember.length < 1 ) {
+		 		var $helperField = $("#help-member");
+		 		var message = "There is no member by that name (X)";
+		 		validateThis($helperField, message);
+		 		return
+		 	}
+
+		 	// Send Message PHP or equivalent
+
+
+		 	// Relay timed success message
+		 	var $helperField = $("#help-submit");
+		 	var message = "SUCCESS! Message sent";
+		 	validateThis($helperField, message);
+		 	var timedMessage = setInterval(function(){
+		 		$helperField.removeClass("show-validate");
+			 }, 1500);
+		 	
+		 }
 	}
 
 	/******************************
@@ -632,6 +757,41 @@ $(document).ready(function(){
 	$monthly.click(function(){
 		months = "months";
 		lineTraffic.activeTraffic($(this), months);
+	});
+
+	/*******  SEARCH MEMBER FIELDS/BUTTONS  *******/
+
+	// Search field
+	$searchMember.on("keyup", function(event){
+		var searchValue = document.getElementById("search-member").value;
+		members.searchForm(searchValue);
+	});
+
+	// Get results on li
+	$("#list").on("click", function(event){
+		var target = targetChoice(event).innerHTML;
+		members.updateSearchField(target, event);
+	});
+
+
+	// Hide #list on #search-member blur
+	$searchMember.on("blur", function(event){
+		if ( !$("#list").hasClass("hide-div") ) {
+			setTimeout (function(){
+				$("#list").addClass("hide-div");
+			}, 200);
+		}
+	});
+
+	// Send button
+	$formButton.on("click", function(e){
+		e.preventDefault();
+		members.validateForm();
+	});
+
+	// Hide Valdation Message
+	$(".help").on("click", function(){
+		$(this).removeClass("show-validate")
 	});
 
 	/*******  BUBBLING EVENT BUTTONS  *******/

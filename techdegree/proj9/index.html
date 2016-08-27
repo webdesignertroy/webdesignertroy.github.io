@@ -112,10 +112,38 @@
 					<div id="new-activities" class="new-activities"></div>
 				</div>
 			</section>
+			<div class="clearfix"></div>
+			<hr />
+			<section id="section4" class="two-columns">
+				<div id="send-message" class="col">
+					<h2>Message User</h2>
+					<form action="index.html" method="post" id="member-send">
+						<span class="field-container">
+							<input id="search-member" class="search-member" type="text" placeholder="Search members" name="member_name" required aria-described="help-member" aria-required="true" title="Member name"/>
+							<span id="help-member" class="help">Begin typing name of member</span>
+							<ul id="list" class="hide-div"></ul>
+						</span>
+						<span class="field-container">
+							<textarea id="message-member" value="" class="message-member" placeholder="Write a message" name="member_message"></textarea>
+							<span id="help-write" class="help">Write a message.</span>
+						</span>
+						<span class="field-container">
+							<button id="form-button" type="submit" class="form-button" name="user_submit" value="Send" aria-describedby="help-submit"> Send</button>
+							<span id="help-submit" class="help">Select button to submit your form</span>
+						</span>
+					</form>
+				</div>
+				<div id="dashboard-settings" class="col">
+					<h2>Settings</h2>
+				</div>
+			</section>
 			<hr />
 		</article>
 	</div>
-<footer></footer>
+	<div class="clearfix"></div>
+<div id="#footer">
+	<div class="spacer"></div>
+</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
