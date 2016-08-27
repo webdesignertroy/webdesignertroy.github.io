@@ -577,6 +577,7 @@ $(document).ready(function(){
 		 	var message = "SUCCESS! Message sent";
 		 	validateThis($helperField, message);
 		 	var timedMessage = setInterval(function(){
+		 		clearInterval(timedMessage);
 		 		$helperField.removeClass("show-validate");
 			 }, 1500);
 		 	
