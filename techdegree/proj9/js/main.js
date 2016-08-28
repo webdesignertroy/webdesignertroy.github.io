@@ -611,7 +611,9 @@ $(document).ready(function(){
 	/******************************
 	BUILD ELEMENTS/HTML
 	******************************/
+
 	/**********   BUILD NOTIFICATIONS  **********/
+	
 	// Instantiate NOTIFICATIONS via Handlebars Templating Machine 
 	//   handlebars.js
 
@@ -639,6 +641,7 @@ $(document).ready(function(){
 	}
 
 	/**********   BUILD SOCIAL STATS  **********/
+
 	// Instantiate SOCIAL STATS via Handlebars Templating Machine 
 	//   handlebars.js
 
@@ -666,6 +669,7 @@ $(document).ready(function(){
 	}
 
 	/**********   BUILD NEW MEMBERS  **********/
+
 	// Instantiate NEW MEMBERS LIST via Handlebars Templating Machine 
 	//   handlebars.js
 	var newMemberList = members.newMembers();
@@ -695,6 +699,7 @@ $(document).ready(function(){
 	}
 
 	/**********   BUILD RECENT ACTIVITIES  **********/
+
 	// Instantiate NEW RECENT ACTIVITIES LIST via Handlebars Templating Machine 
 	//   handlebars.js
 
@@ -732,7 +737,6 @@ $(document).ready(function(){
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
 	mobileUsers.mobile();
-
 
 	/******************************
 	EVENT LISTENERS/HANDLERS
@@ -787,7 +791,7 @@ $(document).ready(function(){
 	/*******  SEARCH MEMBER FIELDS/BUTTONS  *******/
 
 	// Search field
-	//   Control tab keypress event in #search member
+	//   Control tab keypress event in #search-member
 	//   Select #help value if available
 	$searchMember.bind("keydown", function(event) {
 	    if(event.which == 9) {

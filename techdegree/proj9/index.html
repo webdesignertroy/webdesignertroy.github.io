@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel ="stylesheet" type="text/css" href="css/normalize.css" />
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-<html>
-<head>
 	<title>Web App Dashboard</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
 				</svg>
 		    	<span class="alert"><span class="note">Tester: You closed all the notifications. Refresh the page and click the icon again.</span></span>
 		    </span>
-			<img src="images/members/member1.jpg" />
+			<img alt="Profile Image" src="images/members/member1.jpg" />
 			<span class="center">Sarah Seasons</span>
 		</span>
 	</span>
@@ -34,9 +34,9 @@
 <nav id="nav">
 	<ul>
 		<li id="dashboard">dashboard<span class="active"></span></li>
-		<li id="members">members<span></span><</li>
-		<li id="charts">charts<span></span><</li>
-		<li id="settings">settings<span></span><</li>
+		<li id="members">members<span></span></li>
+		<li id="charts">charts<span></span></li>
+		<li id="settings">settings<span></span></li>
 
 	</ul>
 </nav>
@@ -114,23 +114,23 @@
 			</section>
 			<div class="clearfix"></div>
 			<hr />
-			<section id="section4" class="two-columns">
+			<section id="section5" class="two-columns">
 				<div id="send-message" class="col">
 					<h2>Message User</h2>
 					<form action="index.html" method="post" id="member-send">
-						<span class="field-container">
-							<input id="search-member" class="search-member clear" type="text" placeholder="Search members" name="member_name" required aria-described="help-member" aria-required="true" title="Member name"/>
+						<div class="field-container">
+							<input id="search-member" class="search-member clear" type="text" placeholder="Search members" name="member_name" required aria-required="true" title="Member name"/>
 							<span id="help-member" class="help yellow">Begin typing name of member</span>
 							<ul id="list" class="hide-div"></ul>
-						</span>
-						<span class="field-container">
-							<textarea id="message-member" value="" class="message-member clear" placeholder="Write a message" name="member_message"></textarea>
+						</div>
+						<div class="field-container">
+							<textarea id="message-member" class="message-member clear" placeholder="Write a message" name="member_message"></textarea>
 							<span id="help-write" class="help yellow">Write a message.</span>
-						</span>
-						<span class="field-container">
+						</div>
+						<div class="field-container">
 							<button id="form-button" type="submit" class="form-button" name="user_submit" value="Send" aria-describedby="help-submit"> Send</button>
 							<span id="help-submit" class="help green">Select button to submit your form</span>
-						</span>
+						</div>
 					</form>
 				</div>
 				<div id="dashboard-settings" class="col">
