@@ -750,6 +750,9 @@ fieldset {
     margin: 10px auto;
     position: relative;
 }
+.switch-candy-blue a {
+	background: #364a9a;
+}
 .switch-light.switch-candy span span{
 	text-transform: uppercase;
 	font-size: 0.8em;
@@ -968,9 +971,6 @@ MEDIA QUERIES
 		position: absolute;
 		left: 170px;
 		top: -13px;
-	}
-	.switch-candy-blue a {
-		background: #364a9a;
 	}
 	.labels {
 		display: inline-block;
