@@ -539,6 +539,7 @@ $(document).ready(function(){
 
 		 validateForm: function() {
 		 	
+		 	// variables
 		 	var searchMemberVal = $searchMember.val().trim();
 		 	var messageMemberVal = $messageMember.val().trim();
 		 	var test = 0;
@@ -561,7 +562,7 @@ $(document).ready(function(){
 		 	}
 
 		 	//  Check #search-member for val
-		 	if ( $searchMember.val() === "" || $searchMember.val() === null ) {
+		 	if ( $searchMember.val() === "" || $searchMember.val() ) {
 
 		 		var $helperField = $("#help-member");
 		 		var message = "Member field cannot be left blank (X)";
@@ -571,7 +572,8 @@ $(document).ready(function(){
 		 	}
 
 		 	// Check #message-member for val
-		 	if ( $messageMember.val() === "" || $messageMember.val() === null) {
+		 	
+		 	if ( $messageMember.val() === "" || $messageMember.val() ) {
 		 		var $helperField = $("#help-write");
 		 		var message = "Please write something (X)";
 		 		validateThis($helperField, message);
@@ -613,7 +615,7 @@ $(document).ready(function(){
 	******************************/
 
 	/**********   BUILD NOTIFICATIONS  **********/
-	
+
 	// Instantiate NOTIFICATIONS via Handlebars Templating Machine 
 	//   handlebars.js
 
