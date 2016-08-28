@@ -22,6 +22,7 @@ $(document).ready(function(){
 	var $searchMember = $("#search-member");
 	var $messageMember = $("#message-member");
 	var $formButton = $("#form-button");
+	var $sendMessage = $("#send-message");
 
 	/* Other */
 	var lineChart = null;
@@ -489,7 +490,6 @@ $(document).ready(function(){
 		 searchForm: function(value) {
 
 		 	// Create an array of member choices
-
 			var sel = document.getElementById("list");
 		 	var searched = [];
 		 	var given = value.toLowerCase();
@@ -787,17 +787,31 @@ $(document).ready(function(){
 	/*******  SEARCH MEMBER FIELDS/BUTTONS  *******/
 
 	// Search field
+	//   Control tab keypress event in #search member
+	//   Select #help value if available
+	$searchMember.bind("keydown", function(event) {
+	    if(event.which == 9) {
+	        event.preventDefault();
+		    var tabChoice = document.getElementById("list");
+	        if ( tabChoice.getElementsByTagName("li")[0] !== undefined ) {
+		        tabChoice = tabChoice.getElementsByTagName("li")[0].innerText;
+		        $searchMember.val(tabChoice);
+		     }
+		    $sendMessage.find("#message-member").focus();
+	    }
+	})
+
+	//  Capture keyup strokes in #search-member and find results
 	$searchMember.on("keyup", function(event){
 		var searchValue = document.getElementById("search-member").value;
 		members.searchForm(searchValue);
 	});
 
-	// Get results on li
+	// Place those results on from list in #search-member
 	$("#list").on("click", function(event){
 		var target = targetChoice(event).innerHTML;
 		members.updateSearchField(target, event);
 	});
-
 
 	// Hide #list on #search-member blur
 	$searchMember.on("blur", function(event){
@@ -820,6 +834,9 @@ $(document).ready(function(){
 	});
 
 	/*******  BUBBLING EVENT BUTTONS  *******/
+	//  I'm using handlebar.js becaue
+	//    animation does not work well 
+	//    with reg javaScript/jQuery
 
 	$(".close").on("click", function() {
 		notify.closeNotify($(this));
