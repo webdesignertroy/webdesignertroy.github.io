@@ -744,19 +744,18 @@ FORM ELEMENTS
 	border: none;
 	height: 43px;
 	max-width: 300px;
-	background: none;
+	background: whitesmoke;
 	padding: 7px;
 	font-weight: 300; 
 	font-size: 0.8em;
-	border: 1px solid #999;
+	border: 2px solid #999;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 	border-radius: 5px;
 }
 #search input[type=text]:focus {
 	outline: none;
-	background: #e8e7e7;
-	border: 1px solid #cc0000;
+	border: 2px solid #6377C8;
 }
 [placeholder]:focus::-webkit-input-placeholder {
   transition: text-indent 0.25s 0.25s ease; 
