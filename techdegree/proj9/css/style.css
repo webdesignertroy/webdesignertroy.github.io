@@ -552,9 +552,6 @@ MEMBERS
     cursor: pointer;
     transition: 0.25s ease-out;
 }
-.new-build:hover {
-	background: #dddddd;
-}
 .new-build:last-child {
 	border-bottom: none;
 }
@@ -780,6 +777,9 @@ fieldset {
     width: 100%;
     display: block;
     font-size: 0.85em;
+}
+#activities-sec .new-build:hover {
+	background: #dddddd;
 }
 
 /******************************
