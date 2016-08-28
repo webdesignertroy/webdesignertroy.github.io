@@ -51,11 +51,20 @@ $(document).ready(function(){
 		return e.target || e.srcElement // Accommodate all browsers
 	}
 
+	// Test for localStorage use
+	function hasLocalStorage() {
+		if ( typeof(Storage) === "undefined" ) {
+			var message = "Sorry. Your browser is not ";
+			message += "compatible with this App."
+			openMessageTest(message)
+		}
+	}
+
 	/******************************
 	OBJECTS-ORIENTED VARIABLES
 	******************************/
 
-	/*****  Navigation Object  *****/
+	/*****  Navigation Object Literal  *****/
 	var nav = {
 		activeNav: function(link) {
 			$("#nav ul").find("li").each(function(){
@@ -101,6 +110,7 @@ $(document).ready(function(){
 		// Show accompanying pop-up message after
 		//   clicking notification bar
 		openMessage: function(divName) {
+
 			divName.parent().find(".alert-message").addClass("show-message");
 			divName.parent().find(".alert-message").animate({
 				opacity: 1
@@ -120,12 +130,14 @@ $(document).ready(function(){
 		},
 
 		// Handle missed requirement (delete after grading)
-		openMessageTest: function() {
+		openMessageTest: function(message) {
+			$(".inner-note").text(message);
 			$(".note").addClass("show-message");
 			$(".note").animate({
 				opacity: 1
 			});
-			setInterval(function(){
+			var messageTimer = setInterval(function(){
+				clearInterval(messageTimer);
 				$(".note").animate({
 					opacity: 0
 				}, function(){
@@ -152,12 +164,15 @@ $(document).ready(function(){
 				}
 			});
 			if ( counter2 < 1 ) {
-				notify.openMessageTest();
+				var message = "Tester: You closed all the "; 
+				message += "notifications. Refresh the page ";
+				message += "and click the icon again.";
+				notify.openMessageTest(message);
 			}
 		}
 	}
 
-	/*****  Traffic Line Chart Object  *****/
+	/*****  Traffic Line Chart Object Literal  *****/
 	var lineTraffic = {
 
 		// Hourly Data
@@ -302,7 +317,7 @@ $(document).ready(function(){
 			}
 		}
 	}
-	/*****  Daily Traffic Bar Chart Object  *****/
+	/*****  Daily Traffic Bar Chart Object Literal  *****/
 
 	var barDailyTraffic = {
 
@@ -343,7 +358,7 @@ $(document).ready(function(){
 		}
 	}
 
-	/*****  Mobile Users Doughnut Chart Object  *****/
+	/*****  Mobile Users Doughnut Chart Object Literal  *****/
 
 	var mobileUsers = {
 
@@ -389,7 +404,7 @@ $(document).ready(function(){
 		}
 
 	}
-	/*****  Social Stat Object  *****/
+	/*****  Social Stat Object Literal  *****/
 
 	var social = {
 		media: [
@@ -415,7 +430,7 @@ $(document).ready(function(){
 		]
 	}
 
-	/*****  Members Chart Object  *****/	
+	/*****  Members Chart Object Literal  *****/	
 
 	var members = {
 		memberData: [
@@ -573,7 +588,7 @@ $(document).ready(function(){
 		 	if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
 
 		 		var $helperField = $("#help-member");
-		 		var message = "Member field cannot be left blank (X)";
+		 		var message = "Check 1: Please type member name";
 		 		validateThis($helperField, message);
 		 	} else {
 		 		test++;
@@ -583,7 +598,7 @@ $(document).ready(function(){
 		 	
 		 	if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
 		 		var $helperField = $("#help-write");
-		 		var message = "Please write something (X)";
+		 		var message = "Check 1: Please write something";
 		 		validateThis($helperField, message);
 		 	} else {
 		 		test++;
@@ -599,7 +614,7 @@ $(document).ready(function(){
 		 	var foundMember = members.buildMemberArray($searchMember.val());
 		 	if ( foundMember.length < 1 ) {
 		 		var $helperField = $("#help-member");
-		 		var message = "There is no member by that name (X)";
+		 		var message = "Check 2: There is no member by that name";
 		 		validateThis($helperField, message);
 		 		fadeMessage();
 		 		return
@@ -616,6 +631,19 @@ $(document).ready(function(){
 		 	fadeMessage();
 		 	
 		 }
+	}
+	/*****  Settings  Object Literal  *****/	
+
+	var appSettings = {
+
+		// Save settings on localStorage
+		saveSettings: function() {
+
+		}
+
+
+		//  Reset Defaults
+
 	}
 
 	/******************************
@@ -747,6 +775,13 @@ $(document).ready(function(){
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
 	mobileUsers.mobile();
+	$(".switch-wrapper").switchButton();
+
+	$("input[type=checkbox]").switchButton({
+	  width: 36,
+	  height: 16,
+	  button_width: 24
+	});
 
 	/******************************
 	EVENT LISTENERS/HANDLERS

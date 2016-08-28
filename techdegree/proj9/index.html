@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel ="stylesheet" type="text/css" href="css/normalize.css" />
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="images/switch/dist/toggle-switch-px.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.switchButton.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 	<title>Web App Dashboard</title>
 </head>
@@ -24,7 +24,7 @@
 					</g>
 				</g>
 				</svg>
-		    	<span class="alert"><span class="note">Tester: You closed all the notifications. Refresh the page and click the icon again.</span></span>
+		    	<span class="alert"><span class="note"><span class="inner-note">Tester: You closed all the notifications. Refresh the page and click the icon again.</span></span></span>
 		    </span>
 			<img alt="Profile Image" src="images/members/member1.jpg" />
 			<span class="center">Sarah Seasons</span>
@@ -123,16 +123,16 @@
 					<form action="index.html" method="post" id="member-send">
 						<div class="field-container">
 							<input id="search-member" class="search-member clear" type="text" placeholder="Search members" name="member_name" required aria-required="true" title="Member name"/>
-							<span id="help-member" class="help yellow">Begin typing name of member</span>
+							<span id="help-member" class="help yellow"></span>
 							<ul id="list" class="hide-div"></ul>
 						</div>
 						<div class="field-container">
 							<textarea id="message-member" class="message-member clear" placeholder="Write a message" name="member_message"></textarea>
-							<span id="help-write" class="help yellow">Write a message.</span>
+							<span id="help-write" class="help yellow"></span>
 						</div>
 						<div class="field-container">
 							<button id="member-button" type="submit" class="form-button" name="user_submit" value="Send" aria-describedby="help-submit"> Send</button>
-							<span id="help-submit" class="help green">Select button to submit your form</span>
+							<span id="help-submit" class="help green"></span>
 						</div>
 					</form>
 				</div>
@@ -144,29 +144,15 @@
 						<fieldset id="checkbox">
 						<div class="checkbox-container">
 							<span class="labels">Send Email Notification:</span>
-							<span class="center-switch">
-								<label class="switch-light  switch-candy switch-candy-blue" onclick="">
-									<input type="checkbox" id="email-notifications" name="email_notfications" class="check-style" checked="checked" />
-									<span>
-										<span>Off</span>
-										<span>On</span>
-										<a></a>
-									</span>
-								</label>
-							</span>
+							<div class="center-switch">
+									<input type="checkbox" id="email-notifications" name="email_notfications" class="switch-wrapper" checked="checked" />
+							</div>
 						</div>
 						<div class="checkbox-container">
 						<span class="labels">Set Profile to Public:</span>
-						<span class="center-switch">
-							<label class="switch-light switch-candy switch-candy-blue" onclick="">
-								<input type="checkbox" id="public-profile" name="public_profile" class="check-style" />
-								<span>
-									<span>Off</span>
-									<span>On</span>
-									<a></a>
-								</span>
-							</label>
-						</span>
+							<div class="center-switch">
+									<input type="checkbox" id="public-profile" name="public_profile" class="switch-wrapper" />
+							</div>
 						</div>
 						</fieldset>
 						<fieldset id="timezone-select">
@@ -265,8 +251,8 @@
 							</select>
 						</fieldset>
 						<fieldset id="save-cancel">
-							<button id="save" class="form-button">Save</button>
-							<button id="reset-form" class="form-button">Reset</button>
+							<button id="save" class="form-button two-col">Save</button>
+							<button id="reset-form" class="form-button two-col">Reset</button>
 						</fieldset>
 					</form>
 				</div>
@@ -282,7 +268,9 @@
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="images/switch/jquery.switchButton.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 	<script id="alert-area" type="text/x-handlebares-templates">
 		<div class="alert-box {{note}}">
