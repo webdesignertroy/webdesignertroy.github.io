@@ -550,6 +550,7 @@ MEMBERS
     overflow-wrap: break-word;
     word-wrap: break-word;
     cursor: pointer;
+    transition: 0.25s ease-out;
 }
 .new-build:hover {
 	background: #dddddd;
