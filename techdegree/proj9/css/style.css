@@ -28,7 +28,7 @@ hr {
 	display: block;
 	height: 1px;
 	border: 0;
-	border-top: 1px solid #999;
+	border-top: 1px dotted #999;
 	margin: 1em 0;
 	padding: 0;
 }
@@ -359,12 +359,18 @@ path.notification-svg {
 .hide-div {
 	display: none;
 }
+.spacer {
+	height: 50px;
+}
+/******************************
+CHARTS
+******************************/	
 #traffic,
 #daily-traffic,
 #mobile-users {
 	margin: 30px 20px 20px 20px;
 }
-/* traffic */
+
 #traffic {
 	position: relative;
 	display: -ms-flexbox;
@@ -540,8 +546,13 @@ MEMBERS
     min-height: 91px;
     margin: 20px 20px 40px 20px;
     border-bottom: 1px solid #999999;
+    border-radius: 3px 3px 0 0;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    cursor: pointer;
+}
+.new-build:hover {
+	background: #dddddd;
 }
 .new-build:last-child {
 	border-bottom: none;
@@ -574,7 +585,7 @@ MEMBERS
     display: inline-block;
     position: absolute;
     top: 14px;
-    left: 0;
+    left: 4px;
 }
 .name {
     display: inline-block;
@@ -625,6 +636,7 @@ ACTIVITIES
     position: absolute;
     top: 15px;
     left: 71px;
+    padding-right: 20px;
     max-width: 488px;
     text-align: left;
     line-height: 1.1em;
@@ -664,7 +676,7 @@ background: #D1F196;
 }
 #search-member,
 #message-member,
-#form-button {
+.form-button {
     border-radius: 5px;
     border-style: none;
     display: block;
@@ -674,6 +686,7 @@ background: #D1F196;
 	position: relative;
 	z-index: 10;
 }
+
 #search-member:focus,
 #message-member:focus {
 	outline: none;
@@ -687,18 +700,6 @@ background: #D1F196;
 	border-radius: 5px;
 	height: 100px;
 	padding: 7px 20px;
-}
-#form-button {
-	border-radius: 5px;
-	height: 45px;
-	text-transform: uppercase;
-	cursor: pointer;
-	background: #0B1F70;
-	color: white;
-}
-#form-button:focus{
-	outline: none;
-	background: #4057B7;
 }
 #send-message, 
 #dashboard-settings {
@@ -734,6 +735,50 @@ background: #D1F196;
 }
 
 /******************************
+SETTINGS
+******************************/
+fieldset {
+	border: none;
+}
+.checkbox-container {
+	position: relative;
+	height: 60px;
+	margin: 0 0 30px 0
+}
+.switch-light {
+    width: 100px;
+    margin: 10px auto;
+    position: relative;
+}
+.switch-light.switch-candy span span{
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: 400;
+}
+.switch-light.switch-candy span span, .switch-light.switch-candy input:checked ~ span span:first-child, .switch-toggle.switch-candy label{
+	font-weight: 400;
+	text-shadow: none;
+}
+.switch-light.switch-candy input ~ span span:first-child, .switch-light.switch-candy input:checked ~ span span:nth-child(2), .switch-candy input:checked + label {
+	color: whitesmoke;
+	text-shadow: 1px 1px 1px #191b1e;
+}
+.check-style {
+	width: 250px;
+	height: 33px;
+	cursor: pointer;
+}
+.center-switch {
+	width:100%;
+}
+.labels {
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-size: 0.85em;
+}
+
+/******************************
 FORM ELEMENTS
 ******************************/
 
@@ -762,12 +807,37 @@ FORM ELEMENTS
   text-indent: -100%;
   opacity: 1;
 }
+.form-button {
+	border-radius: 5px;
+	height: 45px;
+	text-transform: uppercase;
+	cursor: pointer;
+	background: #0B1F70;
+	color: white;
+}
+.form-button:focus,
+.form-button:hover {
+	outline: none;
+	background: #4057B7;
+}
+.select {
+    background: whitesmoke;
+    width: 100%;
+    height: 38px;
+    border-radius: 1px;
+    border: 2px solid #999999;
+}
+.select:focus {
+	outline: none;
+	border: 2px solid #6377C8;
+}
+
 /******************************
 MEDIA QUERIES
 ******************************/
 @media (min-width: 480px) {
 	.profile {
-		top: 0;
+		top: 5px;
 	}
 	.join {
 		top: 27px;
@@ -781,7 +851,7 @@ MEDIA QUERIES
 	.text {
 	    line-height: inherit;
 	    font-size: inherit;
-	    top: 0;
+	    top: 5px;
 	}
 }
 @media (min-width: 765px) {
@@ -888,6 +958,23 @@ MEDIA QUERIES
 	    top: 59px;
 	    left: 72px;
 	    right: inherit;
+	}
+	/*  Settings */
+	.checkbox-container {
+		margin: 10px 0 0 0;
+	}
+	.switch-light {
+		position: absolute;
+		left: 170px;
+		top: -13px;
+	}
+	.switch-candy-blue a {
+		background: #364a9a;
+	}
+	.labels {
+		display: inline-block;
+		position: absolute;
+		text-align: left;
 	}
 }
 

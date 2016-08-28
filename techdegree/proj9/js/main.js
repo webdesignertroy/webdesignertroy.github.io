@@ -21,8 +21,14 @@ $(document).ready(function(){
 
 	var $searchMember = $("#search-member");
 	var $messageMember = $("#message-member");
-	var $formButton = $("#form-button");
+	var $formButton = $("#member-button");
 	var $sendMessage = $("#send-message");
+
+	var $emailNotification = $("#email-notification");
+	var $publicProfile = $("#public-profile");
+	var $timeZone = $("#timezone");
+	var $save = $("#save"); 
+	var $reset = $("#reset-form");
 
 	/* Other */
 	var lineChart = null;
@@ -503,7 +509,7 @@ $(document).ready(function(){
 		 		}
 		 	}
 		 	
-		 	//  Remove previous results from list
+		 	//  Remove previous results from #list li
 		 	var selExists = sel.getElementsByTagName("li")[0];
 		 	if ( selExists !== undefined ) {
 		 		var selLength = sel.getElementsByTagName("li").length;
@@ -516,12 +522,15 @@ $(document).ready(function(){
 				}
 		 	}
 
-		 	// Propagate select
+		 	// Propagate #list li
 		 	for ( i = 0; i < searched.length; i++ ) {
 		 		var li = document.createElement("li");
 		 		li.innerHTML = searched[i];
 		 		sel.appendChild(li);
 		 	}
+
+		 	// Add guess to placeholder
+		 	$searchMember.placeholder = "sasdfasdfafsafd";
 
 			// Hide list if no Choices
 		 	if ( searched.length > 0 ) {
@@ -533,7 +542,6 @@ $(document).ready(function(){
 
 		 updateSearchField: function(li, e) {
 		 	$searchMember.val(li);
-			 		$searchMember.val(li);
 		 	$("#list").addClass("hide-div");
 		 },
 
@@ -813,7 +821,7 @@ $(document).ready(function(){
 		members.searchForm(searchValue);
 	});
 
-	// Place those results on from list in #search-member
+	// Place those results on from #list li in #search-member
 	$("#list").on("click", function(event){
 		var target = targetChoice(event).innerHTML;
 		members.updateSearchField(target, event);
@@ -837,6 +845,18 @@ $(document).ready(function(){
 	// Hide Valdation Message
 	$(".help").on("click", function(){
 		$(this).removeClass("show-validate")
+	});
+
+
+	/*******  SETTINGS CONTROLS  *******/
+	$save.on("click", function(e){
+		e.preventDefault();
+		console.log("Do Something");
+	});
+
+	$reset.on("click", function(e){
+		e.preventDefault();
+		console.log("Do Something");
 	});
 
 	/*******  BUBBLING EVENT BUTTONS  *******/
