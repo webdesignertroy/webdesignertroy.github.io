@@ -562,7 +562,7 @@ $(document).ready(function(){
 		 	}
 
 		 	//  Check #search-member for val
-		 	if ( $searchMember.val() === "" || $searchMember.val() ) {
+		 	if ( $searchMember.val() === "" || $searchMember.val() === null ) {
 
 		 		var $helperField = $("#help-member");
 		 		var message = "Member field cannot be left blank (X)";
@@ -573,7 +573,7 @@ $(document).ready(function(){
 
 		 	// Check #message-member for val
 		 	
-		 	if ( $messageMember.val() === "" || $messageMember.val() ) {
+		 	if ( $messageMember.val() === "" || $messageMember.val() === null ) {
 		 		var $helperField = $("#help-write");
 		 		var message = "Please write something (X)";
 		 		validateThis($helperField, message);
