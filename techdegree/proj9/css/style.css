@@ -640,7 +640,6 @@ MESSAGE USER
     text-align: center;
     font-size: 0.8em;
     width: 95%;
-    background: whitesmoke;
     bottom: -36px;
     right: 6px;
     display: inline-block;
@@ -657,7 +656,12 @@ MESSAGE USER
     color: #4057B7;
     text-decoration: underline;
 }
-
+.yellow {
+background: #F3F2BC;
+}
+.green {
+background: #D1F196;
+}
 #search-member,
 #message-member,
 #form-button {

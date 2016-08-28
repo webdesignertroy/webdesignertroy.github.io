@@ -538,25 +538,50 @@ $(document).ready(function(){
 		 },
 
 		 validateForm: function() {
-
+		 	
+		 	var searchMemberVal = $searchMember.val().trim();
+		 	var messageMemberVal = $messageMember.val().trim();
+		 	var test = 0;
 		 	var validateThis = function(fieldName, message) {
 		 		fieldName.html(strip(message));
 		 		fieldName.addClass("show-validate");
 		 	}
+		 	var fadeMessage = function() {
+			 	var timedMessage = setInterval(function(){
+			 		clearInterval(timedMessage);
+			 		$("#send-message").find(".help").each(function(){
+			 			$(this).removeClass("show-validate");
+			 		});
+				 }, 1500);
+		 	}
+		 	var clearFields = function() {
+			 		$("#send-message").find(".clear").each(function(){
+			 			$(this).val("");
+			 		});
+		 	}
 
 		 	//  Check #search-member for val
-		 	if ( $searchMember.val() === "" ) {
+		 	if ( $searchMember.val() === "" || $searchMember.val() === null ) {
+
 		 		var $helperField = $("#help-member");
 		 		var message = "Member field cannot be left blank (X)";
 		 		validateThis($helperField, message);
+		 	} else {
+		 		test++;
 		 	}
 
 		 	// Check #message-member for val
-		 	if ( $messageMember.val() === "" ) {
+		 	if ( $messageMember.val() === "" || $messageMember.val() === null) {
 		 		var $helperField = $("#help-write");
 		 		var message = "Please write something (X)";
 		 		validateThis($helperField, message);
-		 		return
+		 	} else {
+		 		test++;
+		 	}
+
+		 	if ( test < 2 ) {
+			 	fadeMessage();
+			 	return
 		 	}
 
 		 	// Check field against member list
@@ -566,6 +591,7 @@ $(document).ready(function(){
 		 		var $helperField = $("#help-member");
 		 		var message = "There is no member by that name (X)";
 		 		validateThis($helperField, message);
+		 		fadeMessage();
 		 		return
 		 	}
 
@@ -576,10 +602,8 @@ $(document).ready(function(){
 		 	var $helperField = $("#help-submit");
 		 	var message = "SUCCESS! Message sent";
 		 	validateThis($helperField, message);
-		 	var timedMessage = setInterval(function(){
-		 		clearInterval(timedMessage);
-		 		$helperField.removeClass("show-validate");
-			 }, 1500);
+		 	clearFields();
+		 	fadeMessage();
 		 	
 		 }
 	}
