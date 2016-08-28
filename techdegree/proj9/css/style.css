@@ -826,6 +826,7 @@ FORM ELEMENTS
     height: 38px;
     border-radius: 1px;
     border: 2px solid #999999;
+    font-size: 0.75em
 }
 .select:focus {
 	outline: none;
