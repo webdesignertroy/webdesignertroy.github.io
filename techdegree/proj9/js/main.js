@@ -59,8 +59,8 @@ $(document).ready(function(){
 	function strip(message) {
 
 		var regex = /(<([^]+)>\n)/ig;
-		var results = message.replace(regex, "");
-		var results = results.trim();
+		var cleanIt = message.replace(regex, "");
+		var results = cleanIt.trim();
 		return results;
 
 	}
@@ -69,7 +69,8 @@ $(document).ready(function(){
 	function targetChoice(e){
 
 		e = e || window.event;
-		return e.target || e.srcElement // Accommodate all browsers
+
+		return e.target || e.srcElement; // Accommodate all browsers
 
 	}
 
@@ -79,8 +80,8 @@ $(document).ready(function(){
 
 		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
-			message += "compatible with this App."
-			openMessageTest(message)
+			message += "compatible with this App.";
+			openMessageTest(message);
 
 		}
 
@@ -104,7 +105,7 @@ $(document).ready(function(){
 
 		}
 
-	}
+	};
 
 	/*****  Notification Object  *****/
 	var notify = {
@@ -212,7 +213,7 @@ $(document).ready(function(){
 
 		}
 
-	}
+	};
 
 	/*****  Traffic Line Chart Object Literal  *****/
 	var lineTraffic = {
@@ -318,7 +319,7 @@ $(document).ready(function(){
 
 			// remove old data before drawing new
 			var counter = 0;
-			if (lineChart != null) {
+			if (lineChart !== null) {
 				for( i=0; i < oldData.length + 1 ; i++ ) {
 					lineChart.removeData();
 				}
@@ -370,7 +371,7 @@ $(document).ready(function(){
 
 		}
 
-	}
+	};
 
 	/*****  Daily Traffic Bar Chart Object Literal  *****/
 
@@ -415,7 +416,7 @@ $(document).ready(function(){
 
 		}
 
-	}
+	};
 
 	/*****  Mobile Users Doughnut Chart Object Literal  *****/
 
@@ -444,7 +445,7 @@ $(document).ready(function(){
 					value: 7,
 					color: "rgba(255, 105, 105, 0.5)"
 				}
-			]
+			];
 			mobileUsers.drawDoughnutChart(users);
 		},
 
@@ -462,7 +463,7 @@ $(document).ready(function(){
 			document.getElementById('mobile-legend').innerHTML = doughnutChart.generateLegend();
 		}
 
-	}
+	};
 
 	/*****  Social Stat Object Literal  *****/
 
@@ -488,7 +489,7 @@ $(document).ready(function(){
 				socialMedia: "Instagram", value: "8,900", socialId: "instagram-svg"
 			}
 		]
-	}
+	};
 
 	/*****  Members Chart Object Literal  *****/	
 
@@ -527,7 +528,7 @@ $(document).ready(function(){
 			var buildList = "";
 
 			// loop through all members
-			for (var index = members.memberData.length - 1; index > 0; index--) {
+			for ( var index = members.memberData.length - 1; index > 0; index-- ) {
 
 				// I expect to search PHP to find
 				//   most recent and last index numbers
@@ -536,7 +537,7 @@ $(document).ready(function(){
 					var name = "";
 					var profile = "";
 					var email = "";
-					var join = ""
+					var join = "";
 					if( members.memberData[index].id === i ) {
 						name = members.memberData[index].first + " ";
 						name += members.memberData[index].last;
@@ -559,7 +560,7 @@ $(document).ready(function(){
 		var given = value.toLowerCase();
 		for ( i = 0; i < members.memberData.length; i++ ) {
 			var member = members.memberData[i].first + " " + members.memberData[i].last;
-			var member = member.toLowerCase();
+			member = member.toLowerCase();
 			if ( member.indexOf(given) !== -1 ) {
 				if (given !== "" ) {
 					searched.push(member);
@@ -577,21 +578,21 @@ $(document).ready(function(){
 		var searched = [];
 		var given = value.toLowerCase();
 		for ( i = 0; i < members.memberData.length; i++ ) {
-			var member = members.memberData[i].first + " " + members.memberData[i].last;
-			var member = member.toLowerCase();
-			if ( member.indexOf(given) !== -1 ) {
+			var memberItem = members.memberData[i].first + " " + members.memberData[i].last;
+			memberItem = memberItem.toLowerCase();
+			if ( memberItem.indexOf(given) !== -1 ) {
 				if (given !== "" ) {
-					searched.push(member);
+					searched.push(memberItem);
 				}
 			}
 		}
 
 		//  Remove previous results from #list li
 		var selExists = sel.getElementsByTagName("li")[0];
-		if ( selExists !== undefined ) {
+		if ( typeof selExists !== "undefined" ) {
 			var selLength = sel.getElementsByTagName("li").length;
 			for ( i = 0; i < selLength  ; i++ ) {
-				if (sel.getElementsByTagName("li")[i] !== undefined ) {
+				if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
 					sel.getElementsByTagName("li")[i].remove();
 				} else {
 					sel.getElementsByTagName("li")[0].remove(); 
@@ -605,9 +606,6 @@ $(document).ready(function(){
 			li.innerHTML = searched[i];
 			sel.appendChild(li);
 		}
-
-		// Add guess to placeholder
-		$searchMember.placeholder = "sasdfasdfafsafd";
 
 		// Hide list if no Choices
 		if ( searched.length > 0 ) {
@@ -664,11 +662,14 @@ $(document).ready(function(){
 			var messageMemberVal = $messageMember.val().trim();
 			var test = 0;
 			var parent =$("#send-message");
+			var $helperField;
+			var message;
+			var help;
 
 			//  check #search-member for val
 			if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
-				var $helperField = $("#help-member");
-				var message = "Check 1: Please type member name";
+				$helperField = $("#help-member");
+				message = "Check 1: Please type member name";
 				members.validateThis($helperField, message);
 			} else {
 				test++;
@@ -676,8 +677,8 @@ $(document).ready(function(){
 
 			// check #message-member for val
 			if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
-				var $helperField = $("#help-write");
-				var message = "Check 1: Please write something";
+				$helperField = $("#help-write");
+				message = "Check 1: Please write something";
 				members.validateThis($helperField, message);
 			} else {
 				test++;
@@ -685,37 +686,37 @@ $(document).ready(function(){
 
 			// check 1: test for blank fields, etc.
 			if ( test < 2 ) {
-				var help = $(".help");
+				help = $(".help");
 				members.fadeMessage(parent, help);
-				return
+				return;
 			}
 
 			// check 2: check #message-member field against member list
 
 			var foundMember = members.buildMemberArray($searchMember.val());
 			if ( foundMember.length < 1 ) {
-				var $helperField = $("#help-member");
-				var help = $(".help");
-				var message = "Check 2: There is no member by that name";
+				$helperField = $("#help-member");
+				help = $(".help");
+				message = "Check 2: There is no member by that name";
 				members.validateThis($helperField, message);
 				members.fadeMessage(parent, help);
-				return
+				return;
 			}
 
 			// send message via PHP or equivalent
 			//      [----CODE---]
 
 			// relay timed success message
-			var $helperField = $("#help-submit");
-			var message = "SUCCESS! Message sent";
-			var help = $(".success-help");
+			$helperField = $("#help-submit");
+			message = "SUCCESS! Message sent";
+			help = $(".success-help");
 			members.validateThis($helperField, message);
 			members.clearFields();
 			members.fadeMessage(parent, help);
 
 		}
 
-	}
+	};
 	/*****  Settings  Object Literal  *****/	
 
 	var appSettings = {
@@ -813,7 +814,7 @@ $(document).ready(function(){
 			// public profile reset
 			$publicProfile.switchButton({
 				checked: false
-			})
+			});
 			// timezone reset
 			$timezoneSelect.prop("selectedIndex", 0);
 
@@ -822,7 +823,7 @@ $(document).ready(function(){
 			members.fadeMessage(parent, help);
 		}
 
-	}
+	};
 
 	/******************************
 	BUILD ELEMENTS/HTML
@@ -869,13 +870,13 @@ $(document).ready(function(){
 	var socialTemplate = Handlebars.compile(source2);
 
 	// Iterate through messages
-	for (var i = 0; i < social.media.length; i++) {
+	for (var j = 0; j < social.media.length; j++) {
 
 		// define the data object
 		var messageData = {
-			socialId: social.media[i].socialId,
-			socialMedia: social.media[i].socialMedia,
-			value: social.media[i].value
+			socialId: social.media[j].socialId,
+			socialMedia: social.media[j].socialMedia,
+			value: social.media[j].value
 		};
 
 		// pass data object to template

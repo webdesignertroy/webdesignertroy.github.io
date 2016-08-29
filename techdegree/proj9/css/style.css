@@ -930,11 +930,13 @@ MEDIA QUERIES
 		display: flex;
 		height: 75px;
 		text-align: left;
+		position: relative;
 	}
 	#member-block {
 		display: inline-block;
 		width: auto;
-		float: right;
+		position: absolute;
+		right: 25px;
 		font-weight: 300;
 		font-size: 0.7em;
 		margin-top: -9px;
