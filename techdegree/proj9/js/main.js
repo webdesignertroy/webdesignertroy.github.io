@@ -13,22 +13,31 @@ $(document).ready(function(){
 	var $alertMessage = $(".alert-message");
 	var $alertBox = $(".alert-box");
 	var $notificationPlaceholder = $("#notification-placeholder");
+	var $note = $(".note");
+	var $innerNote = $(".inner-note");
 
 	var $hourly = $("#hourly");
 	var $daily = $("#daily");
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
+	var $trafficUlLi =$("#traffic ul li");
 
 	var $searchMember = $("#search-member");
+	var $list = $("#list");
 	var $messageMember = $("#message-member");
 	var $formButton = $("#member-button");
 	var $sendMessage = $("#send-message");
+	var $successHelp = $(".success-help");
+	var $help = $(".help");
 
 	var $emailNotification = $("#email-notifications");
 	var $publicProfile = $("#public-profile");
-	var $timeZone = $("#timezone");
+	var $timezoneOption = $("#timezone option");
+	var $timezoneSelect = $("#timezone");
 	var $save = $("#save"); 
 	var $reset = $("#reset-form");
+
+	var $switchWrapper = $(".switch-wrapper");
 
 	/* Other */
 	var lineChart = null;
@@ -51,7 +60,8 @@ $(document).ready(function(){
 		return e.target || e.srcElement // Accommodate all browsers
 	}
 
-	// Test for localStorage use
+	// Test browswer compatibility for localStorage use
+	//   If not compatible, show message
 	function hasLocalStorage() {
 		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
@@ -66,6 +76,9 @@ $(document).ready(function(){
 
 	/*****  Navigation Object Literal  *****/
 	var nav = {
+
+		// Show active nav item link, using green bar,
+		//  on main navigation menu
 		activeNav: function(link) {
 			$("#nav ul").find("li").each(function(){
 				$(this).find("span").removeClass("active");
@@ -129,19 +142,20 @@ $(document).ready(function(){
 
 		},
 
-		// Handle missed requirement (delete after grading)
+		// Special message: Browser compatibiliy and 
+		//   teacher's notes
 		openMessageTest: function(message) {
-			$(".inner-note").text(message);
-			$(".note").addClass("show-message");
-			$(".note").animate({
+			$innerNote.text(message);
+			$note.addClass("show-message");
+			$note.animate({
 				opacity: 1
 			});
 			var messageTimer = setInterval(function(){
 				clearInterval(messageTimer);
-				$(".note").animate({
+				$note.animate({
 					opacity: 0
 				}, function(){
-					$(".note").removeClass("show-message");
+					$note.removeClass("show-message");
 				});
 			}, 4000);
 		},
@@ -262,7 +276,7 @@ $(document).ready(function(){
 		// Draw Chart
 		drawChart: function(data) {
 
-			//  Variables
+			//  variables
 			var canvas = document.querySelector("#traffic-chart");
 			var ctx = canvas.getContext("2d");
 
@@ -283,23 +297,23 @@ $(document).ready(function(){
 				responsive: true
 			});
 
-			// Store current data to variable to use
+			// store current data to variable to use
 			//   on next option cycle
 			oldData = data.datasets[0].data;
 		},
 
-		// Select time option
+		// Select time-level (i.e., Hourly, Daily) option
 		activeTraffic: function(divName, time){
 			// iterate through Traffic options
 			//   remove active style
-			$("#traffic ul li").each(function(){
+			$trafficUlLi.each(function(){
 				$(this).removeClass("active-time");
 			});
-			// Add active style to newly selected
+			// add active style to newly selected
 			//   Traffic option
 			divName.addClass("active-time");
 
-			// Switch Statement and draw appropriate
+			// switch Statement and draw appropriate
 			//    Traffic chart 
 			switch(time) {
 				case "days":
@@ -555,16 +569,20 @@ $(document).ready(function(){
 		 	}
 		 },
 
+		 // Add first result to search field
+		 //   on [TAB]
 		 updateSearchField: function(li, e) {
 		 	$searchMember.val(li);
-		 	$("#list").addClass("hide-div");
+		 	$list.addClass("hide-div");
 		 },
 
+		 // Notifies user of validation error
 		 validateThis: function(fieldName, message) {
 	 		fieldName.html(strip(message));
 	 		fieldName.addClass("show-validate");
 		 },
 
+		 // Fades out validation message
 	 	fadeMessage: function(parent, helper) {
 		 	var timedMessage = setInterval(function(){
 		 		clearInterval(timedMessage);
@@ -574,12 +592,14 @@ $(document).ready(function(){
 			 }, 1500);
 	 	},
 
+	 	// Clears fields of Message User form 
 		clearFields: function() {
-		 		$("#send-message").find(".clear").each(function(){
+		 		$sendMessage.find(".clear").each(function(){
 		 			$(this).val("");
 		 		});
 		 	},
 
+		 // Validates Message User form
 		 validateForm: function() {
 		 	
 		 	// variables
@@ -587,9 +607,8 @@ $(document).ready(function(){
 		 	var messageMemberVal = $messageMember.val().trim();
 		 	var test = 0;
 		 	var parent =$("#send-message");
-	 		var help = ".help";
 
-		 	//  Check #search-member for val
+		 	//  check #search-member for val
 		 	if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
 
 		 		var $helperField = $("#help-member");
@@ -599,8 +618,7 @@ $(document).ready(function(){
 		 		test++;
 		 	}
 
-		 	// Check #message-member for val
-		 	
+		 	// check #message-member for val
 		 	if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
 		 		var $helperField = $("#help-write");
 		 		var message = "Check 1: Please write something";
@@ -609,28 +627,32 @@ $(document).ready(function(){
 		 		test++;
 		 	}
 
+		 	// check 1: test for blank fields, etc.
 		 	if ( test < 2 ) {
+	 			var help = $(".help");
 			 	members.fadeMessage(parent, help);
 			 	return
 		 	}
 
-		 	// Check field against member list
+		 	// check 2: check #message-member field against member list
 
 		 	var foundMember = members.buildMemberArray($searchMember.val());
 		 	if ( foundMember.length < 1 ) {
 		 		var $helperField = $("#help-member");
+	 			var help = $(".help");
 		 		var message = "Check 2: There is no member by that name";
 		 		members.validateThis($helperField, message);
 		 		members.fadeMessage(parent, help);
 		 		return
 		 	}
 
-		 	// Send Message PHP or equivalent
+		 	// send message via PHP or equivalent
+		 	//      [----CODE---]
 
-
-		 	// Relay timed success message
+		 	// relay timed success message
 		 	var $helperField = $("#help-submit");
 		 	var message = "SUCCESS! Message sent";
+	 			var help = $(".success-help");
 		 	members.validateThis($helperField, message);
 		 	members.clearFields();
 		 	members.fadeMessage(parent, help);
@@ -650,7 +672,7 @@ $(document).ready(function(){
 		 	var $helperField = $("#help-save");
 		 	var message = "SUCCESS! Saved";
 			var parent = $("#dashboard-settings");
-			var help = $(".settings-help");
+			var help = $(".success-help");
 
 			// save email notification option
 			localStorage.setItem("emailSetting", saveEmail);
@@ -658,15 +680,28 @@ $(document).ready(function(){
 			// save profile option
 			localStorage.setItem("publicSetting", savePublic);
 
-		 	// Relay timed success message
+			// save timezone
+			var counter = 0;
+			for ( i = 0; i < $timezoneOption.length; i++) {
+				if ( $timezoneOption[i].selected === true ){
+					var saveTimezone = i;
+					localStorage.setItem("timezoneSetting", saveTimezone);
+				}
+			}
+			
+
+		 	// relay timed success message
 		 	members.validateThis($helperField, message);
 		 	members.fadeMessage(parent, help);
 		},
 
+		// Retrieve settins from local storage
 		retrieveSettings: function() {
+
 			//retrieve  email notification choice
 			var getEmail = localStorage.getItem("emailSetting");
 			var getPublic = localStorage.getItem("publicSetting");
+			var getTimezone = localStorage.getItem("timezoneSetting");
 
 			//retrieve  email notification choice
 			if ( typeof(getEmail) !== "undefined") {
@@ -681,6 +716,7 @@ $(document).ready(function(){
 				}
 			}
 
+			// retrive public profile notification
 			if ( typeof(getPublic) !== "undefined") {
 				if ( getPublic !== "true" ) {
 					$publicProfile.switchButton({
@@ -692,11 +728,40 @@ $(document).ready(function(){
 					});
 				}
 			}
-		}
 
-
+			// retrieve timezone
+			$timezoneSelect.prop("selectedIndex", getTimezone);
+		},
 
 		//  Reset Defaults
+		clearSettings: function() {
+			
+			// variables
+		 	var $helperField = $("#help-save");
+		 	var message = "Settings set to Default";
+			var parent = $("#dashboard-settings");
+			var help = $(".success-help");
+
+			// clear localStorage
+			localStorage.clear();
+
+			// reset fields to given defaults
+
+				// email notification reset
+				$emailNotification.switchButton({
+				  checked: false
+				});
+				// public profile reset
+				$publicProfile.switchButton({
+				  checked: false
+				})
+				// timezone reset
+			$timezoneSelect.prop("selectedIndex", 0);
+
+		 	// relay timed success message
+		 	members.validateThis($helperField, message);
+		 	members.fadeMessage(parent, help);
+		}
 
 	}
 
@@ -829,7 +894,7 @@ $(document).ready(function(){
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
 	mobileUsers.mobile();
-	$(".switch-wrapper").switchButton();
+	$switchWrapper.switchButton();
 
 	$("input[type=checkbox]").switchButton({
 	  width: 36,
@@ -922,6 +987,7 @@ $(document).ready(function(){
 	});
 
 	// Place those results on from #list li in #search-member
+	//      ::event bubbling
 	$("#list").on("click", function(event){
 		var target = targetChoice(event).innerHTML;
 		members.updateSearchField(target, event);
@@ -943,7 +1009,10 @@ $(document).ready(function(){
 	});
 
 	// Hide Valdation Message
-	$(".help").on("click", function(){
+	$help.on("click", function(){
+		$(this).removeClass("show-validate")
+	});
+	$successHelp.on("click", function(){
 		$(this).removeClass("show-validate")
 	});
 
@@ -958,14 +1027,14 @@ $(document).ready(function(){
 
 	$reset.on("click", function(e){
 		e.preventDefault();
-		appSettings.saveSettings();
+		appSettings.clearSettings();
 	});
 
 
-	/*******  BUBBLING EVENT BUTTONS  *******/
+	/*******  EVENT BUBBLING BUTTONS  *******/
 	//  I'm using handlebar.js becaue
-	//    animation does not work well 
-	//    with reg javaScript/jQuery
+	//    animation does not work as smoothly 
+	//    with regular javaScript/jQuery library
 
 	$(".close").on("click", function() {
 		notify.closeNotify($(this));

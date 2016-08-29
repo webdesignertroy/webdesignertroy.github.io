@@ -702,32 +702,34 @@ MESSAGE USER
 #save-cancel {
 	position: relative;
 }
-.settings-help {
+.success-help {
     position: absolute;
     text-align: center;
     font-size: 0.8em;
     width: 100%;
     max-width: 250px;
-    margin: 0 auto;
+    margin: auto;
     max-height: 50px;
     right: 0;
     left: 0;
-    top: -5px;
+    top: 0;
+    bottom: 0;
     display: inline-block;
     z-index: 999;
     border: 2px solid #999;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    height: auto;
+    height: 32px;
     -webkit-opacity: 0;
     -moz-opacity: 0;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-10px);
     transition: 0.3s ease-out;
     cursor: pointer;
     color: #4057B7;
     text-decoration: underline;
+    z-index: -1;
 }
 .yellow {
 background: #F3F2BC;
@@ -769,6 +771,7 @@ background: #D1F196;
 #send-message, 
 #dashboard-settings {
 	margin: 20px;
+	position: relative;
 }
 .field-container {
 	display: inline-block;
@@ -797,8 +800,8 @@ background: #D1F196;
 }
 .show-validate {
     transform: translateY(0);
-	-webkit-opacity: 0;
-	-moz-opacity: 0;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
     opacity: 1;
     z-index: 300;
 }
@@ -824,8 +827,10 @@ fieldset {
     width: 100%;
     display: block;
     font-size: 0.85em;
+	transition: 0.25s ease-out;
 }
-#activities-sec .new-build:hover {
+#activities-sec .new-build:hover,
+.labels:hover {
 	background: #dddddd;
 }
 .switch-button-background,
