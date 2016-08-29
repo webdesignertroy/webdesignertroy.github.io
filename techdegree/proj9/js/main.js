@@ -1097,7 +1097,7 @@ $(document).ready(function(){
 	//   If not compatible, show message
 	function hasLocalStorage() {
 
-		if ( typeof(Storage) !== "undefined" ) {
+		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
 			message += "compatible with this App.";
 			notify.openMessageTest(message);
