@@ -924,6 +924,9 @@ FORM ELEMENTS
 }
 .select:focus {
 	outline: none;
+}
+.select:focus,
+.select-arrow select:hover {
 	border: 2px solid #6377C8;
 }
 .select-arrow select {
@@ -933,10 +936,8 @@ FORM ELEMENTS
    font-size: 0.8em;
    padding: 2px 10px;
    width: 100%;
-   *width: 95%;
-   *background: whitesmoke;
+   -background: whitesmoke;
    -webkit-appearance: none;
-   -moz-appearance: none;
    cursor: pointer;
 }
 .select-arrow {
