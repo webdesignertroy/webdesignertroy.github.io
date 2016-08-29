@@ -695,6 +695,40 @@ MESSAGE USER
     color: #4057B7;
     text-decoration: underline;
 }
+#save,
+#reset-form {
+	z-index: 301;
+}
+#save-cancel {
+	position: relative;
+}
+.settings-help {
+    position: absolute;
+    text-align: center;
+    font-size: 0.8em;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    max-height: 50px;
+    right: 0;
+    left: 0;
+    top: -5px;
+    display: inline-block;
+    z-index: 999;
+    border: 2px solid #999;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: auto;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s ease-out;
+    cursor: pointer;
+    color: #4057B7;
+    text-decoration: underline;
+}
 .yellow {
 background: #F3F2BC;
 }
@@ -807,15 +841,15 @@ fieldset {
 	font-size: 1em;
 }
 .switch-button-label.on {
-	color: #4057B7;
+	color: #2f2f2f;
 }
 .switch-button-label.off {
-	color: #999;
+	color: #4057B7; /*#999;*/
 }
 .switch-button-background {
 	top: 2px;
 	background: #0B1F70;
-}
+}  
 
 /******************************
 FORM ELEMENTS
@@ -1023,13 +1057,14 @@ MEDIA QUERIES
 		display: inline-block;
 		position: absolute;
 		text-align: left;
+		left: 5px;
 	}
 	.switch-button {
 		width: 300px;
 	}
 	.switch-button-background,
 	.switch-button-label {
-		float: left;
+		float: right;
 	}
 	.switch-button-label {
 		top: 0;
@@ -1041,7 +1076,7 @@ MEDIA QUERIES
 	.center-switch {
 		position: absolute;
 		top: 0;
-		left: 160px;
+		right: 5px;
 		margin: 0;
 	}
 	.two-col{
@@ -1055,6 +1090,9 @@ MEDIA QUERIES
 	}
 	#reset-form {
 		left: 50%;
+	}
+	.settings-help {
+		top: -65px;
 	}
 }
 

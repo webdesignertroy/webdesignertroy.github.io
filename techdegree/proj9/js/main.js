@@ -24,7 +24,7 @@ $(document).ready(function(){
 	var $formButton = $("#member-button");
 	var $sendMessage = $("#send-message");
 
-	var $emailNotification = $("#email-notification");
+	var $emailNotification = $("#email-notifications");
 	var $publicProfile = $("#public-profile");
 	var $timeZone = $("#timezone");
 	var $save = $("#save"); 
@@ -560,36 +560,41 @@ $(document).ready(function(){
 		 	$("#list").addClass("hide-div");
 		 },
 
+		 validateThis: function(fieldName, message) {
+	 		fieldName.html(strip(message));
+	 		fieldName.addClass("show-validate");
+		 },
+
+	 	fadeMessage: function(parent, helper) {
+		 	var timedMessage = setInterval(function(){
+		 		clearInterval(timedMessage);
+		 		parent.find(helper).each(function(){
+		 			$(this).removeClass("show-validate");
+		 		});
+			 }, 1500);
+	 	},
+
+		clearFields: function() {
+		 		$("#send-message").find(".clear").each(function(){
+		 			$(this).val("");
+		 		});
+		 	},
+
 		 validateForm: function() {
 		 	
 		 	// variables
 		 	var searchMemberVal = $searchMember.val().trim();
 		 	var messageMemberVal = $messageMember.val().trim();
 		 	var test = 0;
-		 	var validateThis = function(fieldName, message) {
-		 		fieldName.html(strip(message));
-		 		fieldName.addClass("show-validate");
-		 	}
-		 	var fadeMessage = function() {
-			 	var timedMessage = setInterval(function(){
-			 		clearInterval(timedMessage);
-			 		$("#send-message").find(".help").each(function(){
-			 			$(this).removeClass("show-validate");
-			 		});
-				 }, 1500);
-		 	}
-		 	var clearFields = function() {
-			 		$("#send-message").find(".clear").each(function(){
-			 			$(this).val("");
-			 		});
-		 	}
+		 	var parent =$("#send-message");
+	 		var help = ".help";
 
 		 	//  Check #search-member for val
 		 	if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
 
 		 		var $helperField = $("#help-member");
 		 		var message = "Check 1: Please type member name";
-		 		validateThis($helperField, message);
+		 		members.validateThis($helperField, message);
 		 	} else {
 		 		test++;
 		 	}
@@ -599,13 +604,13 @@ $(document).ready(function(){
 		 	if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
 		 		var $helperField = $("#help-write");
 		 		var message = "Check 1: Please write something";
-		 		validateThis($helperField, message);
+		 		members.validateThis($helperField, message);
 		 	} else {
 		 		test++;
 		 	}
 
 		 	if ( test < 2 ) {
-			 	fadeMessage();
+			 	members.fadeMessage(parent, help);
 			 	return
 		 	}
 
@@ -615,8 +620,8 @@ $(document).ready(function(){
 		 	if ( foundMember.length < 1 ) {
 		 		var $helperField = $("#help-member");
 		 		var message = "Check 2: There is no member by that name";
-		 		validateThis($helperField, message);
-		 		fadeMessage();
+		 		members.validateThis($helperField, message);
+		 		members.fadeMessage(parent, help);
 		 		return
 		 	}
 
@@ -626,9 +631,9 @@ $(document).ready(function(){
 		 	// Relay timed success message
 		 	var $helperField = $("#help-submit");
 		 	var message = "SUCCESS! Message sent";
-		 	validateThis($helperField, message);
-		 	clearFields();
-		 	fadeMessage();
+		 	members.validateThis($helperField, message);
+		 	members.clearFields();
+		 	members.fadeMessage(parent, help);
 		 	
 		 }
 	}
@@ -639,7 +644,56 @@ $(document).ready(function(){
 		// Save settings on localStorage
 		saveSettings: function() {
 
+			// variables
+			var saveEmail = $emailNotification.prop("checked");
+			var savePublic = $publicProfile.prop("checked");
+		 	var $helperField = $("#help-save");
+		 	var message = "SUCCESS! Saved";
+			var parent = $("#dashboard-settings");
+			var help = $(".settings-help");
+
+			// save email notification option
+			localStorage.setItem("emailSetting", saveEmail);
+
+			// save profile option
+			localStorage.setItem("publicSetting", savePublic);
+
+		 	// Relay timed success message
+		 	members.validateThis($helperField, message);
+		 	members.fadeMessage(parent, help);
+		},
+
+		retrieveSettings: function() {
+			//retrieve  email notification choice
+			var getEmail = localStorage.getItem("emailSetting");
+			var getPublic = localStorage.getItem("publicSetting");
+
+			//retrieve  email notification choice
+			if ( typeof(getEmail) !== "undefined") {
+				if ( getEmail !== "true" ) {
+					$emailNotification.switchButton({
+					  checked: false
+					});
+				} else {
+					$emailNotification.switchButton({
+					  checked: true
+					});
+				}
+			}
+
+			if ( typeof(getPublic) !== "undefined") {
+				if ( getPublic !== "true" ) {
+					$publicProfile.switchButton({
+					  checked: false
+					});
+				} else {
+					$publicProfile.switchButton({
+					  checked: true
+					});
+				}
+			}
 		}
+
 
 
 		//  Reset Defaults
@@ -782,6 +836,15 @@ $(document).ready(function(){
 	  height: 16,
 	  button_width: 24
 	});
+	$("input[type=checkbox]").switchButton({
+	  on_label: 'OFF',
+	  off_label: 'ON'
+	});
+
+	/******************************
+	RETRIEVE DATA
+	******************************/
+	appSettings.retrieveSettings();
 
 	/******************************
 	EVENT LISTENERS/HANDLERS
@@ -809,6 +872,8 @@ $(document).ready(function(){
 	$notification.click(function(){
 		notify.openAll();
 	});
+
+
 
 	/*******  TRAFFIC BUTTONS  *******/
 
@@ -884,15 +949,18 @@ $(document).ready(function(){
 
 
 	/*******  SETTINGS CONTROLS  *******/
+
+	//
 	$save.on("click", function(e){
 		e.preventDefault();
-		console.log("Do Something");
+		appSettings.saveSettings();
 	});
 
 	$reset.on("click", function(e){
 		e.preventDefault();
-		console.log("Do Something");
+		appSettings.saveSettings();
 	});
+
 
 	/*******  BUBBLING EVENT BUTTONS  *******/
 	//  I'm using handlebar.js becaue
