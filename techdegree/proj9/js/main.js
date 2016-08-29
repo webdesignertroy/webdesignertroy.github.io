@@ -896,6 +896,8 @@ $(document).ready(function(){
 	mobileUsers.mobile();
 	$switchWrapper.switchButton();
 
+	// jQuery UI checkbox light switch
+	//    Refer to: http://olance.github.io/jQuery-switchButton/
 	$("input[type=checkbox]").switchButton({
 	  width: 36,
 	  height: 16,
