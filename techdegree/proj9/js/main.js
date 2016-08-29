@@ -1101,7 +1101,7 @@ $(document).ready(function(){
 	//    with regular javaScript/jQuery library
 
 	$(".close").on("click", function() {
-		notify.closeNotify($(this));\
+		notify.closeNotify($(this));
 	});
 
 	$(".alert-notification").on("click", function() {
