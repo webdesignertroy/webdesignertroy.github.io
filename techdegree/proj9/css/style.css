@@ -938,6 +938,7 @@ FORM ELEMENTS
    width: 100%;
    -background: whitesmoke;
    -webkit-appearance: none;
+   -moz-appearance: none;
    cursor: pointer;
 }
 .select-arrow {
