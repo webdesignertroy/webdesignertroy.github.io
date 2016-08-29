@@ -3,11 +3,14 @@ $(document).ready(function(){
 	VARIABLES
 	******************************/
 	/* Element ==> jQuery */
+
+	//   main navigation
 	var $dashboard = $("#dashboard");
 	var $members = $("#members");
 	var $charts = $("#charts");
 	var $settings = $("#settings");
 
+	//   notification system
 	var $notification = $("#notification");
 	var $alertArea = $("#alert-area");
 	var $alertMessage = $(".alert-message");
@@ -16,12 +19,14 @@ $(document).ready(function(){
 	var $note = $(".note");
 	var $innerNote = $(".inner-note");
 
+	//   charts
 	var $hourly = $("#hourly");
 	var $daily = $("#daily");
 	var $weekly = $("#weekly");
 	var $monthly = $("#monthly");
 	var $trafficUlLi =$("#traffic ul li");
 
+	//  member users
 	var $searchMember = $("#search-member");
 	var $list = $("#list");
 	var $messageMember = $("#message-member");
@@ -30,6 +35,8 @@ $(document).ready(function(){
 	var $successHelp = $(".success-help");
 	var $help = $(".help");
 
+
+	//  settings
 	var $emailNotification = $("#email-notifications");
 	var $publicProfile = $("#public-profile");
 	var $timezoneOption = $("#timezone option");
@@ -37,6 +44,7 @@ $(document).ready(function(){
 	var $save = $("#save"); 
 	var $reset = $("#reset-form");
 
+	//  jQuery Ui checkbox light switch
 	var $switchWrapper = $(".switch-wrapper");
 
 	/* Other */
@@ -49,25 +57,33 @@ $(document).ready(function(){
 
 	// Use regex decode HTML
 	function strip(message) {
+
 		var regex = /(<([^]+)>\n)/ig;
 		var results = message.replace(regex, "");
 		var results = results.trim();
 		return results;
+
 	}
+
 	// Get enclosing element on an event (e.g. "click")
 	function targetChoice(e){
+
 		e = e || window.event;
 		return e.target || e.srcElement // Accommodate all browsers
+
 	}
 
 	// Test browswer compatibility for localStorage use
 	//   If not compatible, show message
 	function hasLocalStorage() {
+
 		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
 			message += "compatible with this App."
 			openMessageTest(message)
+
 		}
+
 	}
 
 	/******************************
@@ -80,11 +96,14 @@ $(document).ready(function(){
 		// Show active nav item link, using green bar,
 		//  on main navigation menu
 		activeNav: function(link) {
+
 			$("#nav ul").find("li").each(function(){
 				$(this).find("span").removeClass("active");
 			});
 			link.find("span").addClass("active");
+
 		}
+
 	}
 
 	/*****  Notification Object  *****/
@@ -104,6 +123,7 @@ $(document).ready(function(){
 		// Close the notification bar smoothly after
 		//  clicking attached close button
 		closeNotify: function(divName) {
+
 			var counter = -1;
 			divName.parent().animate({
 				opacity: 0
@@ -118,6 +138,7 @@ $(document).ready(function(){
 			if ( counter < 1 ) {
 				$notification.find("span").removeClass("alert");
 			}
+
 		},
 
 		// Show accompanying pop-up message after
@@ -128,11 +149,13 @@ $(document).ready(function(){
 			divName.parent().find(".alert-message").animate({
 				opacity: 1
 			});
+
 		},
 
 		// Close accompanying pop-up message after
 		//   clicking alert message
 		closeMessage: function(divName) {
+
 			divName.parent().find(".alert-message").animate({
 				opacity: 0,
 				left: 0
@@ -145,6 +168,7 @@ $(document).ready(function(){
 		// Special message: Browser compatibiliy and 
 		//   teacher's notes
 		openMessageTest: function(message) {
+
 			$innerNote.text(message);
 			$note.addClass("show-message");
 			$note.animate({
@@ -158,10 +182,12 @@ $(document).ready(function(){
 					$note.removeClass("show-message");
 				});
 			}, 4000);
+
 		},
 
 		// Open all messages after selecting notification icon
 		openAll: function() {
+
 			var counter1 = 0;
 			var counter2 = 0;
 			$notificationPlaceholder.children().find(".alert-message").each(function(){
@@ -183,7 +209,9 @@ $(document).ready(function(){
 				message += "and click the icon again.";
 				notify.openMessageTest(message);
 			}
+
 		}
+
 	}
 
 	/*****  Traffic Line Chart Object Literal  *****/
@@ -191,6 +219,7 @@ $(document).ready(function(){
 
 		// Hourly Data
 		trafficHour: function() {
+
 			var hours = {
 				labels: ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"],
 				datasets: [
@@ -208,10 +237,12 @@ $(document).ready(function(){
 			};
 
 			lineTraffic.drawChart(hours);
+
 		},
 
 		// Daily Data
 		trafficDay: function() {
+
 			var days = {
 				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
 				datasets: [
@@ -229,10 +260,12 @@ $(document).ready(function(){
 			};
 
 			lineTraffic.drawChart(days);
+
 		},
 
 		// Weekly Data
 		trafficWeek: function() {
+
 			var week = {
 				labels: ["(This Week)", "Week 2", "Week 3", "Week 4", "Week 5"],
 				datasets: [
@@ -250,10 +283,12 @@ $(document).ready(function(){
 			};
 
 			lineTraffic.drawChart(week);
+
 		},
 
 		// Monthly Data
 		trafficMonth: function() {
+
 			var months = {
 				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 				datasets: [
@@ -271,6 +306,7 @@ $(document).ready(function(){
 			};
 
 			lineTraffic.drawChart(months);
+
 		},
 
 		// Draw Chart
@@ -300,10 +336,12 @@ $(document).ready(function(){
 			// store current data to variable to use
 			//   on next option cycle
 			oldData = data.datasets[0].data;
+
 		},
 
 		// Select time-level (i.e., Hourly, Daily) option
 		activeTraffic: function(divName, time){
+
 			// iterate through Traffic options
 			//   remove active style
 			$trafficUlLi.each(function(){
@@ -329,14 +367,18 @@ $(document).ready(function(){
 				lineTraffic.trafficMonth();
 				break;
 			}
+
 		}
+
 	}
+
 	/*****  Daily Traffic Bar Chart Object Literal  *****/
 
 	var barDailyTraffic = {
 
 		// Daily Traffic data
 		barDay: function() {
+
 			var days = {
 				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
 				datasets: [
@@ -356,6 +398,7 @@ $(document).ready(function(){
 			};
 
 			barDailyTraffic.drawBarChart(days);
+
 		},
 
 		// Draw Chart
@@ -369,7 +412,9 @@ $(document).ready(function(){
 				responsive: true
 			});
 			document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
+
 		}
+
 	}
 
 	/*****  Mobile Users Doughnut Chart Object Literal  *****/
@@ -418,6 +463,7 @@ $(document).ready(function(){
 		}
 
 	}
+
 	/*****  Social Stat Object Literal  *****/
 
 	var social = {
@@ -500,164 +546,175 @@ $(document).ready(function(){
 						newMemberList.push({name, profile, email, join});
 					}
 				}
+
 			}
 			return newMemberList;
 		},
 		
 		buildMemberArray: function(value) {
-		 	// Create an array of member choices
+		// Create an array of member choices
 
-			var sel = document.getElementById("list");
-		 	var searched = [];
-		 	var given = value.toLowerCase();
-		 	for ( i = 0; i < members.memberData.length; i++ ) {
-		 		var member = members.memberData[i].first + " " + members.memberData[i].last;
-		 		var member = member.toLowerCase();
-		 		if ( member.indexOf(given) !== -1 ) {
-		 			if (given !== "" ) {
-		 				searched.push(member);
-		 			}
-		 		}
-		 	}
-		 	return searched;
-		},
-		
-		 searchForm: function(value) {
-
-		 	// Create an array of member choices
-			var sel = document.getElementById("list");
-		 	var searched = [];
-		 	var given = value.toLowerCase();
-		 	for ( i = 0; i < members.memberData.length; i++ ) {
-		 		var member = members.memberData[i].first + " " + members.memberData[i].last;
-		 		var member = member.toLowerCase();
-		 		if ( member.indexOf(given) !== -1 ) {
-		 			if (given !== "" ) {
-		 				searched.push(member);
-		 			}
-		 		}
-		 	}
-		 	
-		 	//  Remove previous results from #list li
-		 	var selExists = sel.getElementsByTagName("li")[0];
-		 	if ( selExists !== undefined ) {
-		 		var selLength = sel.getElementsByTagName("li").length;
-		 		for ( i = 0; i < selLength  ; i++ ) {
-		 			if (sel.getElementsByTagName("li")[i] !== undefined ) {
-		 				sel.getElementsByTagName("li")[i].remove();
-		 			} else {
-		 				sel.getElementsByTagName("li")[0].remove(); 
-		 			}
+		var sel = document.getElementById("list");
+		var searched = [];
+		var given = value.toLowerCase();
+		for ( i = 0; i < members.memberData.length; i++ ) {
+			var member = members.memberData[i].first + " " + members.memberData[i].last;
+			var member = member.toLowerCase();
+			if ( member.indexOf(given) !== -1 ) {
+				if (given !== "" ) {
+					searched.push(member);
 				}
-		 	}
+			}
+		}
+		return searched;
 
-		 	// Propagate #list li
-		 	for ( i = 0; i < searched.length; i++ ) {
-		 		var li = document.createElement("li");
-		 		li.innerHTML = searched[i];
-		 		sel.appendChild(li);
-		 	}
+		},
 
-		 	// Add guess to placeholder
-		 	$searchMember.placeholder = "sasdfasdfafsafd";
+		searchForm: function(value) {
 
-			// Hide list if no Choices
-		 	if ( searched.length > 0 ) {
-		 		$("#list").removeClass("hide-div");
-		 	} else {
-		 		$("#list").addClass("hide-div");
-		 	}
-		 },
+		// Create an array of member choices
+		var sel = document.getElementById("list");
+		var searched = [];
+		var given = value.toLowerCase();
+		for ( i = 0; i < members.memberData.length; i++ ) {
+			var member = members.memberData[i].first + " " + members.memberData[i].last;
+			var member = member.toLowerCase();
+			if ( member.indexOf(given) !== -1 ) {
+				if (given !== "" ) {
+					searched.push(member);
+				}
+			}
+		}
 
-		 // Add first result to search field
-		 //   on [TAB]
-		 updateSearchField: function(li, e) {
-		 	$searchMember.val(li);
-		 	$list.addClass("hide-div");
-		 },
+		//  Remove previous results from #list li
+		var selExists = sel.getElementsByTagName("li")[0];
+		if ( selExists !== undefined ) {
+			var selLength = sel.getElementsByTagName("li").length;
+			for ( i = 0; i < selLength  ; i++ ) {
+				if (sel.getElementsByTagName("li")[i] !== undefined ) {
+					sel.getElementsByTagName("li")[i].remove();
+				} else {
+					sel.getElementsByTagName("li")[0].remove(); 
+				}
+			}
+		}
 
-		 // Notifies user of validation error
-		 validateThis: function(fieldName, message) {
-	 		fieldName.html(strip(message));
-	 		fieldName.addClass("show-validate");
-		 },
+		// Propagate #list li
+		for ( i = 0; i < searched.length; i++ ) {
+			var li = document.createElement("li");
+			li.innerHTML = searched[i];
+			sel.appendChild(li);
+		}
 
-		 // Fades out validation message
-	 	fadeMessage: function(parent, helper) {
-		 	var timedMessage = setInterval(function(){
-		 		clearInterval(timedMessage);
-		 		parent.find(helper).each(function(){
-		 			$(this).removeClass("show-validate");
-		 		});
-			 }, 1500);
-	 	},
+		// Add guess to placeholder
+		$searchMember.placeholder = "sasdfasdfafsafd";
 
-	 	// Clears fields of Message User form 
+		// Hide list if no Choices
+		if ( searched.length > 0 ) {
+				$("#list").removeClass("hide-div");
+			} else {
+				$("#list").addClass("hide-div");
+			}
+
+		},
+
+		// Add first result to search field
+		//   on [TAB]
+		updateSearchField: function(li, e) {
+
+			$searchMember.val(li);
+			$list.addClass("hide-div");
+
+		},
+
+		// Notifies user of validation error
+		validateThis: function(fieldName, message) {
+
+			fieldName.html(strip(message));
+			fieldName.addClass("show-validate");
+
+		},
+
+		// Fades out validation message
+		fadeMessage: function(parent, helper) {
+
+			var timedMessage = setInterval(function(){
+				clearInterval(timedMessage);
+				parent.find(helper).each(function(){
+					$(this).removeClass("show-validate");
+				});
+			}, 1500);
+
+		},
+
+		// Clears fields of Message User form 
 		clearFields: function() {
-		 		$sendMessage.find(".clear").each(function(){
-		 			$(this).val("");
-		 		});
-		 	},
 
-		 // Validates Message User form
-		 validateForm: function() {
-		 	
-		 	// variables
-		 	var searchMemberVal = $searchMember.val().trim();
-		 	var messageMemberVal = $messageMember.val().trim();
-		 	var test = 0;
-		 	var parent =$("#send-message");
+			$sendMessage.find(".clear").each(function(){
+				$(this).val("");
+			});
 
-		 	//  check #search-member for val
-		 	if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
+		},
 
-		 		var $helperField = $("#help-member");
-		 		var message = "Check 1: Please type member name";
-		 		members.validateThis($helperField, message);
-		 	} else {
-		 		test++;
-		 	}
+		// Validates Message User form
+		validateForm: function() {
 
-		 	// check #message-member for val
-		 	if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
-		 		var $helperField = $("#help-write");
-		 		var message = "Check 1: Please write something";
-		 		members.validateThis($helperField, message);
-		 	} else {
-		 		test++;
-		 	}
+			// variables
+			var searchMemberVal = $searchMember.val().trim();
+			var messageMemberVal = $messageMember.val().trim();
+			var test = 0;
+			var parent =$("#send-message");
 
-		 	// check 1: test for blank fields, etc.
-		 	if ( test < 2 ) {
-	 			var help = $(".help");
-			 	members.fadeMessage(parent, help);
-			 	return
-		 	}
+			//  check #search-member for val
+			if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
+				var $helperField = $("#help-member");
+				var message = "Check 1: Please type member name";
+				members.validateThis($helperField, message);
+			} else {
+				test++;
+			}
 
-		 	// check 2: check #message-member field against member list
+			// check #message-member for val
+			if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
+				var $helperField = $("#help-write");
+				var message = "Check 1: Please write something";
+				members.validateThis($helperField, message);
+			} else {
+				test++;
+			}
 
-		 	var foundMember = members.buildMemberArray($searchMember.val());
-		 	if ( foundMember.length < 1 ) {
-		 		var $helperField = $("#help-member");
-	 			var help = $(".help");
-		 		var message = "Check 2: There is no member by that name";
-		 		members.validateThis($helperField, message);
-		 		members.fadeMessage(parent, help);
-		 		return
-		 	}
+			// check 1: test for blank fields, etc.
+			if ( test < 2 ) {
+				var help = $(".help");
+				members.fadeMessage(parent, help);
+				return
+			}
 
-		 	// send message via PHP or equivalent
-		 	//      [----CODE---]
+			// check 2: check #message-member field against member list
 
-		 	// relay timed success message
-		 	var $helperField = $("#help-submit");
-		 	var message = "SUCCESS! Message sent";
-	 			var help = $(".success-help");
-		 	members.validateThis($helperField, message);
-		 	members.clearFields();
-		 	members.fadeMessage(parent, help);
-		 	
-		 }
+			var foundMember = members.buildMemberArray($searchMember.val());
+			if ( foundMember.length < 1 ) {
+				var $helperField = $("#help-member");
+				var help = $(".help");
+				var message = "Check 2: There is no member by that name";
+				members.validateThis($helperField, message);
+				members.fadeMessage(parent, help);
+				return
+			}
+
+			// send message via PHP or equivalent
+			//      [----CODE---]
+
+			// relay timed success message
+			var $helperField = $("#help-submit");
+			var message = "SUCCESS! Message sent";
+			var help = $(".success-help");
+			members.validateThis($helperField, message);
+			members.clearFields();
+			members.fadeMessage(parent, help);
+
+		}
+
 	}
 	/*****  Settings  Object Literal  *****/	
 
@@ -669,8 +726,8 @@ $(document).ready(function(){
 			// variables
 			var saveEmail = $emailNotification.prop("checked");
 			var savePublic = $publicProfile.prop("checked");
-		 	var $helperField = $("#help-save");
-		 	var message = "SUCCESS! Saved";
+			var $helperField = $("#help-save");
+			var message = "SUCCESS! Saved";
 			var parent = $("#dashboard-settings");
 			var help = $(".success-help");
 
@@ -687,12 +744,12 @@ $(document).ready(function(){
 					var saveTimezone = i;
 					localStorage.setItem("timezoneSetting", saveTimezone);
 				}
-			}
-			
 
-		 	// relay timed success message
-		 	members.validateThis($helperField, message);
-		 	members.fadeMessage(parent, help);
+			}
+
+			// relay timed success message
+			members.validateThis($helperField, message);
+			members.fadeMessage(parent, help);
 		},
 
 		// Retrieve settins from local storage
@@ -707,11 +764,11 @@ $(document).ready(function(){
 			if ( typeof(getEmail) !== "undefined") {
 				if ( getEmail !== "true" ) {
 					$emailNotification.switchButton({
-					  checked: false
+						checked: false
 					});
 				} else {
 					$emailNotification.switchButton({
-					  checked: true
+						checked: true
 					});
 				}
 			}
@@ -720,25 +777,27 @@ $(document).ready(function(){
 			if ( typeof(getPublic) !== "undefined") {
 				if ( getPublic !== "true" ) {
 					$publicProfile.switchButton({
-					  checked: false
+						checked: false
 					});
 				} else {
 					$publicProfile.switchButton({
-					  checked: true
+						checked: true
 					});
 				}
+
 			}
 
 			// retrieve timezone
 			$timezoneSelect.prop("selectedIndex", getTimezone);
+
 		},
 
 		//  Reset Defaults
 		clearSettings: function() {
-			
+
 			// variables
-		 	var $helperField = $("#help-save");
-		 	var message = "Settings set to Default";
+			var $helperField = $("#help-save");
+			var message = "Settings set to Default";
 			var parent = $("#dashboard-settings");
 			var help = $(".success-help");
 
@@ -747,20 +806,20 @@ $(document).ready(function(){
 
 			// reset fields to given defaults
 
-				// email notification reset
-				$emailNotification.switchButton({
-				  checked: false
-				});
-				// public profile reset
-				$publicProfile.switchButton({
-				  checked: false
-				})
-				// timezone reset
+			// email notification reset
+			$emailNotification.switchButton({
+				checked: false
+			});
+			// public profile reset
+			$publicProfile.switchButton({
+				checked: false
+			})
+			// timezone reset
 			$timezoneSelect.prop("selectedIndex", 0);
 
-		 	// relay timed success message
-		 	members.validateThis($helperField, message);
-		 	members.fadeMessage(parent, help);
+			// relay timed success message
+			members.validateThis($helperField, message);
+			members.fadeMessage(parent, help);
 		}
 
 	}
@@ -783,18 +842,19 @@ $(document).ready(function(){
 	// Iterate through messages
 	for (var i = 0; i < notify.messageList.length; i++) {
 
-	// define the data object
-	var messageData = {
-		note: notify.messageList[i].note,
-		notification: notify.messageList[i].notification,
-		message: notify.messageList[i].message
-	};
+		// define the data object
+		var messageData = {
+			note: notify.messageList[i].note,
+			notification: notify.messageList[i].notification,
+			message: notify.messageList[i].message
+		};
 
-	// pass data object to template
-	var fullText = notificationTemplate(messageData);
+		// pass data object to template
+		var fullText = notificationTemplate(messageData);
 
-	// append to to #alert-area
-	$("#notification-placeholder").append(fullText);
+		// append to to #alert-area
+		$("#notification-placeholder").append(fullText);
+
 	}
 
 	/**********   BUILD SOCIAL STATS  **********/
@@ -870,7 +930,7 @@ $(document).ready(function(){
 	for (var i = 0; i < 4; i++) {
 
 		var name = members.memberData[i].first + ' ' + members.memberData[i].last
-		
+
 		// define the data object
 		var recentsData = {
 			name: name,
@@ -899,18 +959,22 @@ $(document).ready(function(){
 	// jQuery UI checkbox light switch
 	//    Refer to: http://olance.github.io/jQuery-switchButton/
 	$("input[type=checkbox]").switchButton({
-	  width: 36,
-	  height: 16,
-	  button_width: 24
+		width: 36,
+		height: 16,
+		button_width: 24
 	});
+
 	$("input[type=checkbox]").switchButton({
-	  on_label: 'OFF',
-	  off_label: 'ON'
+		on_label: 'OFF',
+		off_label: 'ON'
 	});
 
 	/******************************
 	RETRIEVE DATA
 	******************************/
+
+	// Invoke functin that 
+	//   retrieves data from localStorage
 	appSettings.retrieveSettings();
 
 	/******************************
@@ -939,8 +1003,6 @@ $(document).ready(function(){
 	$notification.click(function(){
 		notify.openAll();
 	});
-
-
 
 	/*******  TRAFFIC BUTTONS  *******/
 
@@ -971,32 +1033,32 @@ $(document).ready(function(){
 	//   Control tab keypress event in #search-member
 	//   Select #help value if available
 	$searchMember.bind("keydown", function(event) {
-	    if(event.which == 9) {
-	        event.preventDefault();
-		    var tabChoice = document.getElementById("list");
-	        if ( tabChoice.getElementsByTagName("li")[0] !== undefined ) {
-		        tabChoice = tabChoice.getElementsByTagName("li")[0].innerText;
-		        $searchMember.val(tabChoice);
-		     }
-		    $sendMessage.find("#message-member").focus();
-	    }
+		if(event.which == 9) {
+			event.preventDefault();
+			var tabChoice = document.getElementById("list");
+			if ( tabChoice.getElementsByTagName("li")[0] !== undefined ) {
+				tabChoice = tabChoice.getElementsByTagName("li")[0].innerText;
+				$searchMember.val(tabChoice);
+			}
+			$sendMessage.find("#message-member").focus();
+		}
 	})
 
 	//  Capture keyup strokes in #search-member and find results
-	$searchMember.on("keyup", function(event){
+	$searchMember.on("keyup", function(event) {
 		var searchValue = document.getElementById("search-member").value;
 		members.searchForm(searchValue);
 	});
 
 	// Place those results on from #list li in #search-member
 	//      ::event bubbling
-	$("#list").on("click", function(event){
+	$("#list").on("click", function(event) {
 		var target = targetChoice(event).innerHTML;
 		members.updateSearchField(target, event);
 	});
 
 	// Hide #list on #search-member blur
-	$searchMember.on("blur", function(event){
+	$searchMember.on("blur", function(event) {
 		if ( !$("#list").hasClass("hide-div") ) {
 			setTimeout (function(){
 				$("#list").addClass("hide-div");
@@ -1039,16 +1101,17 @@ $(document).ready(function(){
 	//    with regular javaScript/jQuery library
 
 	$(".close").on("click", function() {
-		notify.closeNotify($(this));
-
-		/*$(".alert").html(counter);*/
+		notify.closeNotify($(this));\
 	});
+
 	$(".alert-notification").on("click", function() {
 		notify.openMessage($(this));
+
 	});
 	$(".alert-message").on("click", function() {
 		notify.closeMessage($(this));
-	});
+	})
+
 });
 
 
