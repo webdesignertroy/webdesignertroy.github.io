@@ -1095,7 +1095,7 @@ $(document).ready(function(){
 
 	// Test browswer compatibility for localStorage use
 	//   If not compatible, show message
-	function hasLocalStorage() {
+	/*function hasLocalStorage() {
 
 		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
@@ -1105,7 +1105,7 @@ $(document).ready(function(){
 		}
 
 	}
-	hasLocalStorage();
+	hasLocalStorage();*/
 
 });
 
