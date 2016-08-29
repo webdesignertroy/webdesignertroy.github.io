@@ -13,8 +13,6 @@ $(document).ready(function(){
 	//   notification system
 	var $notification = $("#notification");
 	var $alertArea = $("#alert-area");
-	var $alertMessage = $(".alert-message");
-	var $alertBox = $(".alert-box");
 	var $notificationPlaceholder = $("#notification-placeholder");
 	var $note = $(".note");
 	var $innerNote = $(".inner-note");
@@ -71,19 +69,6 @@ $(document).ready(function(){
 		e = e || window.event;
 
 		return e.target || e.srcElement; // Accommodate all browsers
-
-	}
-
-	// Test browswer compatibility for localStorage use
-	//   If not compatible, show message
-	function hasLocalStorage() {
-
-		if ( typeof(Storage) === "undefined" ) {
-			var message = "Sorry. Your browser is not ";
-			message += "compatible with this App.";
-			openMessageTest(message);
-
-		}
 
 	}
 
@@ -318,7 +303,6 @@ $(document).ready(function(){
 			var ctx = canvas.getContext("2d");
 
 			// remove old data before drawing new
-			var counter = 0;
 			if (lineChart !== null) {
 				for( i=0; i < oldData.length + 1 ; i++ ) {
 					lineChart.removeData();
@@ -523,9 +507,7 @@ $(document).ready(function(){
 
 		newMembers: function() {
 			// variables
-			var counter = 0;
 			var newMemberList = [];
-			var buildList = "";
 
 			// loop through all members
 			for ( var index = members.memberData.length - 1; index > 0; index-- ) {
@@ -555,7 +537,6 @@ $(document).ready(function(){
 		buildMemberArray: function(value) {
 		// Create an array of member choices
 
-		var sel = document.getElementById("list");
 		var searched = [];
 		var given = value.toLowerCase();
 		for ( i = 0; i < members.memberData.length; i++ ) {
@@ -667,7 +648,7 @@ $(document).ready(function(){
 			var help;
 
 			//  check #search-member for val
-			if ( $searchMember.val().trim() === "" || $searchMember.val().trim() === null ) {
+			if ( searchMemberVal === "" || searchMemberVal === null ) {
 				$helperField = $("#help-member");
 				message = "Check 1: Please type member name";
 				members.validateThis($helperField, message);
@@ -676,7 +657,7 @@ $(document).ready(function(){
 			}
 
 			// check #message-member for val
-			if ( $messageMember.val().trim() === "" || $messageMember.val().trim() === null ) {
+			if ( messageMemberVal === "" || messageMemberVal === null ) {
 				$helperField = $("#help-write");
 				message = "Check 1: Please write something";
 				members.validateThis($helperField, message);
@@ -739,7 +720,6 @@ $(document).ready(function(){
 			localStorage.setItem("publicSetting", savePublic);
 
 			// save timezone
-			var counter = 0;
 			for ( i = 0; i < $timezoneOption.length; i++) {
 				if ( $timezoneOption[i].selected === true ){
 					var saveTimezone = i;
@@ -873,17 +853,17 @@ $(document).ready(function(){
 	for (var j = 0; j < social.media.length; j++) {
 
 		// define the data object
-		var messageData = {
+		var messageData2 = {
 			socialId: social.media[j].socialId,
 			socialMedia: social.media[j].socialMedia,
 			value: social.media[j].value
 		};
 
 		// pass data object to template
-		var fullText = socialTemplate(messageData);
+		var fullText2 = socialTemplate(messageData2);
 
 		// append to to #alert-area
-		$("#social-container").append(fullText);
+		$("#social-container").append(fullText2);
 	}
 
 	/**********   BUILD NEW MEMBERS  **********/
@@ -899,21 +879,21 @@ $(document).ready(function(){
 	var newMembersTemplate = Handlebars.compile(source3);
 
 	// Iterate through messages
-	for (var i = 0; i < 4; i++) {
+	for (var k = 0; k < 4; k++) {
 
 		// define the data object
 		var newMembersData = {
-			name: newMemberList[i].name,
-			profile: newMemberList[i].profile,
-			email: newMemberList[i].email,
-			join: newMemberList[i].join
+			name: newMemberList[k].name,
+			profile: newMemberList[k].profile,
+			email: newMemberList[k].email,
+			join: newMemberList[k].join
 		};
 
 		// pass data object to template
-		var fullText = newMembersTemplate(newMembersData);
+		var fullText3 = newMembersTemplate(newMembersData);
 
 		// append to to #alert-area
-		$("#member-container").append(fullText);
+		$("#member-container").append(fullText3);
 	}
 
 	/**********   BUILD RECENT ACTIVITIES  **********/
@@ -928,23 +908,23 @@ $(document).ready(function(){
 	var recentTemplate = Handlebars.compile(source4);
 
 	// Iterate through messages
-	for (var i = 0; i < 4; i++) {
+	for (var l = 0; l < 4; l++) {
 
-		var name = members.memberData[i].first + ' ' + members.memberData[i].last
+		var name = members.memberData[l].first + ' ' + members.memberData[l].last;
 
 		// define the data object
 		var recentsData = {
 			name: name,
-			profile: members.memberData[i].activity,
-			text: members.memberData[i].recentActivity,
-			time: members.memberData[i].recentTime
+			profile: members.memberData[l].activity,
+			text: members.memberData[l].recentActivity,
+			time: members.memberData[l].recentTime
 		};
 
 		// pass data object to template
-		var fullText = recentTemplate(recentsData);
+		var fullText4 = recentTemplate(recentsData);
 
 		// append to to #alert-area
-		$("#new-activities").append(fullText);
+		$("#new-activities").append(fullText4);
 	}
 
 	/******************************
@@ -1043,7 +1023,7 @@ $(document).ready(function(){
 			}
 			$sendMessage.find("#message-member").focus();
 		}
-	})
+	});
 
 	//  Capture keyup strokes in #search-member and find results
 	$searchMember.on("keyup", function(event) {
@@ -1075,10 +1055,10 @@ $(document).ready(function(){
 
 	// Hide Valdation Message
 	$help.on("click", function(){
-		$(this).removeClass("show-validate")
+		$(this).removeClass("show-validate");
 	});
 	$successHelp.on("click", function(){
-		$(this).removeClass("show-validate")
+		$(this).removeClass("show-validate");
 	});
 
 
@@ -1111,7 +1091,21 @@ $(document).ready(function(){
 	});
 	$(".alert-message").on("click", function() {
 		notify.closeMessage($(this));
-	})
+	});
+
+	// Test browswer compatibility for localStorage use
+	//   If not compatible, show message
+	function hasLocalStorage() {
+
+		if ( typeof(Storage) !== "undefined" ) {
+			var message = "Sorry. Your browser is not ";
+			message += "compatible with this App.";
+			notify.openMessageTest(message);
+
+		}
+
+	}
+	hasLocalStorage();
 
 });
 
