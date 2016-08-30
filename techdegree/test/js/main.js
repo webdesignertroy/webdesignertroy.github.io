@@ -809,34 +809,7 @@ document.getElementById("title").innerHTML = "JS Working Test 2";
 	BUILD ELEMENTS/HTML
 	******************************/
 
-	/**********   BUILD NOTIFICATIONS  **********/
-
-	// Instantiate NOTIFICATIONS via Handlebars Templating Machine 
-	//   handlebars.js
-
-	//reference
-	var source = $alertArea.html();
-
-	//complile the source markup
-	var notificationTemplate = Handlebars.compile(source);
-
-	// Iterate through messages
-	for (var i = 0; i < notify.messageList.length; i++) {
-
-		// define the data object
-		var messageData = {
-			note: notify.messageList[i].note,
-			notification: notify.messageList[i].notification,
-			message: notify.messageList[i].message
-		};
-
-		// pass data object to template
-		var fullText = notificationTemplate(messageData);
-
-		// append to to #alert-area
-		$("#notification-placeholder").append(fullText);
-
-	}
+	
 
 	
 
