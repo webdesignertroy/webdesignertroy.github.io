@@ -494,6 +494,7 @@ document.getElementById("title").innerHTML = "JS Working Test";
 	lineTraffic.trafficMonth();
 	barDailyTraffic.barDay();
 	mobileUsers.mobile();
+	$switchWrapper.switchButton();
 
 	
 
