@@ -357,6 +357,98 @@ document.getElementById("title").innerHTML = "JS Working Test";
 
 	};
 
+	/*****  Daily Traffic Bar Chart Object Literal  *****/
+
+	var barDailyTraffic = {
+
+		// Daily Traffic data
+		barDay: function() {
+
+			var days = {
+				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
+				datasets: [
+					{
+						label: "Unique Visits",
+						data: [125, 232, 411, 342, 55, 211, 118],
+						fillColor: "rgba(170,153, 57, 0.5)",
+						strokeColor: "rgba(170,153, 57, 1)"
+					},
+					{
+						label: "Return Visits",
+						data: [255, 391, 522, 442, 200, 355, 234],
+						fillColor: "rgba(151, 187, 205, 0.5)",
+						strokeColor: "rgba(151, 187, 205, 1)"
+					}
+				]
+			};
+
+			barDailyTraffic.drawBarChart(days);
+
+		},
+
+		// Draw Chart
+		drawBarChart: function(data) {
+
+			var canvas = document.querySelector("#daily-chart");
+
+			var ctx = canvas.getContext("2d");
+
+			var barChart = new Chart(ctx).Bar(data, {
+				responsive: true
+			});
+			document.getElementById('daily-chart-legend').innerHTML = barChart.generateLegend();
+
+		}
+
+	};
+
+	/*****  Mobile Users Doughnut Chart Object Literal  *****/
+
+	var mobileUsers = {
+
+		//Mobile User data
+		mobile: function() {
+			var users = [
+				{	
+					label: "IOS",
+					value: 43,
+					color: "rgba(151, 187, 205, 0.5)"
+				},
+				{
+					label: "Android",
+					value: 35,
+					color: "rgba(170,153, 57, 0.5)"
+				},
+				{
+					label: "Windows",
+					value: 15,
+					color: "rgba(136, 204, 136, 0.5)"
+				},
+				{
+					label: "Other",
+					value: 7,
+					color: "rgba(255, 105, 105, 0.5)"
+				}
+			];
+			mobileUsers.drawDoughnutChart(users);
+		},
+
+		// Draw Chart
+		drawDoughnutChart: function(data) {
+
+			var canvas = document.querySelector("#mobile-chart");
+
+			var ctx = canvas.getContext("2d");
+			var doughnutChart = new Chart(ctx).Doughnut(data, {
+				responsive: true,
+				segmentShowStroke: false,
+				tooltipTemplate: "<%= value %>%"
+			});
+			document.getElementById('mobile-legend').innerHTML = doughnutChart.generateLegend();
+		}
+
+	};
+
 	
 
 	/******************************
@@ -400,6 +492,8 @@ document.getElementById("title").innerHTML = "JS Working Test";
 
 	// Instantiate Charts
 	lineTraffic.trafficMonth();
+	barDailyTraffic.barDay();
+	mobileUsers.mobile();
 
 	
 
