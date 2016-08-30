@@ -48,7 +48,7 @@ $(document).ready(function(){
 	/* Other */
 	var lineChart = null;
 	var oldData = null;
-document.getElementById("title").innerHTML = "JS Working Test 2";
+document.getElementById("title").innerHTML = "JS Working Test";
 	/******************************
 	HELPER DECLARATION FUNCTIONS
 	******************************/
@@ -200,6 +200,163 @@ document.getElementById("title").innerHTML = "JS Working Test 2";
 
 	};
 
+	/*****  Traffic Line Chart Object Literal  *****/
+	var lineTraffic = {
+
+		// Hourly Data
+		trafficHour: function() {
+
+			var hours = {
+				labels: ["8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"],
+				datasets: [
+					{
+						label: "Hourly",
+						fillColor: "rgba(255, 105, 105, 0.2)",
+						strokeColor: "rgba(255, 105, 105, 1)",
+						pointColor: "rgba(255, 105, 105, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(255, 105, 105, 1)",
+						data: [31, 42, 25, 52, 89, 101, 66, 105, 63, 31, 25, 24, 20]
+					}
+				]
+			};
+
+			lineTraffic.drawChart(hours);
+
+		},
+
+		// Daily Data
+		trafficDay: function() {
+
+			var days = {
+				labels: ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
+				datasets: [
+					{
+						label: "Daily",
+						fillColor: "rgba(170,153, 57, 0.1)",
+						strokeColor: "rgba(170,153, 57, 1)",
+						pointColor: "rgba(170,153, 57, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(170,153, 57, 1)",
+						data: [305, 425, 633, 581, 233, 455, 365]
+					}
+				]
+			};
+
+			lineTraffic.drawChart(days);
+
+		},
+
+		// Weekly Data
+		trafficWeek: function() {
+
+			var week = {
+				labels: ["(This Week)", "Week 2", "Week 3", "Week 4", "Week 5"],
+				datasets: [
+					{
+						label: "Daily",
+						fillColor: "rgba(136, 204, 136, 0.2)",
+						strokeColor: "rgba(136, 204, 136, 1)",
+						pointColor: "rgba(136, 204, 136, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(136, 204, 136, 1)",
+						data: [1203, 1355, 902, 878, 1026]
+					}
+				]
+			};
+
+			lineTraffic.drawChart(week);
+
+		},
+
+		// Monthly Data
+		trafficMonth: function() {
+
+			var months = {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [
+					{
+						label: "Monthly",
+						fillColor: "rgba(151, 187, 205, 0.2)",
+						strokeColor: "rgba(151, 187, 205, 1)",
+						pointColor: "rgba(151, 187, 205, 1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(151, 187, 205 ,1)",
+						data: [10233, 12682, 18523, 14629, 18923, 16234, 11231, 17234, 9973, 20323, 19234, 11323]
+					}
+				]
+			};
+
+			lineTraffic.drawChart(months);
+
+		},
+
+		// Draw Chart
+		drawChart: function(data) {
+
+			//  variables
+			var canvas = document.querySelector("#traffic-chart");
+			var ctx = canvas.getContext("2d");
+
+			// remove old data before drawing new
+			if (lineChart !== null) {
+				for( i=0; i < oldData.length + 1 ; i++ ) {
+					lineChart.removeData();
+				}
+			}	
+
+			// draw new chart
+			//   lineChart and old Data need
+			//   to stay global as variables 
+			lineChart = new Chart(ctx).Line(data, {
+				pointDotRadius: 5,
+				bezierCurve: true,
+				responsive: true
+			});
+
+			// store current data to variable to use
+			//   on next option cycle
+			oldData = data.datasets[0].data;
+
+		},
+
+		// Select time-level (i.e., Hourly, Daily) option
+		activeTraffic: function(divName, time){
+
+			// iterate through Traffic options
+			//   remove active style
+			$trafficUlLi.each(function(){
+				$(this).removeClass("active-time");
+			});
+			// add active style to newly selected
+			//   Traffic option
+			divName.addClass("active-time");
+
+			// switch Statement and draw appropriate
+			//    Traffic chart 
+			switch(time) {
+				case "days":
+				lineTraffic.trafficDay();
+				break;
+				case "hours":
+				lineTraffic.trafficHour();
+				break;
+				case "weeks":
+				lineTraffic.trafficWeek();
+				break;
+				case "months":
+				lineTraffic.trafficMonth();
+				break;
+			}
+
+		}
+
+	};
+
 	
 
 	/******************************
@@ -234,6 +391,15 @@ document.getElementById("title").innerHTML = "JS Working Test 2";
 		$("#notification-placeholder").append(fullText);
 
 	}
+
+	
+
+	/******************************
+	BUILD CHARTS
+	******************************/
+
+	// Instantiate Charts
+	lineTraffic.trafficMonth();
 
 	
 
