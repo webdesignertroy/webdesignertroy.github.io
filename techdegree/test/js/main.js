@@ -937,18 +937,7 @@ $(document).ready(function(){
 	mobileUsers.mobile();
 	
 
-	// jQuery UI checkbox light switch
-	//    Refer to: http://olance.github.io/jQuery-switchButton/
-	$("input[type=checkbox]").switchButton({
-		width: 36,
-		height: 16,
-		button_width: 24
-	});
-
-	$("input[type=checkbox]").switchButton({
-		on_label: 'OFF',
-		off_label: 'ON'
-	});
+	
 
 	/******************************
 	RETRIEVE DATA
