@@ -91,7 +91,7 @@ $(document).ready(function(){
 		}
 
 	};
-document.getElementById("title").innerHTML = "JS Working Test 2";
+document.getElementById("title").innerHTML = "JS Working Test 3";
 	
 
 });
