@@ -48,6 +48,49 @@ $(document).ready(function(){
 	/* Other */
 	var lineChart = null;
 	var oldData = null;
+
+	/******************************
+	HELPER DECLARATION FUNCTIONS
+	******************************/
+
+	// Use regex decode HTML
+	function strip(message) {
+
+		var regex = /(<([^]+)>\n)/ig;
+		var cleanIt = message.replace(regex, "");
+		var results = cleanIt.trim();
+		return results;
+
+	}
+
+	// Get enclosing element on an event (e.g. "click")
+	function targetChoice(e){
+
+		e = e || window.event;
+
+		return e.target || e.srcElement; // Accommodate all browsers
+
+	}
+
+	/******************************
+	OBJECTS-ORIENTED VARIABLES
+	******************************/
+
+	/*****  Navigation Object Literal  *****/
+	var nav = {
+
+		// Show active nav item link, using green bar,
+		//  on main navigation menu
+		activeNav: function(link) {
+
+			$("#nav ul").find("li").each(function(){
+				$(this).find("span").removeClass("active");
+			});
+			link.find("span").addClass("active");
+
+		}
+
+	};
 document.getElementById("title").innerHTML = "JS Working Test 2";
 	
 
