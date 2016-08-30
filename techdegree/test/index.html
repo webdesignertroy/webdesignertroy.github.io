@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--
+Interactive Video Player checked on the following browsers:
+-Safari El Captain (Latest)
+-Chrome (Latest)
+-Firefox (Latest)
+-Edge 14 (Latest)
+-->
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel ="stylesheet" type="text/css" href="css/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.switchButton.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>Web App Dashboard</title>
+	</head>
+	<body>
+	<header id="header">
+		Your<span class="no-bold">App<sup class="trademark">&trade;</sup></span>
+		<span id="member-block">
+			<span class="member-name">
+			    <span id="notification" class="center">
+					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+					<g id="notification-group">
+						<g>
+							<path class="notification-svg" d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+								c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"/>
+						</g>
+					</g>
+					</svg>
+			    	<span class="alert"><span class="note"><span class="inner-note">Tester: You closed all the notifications. Refresh the page and click the icon again.</span></span></span>
+			    </span>
+				<img alt="Profile Image" src="images/members/member1.jpg" />
+				<span class="center">Sarah Seasons</span>
+			</span>
+		</span>
+	</header>
+	<nav id="nav">
+		<ul>
+			<li id="dashboard">dashboard<span class="active"></span></li>
+			<li id="members">members<span></span></li>
+			<li id="charts">charts<span></span></li>
+			<li id="settings">settings<span></span></li>
+
+		</ul>
+	</nav>
+	<div class="clearfix"></div>
+	<div id="wrapper">
+		<div class="container">
+			<article class="main">
+				<div id="title-area">
+					<h1 id="title">Dashboard</h1>
+					<div id="search">
+						<form>
+							<input type="text" name="search" placeholder="Search" />
+						</form>
+
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div id="notification-placeholder"></div>
+				<div class="clearfix"></div>
+				<section id="section1">
+					<div id="traffic">
+						<h2>Traffic</h2>
+						<ul>
+							<li id="hourly">Hourly</li>
+							<li id="daily">Daily</li>
+							<li id="weekly">Weekly</li>
+							<li id="monthly" class="active-time">Monthly</li>
+						</ul>
+						
+							<canvas id="traffic-chart" height="300" width="500"></canvas>
+						
+					</div>
+				</section>
+				<div class="clearfix"></div>
+				<hr />
+				<section id="section2" class="two-columns">
+					<div id="daily-traffic" class="col">
+						<h2>Daily Traffic</h2>
+						<canvas id="daily-chart" width="500" height="300"></canvas>
+						<span id="daily-chart-legend" class="legend"></span>
+					</div>
+					<div class="clearfix"></div>
+					<hr />
+					<div id="mobile-users" class="col">
+						<h2>Mobile Users</h2>
+						<div class="two-columns2">
+							<div class="col2a">
+								<canvas id="mobile-chart" width="500" height="300"></canvas>
+							</div>
+							<span class="col2b" id="mobile-legend"></span>
+						</div>
+					</div>
+				</section>
+				<div class="clearfix"></div>
+				<hr />
+				<section id="section3" >
+					<div id="social-media">
+						<h2>Social Stats</h2>
+						<div id="social-container" class="social-container">
+						</div>
+					</div>
+				</section>
+				<div class="clearfix"></div>
+				<hr />
+				<section id="section4" class="two-columns">
+					<div id="member-sec" class="col">
+						<h2>New Members</h2>
+						<div id="member-container" class="member-container">
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<hr />
+					<div id="activities-sec" class="col">
+						<h2>Recent Activities</h2>
+						<div id="new-activities" class="new-activities"></div>
+					</div>
+				</section>
+				<div class="clearfix"></div>
+				<hr />
+				<section id="section5" class="two-columns">
+					<div id="send-message" class="col">
+						<span id="help-submit" class="success-help green "></span>
+						<h2>Message User</h2>
+						<form action="index.html" method="post" id="member-send">
+							<div class="field-container">
+								<input id="search-member" class="search-member clear" type="text" placeholder="Search members" name="member_name" required aria-required="true" title="Member name"/>
+								<span id="help-member" class="help yellow"></span>
+								<ul id="list" class="hide-div"></ul>
+							</div>
+							<div class="field-container">
+								<textarea id="message-member" class="message-member clear" placeholder="Write a message" name="member_message"></textarea>
+								<span id="help-write" class="help yellow"></span>
+							</div>
+							<div class="field-container">
+								<button id="member-button" type="submit" class="form-button" name="user_submit" value="Send" aria-describedby="help-submit"> Send</button>
+							</div>
+						</form>
+					</div>
+					<div class="clearfix"></div>
+					<hr />
+					<div id="dashboard-settings" class="col">
+							<span id="help-save" class="success-help green"></span>
+						<h2>Settings</h2>
+						<form action="index.html" method="post" id="settings-form">
+							<fieldset id="checkbox">
+							<div class="checkbox-container">
+								<span class="labels">Send Email Notification:</span>
+								<div class="center-switch">
+										<input type="checkbox" id="email-notifications" name="email_notfications" class="switch-wrapper" />
+								</div>
+							</div>
+							<div class="checkbox-container">
+							<span class="labels">Set Profile to Public:</span>
+								<div class="center-switch">
+										<input type="checkbox" id="public-profile" name="public_profile" class="switch-wrapper" />
+								</div>
+							</div>
+							</fieldset>
+							<fieldset id="timezone-select">
+								<span class="select-arrow">
+									<select id="timezone" class="select" name="timezone">
+									<option value="" disabled="" selected="" hidden="">Select Timezone</option>
+	                                <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
+	                                <option value="America/Adak">(GMT-10:00) Hawaii-Aleutian</option>
+	                                <option value="Etc/GMT+10">(GMT-10:00) Hawaii</option>
+	                                <option value="Pacific/Marquesas">(GMT-09:30) Marquesas Islands</option>
+	                                <option value="Pacific/Gambier">(GMT-09:00) Gambier Islands</option>
+	                                <option value="America/Anchorage">(GMT-09:00) Alaska</option>
+	                                <option value="America/Ensenada">(GMT-08:00) Tijuana, Baja California</option>
+	                                <option value="Etc/GMT+8">(GMT-08:00) Pitcairn Islands</option>
+	                                <option value="America/Los_Angeles">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+	                                <option value="America/Denver">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+	                                <option value="America/Chihuahua">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+	                                <option value="America/Dawson_Creek">(GMT-07:00) Arizona</option>
+	                                <option value="America/Belize">(GMT-06:00) Saskatchewan, Central America</option>
+	                                <option value="America/Cancun">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+	                                <option value="Chile/EasterIsland">(GMT-06:00) Easter Island</option>
+	                                <option value="America/Chicago">(GMT-06:00) Central Time (US &amp; Canada)</option>
+	                                <option value="America/New_York">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+	                                <option value="America/Havana">(GMT-05:00) Cuba</option>
+	                                <option value="America/Bogota">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+	                                <option value="America/Caracas">(GMT-04:30) Caracas</option>
+	                                <option value="America/Santiago">(GMT-04:00) Santiago</option>
+	                                <option value="America/La_Paz">(GMT-04:00) La Paz</option>
+	                                <option value="Atlantic/Stanley">(GMT-04:00) Faukland Islands</option>
+	                                <option value="America/Campo_Grande">(GMT-04:00) Brazil</option>
+	                                <option value="America/Goose_Bay">(GMT-04:00) Atlantic Time (Goose Bay)</option>
+	                                <option value="America/Glace_Bay">(GMT-04:00) Atlantic Time (Canada)</option>
+	                                <option value="America/St_Johns">(GMT-03:30) Newfoundland</option>
+	                                <option value="America/Araguaina">(GMT-03:00) UTC-3</option>
+	                                <option value="America/Montevideo">(GMT-03:00) Montevideo</option>
+	                                <option value="America/Miquelon">(GMT-03:00) Miquelon, St. Pierre</option>
+	                                <option value="America/Godthab">(GMT-03:00) Greenland</option>
+	                                <option value="America/Argentina/Buenos_Aires">(GMT-03:00) Buenos Aires</option>
+	                                <option value="America/Sao_Paulo">(GMT-03:00) Brasilia</option>
+	                                <option value="America/Noronha">(GMT-02:00) Mid-Atlantic</option>
+	                                <option value="Atlantic/Cape_Verde">(GMT-01:00) Cape Verde Is.</option>
+	                                <option value="Atlantic/Azores">(GMT-01:00) Azores</option>
+	                                <option value="Europe/Belfast">(GMT) Greenwich Mean Time : Belfast</option>
+	                                <option value="Europe/Dublin">(GMT) Greenwich Mean Time : Dublin</option>
+	                                <option value="Europe/Lisbon">(GMT) Greenwich Mean Time : Lisbon</option>
+	                                <option value="Europe/London">(GMT) Greenwich Mean Time : London</option>
+	                                <option value="Africa/Abidjan">(GMT) Monrovia, Reykjavik</option>
+	                                <option value="Europe/Amsterdam">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+	                                <option value="Europe/Belgrade">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+	                                <option value="Europe/Brussels">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+	                                <option value="Africa/Algiers">(GMT+01:00) West Central Africa</option>
+	                                <option value="Africa/Windhoek">(GMT+01:00) Windhoek</option>
+	                                <option value="Asia/Beirut">(GMT+02:00) Beirut</option>
+	                                <option value="Africa/Cairo">(GMT+02:00) Cairo</option>
+	                                <option value="Asia/Gaza">(GMT+02:00) Gaza</option>
+	                                <option value="Africa/Blantyre">(GMT+02:00) Harare, Pretoria</option>
+	                                <option value="Asia/Jerusalem">(GMT+02:00) Jerusalem</option>
+	                                <option value="Europe/Minsk">(GMT+02:00) Minsk</option>
+	                                <option value="Asia/Damascus">(GMT+02:00) Syria</option>
+	                                <option value="Europe/Moscow">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+	                                <option value="Africa/Addis_Ababa">(GMT+03:00) Nairobi</option>
+	                                <option value="Asia/Tehran">(GMT+03:30) Tehran</option>
+	                                <option value="Asia/Dubai">(GMT+04:00) Abu Dhabi, Muscat</option>
+	                                <option value="Asia/Yerevan">(GMT+04:00) Yerevan</option>
+	                                <option value="Asia/Kabul">(GMT+04:30) Kabul</option>
+	                                <option value="Asia/Yekaterinburg">(GMT+05:00) Ekaterinburg</option>
+	                                <option value="Asia/Tashkent">(GMT+05:00) Tashkent</option>
+	                                <option value="Asia/Kolkata">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+	                                <option value="Asia/Katmandu">(GMT+05:45) Kathmandu</option>
+	                                <option value="Asia/Dhaka">(GMT+06:00) Astana, Dhaka</option>
+	                                <option value="Asia/Novosibirsk">(GMT+06:00) Novosibirsk</option>
+	                                <option value="Asia/Rangoon">(GMT+06:30) Yangon (Rangoon)</option>
+	                                <option value="Asia/Bangkok">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+	                                <option value="Asia/Krasnoyarsk">(GMT+07:00) Krasnoyarsk</option>
+	                                <option value="Asia/Hong_Kong">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+	                                <option value="Asia/Irkutsk">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+	                                <option value="Australia/Perth">(GMT+08:00) Perth</option>
+	                                <option value="Australia/Eucla">(GMT+08:45) Eucla</option>
+	                                <option value="Asia/Tokyo">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+	                                <option value="Asia/Seoul">(GMT+09:00) Seoul</option>
+	                                <option value="Asia/Yakutsk">(GMT+09:00) Yakutsk</option>
+	                                <option value="Australia/Adelaide">(GMT+09:30) Adelaide</option>
+	                                <option value="Australia/Darwin">(GMT+09:30) Darwin</option>
+	                                <option value="Australia/Brisbane">(GMT+10:00) Brisbane</option>
+	                                <option value="Australia/Hobart">(GMT+10:00) Hobart</option>
+	                                <option value="Asia/Vladivostok">(GMT+10:00) Vladivostok</option>
+	                                <option value="Australia/Lord_Howe">(GMT+10:30) Lord Howe Island</option>
+	                                <option value="Etc/GMT-11">(GMT+11:00) Solomon Is., New Caledonia</option>
+	                                <option value="Asia/Magadan">(GMT+11:00) Magadan</option>
+	                                <option value="Pacific/Norfolk">(GMT+11:30) Norfolk Island</option>
+	                                <option value="Asia/Anadyr">(GMT+12:00) Anadyr, Kamchatka</option>
+	                                <option value="Pacific/Auckland">(GMT+12:00) Auckland, Wellington</option>
+	                                <option value="Etc/GMT-12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+	                                <option value="Pacific/Chatham">(GMT+12:45) Chatham Islands</option>
+	                                <option value="Pacific/Tongatapu">(GMT+13:00) Nuku'alofa</option>
+	                                <option value="Pacific/Kiritimati">(GMT+14:00) Kiritimati</option>
+								</select>
+								</span>
+							</fieldset>
+							<fieldset id="save-cancel">
+								<button id="save" class="form-button two-col">Save
+								</button>
+								<button id="reset-form" class="form-button two-col">Reset</button>
+							</fieldset>
+						</form>
+					</div>
+				</section>
+				<hr />
+				<div>
+					<div class="spacer"></div>
+				</div>
+			</article>
+		</div>
+		<div class="clearfix"></div>
+	<div id="#footer">
+	</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="images/switch/jquery.switchButton.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+		<script id="alert-area" type="text/x-handlebares-templates">
+			<div class="alert-box {{note}}">
+				<span class="alert-notification">
+					{{{notification}}}
+				</span>
+				<span class="alert-message">
+					{{{message}}}
+					<span class="message-close">Close Message</span>
+				</span>
+				<span class="close">Close</span>
+			</div>
+		</script>
+		<script id="social-handle" type="text/x-handlebares-templates">
+			<div class="social-stats" >
+				<span id="{{socialId}}" class="social-badge">{{socialMedia}} icon</span>
+				<span class="social-label">{{socialMedia}}</span>
+				<span class="social-data">{{value}}</span>
+			</div>
+		</script>
+		<script id="new-members" class="new-members"  type="text/x-handlebares-templates">
+			<div class="new-build">
+				<span class="profile" id="{{profile}}"></span>
+				<span class="name">{{name}}</span>
+				<span class="email"><a mailto="#">{{email}}</a></span>
+				<span class="join">{{join}}</span>
+			</div>
+		</script>
+		<script id="activity-handle" type="text/x-handlebares-templates">
+		<div class="new-build">
+			<span class="profile" id="{{profile}}"></span>
+			<span class="text">{{name}} {{{text}}}<a href="#" class="arrow">&nbsp;&nbsp;&rArr;</a></span>
+			<span class="recent">{{time}}</span>
+		</div>
+		</script>
+	<script src="js/main.js"></script>
+	</body>
+</html>
