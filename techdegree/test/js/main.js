@@ -200,7 +200,15 @@ $(document).ready(function(){
 
 	};
 document.getElementById("title").innerHTML = "JS Working Test 4";
-return;
+
+	/*******  NAV BUTTONS  *******/
+
+	// Dashboard Nav Item
+
+	// Notification Icon
+	$notification.click(function(){
+		notify.openAll();
+	});
 	
 
 });
