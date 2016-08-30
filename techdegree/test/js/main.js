@@ -1,1 +1,8 @@
-console.log('Javascipt working...');
+$(document).ready(function(){
+	document.getElementById("title").innerHTML = "JS Working";
+
+});
+
+
+
+
