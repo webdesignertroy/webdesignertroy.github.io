@@ -48,7 +48,8 @@ $(document).ready(function(){
 	/* Other */
 	var lineChart = null;
 	var oldData = null;
-
+console.log("JS works here"); 
+return;
 	/******************************
 	HELPER DECLARATION FUNCTIONS
 	******************************/
