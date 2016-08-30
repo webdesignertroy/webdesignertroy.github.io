@@ -200,16 +200,302 @@ $(document).ready(function(){
 
 	};
 document.getElementById("title").innerHTML = "JS Working Test 4";
+return;
+	
+
+	/******************************
+	BUILD ELEMENTS/HTML
+	******************************/
+
+	/**********   BUILD NOTIFICATIONS  **********/
+
+	// Instantiate NOTIFICATIONS via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source = $alertArea.html();
+
+	//complile the source markup
+	var notificationTemplate = Handlebars.compile(source);
+
+	// Iterate through messages
+	for (var i = 0; i < notify.messageList.length; i++) {
+
+		// define the data object
+		var messageData = {
+			note: notify.messageList[i].note,
+			notification: notify.messageList[i].notification,
+			message: notify.messageList[i].message
+		};
+
+		// pass data object to template
+		var fullText = notificationTemplate(messageData);
+
+		// append to to #alert-area
+		$("#notification-placeholder").append(fullText);
+
+	}
+
+	/**********   BUILD SOCIAL STATS  **********/
+
+	// Instantiate SOCIAL STATS via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source2 = $("#social-handle").html();
+
+	//complile the source markup
+	var socialTemplate = Handlebars.compile(source2);
+
+	// Iterate through messages
+	for (var j = 0; j < social.media.length; j++) {
+
+		// define the data object
+		var messageData2 = {
+			socialId: social.media[j].socialId,
+			socialMedia: social.media[j].socialMedia,
+			value: social.media[j].value
+		};
+
+		// pass data object to template
+		var fullText2 = socialTemplate(messageData2);
+
+		// append to to #alert-area
+		$("#social-container").append(fullText2);
+	}
+
+	/**********   BUILD NEW MEMBERS  **********/
+
+	// Instantiate NEW MEMBERS LIST via Handlebars Templating Machine 
+	//   handlebars.js
+	var newMemberList = members.newMembers();
+
+	//reference
+	var source3 = $("#new-members").html();
+
+	//complile the source markup
+	var newMembersTemplate = Handlebars.compile(source3);
+
+	// Iterate through messages
+	for (var k = 0; k < 4; k++) {
+
+		// define the data object
+		var newMembersData = {
+			name: newMemberList[k].name,
+			profile: newMemberList[k].profile,
+			email: newMemberList[k].email,
+			join: newMemberList[k].join
+		};
+
+		// pass data object to template
+		var fullText3 = newMembersTemplate(newMembersData);
+
+		// append to to #alert-area
+		$("#member-container").append(fullText3);
+	}
+
+	/**********   BUILD RECENT ACTIVITIES  **********/
+
+	// Instantiate NEW RECENT ACTIVITIES LIST via Handlebars Templating Machine 
+	//   handlebars.js
+
+	//reference
+	var source4 = $("#activity-handle").html();
+
+	//complile the source markup
+	var recentTemplate = Handlebars.compile(source4);
+
+	// Iterate through messages
+	for (var l = 0; l < 4; l++) {
+
+		var name = members.memberData[l].first + ' ' + members.memberData[l].last;
+
+		// define the data object
+		var recentsData = {
+			name: name,
+			profile: members.memberData[l].activity,
+			text: members.memberData[l].recentActivity,
+			time: members.memberData[l].recentTime
+		};
+
+		// pass data object to template
+		var fullText4 = recentTemplate(recentsData);
+
+		// append to to #alert-area
+		$("#new-activities").append(fullText4);
+	}
+
+
+
+	// jQuery UI checkbox light switch
+	//    Refer to: http://olance.github.io/jQuery-switchButton/
+	$("input[type=checkbox]").switchButton({
+		width: 36,
+		height: 16,
+		button_width: 24
+	});
+
+	$("input[type=checkbox]").switchButton({
+		on_label: 'OFF',
+		off_label: 'ON'
+	});
+
+	/******************************
+	RETRIEVE DATA
+	******************************/
+
+	// Invoke functin that 
+	//   retrieves data from localStorage
+	appSettings.retrieveSettings();
+
+	/******************************
+	EVENT LISTENERS/HANDLERS
+	******************************/
 
 	/*******  NAV BUTTONS  *******/
 
 	// Dashboard Nav Item
-
+	$dashboard.click(function(){
+		nav.activeNav($(this));
+	});
+	// Members Nav Item
+	$members.click(function(){
+		nav.activeNav($(this));
+	});
+	// Charts Nav Item
+	$charts.click(function(){
+		nav.activeNav($(this));
+	});
+	// Settings Nav Item
+	$settings.click(function(){
+		nav.activeNav($(this));
+	});
 	// Notification Icon
 	$notification.click(function(){
 		notify.openAll();
 	});
-	
+
+	/*******  TRAFFIC BUTTONS  *******/
+
+	// Hourly Option
+	$hourly.click(function(){
+		hours = "hours";
+		lineTraffic.activeTraffic($(this), hours);
+	});
+	// Daily Option
+	$daily.click(function(){
+		days = "days";
+		lineTraffic.activeTraffic($(this), days);
+	});
+	// Weekly Option
+	$weekly.click(function(){
+		weeks = "weeks";
+		lineTraffic.activeTraffic($(this), weeks);
+	});
+	// Monthly Option
+	$monthly.click(function(){
+		months = "months";
+		lineTraffic.activeTraffic($(this), months);
+	});
+
+	/*******  SEARCH MEMBER FIELDS/BUTTONS  *******/
+
+	// Search field
+	//   Control tab keypress event in #search-member
+	//   Select #help value if available
+	$searchMember.bind("keydown", function(event) {
+		if(event.which == 9) {
+			event.preventDefault();
+			var tabChoice = document.getElementById("list");
+			if ( tabChoice.getElementsByTagName("li")[0] !== undefined ) {
+				tabChoice = tabChoice.getElementsByTagName("li")[0].innerText;
+				$searchMember.val(tabChoice);
+			}
+			$sendMessage.find("#message-member").focus();
+		}
+	});
+
+	//  Capture keyup strokes in #search-member and find results
+	$searchMember.on("keyup", function(event) {
+		var searchValue = document.getElementById("search-member").value;
+		members.searchForm(searchValue);
+	});
+
+	// Place those results on from #list li in #search-member
+	//      ::event bubbling
+	$("#list").on("click", function(event) {
+		var target = targetChoice(event).innerHTML;
+		members.updateSearchField(target, event);
+	});
+
+	// Hide #list on #search-member blur
+	$searchMember.on("blur", function(event) {
+		if ( !$("#list").hasClass("hide-div") ) {
+			setTimeout (function(){
+				$("#list").addClass("hide-div");
+			}, 200);
+		}
+	});
+
+	// Send button
+	$formButton.on("click", function(e){
+		e.preventDefault();
+		members.validateForm();
+	});
+
+	// Hide Valdation Message
+	$help.on("click", function(){
+		$(this).removeClass("show-validate");
+	});
+	$successHelp.on("click", function(){
+		$(this).removeClass("show-validate");
+	});
+
+
+	/*******  SETTINGS CONTROLS  *******/
+
+	//
+	$save.on("click", function(e){
+		e.preventDefault();
+		appSettings.saveSettings();
+	});
+
+	$reset.on("click", function(e){
+		e.preventDefault();
+		appSettings.clearSettings();
+	});
+
+
+	/*******  EVENT BUBBLING BUTTONS  *******/
+	//  I'm using handlebar.js becaue
+	//    animation does not work as smoothly 
+	//    with regular javaScript/jQuery library
+
+	$(".close").on("click", function() {
+		notify.closeNotify($(this));
+	});
+
+	$(".alert-notification").on("click", function() {
+		notify.openMessage($(this));
+
+	});
+	$(".alert-message").on("click", function() {
+		notify.closeMessage($(this));
+	});
+
+	// Test browswer compatibility for localStorage use
+	//   If not compatible, show message
+	/*function hasLocalStorage() {
+
+		if ( typeof(Storage) === "undefined" ) {
+			var message = "Sorry. Your browser is not ";
+			message += "compatible with this App.";
+			notify.openMessageTest(message);
+
+		}
+
+	}
+	hasLocalStorage();*/
 
 });
 
