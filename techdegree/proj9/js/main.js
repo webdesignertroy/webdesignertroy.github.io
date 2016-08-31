@@ -526,7 +526,7 @@ $(document).ready(function(){
 						profile = members.memberData[index].profile;
 						email = members.memberData[index].email;
 						join = members.memberData[index].join;
-						newMemberList.push({name, profile, email, join});
+						newMemberList.push({name: name, profile: profile, email: email, join: join});
 					}
 				}
 
