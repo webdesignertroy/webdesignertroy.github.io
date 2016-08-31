@@ -555,7 +555,6 @@ $(document).ready(function(){
 		searchForm: function(value) {
 
 			// Create an array of member choices
-			var sel = document.getElementById("list");
 			var searched = [];
 			var given = value.toLowerCase();
 			for ( i = 0; i < members.memberData.length; i++ ) {
@@ -1027,9 +1026,9 @@ $(document).ready(function(){
 		members.searchForm(searchValue);
 	});
 
-	// Place those results on from #list li in #search-member
+	// Place the results from #list li on #search-member
 	//      ::event bubbling
-	$("#list").on("click", function(event) {
+	$("#list-aid").on("click",$("#list"), function(event) {
 		var target = targetChoice(event).innerHTML;
 		members.updateSearchField(target, event);
 	});
@@ -1091,7 +1090,7 @@ $(document).ready(function(){
 
 	// Test browswer compatibility for localStorage use
 	//   If not compatible, show message
-	/*function hasLocalStorage() {
+	function hasLocalStorage() {
 
 		if ( typeof(Storage) === "undefined" ) {
 			var message = "Sorry. Your browser is not ";
@@ -1101,7 +1100,7 @@ $(document).ready(function(){
 		}
 
 	}
-	hasLocalStorage();*/
+	hasLocalStorage();
 
 });
 
