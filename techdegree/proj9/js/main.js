@@ -567,7 +567,7 @@ $(document).ready(function(){
 				}
 			}
 		}
-
+		console.log(memberItem);
 		//  Remove previous results from #list li
 		var selExists = sel.getElementsByTagName("li")[0];
 		if ( typeof selExists !== "undefined" ) {
