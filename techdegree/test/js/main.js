@@ -503,7 +503,36 @@ $(document).ready(function(){
 			{
 				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", join:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips.", recentTime:"1 day ago", activity: "posted"
 			}
-		]
+		],
+
+		newMembers: function() {
+			// variables
+			var newMemberList = [];
+
+			// loop through all members
+			for ( var index = members.memberData.length - 1; index > 0; index-- ) {
+
+				// I expect to search PHP to find
+				//   most recent and last index numbers
+				//   8000 and 10,000 will be given parameters
+				for( i = 8000; i < 10000; i++) {
+					var name = "";
+					var profile = "";
+					var email = "";
+					var join = "";
+					if( members.memberData[index].id === i ) {
+						name = members.memberData[index].first + " ";
+						name += members.memberData[index].last;
+						profile = members.memberData[index].profile;
+						email = members.memberData[index].email;
+						join = members.memberData[index].join;
+						newMemberList.push({name, profile, email, join});
+					}
+				}
+
+			}
+			return newMemberList;
+		}
 
 	};
 	
