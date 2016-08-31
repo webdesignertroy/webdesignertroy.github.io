@@ -554,45 +554,45 @@ $(document).ready(function(){
 
 		searchForm: function(value) {
 
-		// Create an array of member choices
-		var sel = document.getElementById("list");
-		var searched = [];
-		var given = value.toLowerCase();
-		for ( i = 0; i < members.memberData.length; i++ ) {
-			var memberItem = members.memberData[i].first + " " + members.memberData[i].last;
-			memberItem = memberItem.toLowerCase();
-			if ( memberItem.indexOf(given) !== -1 ) {
-				if (given !== "" ) {
-					searched.push(memberItem);
+			// Create an array of member choices
+			var sel = document.getElementById("list");
+			var searched = [];
+			var given = value.toLowerCase();
+			for ( i = 0; i < members.memberData.length; i++ ) {
+				var memberItem = members.memberData[i].first + " " + members.memberData[i].last;
+				memberItem = memberItem.toLowerCase();
+				if ( memberItem.indexOf(given) !== -1 ) {
+					if (given !== "" ) {
+						searched.push(memberItem);
+					}
 				}
 			}
-		}
-		console.log(memberItem[2]);
-		//  Remove previous results from #list li
-		var selExists = sel.getElementsByTagName("li")[0];
-		if ( typeof selExists !== "undefined" ) {
-			var selLength = sel.getElementsByTagName("li").length;
-			for ( i = 0; i < selLength  ; i++ ) {
-				if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
-					sel.getElementsByTagName("li")[i].remove();
+			
+			//  Remove previous results from #list li
+			var selExists = sel.getElementsByTagName("li")[0];
+			if ( typeof selExists !== "undefined" ) {
+				var selLength = sel.getElementsByTagName("li").length;
+				for ( i = 0; i < selLength  ; i++ ) {
+					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
+						sel.getElementsByTagName("li")[i].remove();
+					} else {
+						sel.getElementsByTagName("li")[0].remove(); 
+					}
+				}
+			}
+
+			// Propagate #list li
+			for ( i = 0; i < searched.length; i++ ) {
+				var li = document.createElement("li");
+				li.innerHTML = searched[i];
+				sel.appendChild(li);
+			}
+
+			// Hide list if no Choices
+			if ( searched.length > 0 ) {
+					$("#list").removeClass("hide-div");
 				} else {
-					sel.getElementsByTagName("li")[0].remove(); 
-				}
-			}
-		}
-
-		// Propagate #list li
-		for ( i = 0; i < searched.length; i++ ) {
-			var li = document.createElement("li");
-			li.innerHTML = searched[i];
-			sel.appendChild(li);
-		}
-
-		// Hide list if no Choices
-		if ( searched.length > 0 ) {
-				$("#list").removeClass("hide-div");
-			} else {
-				$("#list").addClass("hide-div");
+					$("#list").addClass("hide-div");
 			}
 
 		},
