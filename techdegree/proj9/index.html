@@ -129,10 +129,12 @@ Interactive Video Player checked on the following browsers:
 						<span id="help-submit" class="success-help green "></span>
 						<h2>Message User</h2>
 						<form action="index.html" method="post" id="member-send">
-							<div class="field-container" id="list-aid">
+							<div class="field-container">
 								<input id="search-member" class="search-member clear" type="text" placeholder="Search members" name="member_name" required aria-required="true" title="Member name"/>
 								<span id="help-member" class="help yellow"></span>
-								<ul id="list" class="hide-div"></ul>
+								<span id="list-aid">
+									<ul id="list" class="hide-div"></ul>
+								</span>
 							</div>
 							<div class="field-container">
 								<textarea id="message-member" class="message-member clear" placeholder="Write a message" name="member_message"></textarea>
