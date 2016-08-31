@@ -519,7 +519,7 @@ $(document).ready(function(){
 					var name = "";
 					var profile = "";
 					var email = "";
-					var join = "";
+					var joinx = "";
 					if( members.memberData[index].id === i ) {
 						name = members.memberData[index].first + " ";
 						name += members.memberData[index].last;
