@@ -480,28 +480,28 @@ $(document).ready(function(){
 	var members = {
 		memberData: [
 			{
-				id:1123, first: "Sharon", last:"Lee", profile:"sharon-1123", join:"Aug 8, 2012", email:"sharon.lee1985@example.com", recentActivity:"commented on Facebook's Changes for 2016.", recentTime:"2 hours ago", activity: "commented"
+				id:1123, first: "Sharon", last:"Lee", profile:"sharon-1123", joinx:"Aug 8, 2012", email:"sharon.lee1985@example.com", recentActivity:"commented on Facebook's Changes for 2016.", recentTime:"2 hours ago", activity: "commented"
 			},
 
 			
 			{
-				id:2134, first: "John", last:"Warner", profile:"john-2134", join:"May 28, 2013", email:"johnny90064@example.com", recentActivity:"posted Facebook's Changes for 2016.", recentTime:"3 hours ago", activity: "posted"
+				id:2134, first: "John", last:"Warner", profile:"john-2134", joinx:"May 28, 2013", email:"johnny90064@example.com", recentActivity:"posted Facebook's Changes for 2016.", recentTime:"3 hours ago", activity: "posted"
 			},
 
 			{
-				id:9009, first: "Crystal", last:"Meyers", profile:"crystal-9009", join:"Aug 23, 2016", email:"crystal1989@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"4 hours ago", activity: "commented"
+				id:9009, first: "Crystal", last:"Meyers", profile:"crystal-9009", joinx:"Aug 23, 2016", email:"crystal1989@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"4 hours ago", activity: "commented"
 			},
 
 			{
-				id:9101, first: "Jackie", last:"Sun", profile:"jackie-9101", join:"Aug 25, 2016", email:"jackie.sun@example.com", recentActivity:"just joined YourApp&trade; a few hours ago.", recentTime:"5 hours ago", activity: "joined"
+				id:9101, first: "Jackie", last:"Sun", profile:"jackie-9101", joinx:"Aug 25, 2016", email:"jackie.sun@example.com", recentActivity:"just joined YourApp&trade; a few hours ago.", recentTime:"5 hours ago", activity: "joined"
 			},
 
 			{
-				id:9153, first: "Jill", last:"Scott", profile:"jill-9153", join:"Aug 25, 2016", email:"jillthehammer@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"5 hours ago", activity: "commented"
+				id:9153, first: "Jill", last:"Scott", profile:"jill-9153", joinx:"Aug 25, 2016", email:"jillthehammer@example.com", recentActivity:"commented on YourApp's SEO Tips.", recentTime:"5 hours ago", activity: "commented"
 			},
 
 			{
-				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", join:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips.", recentTime:"1 day ago", activity: "posted"
+				id:9254, first: "Manuel", last:"Ortiz", profile:"manuel-9254", joinx:"Aug 25, 2016", email:"manuel-ortiz@example.com", recentActivity:"posted YourApp's SEO Tips.", recentTime:"1 day ago", activity: "posted"
 			}
 		],
 
@@ -522,7 +522,11 @@ $(document).ready(function(){
 					var join = "";
 					if( members.memberData[index].id === i ) {
 						name = members.memberData[index].first + " ";
-						newMemberList.push({name, profile, email, join});
+						name += members.memberData[index].last;
+						profile = members.memberData[index].profile;
+						email = members.memberData[index].email;
+						join = members.memberData[index].joinx;
+						newMemberList.push({name, profile, email, joinx});
 					}
 				}
 
@@ -531,8 +535,6 @@ $(document).ready(function(){
 		}
 
 	};
-
-			console.log(members.newMembers());
 	
 
 	/******************************
