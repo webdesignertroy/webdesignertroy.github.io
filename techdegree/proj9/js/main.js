@@ -512,7 +512,7 @@ $(document).ready(function(){
 			// loop through all members
 			for ( var index = members.memberData.length - 1; index > 0; index-- ) {
 
-				// I expect to search PHP to find
+				// I expect to search database w/ PHP (or equivalent) to find
 				//   most recent and last index numbers.
 				//   8000 and 10,000 will be given parameters
 				for( i = 8000; i < 10000; i++) {
