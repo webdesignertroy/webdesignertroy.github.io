@@ -576,7 +576,7 @@ $(document).ready(function(){
 					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
 						sel.getElementsByTagName("li")[i].remove();
 					} else {
-						sel.getElementsByTagName("li")[0].remove(); 
+						/*sel.getElementsByTagName("li")[0].remove(); */
 					}
 				}
 			}
@@ -590,9 +590,9 @@ $(document).ready(function(){
 
 			// Hide list if no Choices
 			if ( searched.length > 0 ) {
-					$("#list").removeClass("hide-divx");
+					$("#list").removeClass("hide-div");
 				} else {
-					$("#list").addClass("hide-divx");
+					$("#list").addClass("hide-div");
 			}
 
 		},
@@ -602,7 +602,7 @@ $(document).ready(function(){
 		updateSearchField: function(li, e) {
 
 			$searchMember.val(li);
-			$list.addClass("hide-divx");
+			$list.addClass("hide-div");
 
 		},
 
@@ -1040,9 +1040,9 @@ $(document).ready(function(){
 
 	// Hide #list on #search-member blur
 	$searchMember.on("blur", function(event) {
-		if ( !$("#list").hasClass("hide-divx") ) {
+		if ( !$("#list").hasClass("hide-div") ) {
 			setTimeout (function(){
-				$("#list").addClass("hide-divx");
+				$("#list").addClass("hide-div");
 			}, 200);
 		}
 	});
