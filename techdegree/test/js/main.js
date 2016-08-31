@@ -516,7 +516,10 @@ $(document).ready(function(){
 				//   most recent and last index numbers
 				//   8000 and 10,000 will be given parameters
 				for( i = 8000; i < 10000; i++) {
-				
+					var name = "";
+					var profile = "";
+					var email = "";
+					var join = "";
 				}
 
 			}
