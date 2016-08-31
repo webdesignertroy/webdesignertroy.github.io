@@ -838,7 +838,7 @@ $(document).ready(function(){
 
 	}
 
-	document.getElementById("title").innerHTML("JS is working - Test 6");
+	document.getElementById("title").innerHTML = "JS is working - Test 6";
 
 	/******************************
 	BUILD CHARTS
