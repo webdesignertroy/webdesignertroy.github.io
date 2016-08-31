@@ -525,7 +525,7 @@ $(document).ready(function(){
 						name += members.memberData[index].last;
 						profile = members.memberData[index].profile;
 						email = members.memberData[index].email;
-						join = members.memberData[index].joinx;
+						join = members.memberData[index].join;
 						newMemberList.push({name: name, profile: profile, email: email, join: join});
 					}
 				}
