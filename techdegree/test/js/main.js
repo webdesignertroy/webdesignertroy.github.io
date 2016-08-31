@@ -522,7 +522,7 @@ $(document).ready(function(){
 					var join = "";
 					if( members.memberData[index].id === i ) {
 						name = members.memberData[index].first + " ";
-						newMemberList.push(name, profile, email, join);
+						newMemberList.push({name, profile, email, join});
 					}
 				}
 
