@@ -1040,9 +1040,9 @@ $(document).ready(function(){
 
 	// Hide #list on #search-member blur
 	$searchMember.on("blur", function(event) {
-		if ( !$("#list").hasClass("hide-div") ) {
+		if ( !$("#list").hasClass("hide-divx") ) {
 			setTimeout (function(){
-				$("#list").addClass("hide-div");
+				$("#list").addClass("hide-divx");
 			}, 200);
 		}
 	});
