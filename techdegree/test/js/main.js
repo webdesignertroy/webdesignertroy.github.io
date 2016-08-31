@@ -528,10 +528,11 @@ $(document).ready(function(){
 
 			}
 			return newMemberList;
-			console.log(newMemberList);
 		}
 
 	};
+
+			console.log(members.newMemberList);
 	
 
 	/******************************
