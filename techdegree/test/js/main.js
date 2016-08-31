@@ -612,27 +612,6 @@ $(document).ready(function(){
 			fieldName.html(strip(message));
 			fieldName.addClass("show-validate");
 
-		},
-
-		// Fades out validation message
-		fadeMessage: function(parent, helper) {
-
-			var timedMessage = setInterval(function(){
-				clearInterval(timedMessage);
-				parent.find(helper).each(function(){
-					$(this).removeClass("show-validate");
-				});
-			}, 1500);
-
-		},
-
-		// Clears fields of Message User form 
-		clearFields: function() {
-
-			$sendMessage.find(".clear").each(function(){
-				$(this).val("");
-			});
-
 		}
 
 	};
