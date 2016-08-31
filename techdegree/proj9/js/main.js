@@ -513,7 +513,7 @@ $(document).ready(function(){
 			for ( var index = members.memberData.length - 1; index > 0; index-- ) {
 
 				// I expect to search PHP to find
-				//   most recent and last index numbers
+				//   most recent and last index numbers.
 				//   8000 and 10,000 will be given parameters
 				for( i = 8000; i < 10000; i++) {
 					var name = "";
