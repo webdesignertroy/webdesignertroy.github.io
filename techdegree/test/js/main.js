@@ -532,7 +532,7 @@ $(document).ready(function(){
 
 	};
 
-			console.log(members.newMemberList());
+			console.log(members.newMembers());
 	
 
 	/******************************
