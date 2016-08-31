@@ -589,11 +589,10 @@ $(document).ready(function(){
 			}
 
 			// Hide list if no Choices
-			searched.length = 2
 			if ( searched.length > 0 ) {
-					$("#list").removeClass("hide-div");
+					$("#list").removeClass("hide-divx");
 				} else {
-					$("#list").addClass("hide-div");
+					$("#list").addClass("hide-divx");
 			}
 
 		},
@@ -603,7 +602,7 @@ $(document).ready(function(){
 		updateSearchField: function(li, e) {
 
 			$searchMember.val(li);
-			$list.addClass("hide-div");
+			$list.addClass("hide-divx");
 
 		},
 
