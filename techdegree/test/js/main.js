@@ -520,6 +520,10 @@ $(document).ready(function(){
 					var profile = "";
 					var email = "";
 					var join = "";
+					if( members.memberData[index].id === i ) {
+						name = members.memberData[index].first + " ";
+						newMemberList.push({name});
+					}
 				}
 
 			}
