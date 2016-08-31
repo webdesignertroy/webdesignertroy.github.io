@@ -570,7 +570,7 @@ $(document).ready(function(){
 
 			//  Remove previous results from #list li
 			var selExists = sel.getElementsByTagName("li")[0];
-			if ( typeof selExists !== "undefined" || typeof selExists !== "unknown") {
+			if ( typeof selExists !== "undefined" ) {
 				var selLength = sel.getElementsByTagName("li").length;
 				for ( i = 0; i < selLength; i++ ) {
 					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
