@@ -567,7 +567,7 @@ $(document).ready(function(){
 					}
 				}
 			}
-			
+
 			//  Remove previous results from #list li
 			var selExists = sel.getElementsByTagName("li")[0];
 			if ( typeof selExists !== "undefined" ) {
@@ -589,6 +589,7 @@ $(document).ready(function(){
 			}
 
 			// Hide list if no Choices
+			searched.length = 2
 			if ( searched.length > 0 ) {
 					$("#list").removeClass("hide-div");
 				} else {
