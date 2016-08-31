@@ -520,14 +520,6 @@ $(document).ready(function(){
 					var profile = "";
 					var email = "";
 					var join = "";
-					if( members.memberData[index].id === i ) {
-						name = members.memberData[index].first + " ";
-						name += members.memberData[index].last;
-						profile = members.memberData[index].profile;
-						email = members.memberData[index].email;
-						join = members.memberData[index].join;
-						newMemberList.push({name, profile, email, join});
-					}
 				}
 
 			}
