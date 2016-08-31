@@ -595,23 +595,6 @@ $(document).ready(function(){
 				$("#list").addClass("hide-div");
 			}
 
-		},
-
-		// Add first result to search field
-		//   on [TAB]
-		updateSearchField: function(li, e) {
-
-			$searchMember.val(li);
-			$list.addClass("hide-div");
-
-		},
-
-		// Notifies user of validation error
-		validateThis: function(fieldName, message) {
-
-			fieldName.html(strip(message));
-			fieldName.addClass("show-validate");
-
 		}
 
 	};
