@@ -573,7 +573,7 @@ $(document).ready(function(){
 			if ( typeof selExists !== "undefined" || typeof selExists !== "unknown") {
 				var selLength = sel.getElementsByTagName("li").length;
 				for ( i = 0; i < selLength; i++ ) {
-					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" || typeof sel.getElementsByTagName("li")[i] !== "unknown" ) {
+					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
 						sel.getElementsByTagName("li")[i].remove();
 					} else {
 						sel.getElementsByTagName("li")[0].remove(); 
