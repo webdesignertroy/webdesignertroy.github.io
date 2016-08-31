@@ -576,7 +576,7 @@ $(document).ready(function(){
 					if ( typeof sel.getElementsByTagName("li")[i] !== "undefined" ) {
 						sel.getElementsByTagName("li")[i].remove();
 					} else {
-						/*sel.getElementsByTagName("li")[0].remove(); */
+						sel.getElementsByTagName("li")[0].remove(); 
 					}
 				}
 			}
