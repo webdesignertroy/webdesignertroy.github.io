@@ -535,7 +535,7 @@ $(document).ready(function(){
 		}
 
 	};
-	
+	console.log(members.newMembers());
 
 	/******************************
 	BUILD ELEMENTS/HTML
