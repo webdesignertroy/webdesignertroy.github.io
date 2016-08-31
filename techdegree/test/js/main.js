@@ -528,6 +528,7 @@ $(document).ready(function(){
 
 			}
 			return newMemberList;
+			console.log(newMemberList);
 		}
 
 	};
