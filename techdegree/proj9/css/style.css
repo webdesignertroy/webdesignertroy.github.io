@@ -751,7 +751,7 @@ MESSAGE USER
 	-webkit-border-radius: 0 0 5px 5px;
 	-moz-border-radius: 0 0 5px 5px;
 	border-radius: 0 0 5px 5px;
-	z-index: 200;
+	z-index: 2
 }
 #list li {
 	list-style: none;
