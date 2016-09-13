@@ -1,0 +1,95 @@
+/*********************************
+   BASIC ELEMENTS
+*********************************/
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Dosis", sans-serif;
+	font-size: 1em;
+	line-height: 1.2em;
+	background: #f2f2f2;
+}
+h1#page-title {
+	font-family: "Baloo Chettan", cursive;
+	text-align: center;
+	line-height: 1.2em;
+}
+img {
+	width: 100%;
+}
+
+/*********************************
+   IDS/CLASSES 
+*********************************/
+#container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 150px;
+}
+.result {
+	background: lightgrey;
+	margin: 20px;
+	padding: 1em;
+	position: relative;
+	max-width: 250px;
+}
+.result-link {
+	cursor: pointer;
+}
+.result-link:after {
+	content: "No Images Found";
+	font-family: "Baloo Chettan", cursive;
+	font-size: 0.8em;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top: 32px;
+	text-align: center;
+	border: 1px solid red;
+	color: #666;
+}
+.result-img {
+	min-height: 70px;
+	min-width: 70px;
+	border: 1px solid green;
+}
+
+
+
+/*********************************
+   FORM
+*********************************/
+#fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid blue;
+    background: whitesmoke;
+    z-index: 5;
+    padding-bottom: 1.5em;
+}
+#form-container {
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+#form {
+	text-align: center;
+}
+button {
+	cursor: pointer;
+	margin-top: 0.5em;
+}
+
+/*********************************
+   MEDIA QUERIES
+*********************************/
