@@ -9,11 +9,13 @@ body {
 	font-size: 1em;
 	line-height: 1.2em;
 	background: #f2f2f2;
+	color: #5B2774;
 }
 h1#page-title {
 	font-family: "Baloo Chettan", cursive;
 	text-align: center;
 	line-height: 1.2em;
+	color: #5B2774;
 }
 img {
 	width: 100%;
@@ -32,7 +34,7 @@ img {
 	max-width: 1025px;
 }
 .result {
-	background: lightgrey;
+	background: #ece8ef;
 	margin: 20px;
 	padding: 1em;
 	position: relative;
@@ -47,7 +49,7 @@ img {
 }
 .no-result-link,
 .content {
-	color: #666;
+	color: #351146;
 }
 .content {
 	text-align: center;
@@ -89,7 +91,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    border-bottom: 1px solid blue;
+    border-bottom: 3px solid #e6e1ea;
     background: whitesmoke;
     z-index: 5;
     padding-bottom: 1.5em;
@@ -104,9 +106,37 @@ img {
 #form {
 	text-align: center;
 }
+#search {
+    border-radius: 4px;
+    border: 1px solid #5B2774;
+    padding: 0 15px;
+    height: 30px;
+}
+#search:hover {
+    background: rgba(202, 168, 218, 0.29);
+}
+#search:focus {
+    outline: none;
+    background: rgba(202, 168, 218, 0.29);
+    box-shadow: inset 1px 1px 10px rgba(83, 39, 105, 0.5);
+}
 button {
-	cursor: pointer;
-	margin-top: 0.5em;
+    cursor: pointer;
+    margin-top: 0.5em;
+    width: 94px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    box-shadow: none;
+    border: none;
+    background: #351146;
+    color: white;
+}
+button:focus {
+	outline: none;
+}
+button:hover,
+button:focus {
+	background: #5B2774;
 }
 
 /*********************************

@@ -20,7 +20,7 @@ $submit.on("click", function(e){
 		function movieResults(response) {
 			var movieHTML = '';
 			$.each(response.Search, function(i, data){
-
+				console.log(data.Poster);
 				if ( data.Poster !== "N/A" ) {
 					movieHTML += '<div class="result">\n';
 					movieHTML += '<a href="#" class="result-link">\n';
