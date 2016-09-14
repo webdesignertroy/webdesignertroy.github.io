@@ -28,38 +28,57 @@ img {
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 100%;
-	margin-top: 150px;
+	margin: 150px auto 0 auto;
+	max-width: 1025px;
 }
 .result {
 	background: lightgrey;
 	margin: 20px;
 	padding: 1em;
 	position: relative;
-	max-width: 250px;
+	width: 170px;
+	min-height: 200px;
 }
-.result-link {
+.result-link,
+.no-result-link {
 	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
 }
-.result-link:after {
-	content: "No Images Found";
-	font-family: "Baloo Chettan", cursive;
-	font-size: 0.8em;
+.no-result-link,
+.content {
+	color: #666;
+}
+.content {
+	text-align: center;
+}
+.no-result-link{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 0;
 	right: 0;
-	padding-top: 32px;
-	text-align: center;
-	border: 1px solid red;
-	color: #666;
+	left: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+	min-height: 200px;
 }
-.result-img {
-	min-height: 70px;
-	min-width: 70px;
-	border: 1px solid green;
+.no-result-link p {
+    margin: 0 0 0.5em 0;
+    padding: 0 0.5em;
+ }
+.link-header {
+	font-family: "Baloo Chettan", cursive;
 }
-
+.no-result-img {
+	width: 170px;
+}
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
 
 
 /*********************************
