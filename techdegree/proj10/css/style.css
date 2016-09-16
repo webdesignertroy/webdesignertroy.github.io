@@ -172,9 +172,11 @@ button:focus {
 	cursor: url(../images/close-icon.png), crosshair;
 }
 #info {
-	width: 250px;
-	height: 250px;
-	background: #7C4198;
+    color: #e4dfdf;
+    min-width: 250px;
+    min-height: 250px;
+    background: #7C4198;
+    padding: 20px;
 }
 .show {
 	display: flex !important;
@@ -185,7 +187,7 @@ button:focus {
 	display: none;
 	top: 0;
 	bottom:0;
-	width: 25px;
+	width: 65px;
 	height: 100%;
 	z-index: 101;
 	cursor: default;
@@ -196,6 +198,33 @@ button:focus {
 #cursor-border-left {
 	left: 0;
 }
+.detail-img { /* Used !important */
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    height: 350px;
+}
+/********* Navigation *********/
+#arrow-left {
+    left: 0;
+    background: url(../images/left-arrow36x63.png);
+}
+#arrow-right {
+    right: 0;
+    background: url(../images/right-arrow36x63.png);
+}
+#arrow-left, 
+#arrow-right {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 42px;
+    cursor: pointer;
+    z-index: 150;
+    background-repeat: no-repeat;
+    background-position-y: center;
+}
+
 /*********************************
    LOADER
 *********************************/
