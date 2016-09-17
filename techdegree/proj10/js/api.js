@@ -296,7 +296,7 @@ $submit.on("click", function(e, addorder){
 		break;
 		case 39:
 		//Advances slideshow right on right-arrow [39] key.
-			$("#arrow-left").trigger("click");
+			$("#arrow-right").trigger("click");
 		break;
 		}
 	});
