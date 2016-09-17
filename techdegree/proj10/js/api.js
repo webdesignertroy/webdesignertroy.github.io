@@ -211,8 +211,8 @@ $submit.on("click", function(e, addorder){
 
 	 	// Append #overlay
 		$info.appendTo($overlay);
-		$arrowRight.appendTo("wrapper");
-		$arrowLeft.appendTo("wrapper");
+		$arrowRight.appendTo("#wrapper");
+		$arrowLeft.appendTo("#wrapper");
 		$cursorBorderRight.appendTo($overlay);
 		$cursorBorderLeft.appendTo($overlay);
 		$overlay.addClass("show");
@@ -253,7 +253,7 @@ $submit.on("click", function(e, addorder){
 	**********************************/
 
 	// On right arrow click (bubbling event issues)
-	$("wrapper").on("click", "#arrow-right",function(){
+	$("#wrapper").on("click", "#arrow-right",function(){
 		var currentId = $info.find("div").attr("data-id");
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {
@@ -268,7 +268,7 @@ $submit.on("click", function(e, addorder){
 
 
 	// On left arrow click (bubbling event issues)
-	$("wrapper").on("click", "#arrow-left",function(){
+	$("#wrapper").on("click", "#arrow-left",function(){
 		var currentId = $info.find("div").attr("data-id");
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {

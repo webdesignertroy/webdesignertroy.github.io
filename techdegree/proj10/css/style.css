@@ -225,14 +225,12 @@ button:hover, button:focus {
 }
 /********* Navigation *********/
 #arrow-left {
-  left: 0;
+  left: 10px;
   background: url(../images/left-arrow36x63.png);
-  background-position-x: right;
 }
 #arrow-right {
-  right: 0;
+  right: 10px;
   background: url(../images/right-arrow36x63.png);
-  background-position-x: left;
 }
 #arrow-left, #arrow-right {
   position: fixed;
@@ -242,7 +240,7 @@ button:hover, button:focus {
   cursor: pointer;
   z-index: 150;
   background-repeat: no-repeat;
-  background-position-y: center;
+  background-position: center;
 }
 /********* Video *********/
 .item {

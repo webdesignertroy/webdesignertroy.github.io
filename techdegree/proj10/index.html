@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/normalize.css" />
-		<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan%7CDosis:300,400,700" rel="stylesheet">
-		<link rel="stylesheet" href="css/style.css" />
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<script src="js/api.js"></script>
-		<script src="https://apis.google.com/js/client.js?onload=init"></script>
-
-		<title>Movie Hunt</title>
-	</head>
-	<body>
-		<wrapper id="wrapper">
-			<div id="fixed-top">
-				<h1 id="page-title">Movie Hunt</h1>
-				<div id="form-container">
-					<form id="form">
-						<label id="label" for="search" ></label>
-						<input id="search" type="text" placeholder="Type Title..." ></input>
-						<button id="submit" type="submit">Search</button>
-					</form>
-				</div>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan%7CDosis:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="js/api.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=init"></script>
+	<title>Movie Hunt</title>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="fixed-top">
+			<h1 id="page-title">Movie Hunt</h1>
+			<div id="form-container">
+				<form id="form">
+					<label id="label" for="search" ></label>
+					<input id="search" type="text" placeholder="Type Title..." />
+					<button id="submit" type="submit">Search</button>
+				</form>
 			</div>
-			<div id="container">
-				<div id="message">
-					<h2>Movie and TV Archive</h2>
-					<p>Search the IMDB Database For Your Favorite Movie or Show</p>
-				</div>
+		</div>
+		<div id="container">
+			<div id="message">
+				<h2>Movie and TV Archive</h2>
+				<p>Search the IMDB Database For Your Favorite Movie or Show</p>
 			</div>
-		<div id="overlay"></div>	
+		</div>
+		<div id="overlay"></div>
 		<div id="loader-background">
 			<div id="loader" class="loader">Loading...</div>
 		</div>
-		</wrapper>
-	</body>
+	</div>
+</body>
 </html>
