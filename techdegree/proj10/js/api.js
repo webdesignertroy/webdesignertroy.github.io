@@ -1,11 +1,11 @@
 
-	// Function Declaration for GoogleAPI API (YouTube API)
-	function init() {
-		gapi.client.setApiKey("AIzaSyD1i2kQhJqH2NGeZqECn0KQwlibpE36NDc");
-		gapi.client.load("youtube", "v3", function(){
-			// yt api is ready
-		});
-	}
+// Function Declaration for GoogleAPI API (YouTube API)
+function init() {
+	gapi.client.setApiKey("AIzaSyD1i2kQhJqH2NGeZqECn0KQwlibpE36NDc");
+	gapi.client.load("youtube", "v3", function(){
+		// yt api is ready
+	});
+}
  $(document).ready(function(){
 /*********************************
    VARIABLES
@@ -71,7 +71,6 @@
 	 	});
 	 	$(window).on("resize", resetVideoHeight);
 
-		var imdbImage = 'http://img.omdbapi.com/?i=' + details[index].id + '&apikey=7fe29f8b'
 		var detailHTML = '<div data-id="' + details[index].id + '">';
 		detailHTML +='<h2>' + details[index].title + ' [' + searchYear + ']</h2>\n';
 		$info.html(detailHTML);
