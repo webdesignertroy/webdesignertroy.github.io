@@ -127,7 +127,6 @@ $submit.on("click", function(e, addorder){
 	// Disable search field and button
 	$search.prop("disabled", true);
 	$submit.attr("disabled", true);
-	$loader.addClass("show-loader");
 
 	// API #1: OMDB
 	var url = "http://www.omdbapi.com/?apikey=7fe29f8b&s=" + searchValue;
@@ -197,7 +196,6 @@ $submit.on("click", function(e, addorder){
 	// Enable search field and button
 	$search.prop("disabled", false);
 	$submit.attr("disabled", false);
-	$loader.removeClass("show-loader");
 
 	// call API #1
 	$.getJSON(url, movieData, movieResults);
