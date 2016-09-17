@@ -129,7 +129,7 @@ $submit.on("click", function(e, addorder){
 	$submit.attr("disabled", true);
 
 	// API #1: OMDB
-	var url = "http://www.omdbapi.com/?apikey=7fe29f8b&s=" + searchValue;
+	var url = "http://www.omdbapi.com/?&s=" + searchValue + '&r=json';
 
 	var movieData = {
 		title: searchValue
@@ -166,7 +166,8 @@ $submit.on("click", function(e, addorder){
 				if ( data.Poster !== "N/A" ) {
 					movieHTML += '<div class="result" id="' + data.imdbID+ '">\n';
 					movieHTML += '<a href="#" class="result-link">\n';
-					var movieImage = '<img src="http://img.omdbapi.com/?i=' + data.imdbID + '&apikey=7fe29f8b" class="result-img"/>';
+					var movieImage = '<img src="' + data.Poster +'" class="result-img"/>';
+//'<img src="http://img.omdbapi.com/?i=' + data.imdbID + '&apikey=7fe29f8b" class="result-img"/>';
 					movieHTML += movieImage + '\n';
 					movieHTML += '<div class="content">' + data.Title + ' (' + data.Year + ')</div>';
 					movieHTML += '</a>\n';
