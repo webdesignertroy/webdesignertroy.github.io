@@ -85,6 +85,25 @@ img {
   margin-top: 25vh;
   padding: 0 15px;
 }
+/********* Filter *********/
+#filter {
+  width: 100%;
+  text-align: center;
+}
+#filter-link {
+  display: inline-block;
+  color: white;
+  background: #B72D46;
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2.5em 0 1.5em 0;
+  transition: .3s ease-out;
+  letter-spacing: 0.07em;
+}
+#filter-link:hover {
+  background: red;
+}
 /*********************************
    FORM
 *********************************/
@@ -335,5 +354,9 @@ iframe {
 @media (min-width: 480px) {
   #cursor-border-left,  #cursor-border-right {
     display: inline-block;
+  }
+
+  #filter-link { 
+    margin: 1.5em 0;
   }
 }

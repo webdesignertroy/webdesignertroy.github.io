@@ -11,6 +11,7 @@
    VARIABLES
 **********************************/
 	var $search = $("#search");
+	var searchValue = $.trim($search.val());
 	var $submit = $("#submit");
 	var $container = $("#container");
 	var $overlay = $("#overlay");
@@ -97,12 +98,30 @@
 		$(".video").attr("height", $info.width() * 9/16);
 	}// end resetVideoHeight
 
+	// Sort omdb objects by year: oldest to most recent
+	function compare(a,b) {
+	  if (a.Year < b.Year)
+	    return -1;
+	  if (a.Year > b.Year)
+	    return 1;
+	  return 0;
+	}
+	// Sort omdb objects by year: most recent to oldest
+	function compareReverse(a,b) {
+	  if (a.Year > b.Year)
+	    return -1;
+	  if (a.Year < b.Year)
+	    return 1;
+	  return 0;
+	}
 /*********************************
    API OMDB
 **********************************/
-$submit.on("click", function(e){
-	searchValue = $.trim($search.val());
-
+$submit.on("click", function(e, addorder){
+	if ( $search.val() !== "") {
+		searchValue = $search.val();
+	}
+	console.log(addorder);
 	e.preventDefault();
 
 	// Disable search field and button
@@ -120,6 +139,20 @@ $submit.on("click", function(e){
 		if ( response.Response !== "False" ) {
 			var movieHTML = '';
 			details = [];
+
+			movieHTML ='<div id="filter"><a id="filter-link">Toggle Release Date</a></div>';
+
+			// Toggle Date: Oldest to Most Recent
+			if (addorder === 1) {
+				response.Search.sort(compare);
+				movieHTML ='<div id="filter"><a id="filter-link">Sort: Recent to Oldest</a></div>';
+			}
+			// Toggle Date: Most Recent to Oldest
+
+			if (addorder === -1) {
+				response.Search.sort(compareReverse);
+				movieHTML ='<div id="filter"><a id="filter-link" class="reverse">Sort: Oldest to Recent</a></div>';
+			}
 			$.each(response.Search, function(i, data){
 				//Create Details Object
 					details.push({
@@ -129,6 +162,7 @@ $submit.on("click", function(e){
 						type: data.Type,
 						image: data.Poster
 					})
+
 				// Build HTML in JavaScript (Dirty)
 				if ( data.Poster !== "N/A" ) {
 					movieHTML += '<div class="result" id="' + data.imdbID+ '">\n';
@@ -264,6 +298,22 @@ $submit.on("click", function(e){
 		//Advances slideshow right on right-arrow [39] key.
 			$("#arrow-left").trigger("click");
 		break;
+		}
+	});
+
+	/*********************************
+	   FILTER
+	**********************************/
+	$container.on("click", "#filter-link", function(){
+		if ( $(this).hasClass("reverse") ) {
+			$(this).removeClass("reverse");
+			// most recent
+			$submit.trigger("click", 1);
+
+		} else {
+			$(this).addClass("reverse");
+			//oldest
+			$submit.trigger("click", -1);
 		}
 	});
 
