@@ -15,6 +15,7 @@ function init() {
 	//   amount of APIs, I CAN do it, but
 	//   I'll just be like everyone else.
 	//
+	// Note 2: OMDB search only has 5 items
 
 	var xReq = new XMLHttpRequest();
 	xReq.onload = function(){
@@ -101,7 +102,7 @@ $(document).ready(function(){
 		$(window).on("resize", resetVideoHeight);
 
 		var detailHTML = '<div data-id="' + details[index].id + '">';
-		detailHTML +='<h2>' + details[index].title + ' [' + searchYear + ']</h2>\n';
+		detailHTML +='<h2>' + details[index].title + ' - ' + details[index].type.toUpperCase() + ' [' + searchYear + ']</h2>\n';
 		$info.html(detailHTML);
 		detailHTML = "";
 	}; // end createDetails
