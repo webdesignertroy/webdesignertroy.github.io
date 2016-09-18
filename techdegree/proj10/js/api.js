@@ -20,7 +20,8 @@ function init() {
 	// http://stackoverflow.com/questions/23740548/how-to-pass-variables-and-data-from-php-to-javascript
 	var xReq = new XMLHttpRequest();
 	xReq.onload = function(){
-		gapi.client.setApiKey(JSON.parse(this.responseText));
+		gapi.client.setApiKey(decodeURI(this.responseText).replace(/["]/g, ""));
+		console.log(this.responseText.replace(/["]/g, ""));
 		gapi.client.load("youtube", "v3", function(){
 		});// yt api is ready
 	}
@@ -32,7 +33,7 @@ var omdbImgKey;
 // OMDB Image Key
 var yReq = new XMLHttpRequest();
 yReq.onload = function(){
-	omdbImgKey = JSON.parse(this.responseText);
+	omdbImgKey = decodeURI(this.responseText.replace(/["]/g, ""));
 }
 yReq.open("get", "./php/omdbimg-key.php", true);
 yReq.send();
