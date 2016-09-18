@@ -5,15 +5,15 @@
 // Function Declaration for Google API (YouTube API)
 function init() {
 	// Note: YouTube v3 API uses GET, and not POST, so I'm not 
-	// not sure what to expect here. For the record, the 
-	// API key is exclusive to this App and is "restricted" to
-	// "webdesignertroy.github.io" and "localhost:8888" 
-	// by design. If YouTube thinks there's a sufficient amount of
-	// security, I think there's a sufficient amount of security.
-	// I would like to use this project for my real portfolio
-	// So, it needs to standout. By limiting me to a limited 
-	// amount of APIs, I CAN do it, but
-	// I'll just be like everyone else.
+	//   not sure what to expect here. For the record, the 
+	//   API key is exclusive to this App and is "restricted" to
+	//   "webdesignertroy.github.io" and "localhost:8888" 
+	//   by design. If YouTube thinks there's a sufficient amount of
+	//   security, I think there's a sufficient amount of security.
+	//   I would like to use this project for my real portfolio
+	//   So, it needs to standout. By limiting me to a limited 
+	//   amount of APIs, I CAN do it, but
+	//   I'll just be like everyone else.
 	//
 
 	// Most secure way to pass data in this context
@@ -24,7 +24,7 @@ function init() {
 		gapi.client.load("youtube", "v3", function(){
 		});// yt api is ready
 	}
-	xReq.open("post", "./php/api-key.php", true);
+	xReq.open("get", "./php/api-key.php", true);
 	xReq.send();
 }
 var omdbImgKey;
@@ -34,7 +34,7 @@ var yReq = new XMLHttpRequest();
 yReq.onload = function(){
 	omdbImgKey = this.responseText;
 }
-yReq.open("post", "./php/omdbimg-key.php", true);
+yReq.open("get", "./php/omdbimg-key.php", true);
 yReq.send();
 
 $(document).ready(function(){
