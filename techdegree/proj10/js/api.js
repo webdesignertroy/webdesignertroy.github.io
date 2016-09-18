@@ -11,13 +11,11 @@ function init() {
 	//   by design. If YouTube thinks there's a sufficient amount of
 	//   security, I think there's a sufficient amount of security.
 	//   I would like to use this project for my real portfolio
-	//   So, it needs to standout. By limiting me to a limited 
+	//   so, it needs to standout. By limiting me to a limited 
 	//   amount of APIs, I CAN do it, but
 	//   I'll just be like everyone else.
 	//
 
-	// Most secure way to pass data in this context
-	// http://stackoverflow.com/questions/23740548/how-to-pass-variables-and-data-from-php-to-javascript
 	var xReq = new XMLHttpRequest();
 	xReq.onload = function(){
 		gapi.client.setApiKey(this.responseText);

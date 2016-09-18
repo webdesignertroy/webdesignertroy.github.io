@@ -259,6 +259,7 @@ button:hover, button:focus {
 }
 /********* Video *********/
 .item {
+  position: relative;
 }
 .item h2 {
   font-family: "Dosis";
@@ -293,6 +294,15 @@ iframe {
   background: #d0b5b3;
   color: #b32d23;
 }
+#imdb span {
+  display: inline-block;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  font-family: "Dosis";
+}
 /*********************************
    MEDIA QUERIES
 *********************************/
@@ -300,6 +310,10 @@ iframe {
 @media (min-width: 480px) {
   #cursor-border-left,  #cursor-border-right {
     display: inline-block;
+  }
+  #imdb span {
+    right: 15px;
+    left: inherit;
   }
 
   #filter-link { 
