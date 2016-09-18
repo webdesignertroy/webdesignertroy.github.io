@@ -1,12 +1,42 @@
 
+/*********************************
+  INITIALIZE
+**********************************/
 // Function Declaration for Google API (YouTube API)
 function init() {
-	// Note: API key is used in YouTube API Call but 
-	//   use is "restricted" to "webdesignertroy.github.io" and "localhost."
-	gapi.client.setApiKey("AIzaSyD1i2kQhJqH2NGeZqECn0KQwlibpE36NDc");
-	gapi.client.load("youtube", "v3", function(){
-	});// yt api is ready
+	// Note: YouTube v3 API uses GET, and not POST, so I'm not 
+	// not sure what to expect here. For the record, the 
+	// API key is exclusive to this App and is "restricted" to
+	// "webdesignertroy.github.io" and "localhost:8888" 
+	// by design. If YouTube thinks there's a sufficient amount of
+	// security, I think there's a sufficient amount of security.
+	// I would like to use this project for my real portfolio
+	// So, it needs to standout. By limiting me to a limited 
+	// amount of APIs, I CAN do it, but
+	// I'll just be like everyone else.
+	//
+
+	// Most secure way to pass data in this context
+	// http://stackoverflow.com/questions/23740548/how-to-pass-variables-and-data-from-php-to-javascript
+	var xReq = new XMLHttpRequest();
+	xReq.onload = function(){
+		gapi.client.setApiKey(this.responseText);
+		gapi.client.load("youtube", "v3", function(){
+		});// yt api is ready
+	}
+	xReq.open("post", "./php/api-key.php", true);
+	xReq.send();
 }
+var omdbImgKey;
+
+// OMDB Image Key
+var yReq = new XMLHttpRequest();
+yReq.onload = function(){
+	omdbImgKey = this.responseText;
+}
+yReq.open("post", "./php/omdbimg-key.php", true);
+yReq.send();
+
 $(document).ready(function(){
 
 	/*********************************
@@ -145,11 +175,15 @@ $(document).ready(function(){
 				// Toggle Date: Oldest to Most Recent
 				if (addorder === 1) {
 					response.Search.sort(compare);
+
+					// Building HTML in JavaScript 
 					movieHTML ='<div id="filter"><a id="filter-link">Sort: Recent to Oldest</a></div>';
 				}
 				// Toggle Date: Most Recent to Oldest
 				if (addorder === -1) {
 					response.Search.sort(compareReverse);
+
+					// Building HTML in JavaScript 
 					movieHTML ='<div id="filter"><a id="filter-link" class="reverse">Sort: Oldest to Recent</a></div>';
 				}
 
@@ -164,11 +198,11 @@ $(document).ready(function(){
 						image: data.Poster
 					});
 
-					// Build HTML in JavaScript (Dirty)
+					// Building HTML in JavaScript 
 					if ( data.Poster !== "N/A" ) {
 						movieHTML += '<div class="result" id="' + data.imdbID+ '">\n';
 						movieHTML += '<a href="#" class="result-link">\n';
-						var movieImage = '<img src="//img.omdbapi.com/?i=' + data.imdbID + '&apikey=7fe29f8b" class="result-img"/>';
+						var movieImage = '<img src="//img.omdbapi.com/?i=' + data.imdbID + '&apikey=' + omdbImgKey + '" class="result-img"/>';
 						movieHTML += movieImage + '\n';
 						movieHTML += '<div class="content">' + data.Title + ' (' + data.Year + ')</div>';
 						movieHTML += '</a>\n';

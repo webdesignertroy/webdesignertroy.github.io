@@ -95,18 +95,20 @@ img {
 #filter-link {
   display: inline-block;
   color: white;
-  background: #B72D46;
-  padding: 0.3em 0.5em;
+  background: #412D78;
+  padding: 0.3em 0.7em;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   cursor: pointer;
   margin: 2.5em 0 1.5em 0;
   transition: .3s ease-out;
+  font-size: 0.77em;
+  text-transform: uppercase;
   letter-spacing: 0.07em;
 }
 #filter-link:hover {
-  background: red;
+  background: #9f89dc;
 }
 /*********************************
    FORM
