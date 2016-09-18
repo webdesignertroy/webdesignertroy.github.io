@@ -299,7 +299,7 @@ iframe {
   color: #b32d23;
 }
 #imdb span {
-  display: inline-block;
+  display: none;
   position: fixed;
   top: 10px;
   left: 0;
@@ -316,8 +316,7 @@ iframe {
     display: inline-block;
   }
   #imdb span {
-    right: 15px;
-    left: inherit;
+    display: inline-block;
   }
   #form {
     display: block;
