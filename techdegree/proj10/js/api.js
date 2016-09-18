@@ -24,7 +24,7 @@ function init() {
 		gapi.client.load("youtube", "v3", function(){
 		});// yt api is ready
 	}
-	xReq.open("get", "./php/api-key.php", true);
+	xReq.open("get", "./txt/api-key.txt", true);
 	xReq.send();
 }
 var omdbImgKey;
@@ -32,9 +32,9 @@ var omdbImgKey;
 // OMDB Image Key
 var yReq = new XMLHttpRequest();
 yReq.onload = function(){
-	omdbImgKey = this.responseText.replace;
+	omdbImgKey = this.responseText;
 }
-yReq.open("get", "./php/omdbimg-key.php", true);
+yReq.open("get", "./txt/omdbimg-key.txt", true);
 yReq.send();
 
 $(document).ready(function(){
