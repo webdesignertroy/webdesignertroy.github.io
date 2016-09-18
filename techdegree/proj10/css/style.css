@@ -101,7 +101,7 @@ img {
   -moz-border-radius: 5px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 2.5em 0 1.5em 0;
+  margin: 9em 0 1.5em 0;
   transition: .3s ease-out;
   font-size: 0.77em;
   text-transform: uppercase;
@@ -122,7 +122,7 @@ img {
   background: whitesmoke;
   background: linear-gradient(to right, #5B2774, #A868C7, #5B2774 );
   z-index: 5;
-  padding-bottom: 1.5em;
+  padding: 1.5em;
 }
 #form-container {
   display: -ms-flexbox;
@@ -133,6 +133,10 @@ img {
 }
 #form {
   text-align: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #search {
   -webkit-border-radius: 4px;
@@ -315,8 +319,10 @@ iframe {
     right: 15px;
     left: inherit;
   }
-
+  #form {
+    display: block;
+  }
   #filter-link { 
-    margin: 1.5em 0;
+    margin: 4em 0 1.5em 0;
   }
 }
