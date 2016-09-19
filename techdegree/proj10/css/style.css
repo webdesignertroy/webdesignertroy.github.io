@@ -312,7 +312,8 @@ iframe {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -17px;
+  padding: 1em 1em 20px 1em;
   min-height: 38px;
   background: rgba(0, 0, 0, 0.7);
 }
