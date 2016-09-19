@@ -144,6 +144,17 @@ $(document).ready(function(){
 		return 0;
 	}// end compareReverse()
 
+	// Found No Title Results in iTunes
+	function foundNothing(){
+		$container.html("");
+		$.get("tpl/no-movie.html", function(data){
+			$("#container").append(tplawesome(data, [{
+				"messageTitle": "This Title was Not Found",
+				"message": 'Please check your spelling (i.e. "Indiana Jone" instead of "Indiana Jones" ).'
+			}]));
+		});
+	}
+
 	/*********************************
 	  API OMDB
 	**********************************/
@@ -164,7 +175,6 @@ $(document).ready(function(){
 			title: searchValue
 		};
 		var movieResults = function(response) {
-			console.log(response);
 			if ( response.results.length !== 0 ) {
 				var movieHTML = '';
 				details = [];
@@ -223,16 +233,14 @@ $(document).ready(function(){
 							}
 						}
 					});
-				$container.html(movieHTML);
+				if (details.length !== 0 ) {
+					$container.html(movieHTML);
+				} else {
+					foundNothing();
+				}
 
 			} else {
-				$container.html("");
-				$.get("tpl/no-movie.html", function(data){
-					$("#container").append(tplawesome(data, [{
-						"messageTitle": "This Title was Not Found",
-						"message": 'Please check your spelling (i.e. "Indiana Jone" instead of "Indiana Jones" ).'
-					}]));
-				});
+				foundNothing();
 			} // end movieResults()
 
 				// Clear search field for next searxh
