@@ -64,7 +64,6 @@ $(document).ready(function(){
 		searchPhrase = searchPhrase.replace(/\//g, "");
 		searchPhrase = searchPhrase.replace("(", "");
 		searchPhrase = searchPhrase.replace(")", "");
-		console.log(searchPhrase);
 		var request = gapi.client.youtube.search.list({
 			part: "snippet",
 			chart: "mostPopular",
