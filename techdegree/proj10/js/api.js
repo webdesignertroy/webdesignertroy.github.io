@@ -101,7 +101,7 @@ $(document).ready(function(){
 						"short": description,
 						"long": longDescription,
 						"title": titleYear, 
-						"message": "Sorry. No related video was found for this title."
+						"message": "(Sorry. No related video was found for this title.)"
 					}]));
 				});
 			}
