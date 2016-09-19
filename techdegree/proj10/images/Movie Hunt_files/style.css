@@ -1,0 +1,338 @@
+/*********************************
+   BASIC ELEMENTS
+*********************************/
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Dosis", sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+  background: #f2f2f2;
+  color: #5B2774;
+}
+h1#page-title {
+  font-family: "Baloo Chettan", cursive;
+  text-align: center;
+  line-height: 1.2em;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 3px #000000;
+  letter-spacing: 0.06em;
+}
+img {
+  width: 100%;
+}
+/*********************************
+   IDS/CLASSES 
+*********************************/
+#container {
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 150px auto 0 auto;
+  max-width: 1025px;
+}
+.result {
+  background: #ece8ef;
+  margin: 20px;
+  padding: 1em;
+  position: relative;
+  width: 100px;
+  min-height: 200px;
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+.result-link, .no-result-link {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+.no-result-link, .content {
+  color: #351146;
+}
+.content {
+  text-align: center;
+}
+.no-result-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  min-height: 200px;
+}
+.no-result-link p {
+  margin: 0 0 0.5em 0;
+  padding: 0 0.5em;
+}
+.link-header {
+  font-family: "Baloo Chettan", cursive;
+}
+.no-result-img {
+  width: 170px;
+}
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+#message {
+  text-align: center;
+  margin-top: 25vh;
+  padding: 0 15px;
+}
+/********* Filter *********/
+#filter {
+  width: 100%;
+  text-align: center;
+}
+#filter-link {
+  display: inline-block;
+  color: white;
+  background: #412D78;
+  padding: 0.3em 0.7em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 9em 0 1.5em 0;
+  transition: .3s ease-out;
+  font-size: 0.77em;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+#filter-link:hover {
+  background: #9f89dc;
+}
+/*********************************
+   FORM
+*********************************/
+#fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 3px solid #e6e1ea;
+  background: whitesmoke;
+  background: linear-gradient(to right, #5B2774, #A868C7, #5B2774 );
+  z-index: 5;
+  padding: 1.5em;
+}
+#form-container {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#form {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#search {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #5B2774;
+  padding: 0 15px;
+  height: 30px;
+  transition: 0.25s ease-out;
+}
+#search:hover {
+  background: #f4eff7;
+}
+#search:focus {
+  outline: none;
+  background: #f4eff7;
+  box-shadow: inset 1px 1px 10px rgba(83, 39, 105, 0.5);
+}
+button {
+  cursor: pointer;
+  margin-top: 0.5em;
+  width: 94px;
+  padding: 5px 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: none;
+  border: none;
+  background: #351146;
+  color: white;
+}
+button:focus {
+  outline: none;
+}
+button:hover, button:focus {
+  background: #5B2774;
+}
+[placeholder]:focus::-webkit-input-placeholder {
+ transition: text-indent 0.5s 0.1s ease;
+ text-indent: -100%;
+ -webkit-opacity: 1;
+ -moz-opacity: 1;
+ opacity: 1;
+}
+/*********************************
+   OVERLAY 
+*********************************/
+#overlay {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+ -webkit-opacity: 0;
+ -moz-opacity: 0;
+  opacity: 0;
+  cursor: url(../images/close-icon.png), crosshair;
+}
+#info {
+  position: relative;
+  color: #e4dfdf;
+  max-width: 980px;
+  width: 100%;
+  background: #000000;
+  padding: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 999;
+  cursor: default;
+}
+.show {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+#cursor-border-left, #cursor-border-right {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  width: 65px;
+  height: 100%;
+  z-index: 101;
+  cursor: default;
+}
+#cursor-border-right {
+  right: 0;
+}
+#cursor-border-left {
+  left: 0;
+}
+.detail-img { /* Used !important */
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  height: 350px;
+}
+/********* Navigation *********/
+#arrow-left {
+  left: 10px;
+  background: url(../images/left-arrow36x63.png);
+}
+#arrow-right {
+  right: 10px;
+  background: url(../images/right-arrow36x63.png);
+}
+#arrow-left, #arrow-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 52px;
+  cursor: pointer;
+  z-index: 150;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/********* Video *********/
+.item {
+  position: relative;
+}
+.item h2 {
+  font-family: "Dosis";
+}
+iframe {
+  width: 100%;
+}
+#imdb {
+  width: 100%;
+}
+.imdb-link {
+  display: inline-block;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  width: 150px;
+  min-height: 41px;
+  padding: 5px;
+  color: white;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background: #b32d23;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: .3s ease-out;
+  cursor: pointer;
+}
+.imdb-link:hover {
+  background: #d0b5b3;
+  color: #b32d23;
+}
+#imdb span {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  font-family: "Dosis";
+}
+.short-description {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -17px;
+  min-height: 38px;
+  background: rgba(0, 0, 0, 0.7);
+}
+/*********************************
+   MEDIA QUERIES
+*********************************/
+
+@media (min-width: 480px) {
+  #cursor-border-left,  #cursor-border-right {
+    display: inline-block;
+  }
+  #imdb span {
+    display: inline-block;
+    right: 20px;
+    left: inherit;
+  }
+  #form {
+    display: block;
+  }
+  #filter-link { 
+    margin: 4em 0 1.5em 0;
+  }
+}
