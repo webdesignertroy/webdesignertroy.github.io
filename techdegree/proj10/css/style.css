@@ -308,6 +308,9 @@ iframe {
 .hide-text {
   display: none;
 }
+#imdb span {
+  display: none;
+}
 /*********************************
    MEDIA QUERIES
 *********************************/
