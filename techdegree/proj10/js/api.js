@@ -63,6 +63,7 @@ $(document).ready(function(){
 
 		var searchPhrase = details[index].brand + " " + details[index].title + " release date " + details[index].year ;
 		searchPhrase = searchPhrase.replace(/%3A/g, "");
+		searchPhrase = searchPhrase.replace(/\//g, "");
 		searchPhrase = searchPhrase.replace("(", "");
 		searchPhrase = searchPhrase.replace(")", "");
 		console.log(searchPhrase);
