@@ -90,8 +90,11 @@ $(document).ready(function(){
 					});
 				});
 			} else {
+				$(".item").remove(); 
 				$.get("tpl/no-item.html", function(data){
 					$info.append(tplawesome(data, [{
+						"short": description,
+						"title": titleYear, 
 						"message": "Sorry. No related video was found for this title."
 					}]));
 				});
