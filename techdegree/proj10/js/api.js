@@ -161,7 +161,6 @@ $(document).ready(function(){
 			title: searchValue
 		};
 		var movieResults = function(response) {
-			console.log(response.results);
 			if ( response.results.length !== 0 ) {
 				var movieHTML = '';
 				details = [];
