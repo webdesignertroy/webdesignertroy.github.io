@@ -311,6 +311,10 @@ iframe {
 #imdb span {
   display: none;
 }
+.long-description {
+  max-width: 980px;
+  margin: 0 auto;
+}
 /*********************************
    MEDIA QUERIES
 *********************************/
