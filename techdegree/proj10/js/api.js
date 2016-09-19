@@ -14,8 +14,6 @@ function init() {
 	//   so, it needs to standout. By limiting me to a limited 
 	//   amount of APIs, I CAN do it, but
 	//   I'll just be like everyone else.
-	//
-	// Note 2: OMDB search only has 5 items
 
 	var xReq = new XMLHttpRequest();
 	xReq.onload = function(){
@@ -160,7 +158,7 @@ $(document).ready(function(){
 		$submit.attr("disabled", true);
 
 		// API #1: OMDB
-		var url = "//itunes.apple.com/search?term=" + searchValue + "&media=all";
+		var url = "//itunes.apple.com/search?term=" + searchValue ;
 
 		var movieData = {
 			title: searchValue
@@ -208,7 +206,7 @@ $(document).ready(function(){
 								if ( typeof data.artworkUrl100 !== "undefined" ) {
 									movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
 									movieHTML += '<a href="#" class="result-link">\n';
-									var movieImage = '<img src="'+ data.artworkUrl100 + '" class="result-img"/>';
+									var movieImage = '<img alt="' + data.trackName + '" title="' + data.artistName + '" src="'+ data.artworkUrl100 + '" class="result-img"/>';
 									movieHTML += movieImage + '\n';
 									movieHTML += '<div class="content">' + data.trackName + '<br />(' + relDate + ')</div>';
 									movieHTML += '</a>\n';
