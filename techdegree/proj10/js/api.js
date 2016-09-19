@@ -172,7 +172,7 @@ $(document).ready(function(){
 		var url = "//itunes.apple.com/search?term=" + searchValue ;
 
 		var movieData = {
-			title: searchValue
+			title: searchValue  
 		};
 		var movieResults = function(response) {
 			if ( response.results.length !== 0 ) {
