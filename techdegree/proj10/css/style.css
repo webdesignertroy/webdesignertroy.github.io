@@ -280,47 +280,33 @@ iframe {
 }
 #imdb {
   width: 100%;
-}
-.imdb-link {
-  display: inline-block;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0.3em 2em;
   justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
-  text-align: center;
-  width: 150px;
-  min-height: 41px;
-  padding: 5px;
+  background: rgba(0,0,0,0.8);
+  transition: 1s all ease-out;
+}
+/********* Details *********/
+#toggle-details {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: rgba(179, 45, 35, 0.8);
   color: white;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  background: #b32d23;
+  padding: 0.2em 1em;
+  z-index: 600;
   text-transform: uppercase;
-  text-decoration: none;
-  transition: .3s ease-out;
+  font-size: 0.6em;
+  border-radius: 10px 0 0 0;
   cursor: pointer;
 }
-.imdb-link:hover {
-  background: #d0b5b3;
-  color: #b32d23;
-}
-#imdb span {
+.hide-text {
   display: none;
-  position: fixed;
-  top: 10px;
-  left: 0;
-  right: 0;
-  font-size: 12px;
-  font-family: "Dosis";
-}
-.short-description {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -17px;
-  padding: 1em 1em 20px 1em;
-  min-height: 38px;
-  background: rgba(0, 0, 0, 0.7);
 }
 /*********************************
    MEDIA QUERIES
@@ -331,9 +317,13 @@ iframe {
     display: inline-block;
   }
   #imdb span {
+    font-size: 12px;
+    font-family: "Dosis";
     display: inline-block;
     right: 20px;
-    left: inherit;
+    top: 5px;
+    position: fixed;
+    text-align: right;
   }
   #form {
     display: block;

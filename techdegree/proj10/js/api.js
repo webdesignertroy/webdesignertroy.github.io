@@ -36,6 +36,7 @@ $(document).ready(function(){
 	var $container = $("#container");
 
 	var $overlay = $("#overlay");
+	var $toggleDetails = $('<div id="toggle-details">More Details</div>');
 	var $info = $('<div id="info"></div>');
 	var $cursorBorderLeft = $('<div id="cursor-border-left"></div>');
 	var $cursorBorderRight = $('<div id="cursor-border-right"></div>');
@@ -43,6 +44,9 @@ $(document).ready(function(){
 	var $arrowRight = $('<div id="arrow-right"></div>');
 
 	var details;
+
+	var $readDetails = $(".read-details");
+	var $hideDetails = $(".hide-details");
 
 	/*********** Function Expressions ***********/
 	var createDetails = function(index) {
@@ -53,6 +57,7 @@ $(document).ready(function(){
 		var description;
 		if(  typeof details[index].ldescription !== "undefined" ) {
 			description = details[index].ldescription.substring(0,100) + "...";
+			longDescription = details[index].ldescription;
 		} else {
 			description = "";
 		}
@@ -83,6 +88,7 @@ $(document).ready(function(){
 						$info.append(tplawesome(data, [{
 							"videoid": item.id.videoId,
 							"short": description,
+							"long": longDescription,
 							"title": titleYear 
 						}]));
 						resetVideoHeight();
@@ -93,6 +99,7 @@ $(document).ready(function(){
 				$.get("tpl/no-item.html", function(data){
 					$info.append(tplawesome(data, [{
 						"short": description,
+						"long": longDescription,
 						"title": titleYear, 
 						"message": "Sorry. No related video was found for this title."
 					}]));
@@ -197,41 +204,41 @@ $(document).ready(function(){
 
 				// Iterate through API response
 				$.each(response.results, function(i, data){
-						if ( typeof data.trackId !== "undefined" ) {
-							if( data.kind.indexOf("episode") !== -1 || data.kind.indexOf('movie') !== -1 ) {
-								//Create Details Object
-								var relDate = data.releaseDate.slice(0,4);
-								details.push({
-									title: data.trackName,
-									year: relDate,
-									id: data.trackId,
-									type: data.kind,
-									image: data.artworkUrl100,
-									brand: data.artistName,
-									ldescription: data.longDescription
-								});
+					if ( typeof data.trackId !== "undefined" ) {
+						if( data.kind.indexOf("episode") !== -1 || data.kind.indexOf('movie') !== -1 ) {
+							//Create Details Object
+							var relDate = data.releaseDate.slice(0,4);
+							details.push({
+								title: data.trackName,
+								year: relDate,
+								id: data.trackId,
+								type: data.kind,
+								image: data.artworkUrl100,
+								brand: data.artistName,
+								ldescription: data.longDescription
+							});
 
-								// Building HTML in JavaScript 
-								if ( typeof data.artworkUrl100 !== "undefined" ) {
-									movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
-									movieHTML += '<a href="#" class="result-link">\n';
-									var movieImage = '<img alt="' + data.trackName + '" title="' + data.artistName + '" src="'+ data.artworkUrl100 + '" class="result-img"/>';
-									movieHTML += movieImage + '\n';
-									movieHTML += '<div class="content">' + data.trackName + '<br />(' + relDate + ')</div>';
-									movieHTML += '</a>\n';
-									movieHTML += '</div>\n';
-								} else {
-									movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
-									movieHTML += '<a href="#" class="no-result-link">\n';
-									movieHTML += '<p class="link-header">Poster Not Available</p>\n';
-									movieHTML += '<p>' + data.trackId + '<br />\n';
-									movieHTML += '(' + relDate + ')</p>\n';
-									movieHTML += '</a>\n';
-									movieHTML += '</div>\n';
-								}
+							// Building HTML in JavaScript 
+							if ( typeof data.artworkUrl100 !== "undefined" ) {
+								movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
+								movieHTML += '<a href="#" class="result-link">\n';
+								var movieImage = '<img alt="' + data.trackName + '" title="' + data.artistName + '" src="'+ data.artworkUrl100 + '" class="result-img"/>';
+								movieHTML += movieImage + '\n';
+								movieHTML += '<div class="content">' + data.trackName + '<br />(' + relDate + ')</div>';
+								movieHTML += '</a>\n';
+								movieHTML += '</div>\n';
+							} else {
+								movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
+								movieHTML += '<a href="#" class="no-result-link">\n';
+								movieHTML += '<p class="link-header">Poster Not Available</p>\n';
+								movieHTML += '<p>' + data.trackId + '<br />\n';
+								movieHTML += '(' + relDate + ')</p>\n';
+								movieHTML += '</a>\n';
+								movieHTML += '</div>\n';
 							}
 						}
-					});
+					}
+				});
 				if (details.length !== 0 ) {
 					$container.html(movieHTML);
 				} else {
@@ -269,6 +276,8 @@ $(document).ready(function(){
 		$info.appendTo($overlay);
 		$arrowRight.appendTo("#wrapper");
 		$arrowLeft.appendTo("#wrapper");
+		$toggleDetails.appendTo("#wrapper");
+		$toggleDetails.text("More Details");
 		$cursorBorderRight.appendTo($overlay);
 		$cursorBorderLeft.appendTo($overlay);
 		$overlay.addClass("show");
@@ -299,9 +308,25 @@ $(document).ready(function(){
 			$cursorBorderLeft.remove();
 			$arrowRight.remove();
 			$arrowLeft.remove();
+			$toggleDetails.detach();
 		});
 
 	});// end $overlay hide
+	/*********************************
+	  EVENT LISTENERS
+	**********************************/
+	$toggleDetails.on("click", function(){
+		if ( $(".long-description ").hasClass("hide-text")) {
+			$(".long-description").removeClass("hide-text");
+			$(".short-description").addClass("hide-text");
+			$toggleDetails.text("Less Details");
+		} else {
+			console.log("We will hide Text");
+			$(".long-description").addClass("hide-text");
+			$(".short-description").removeClass("hide-text");
+			$toggleDetails.text("More Details");
+		}
+	});
 
 	/*********************************
 	  NAVIGATION
@@ -310,6 +335,7 @@ $(document).ready(function(){
 	// On right arrow click (bubbling event issues)
 	$("#wrapper").on("click", "#arrow-right",function(){
 		var currentId = parseInt($info.find(".id-info").attr("data-id"));
+		$toggleDetails.text("More Details");
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {
 				if ( i < details.length - 1) {
@@ -324,6 +350,7 @@ $(document).ready(function(){
 	// On left arrow click (bubbling event issues)
 	$("#wrapper").on("click", "#arrow-left",function(){
 		var currentId = parseInt($info.find(".id-info").attr("data-id"));
+		$toggleDetails.text("More Details");
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {
 				if ( i > 0) {
