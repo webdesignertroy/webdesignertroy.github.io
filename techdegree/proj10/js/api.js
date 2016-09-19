@@ -26,15 +26,6 @@ function init() {
 	xReq.open("get", "./txt/api-key.txt", true);
 	xReq.send();
 }
-var omdbImgKey;
-
-// OMDB Image Key
-var yReq = new XMLHttpRequest();
-yReq.onload = function(){
-	omdbImgKey = this.responseText;
-};
-yReq.open("get", "./txt/omdbimg-key.txt", true);
-yReq.send();
 
 $(document).ready(function(){
 
@@ -61,13 +52,19 @@ $(document).ready(function(){
 		//API #2: YouTube Search:link
 
 		// prepare the request
-		var imdbHref = "//www.imdb.com/title/" + details[index].id;
-		var searchYear = details[index].year.slice(0,4);
-		var searchPhrase = encodeURIComponent(details[index].title + " release date " + searchYear).replace(/%20/g, "+");
+		var description;
+		if(  typeof details[index].ldescription !== "undefined" ) {
+			description = details[index].ldescription.substring(0,100) + "...";
+		} else {
+			description = "";
+		}
+		var titleYear = '<san class="id-info" data-id="' + details[index].id + '"></span>';
+			titleYear += details[index].title + ' - ' + details[index].type.toUpperCase() + ' [' + details[index].year + ']';
+
+		var searchPhrase = details[index].title + " release date " + details[index].year ;
 		searchPhrase = searchPhrase.replace(/%3A/g, "");
 		searchPhrase = searchPhrase.replace("(", "");
 		searchPhrase = searchPhrase.replace(")", "");
-
 		var request = gapi.client.youtube.search.list({
 			part: "snippet",
 			chart: "mostPopular",
@@ -86,7 +83,8 @@ $(document).ready(function(){
 					$.get("tpl/item.html", function(data){
 						$info.append(tplawesome(data, [{
 							"videoid": item.id.videoId,
-							"imdblink": imdbHref
+							"short": description,
+							"title": titleYear 
 						}]));
 						resetVideoHeight();
 					});
@@ -101,10 +99,7 @@ $(document).ready(function(){
 		});
 		$(window).on("resize", resetVideoHeight);
 
-		var detailHTML = '<div data-id="' + details[index].id + '">';
-		detailHTML +='<h2>' + details[index].title + ' - ' + details[index].type.toUpperCase() + ' [' + searchYear + ']</h2>\n';
-		$info.html(detailHTML);
-		detailHTML = "";
+		
 	}; // end createDetails
 
 	/*********** Function Declarations ***********/
@@ -124,23 +119,24 @@ $(document).ready(function(){
 
 	//  Responsive: Keep iframe ratio
 	function resetVideoHeight() {
-		$(".video").attr("height", $info.width() * 9/16);
+			$(".video").attr("height", $info.width() * 9/16);
 	}// end resetVideoHeight
+
 
 	// Sort omdb objects by year: oldest to most recent
 	function compare(a,b) {
-		if (a.Year < b.Year)
+		if (a.releaseDate < b.releaseDate)
 			return -1;
-		if (a.Year > b.Year)
+		if (a.releaseDate > b.releaseDate)
 			return 1;
 		return 0;
 	}// end compare()
 
 	// Sort omdb objects by year: most recent to oldest
 	function compareReverse(a,b) {
-		if (a.Year > b.Year)
+		if (a.releaseDate > b.releaseDate)
 			return -1;
-		if (a.Year < b.Year)
+		if (a.releaseDate < b.releaseDate)
 			return 1;
 		return 0;
 	}// end compareReverse()
@@ -159,13 +155,14 @@ $(document).ready(function(){
 		$submit.attr("disabled", true);
 
 		// API #1: OMDB
-		var url = "//www.omdbapi.com/?&s=" + searchValue + '&r=json';
+		var url = "//itunes.apple.com/search?term=" + searchValue + "&media=movie";
 
 		var movieData = {
 			title: searchValue
 		};
 		var movieResults = function(response) {
-			if ( response.Response !== "False" ) {
+			console.log(response.results);
+			if ( response.results.length !== 0 ) {
 				var movieHTML = '';
 				details = [];
 
@@ -173,47 +170,51 @@ $(document).ready(function(){
 
 				// Toggle Date: Oldest to Most Recent
 				if (addorder === 1) {
-					response.Search.sort(compare);
+					response.results.sort(compare);
 
 					// Building HTML in JavaScript 
 					movieHTML ='<div id="filter"><a id="filter-link">Sort: Recent to Oldest</a></div>';
 				}
 				// Toggle Date: Most Recent to Oldest
 				if (addorder === -1) {
-					response.Search.sort(compareReverse);
+					response.results.sort(compareReverse);
 
 					// Building HTML in JavaScript 
 					movieHTML ='<div id="filter"><a id="filter-link" class="reverse">Sort: Oldest to Recent</a></div>';
 				}
 
 				// Iterate through API response
-				$.each(response.Search, function(i, data){
-					//Create Details Object
-					details.push({
-						title: data.Title,
-						year: data.Year,
-						id: data.imdbID,
-						type: data.Type,
-						image: data.Poster
-					});
+				$.each(response.results, function(i, data){
+					if ( typeof data.trackId !== "undefined" ) {
+						//Create Details Object
+						var relDate = data.releaseDate.slice(0,4);
+						details.push({
+							title: data.trackName,
+							year: relDate,
+							id: data.trackId,
+							type: data.kind,
+							image: data.artworkUrl100,
+							ldescription: data.longDescription
+						});
 
-					// Building HTML in JavaScript 
-					if ( data.Poster !== "N/A" ) {
-						movieHTML += '<div class="result" id="' + data.imdbID+ '">\n';
-						movieHTML += '<a href="#" class="result-link">\n';
-						var movieImage = '<img src="//img.omdbapi.com/?i=' + data.imdbID + '&apikey=' + omdbImgKey + '" class="result-img"/>';
-						movieHTML += movieImage + '\n';
-						movieHTML += '<div class="content">' + data.Title + ' (' + data.Year + ')</div>';
-						movieHTML += '</a>\n';
-						movieHTML += '</div>\n';
-					} else {
-						movieHTML += '<div class="result" id="' + data.imdbID+ '">\n';
-						movieHTML += '<a href="#" class="no-result-link">\n';
-						movieHTML += '<p class="link-header">Poster Not Available</p>\n';
-						movieHTML += '<p>' + data.Title + '</p>\n';
-						movieHTML += '<p>(' + data.Year + ')</p>\n';
-						movieHTML += '</a>\n';
-						movieHTML += '</div>\n';
+						// Building HTML in JavaScript 
+						if ( typeof data.artworkUrl100 !== "undefined" ) {
+							movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
+							movieHTML += '<a href="#" class="result-link">\n';
+							var movieImage = '<img src="'+ data.artworkUrl100 + '" class="result-img"/>';
+							movieHTML += movieImage + '\n';
+							movieHTML += '<div class="content">' + data.trackName + '<br />(' + relDate + ')</div>';
+							movieHTML += '</a>\n';
+							movieHTML += '</div>\n';
+						} else {
+							movieHTML += '<div class="result" id="' + data.trackId+ '">\n';
+							movieHTML += '<a href="#" class="no-result-link">\n';
+							movieHTML += '<p class="link-header">Poster Not Available</p>\n';
+							movieHTML += '<p>' + data.trackId + '<br />\n';
+							movieHTML += '(' + relDate + ')</p>\n';
+							movieHTML += '</a>\n';
+							movieHTML += '</div>\n';
+						}
 					}
 				});
 				$container.html(movieHTML);
@@ -237,7 +238,12 @@ $(document).ready(function(){
 		$submit.attr("disabled", false);
 
 		// call API #1
-		$.getJSON(url, movieData, movieResults);
+		$.ajax({
+			url: url,
+			dataType: 'JSONP'
+		}).done(function(response){
+			movieResults(response);
+		});
 
 	}); // end submit click
 
@@ -255,7 +261,7 @@ $(document).ready(function(){
 		$overlay.addClass("show");
 
 		// Find correct data in details array
-		var currentId = $(this).attr("id");
+		var currentId = parseInt($(this).attr("id"));
 		$.each(details, function(i, data){
 			if ( currentId === data.id ) {
 				createDetails(i);
@@ -290,7 +296,7 @@ $(document).ready(function(){
 
 	// On right arrow click (bubbling event issues)
 	$("#wrapper").on("click", "#arrow-right",function(){
-		var currentId = $info.find("div").attr("data-id");
+		var currentId = parseInt($info.find(".id-info").attr("data-id"));
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {
 				if ( i < details.length - 1) {
@@ -304,7 +310,7 @@ $(document).ready(function(){
 
 	// On left arrow click (bubbling event issues)
 	$("#wrapper").on("click", "#arrow-left",function(){
-		var currentId = $info.find("div").attr("data-id");
+		var currentId = parseInt($info.find(".id-info").attr("data-id"));
 		$.each(details, function(i, data){
 			if( data.id === currentId ) {
 				if ( i > 0) {

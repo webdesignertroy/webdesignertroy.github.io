@@ -40,8 +40,10 @@ img {
   margin: 20px;
   padding: 1em;
   position: relative;
-  width: 170px;
+  width: 100px;
   min-height: 200px;
+  font-size: 0.8em;
+  line-height: 1.2em;
 }
 .result-link, .no-result-link {
   cursor: pointer;
@@ -275,8 +277,7 @@ iframe {
   width: 100%;
 }
 .imdb-link {
-  display: -ms-flexbox;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
@@ -307,6 +308,14 @@ iframe {
   font-size: 12px;
   font-family: "Dosis";
 }
+.short-description {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -17px;
+  min-height: 38px;
+  background: rgba(0, 0, 0, 0.7);
+}
 /*********************************
    MEDIA QUERIES
 *********************************/
@@ -317,6 +326,8 @@ iframe {
   }
   #imdb span {
     display: inline-block;
+    right: 20px;
+    left: inherit;
   }
   #form {
     display: block;
