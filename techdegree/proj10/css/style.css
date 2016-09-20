@@ -248,6 +248,16 @@ button:hover, button:focus {
   background-repeat: no-repeat !important;
   height: 350px;
 }
+.no-movie {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 48vh;
+}
 /********* Navigation *********/
 #arrow-left {
   left: 10px;
