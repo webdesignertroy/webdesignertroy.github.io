@@ -145,7 +145,7 @@ $(document).ready(function(){
 			divName.parent().find(".alert-message").animate({
 				opacity: 0,
 				left: 0
-			},2000, function(){
+			}, function(){
 				$(this).parent().find(".alert-message").removeClass("show-message");
 			});
 
