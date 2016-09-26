@@ -1,0 +1,47 @@
+footer {
+    padding: 1.5rem 3rem;
+}
+footer .row {
+    max-width: 100%;
+}
+footer .columns {
+    padding-left: 0;
+}
+footer .social {
+    position: relative;
+}
+footer .social img {
+    height: 35px;
+    width: 35px;
+}
+footer .align-right {
+    position: absolute;
+    right: 0;
+}
+footer .social a.twitter-img {
+    background: url(../img/social/social-images.svg) center;
+    background-position: -70px 2px;
+}
+footer .social a.instagram-img {
+    background: url(../img/social/social-images.svg) center;
+    background-position: -2px 2px;
+}
+footer .social a.facebook-img {
+    background: url(../img/social/social-images.svg) center;
+    background-position: -36px 2px;
+}
+footer .social a {
+    text-indent: -2000px;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 107px 30px !important;
+    background-repeat: no-repeat !important;
+}
+footer p {
+    color: rgb(125, 136, 146);
+    font-family: "Ubuntu";
+    font-size: 0.95rem;
+    font-weight: 300;
+    padding-top: 0.5rem;
+}
