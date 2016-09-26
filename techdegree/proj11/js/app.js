@@ -1404,7 +1404,7 @@ $(document).ready(function(){
 	//   Get large src string
 	$imageThumb.on("click", function(){
 		var $thumbSrc = $(this).attr("src");
-		var largerSrc = $thumbSrc.replace("dest/img/photos/thumbs/", "img/photos/");
+		var largerSrc = $thumbSrc.replace("dest/img/photos/thumbs/", "dest/img/photos/");
 		var $dataInfo = $(this).parent().attr("data-reveal-id"); 
 		$("#" + $dataInfo).find("img").attr("src", largerSrc);
 	});
