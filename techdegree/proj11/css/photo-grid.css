@@ -51,14 +51,13 @@
 
 .info {
     position: relative;
-    margin-top: 0.6rem;
     margin-bottom: 1em;
 }
 .grid-photo,
 .hero-photo {
     background: url(../dest/img/avatars/all-avatars.jpg);
     position: absolute;
-    top: 0;
+    top: 6px;
     width: 50px;
     height: 50px;
     background-size: 156px 108px;
@@ -66,43 +65,52 @@
     text-indent: -2000px;
 }
 .hero-photo {
-    left: 200px;
+    left: 215px;
 }
 .grid-photo {
-    left: 0;
+    left: 14px;
 }
 .attribution{
-    left: 60px;
+    left: 75px;
     position: absolute;
-    top: 0;
+    top: 6px;
 }
 #hero-photo {
     background-position: -2px 0;
 }
-#sm-photo-1 {
+#sm-photo-1,
+#lg-photo-1 {
     background-position: -54px 0;
 }
-#sm-photo-2 {
+#sm-photo-2,
+#lg-photo- {
     background-position: -105px 0;
 }
-#sm-photo-3 {
+#sm-photo-3,
+#lg-photo-3 {
     background-position: -54px 0;
 }
-#sm-photo-4 {
+#sm-photo-4,
+#lg-photo-4 {
     background-position: -2px -56px;
 }
-#sm-photo-5 {
+#sm-photo-5,
+#lg-photo-5 {
     background-position: -52px -54px;
 }
-#sm-photo-6 {
+#sm-photo-6,
+#lg-photo-6 {
     background-position: -105px -54px;
 }
-#sm-photo-7 {
+#sm-photo-7,
+#lg-photo-7 {
     background-position: -105px 0;
 }
-#sm-photo-8 {
+#sm-photo-8,
+#lg-photo-8 {
     background-position: -105px -54px;
 }
-#sm-photo-9 {
+#sm-photo-9,
+#lg-photo-9 {
     background-position: -54px 0;
 }

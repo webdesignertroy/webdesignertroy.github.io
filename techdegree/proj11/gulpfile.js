@@ -30,6 +30,7 @@ gulp.task("concatCSS", function(){
 
 gulp.task("concatScripts", function(){
 	return gulp.src([
+		'js/jquery.js',
 		'js/fastclick.js',  
 		'js/foundation.js',
 		'js/foundation.equalizer.js',
