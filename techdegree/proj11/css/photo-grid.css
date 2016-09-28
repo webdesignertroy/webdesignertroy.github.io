@@ -64,7 +64,7 @@
     height: 50px;
     background-size: 156px 108px;
     border-radius: 50%;
-    text-indent: -2000px;
+    text-indent: -9999px;
 }
 .hero-photo {
     left: 215px;

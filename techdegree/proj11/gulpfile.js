@@ -8,7 +8,6 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglifycss = require('gulp-uglifycss'),
 	uglify = require('gulp-uglify'),
-	image = require('gulp-image'),
 	rename = require('gulp-rename'),
 	watch = require('gulp-watch');
 
@@ -54,21 +53,6 @@ gulp.task("minifyScripts",['concatScripts'], function(){
 		.pipe(gulp.dest('js'))
 });
 
-gulp.task("optimizeImg", function(){
-	gulp.src("img/*/*")
-		.pipe(image({
-	      pngquant: false,
-	      optipng: false,
-	      zopflipng: false,
-	      jpegRecompress: true,
-	      jpegoptim: false,
-	      mozjpeg: false,
-	      gifsicle: false,
-	      svgo: false,
-	      concurrent: 10
-	    }))
-		.pipe(gulp.dest('./dest/img'))
-});
 gulp.task('watchCSS', function(){
 	gulp.watch('css/*.css', ['minifyCSS']);
 	gulp.watch('js/*.js', ['minifyScripts']);
