@@ -7024,7 +7024,7 @@ body {
 }
 .menu .inline-list li {
     float: none;
-    display: inline-block;
+    display: inline-block;  
 }
 .menu .inline-list a {
     color: rgb(72, 84, 97);

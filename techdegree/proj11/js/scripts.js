@@ -9,6 +9,6 @@ $(document).ready(function(){
 		var $thumbSrc = $(this).attr("src");
 		var largerSrc = $thumbSrc.replace("dest/img/photos/thumbs/", "dest/img/photos/");
 		var $dataInfo = $(this).parent().attr("data-reveal-id"); 
-		$("#" + $dataInfo).find("img").attr("src", largerSrc);
+		$("#" + $dataInfo).find("img").attr("src", largerSrc); 
 	});
 });

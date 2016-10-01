@@ -48,6 +48,11 @@ gulp.task("minifyScripts",['concatScripts'], function(){
 		.pipe(gulp.dest('js'));
 });
 
+gulp.task('watchCSS', function(){
+	gulp.watch(['css/*.css','!css/style.css', '!css/style.min.css'], ['minifyCSS']);
+	gulp.watch(['js/*.js','!js/app.js', '!js/app.min.js'], ['minifyScripts']);
+});
+
 gulp.task('build', ['minifyCSS', 'minifyScripts']);
 
 gulp.task('default', ['build']);
