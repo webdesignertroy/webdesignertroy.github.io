@@ -6,12 +6,12 @@
 		width: 0;
 	}
 	to {
-		width: 200px;
+		width: 400px;
 	}
 }
 @keyframes unreveal-leftside {
 	from {
-		width: 200px;
+		width: 400px;
 	}
 	to {
 		width: 0;
@@ -39,10 +39,24 @@
 /* Header Elements, Ids and Classes */
 #header {
 	width: 100%;
-	height: 319px;
-	transition: .75s ease-out;
+	height: 425px;
+	transition: 1s ease-out;
 	background: #f3f3f3;
 	border-bottom: 4px solid #ececec;
+}
+#header h1 {
+	margin: 0;
+	padding: 20px 0 0 0;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1.6px;
+	font-size: 1.8em;
+	color: #864900;
+	transition: .75s ease-out;
+
+}
+#header:hover h1 {
+	color: #d77705;
 }
 .logo-image {
 	position: relative;
@@ -76,12 +90,13 @@
 	position: absolute;
 	margin: 0 auto;
 	height: 319px;
+	top: 30px;
 }
 #left-trigger,
 #right-trigger {
 	position: absolute;
 	width: 49.5%;
-	top: 0;
+	top: 30px;
 	height: 319px;
 	cursor: pointer;
 	z-index: 10;
@@ -97,10 +112,10 @@
 	justify-content: center;
 }
 #left-button {
-	padding: 50px 14px;
+	padding: 50px 22px;
 }
 #right-button {
-	padding: 50px 23px;
+	padding: 50px 27px;
 }
 .ghost {
     text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
@@ -112,6 +127,7 @@
     border-radius: 50%;
     transition: 0.5s ease-out;
     text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 .trigger-container:hover .ghost{
 	color: #d77705;
@@ -126,28 +142,30 @@
 /* Animation Behavior for left-side image*/
 .reveal-left{
 	animation-name: reveal-leftside;
-	animation-duration: 0.5s;
-	animation-timing-function: ease-out;
+	animation-duration: 0.75s;
+	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
 .hide-left {
 	animation-name: unreveal-leftside;
-	animation-duration: 0.5s;
-	animation-timing-function: ease-out;
+	animation-duration: 0.75s;
+	animation-delay: 0.55s;
+	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
 
 /* Animation Behavior for right-side image*/
 .hide-right {
 	animation-name: unreveal-rightside;
-	animation-duration: 0.5s;
-	animation-timing-function: ease-out;
+	animation-duration: 0.75s;
+	animation-delay: 0.55s;
+	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
 .reveal-right {
 	animation-name: reveal-rightside;
-	animation-duration: 0.5s;
-	animation-timing-function: ease-out;
+	animation-duration: 0.75s;
+	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
 
