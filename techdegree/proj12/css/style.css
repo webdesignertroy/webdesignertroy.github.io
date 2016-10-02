@@ -429,6 +429,10 @@ h1,
 h2 {
 	font-family: 'PT Sans', sans-serif;
 } 
+img {
+	width: 100%;
+	height: auto;
+}
 /* Header Style */
 
 /* Animation for revealing left-side image */
@@ -495,6 +499,12 @@ h2 {
 	width: 400px;
 	cursor: pointer;
 }
+.logo-image {
+	width: 400px;
+}
+.logo-image-mobile {
+	width: 100%;
+}
 
 #left {
 	z-index: 2;
@@ -509,10 +519,13 @@ h2 {
 #right img {
 	width: 400px;
 	height: 319px;
+	margin-left: 5px;
 }
 #base {
 	z-index: 1;
-	width: 400px;
+	width: 100%;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #left,
@@ -522,6 +535,9 @@ h2 {
 	margin: 0 auto;
 	height: 319px;
 	top: 30px;
+}
+#left img {
+	margin-left: 5px;
 }
 .red {
 	background: rgba(100, 30, 30, 0.1) !important;
@@ -571,8 +587,30 @@ h2 {
 
 /*  Media Query  */
 
+@media screen and (min-width: 430px) and (max-width: 769px){
+	.logo-image-mobile {
+		width: 400px;
+	}
+	#base {
+		width: 400px;
+	}
+	#header {
+		height: 425px;
+	}
+	.logo-image img,
+	.logo-image-mobile img {
+		width: auto;
+	}
+}
 @media screen and (min-width: 769px) {
 
+	.logo-image img,
+	.logo-image-mobile img {
+		width: auto;
+	}
+	#header {
+		height: 425px;
+	}
 	.logo-image-mobile {
 		display: none;
 	}

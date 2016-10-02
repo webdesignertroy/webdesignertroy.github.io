@@ -7,3 +7,7 @@ h1,
 h2 {
 	font-family: 'PT Sans', sans-serif;
 } 
+img {
+	width: 100%;
+	height: auto;
+}
