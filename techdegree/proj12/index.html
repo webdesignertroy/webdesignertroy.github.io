@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" name="width=device-width, initial-scale=1.0" />
+	<meta name="character-set=utf-8" />
+	<title>Troy Rowtham's Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.min.css" />
+</head>
+<body>
+<div id="header">
+    <div id="left-trigger" class="trigger-container">
+        <h2 id="left-button" class="ghost">Developer</h2>
+    </div>
+    <div id="right-trigger" class="trigger-container">
+        <h2 id="right-button" class="ghost">Creative</h2>
+
+    </div>
+    <div class="logo-image">
+        <div id="left">
+            <img src="img/header/bonsai-flat-left.png" alt=""/>
+        </div>
+        <div id="right">
+            <img src="img/header/bonsai-flat-right.png" alt=""/>
+        </div>
+        <div id="base">
+            <img src="img/header/bonsai-flat.png" alt="bonsai tree logo"/>
+         </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="js/app.min.js"></script>
+<script>
+//Preload Images
+function preloader() {
+    // Is there a method that can auto tally images in a folder? Revisit.
+    var imageFolder = ['bonsai-flat-right.png', 'bonsai-flat-left.png']; //For now, manually adding new images
+    for( var i = 0; i < imageFolder.length; i++){                   
+        var img  = new Image();
+        img.src = "img/header/" + imageFolder[i];        
+    }
+}
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            if (oldonload) {
+                oldonload();
+            }
+            func();
+        }
+    }
+}
+addLoadEvent(preloader);
+</script>
+</body>
+</html>
