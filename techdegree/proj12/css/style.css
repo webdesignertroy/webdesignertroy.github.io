@@ -480,16 +480,16 @@ h2 {
 	padding: 20px 0 0 0;
 	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 1.6px;
-	font-size: 1.8em;
+	letter-spacing: 1.4px;
+	font-size: 1.8rem;
 	color: #864900;
 	transition: .75s ease-out;
-
 }
 #header:hover h1 {
 	color: #d77705;
 }
-.logo-image {
+.logo-image,
+.logo-image-mobile {
 	position: relative;
 	margin: 0 auto;
 	width: 400px;
@@ -523,51 +523,14 @@ h2 {
 	height: 319px;
 	top: 30px;
 }
-#left-trigger,
-#right-trigger {
-	position: absolute;
-	width: 49.5%;
-	top: 30px;
-	height: 319px;
-	cursor: pointer;
-	z-index: 10;
-}
-#left-trigger {
-	left: 0;
-}
-#right-trigger {
-	right: 0;
-}
-.trigger-container {
-	display: flex;
-	justify-content: center;
-}
-#left-button {
-	padding: 50px 22px;
-}
-#right-button {
-	padding: 50px 27px;
-}
-.ghost {
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
-    align-self: center;
-    background: rgba(255,255, 255, 0.5);
-    font-size: 1.2em;
-    color: #864900;
-    border: 3px solid #ececec;
-    border-radius: 50%;
-    transition: 0.5s ease-out;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-}
-.trigger-container:hover .ghost{
-	color: #d77705;
-}
 .red {
 	background: rgba(100, 30, 30, 0.1) !important;
 }
 .blue {
 	background: rgba(127, 190, 0, 0.1)!important;
+}
+.trigger-container {
+	display: none;
 }
 
 /* Animation Behavior for left-side image*/
@@ -599,6 +562,61 @@ h2 {
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
+.logo-image-mobile {
+	display: block;
+}
+.logo-image {
+	display: none;
+}
 
+/*  Media Query  */
 
+@media screen and (min-width: 769px) {
 
+	.logo-image-mobile {
+		display: none;
+	}
+	.logo-image {
+		display: block;
+	}
+	#left-trigger,
+	#right-trigger {
+		position: absolute;
+		width: 49.5%;
+		top: 30px;
+		height: 319px;
+		cursor: pointer;
+		z-index: 10;
+	}
+	#left-trigger {
+		left: 0;
+	}
+	#right-trigger {
+		right: 0;
+	}
+	.trigger-container {
+		display: flex;
+		justify-content: center;
+	}
+	#left-button {
+		padding: 50px 22px;
+	}
+	#right-button {
+		padding: 50px 27px;
+	}
+	.ghost {
+	    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
+	    align-self: center;
+	    background: rgba(255,255, 255, 0.9);
+	    font-size: 1.2em;
+	    color: #864900;
+	    border: 3px solid #ececec;
+	    border-radius: 50%;
+	    transition: 0.5s ease-out;
+	    text-transform: uppercase;
+	    letter-spacing: 0.7px;
+	}
+	.trigger-container:hover .ghost{
+		color: #d77705;
+	}
+}

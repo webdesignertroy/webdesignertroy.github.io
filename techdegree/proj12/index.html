@@ -18,6 +18,11 @@
         <h2 id="right-button" class="ghost">Create</h2>
 
     </div>
+    <div class="logo-image-mobile">
+        <div id="base">
+            <img src="img/header/bonsai-flat-full.png" alt="bonsai tree logo"/>
+         </div>
+    </div>
     <div class="logo-image">
         <div id="left">
             <img src="img/header/bonsai-flat-left.png" alt=""/>
@@ -35,8 +40,8 @@
 <script>
 //Preload Images
 function preloader() {
-    // Is there a method that can auto tally images in a folder? Revisit.
-    var imageFolder = ['bonsai-flat-right.png', 'bonsai-flat-left.png']; //For now, manually adding new images
+
+    var imageFolder = ['bonsai-flat-right.png', 'bonsai-flat-left.png']; //manually add  images
     for( var i = 0; i < imageFolder.length; i++){                   
         var img  = new Image();
         img.src = "img/header/" + imageFolder[i];        
