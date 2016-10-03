@@ -445,7 +445,7 @@ img {
 
 /*  Media Queries  */
 
-@media screen and (min-width: 460px) {
+@media screen and (min-width: 769px) {
 	#back-top {
 		display: block;
 	    position: fixed;
@@ -458,11 +458,14 @@ img {
 	#back-top a {
 	    display: inline-block;
 	    text-transform: uppercase;
-	    color: #f2f2f2;
+	    color: inherit;
 	    font-size: 1em;
 	    padding: 19px 15px;
 	    letter-spacing: 0.05em;
 	    text-decoration: none;
+	}
+	.hide-div {
+		display: none !important;
 	}
 }
 /* Header Style */
@@ -708,13 +711,13 @@ img {
 	margin: 0;
 	text-align: center;
 	display: block;
+	background: white;
 }
 #nav #main li {
 	display: inline-block;
-    margin: 5px 5px;
+    margin: 2px 5px;
     width: 98%;
-    background: rgba(247,153, 42,0.8);
-    border-radius: 7px;
+    background: rgba(247,153, 42,0.3);
     transition: 0.5s ease-out;
 }
 #nav #main li:hover,
@@ -724,7 +727,7 @@ img {
 }
 #nav #main li a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: #d77705;
     text-transform: uppercase;
     font-size: .8rem;
     letter-spacing: 0.035em;
@@ -732,18 +735,69 @@ img {
     display: block;
     cursor: pointer;
 }
+#nav #main li a:hover {
+	color: #f2f2f2;
+}
+#menu-reveal {
+    height: 50px;
+    background: rgba(247,153,42,0.8);
+    width: 98%;
+    margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+}
+#menu-reveal span:after {
+    content: "";
+    background: url(../img/menu/hamburger-31x25.png);
+    -webkit-opactiy: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    height: 25px;
+    width: 31px;
+    z-index: 1;
+}
+.fix-menu {
+    position: fixed;
+    top: 0;
+    background: #f2f2f2;
+    margin-top: 0;
+    padding: 0 !important;
+    height: 48px !important;
+    border-bottom: 1px solid #ececec;
+}
+.add-lost-height {
+	margin-top: 48px;
+}
 
 /*  Media Queries  */
-@media screen and (min-width: 460px) {
+@media screen and (min-width: 769px) {
 	#nav #main li {
 		width: auto;
 		margin: 0 5px;
-
 	}
-}
-
-
-
+	#menu-reveal {
+		display: none;
+	}
+	#nav #main li {
+	display: inline-block;
+    margin: 5px 5px;
+    width: inherit;
+    background: rgba(247,153, 42,0.8);
+    border-radius: 7px;
+    transition: 0.5s ease-out;
+	}
+	#nav #main li a {
+	    color: #f2f2f2;
+	}
+	#nav #main li a:hover,
+	#nav #main li a:visited,
+	#nav #main li a:focus{
+		color: inherit;
+	}
+} 
 /*  Main body  */
 
 .col h2 {

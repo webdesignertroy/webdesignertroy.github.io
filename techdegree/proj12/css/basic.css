@@ -23,7 +23,7 @@ img {
 
 /*  Media Queries  */
 
-@media screen and (min-width: 460px) {
+@media screen and (min-width: 769px) {
 	#back-top {
 		display: block;
 	    position: fixed;
@@ -36,10 +36,13 @@ img {
 	#back-top a {
 	    display: inline-block;
 	    text-transform: uppercase;
-	    color: #f2f2f2;
+	    color: inherit;
 	    font-size: 1em;
 	    padding: 19px 15px;
 	    letter-spacing: 0.05em;
 	    text-decoration: none;
+	}
+	.hide-div {
+		display: none !important;
 	}
 }
