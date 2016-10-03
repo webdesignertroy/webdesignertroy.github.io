@@ -29,7 +29,7 @@ $(document).ready(function(){
 	// Function: scrolls to 'targeted id' on page
 	var $scroll = function($hash, menuCount) {
 		$('html, body').animate({
-			scrollTop: $( $hash ).offset().top - 50 * menuCount
+			scrollTop: $( $hash ).offset().top - 10 * menuCount -20
 		}, 500, "swing");
 	};
 
