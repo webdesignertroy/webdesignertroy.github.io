@@ -12,7 +12,9 @@ gulp.task("concatCSS", function() {
 	return gulp.src([
 		'css/normalize.css',
 		'css/basic.css',
-		'css/header.css'
+		'css/header.css',
+		'css/menu.css',
+		'css/main.css'
 		])
 		.pipe(concat('style.css'))
 		.pipe(gulp.dest('css'));

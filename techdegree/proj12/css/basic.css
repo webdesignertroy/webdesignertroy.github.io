@@ -2,6 +2,7 @@
 
 *{
 	box-sizing: border-box;
+	font-family: 'PT Sans', sans-serif;
 }
 h1,
 h2 {
@@ -10,4 +11,35 @@ h2 {
 img {
 	width: 100%;
 	height: auto;
+}
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+#back-top {
+	display: none;
+}
+
+/*  Media Queries  */
+
+@media screen and (min-width: 460px) {
+	#back-top {
+		display: block;
+	    position: fixed;
+	    bottom: 20px;
+	    right: 17px;
+	    background: rgba(247,153,42,0.9);
+	    border-radius: 50%;
+	    text-align: center;
+	}
+	#back-top a {
+	    display: inline-block;
+	    text-transform: uppercase;
+	    color: #f2f2f2;
+	    font-size: 1em;
+	    padding: 19px 15px;
+	    letter-spacing: 0.05em;
+	    text-decoration: none;
+	}
 }
