@@ -31,9 +31,9 @@ img {
 	#back-top {
 		display: block;
 	    position: fixed;
-	    bottom: 20px;
+	    bottom: 62px;
 	    right: 17px;
-	    background: rgba(247,153,42,0.9);
+	    background: rgba(247,153,42,0.76);
 	    border-radius: 50%;
 	    text-align: center;
 	}

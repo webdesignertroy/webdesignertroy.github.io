@@ -453,9 +453,9 @@ img {
 	#back-top {
 		display: block;
 	    position: fixed;
-	    bottom: 20px;
+	    bottom: 62px;
 	    right: 17px;
-	    background: rgba(247,153,42,0.9);
+	    background: rgba(247,153,42,0.76);
 	    border-radius: 50%;
 	    text-align: center;
 	}
@@ -815,4 +815,37 @@ img {
     font-size: 1.05em;
     line-height: 1.6em;
     color: #666666;
+}
+/* Footer Class */
+
+footer#footer {
+	width: 100%;
+	height: 50px;
+	background: #d77705;
+}
+footer#footer ul {
+	text-align: center;
+    padding: 9px 0 0 0;
+}
+footer#footer ul li {
+	display: inline-block;
+    padding: 0 6px;
+}
+footer#footer ul li a{
+	display: inline-block;
+	color: inherit;
+	background: url(../img/footer/social-images-a.svg);
+    width: 34px;
+    background-size: 100px 33px;
+    height: 34px;
+    text-indent: -9999px;
+}
+#github a {
+	background-position: 0px 0 !important;
+}
+#facebook a {
+	background-position: -34px 0 !important;
+}
+#linkedin a {
+	background-position: -66px 0 !important;
 }
