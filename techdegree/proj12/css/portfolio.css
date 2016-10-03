@@ -1,0 +1,25 @@
+/*  Portfolio Style  */
+#portfolio {
+	width: 100%;
+}
+.project-preview {
+	max-width: 550px;
+	margin: 0 auto;
+}
+#portfolio h3 {
+	margin-top: 85px;
+	text-align: center;
+}
+#portfolio h3:first-child {
+	margin-top: 37px;
+}
+#portfolio p{
+	text-align: left;
+}
+.project-details {
+	max-width: 960px;
+	margin: 0 auto;
+}
+.project-links {
+	text-align: center;
+}  
