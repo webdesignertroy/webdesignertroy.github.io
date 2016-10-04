@@ -36,6 +36,8 @@ img {
 	    background: rgba(247,153,42,0.76);
 	    border-radius: 50%;
 	    text-align: center;
+	    transition: 1s;
+	    opacity: 0;
 	}
 	#back-top a {
 	    display: inline-block;
@@ -43,10 +45,10 @@ img {
 	    color: #2f2f2f;
 	    font-size: 1em;
 	    padding: 19px 15px;
-	    letter-spacing: 0.05em;
+	    letter-spacing: 0.05em; 
 	    text-decoration: none;
 	}
-	.hide-div {
-		display: none !important;
+	.fade-in {
+		opacity: 1 !important;
 	}
 }

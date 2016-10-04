@@ -13,6 +13,8 @@ $(document).ready(function(){
 	var mq = window.matchMedia('all and (max-width: 769px)');
 	var menuLength = 0;
 
+	var $porfolio = $(".port-col");
+
 	/************************
 		FUNCTION EXPRESSION
 	*************************/
@@ -28,9 +30,14 @@ $(document).ready(function(){
 	};
 	// Function: scrolls to 'targeted id' on page
 	var $scroll = function($hash, menuCount) {
-		$('html, body').animate({
-			scrollTop: $( $hash ).offset().top - 10 * menuCount -20
-		}, 500, "swing");
+		if( $(this).scrollTop() < 424 && $hash === "#portfolio" && menuCount !== 0) {
+			$('html, body').animate({
+				scrollTop: $( $hash ).offset().top -  menuCount - 245
+			}, 500, "swing");		} else {
+			$('html, body').animate({
+				scrollTop: $( $hash ).offset().top -  menuCount - 48
+			}, 500, "swing");
+		} 
 	};
 
  	/************************
@@ -46,16 +53,6 @@ $(document).ready(function(){
  		// defines the href of the'targeted id' I'm looking for
  		var $link = $(this).attr("href");
  		$scroll($link, 0);
-
- 		// counts menu items to determine menu height
-		mq.addListener(function(changed) {
-			if(changed.matches) {
-				menuLength = $menuLi.length;
-			} else {
-				$menuReveal.hide();
-				menuLength = 0;
-			}
-		});
 
 		// invokes hideMenu()
 		if (mq.matches) {
@@ -75,16 +72,6 @@ $(document).ready(function(){
 
  	 	// defines the href of the 'targeted id' I'm looking for
  	 	var $link = $(this).attr("href");
-
-		// counts menu items to determine menu height
-		mq.addListener(function(changed) {
-			if(changed.matches) {
-				menuLength = $menuLi.length;
-			} else {
-				$menuReveal.hide();
-				menuLength = 0;
-			}
-		});
 
 		// invokes hideMenu()
 		if (mq.matches) {
@@ -154,13 +141,12 @@ $(document).ready(function(){
 		$(window).on("scroll", function(){
 		 	var scrollWin = $(this).scrollTop();
 		 	if ( scrollWin > 200 ) {
-		 		$("#back-top").removeClass("hide-div");
+		 		$("#back-top").addClass("fade-in");
 		 	} else {
-		 		$("#back-top").addClass("hide-div");
-
+		 		$("#back-top").removeClass("fade-in");
 		 	}
 		});
-	}
+	}  
 
 
  	/************************
@@ -203,7 +189,7 @@ $(document).ready(function(){
 		for ( var t="",  i=0; i < projects.length; i++ ) 
 			t+='<div class="port-col">',
 			t+="<h3>"+projects[i].name+"</h3>",
-			t+='<div class="project-preview"><img src="img/projects/'+projects[i].preview+'" alt=""></div>',
+			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
 			t+="</div>";
 
 		$(".project-details").html(t);
@@ -211,6 +197,11 @@ $(document).ready(function(){
 
 	// Invoke function
 	renderProjectDetails();
+
+	// Open overlay on click
+	$(".project-details").on("click", ".port-col", function(){
+		
+	});
 
 
 

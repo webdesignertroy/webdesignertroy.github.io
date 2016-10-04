@@ -1,24 +1,21 @@
 /*  Portfolio Style  */
 #portfolio {
 	width: 100%;
+	margin-top: 30px;
 }
 .project-preview {
 	max-width: 550px;
 	margin: 0 auto;
 }
 #portfolio h3 {
-	margin-top: 85px;
 	text-align: center;
-}
-#portfolio h3:first-child {
-	margin-top: 37px;
 }
 #portfolio p{
 	text-align: left;
 }
 .project-details {
 	max-width: 960px;
-	margin: 0 auto;
+	margin: 20px auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,6 +25,19 @@
 }  
 .port-col {
 	display: inline-block;
-	max-width: 300px;
+	max-width: 550px;
 	margin: 0 auto;
+	cursor: pointer;
+	padding: 0.3em;
+	transition: 0.35s ease-in-out;
+}
+.port-col:hover {
+	background: rgba(247,153,42, 0.18);
+	border-radius: 5px;
+}
+
+@media screen and (min-width: 769px){
+	.port-col {
+		max-width: 300px;
+	}
 }

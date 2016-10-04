@@ -1,31 +1,31 @@
 // Create project list of objects with variables
 var projects=[ {
-		name: "Responsive registration form", url: "http://webdesignertroy.github.io/techdegree/proj3/", github: "https://github.com/webdesignertroy/Techdegreee-Project-3", description: 'In this project I built a responsive, mobile-friendly registration form using a wide variety of HTML form input types and attributes. Using the supplied mockup file as a guide, I created repsonsive mobile, tablet and desktop versions of the form using CSS media queries and a "mobile-first" approach as well as implementing custom form controls.', preview: "proj3.jpg", tech: ["html", "css", "github"]
+		name: "Responsive registration form", url: "http://webdesignertroy.github.io/techdegree/proj3/", github: "https://github.com/webdesignertroy/Techdegreee-Project-3", description: 'In this project I built a responsive, mobile-friendly registration form using a wide variety of HTML form input types and attributes. Using the supplied mockup file as a guide, I created repsonsive mobile, tablet and desktop versions of the form using CSS media queries and a "mobile-first" approach as well as implementing custom form controls.', preview: "proj3", tech: ["html", "css", "github"]
 	}
 
 	,
 	{
-		name: "Interactive photo gallery", url: "http://webdesignertroy.github.io/techdegree/proj4/", github: "https://github.com/webdesignertroy/Techdegree-Project-4", description: "This project was about creating an interactive photo gallery using JavaScript and jQuery. Thumbnails and photos were be provided with descriptions. User intraction with the search box will cause images in the gallery to be filtered based on the input. Clicking on thumbnails, opens up a lighbox showing a larger version of each photo and allows keyboard navigation.", preview: "proj4.jpg", tech: ["html", "css", "js", "jquery", "github"]
+		name: "Interactive photo gallery", url: "http://webdesignertroy.github.io/techdegree/proj4/", github: "https://github.com/webdesignertroy/Techdegree-Project-4", description: "This project was about creating an interactive photo gallery using JavaScript and jQuery. Thumbnails and photos were be provided with descriptions. User intraction with the search box will cause images in the gallery to be filtered based on the input. Clicking on thumbnails, opens up a lighbox showing a larger version of each photo and allows keyboard navigation.", preview: "proj4", tech: ["html", "css", "js", "jquery", "github"]
 	}
 
 	,
 	{
-		name: "Responsive layouts with Sass", url: "http://webdesignertroy.github.io/techdegree/proj5/", github: "https://github.com/webdesignertroy/Techdegree-Project-5", description: "This project was about refactoring a previous project originally written in CSS, to Sass. I used the oportunity to redesign the layout using Flexbox instead of floating divs. I also took advantage of many Sass features such as support for partials, variables, extends, and mixins to write modular, more maintainable code.", preview: "proj5.jpg", tech: ["html", "css", "sass", "github"]
+		name: "Responsive layouts with Sass", url: "http://webdesignertroy.github.io/techdegree/proj5/", github: "https://github.com/webdesignertroy/Techdegree-Project-5", description: "This project was about refactoring a previous project originally written in CSS, to Sass. I used the oportunity to redesign the layout using Flexbox instead of floating divs. I also took advantage of many Sass features such as support for partials, variables, extends, and mixins to write modular, more maintainable code.", preview: "proj5", tech: ["html", "css", "sass", "github"]
 	}
 
 	,
 	{
-		name: "Interactive video player", url: "http://webdesignertroy.github.io/techdegree/proj7", github: "https://github.com/webdesignertroy/Techdegree-Project-7", description: "This is an HTML5 video player featuring custom control elements, written in JavaScript using the HTML5 Video API. Using the supplied mockups, video files, and transcript, I wrote an interactive video player that synchronizes the video and the transcript. The transcript is highlighting as the video progresses.", preview: "proj7.jpg", tech: ["html", "css", "js", "jquery", "github"]
+		name: "Interactive video player", url: "http://webdesignertroy.github.io/techdegree/proj7", github: "https://github.com/webdesignertroy/Techdegree-Project-7", description: "This is an HTML5 video player featuring custom control elements, written in JavaScript using the HTML5 Video API. Using the supplied mockups, video files, and transcript, I wrote an interactive video player that synchronizes the video and the transcript. The transcript is highlighting as the video progresses.", preview: "proj7", tech: ["html", "css", "js", "jquery", "github"]
 	}
 
 	,
 	{
-		name: "Web application dashboard", url: "http://webdesignertroy.github.io/techdegree/proj9", github: "https://github.com/webdesignertroy/Techdegree-Project-9", description: "This project was about building a beautiful web application dashboard complete with JavaScript-driven charts and graphs base on a suplied graphic mockup. This was a front end project onlythat required to create the responsive layout in HTML and CSS with added JavaScript functionality. Flexbox and Sass proved to be invaluable tools.", preview: "proj9.jpg", tech: ["html", "css", "sass", "js", "github"]
+		name: "Web application dashboard", url: "http://webdesignertroy.github.io/techdegree/proj9", github: "https://github.com/webdesignertroy/Techdegree-Project-9", description: "This project was about building a beautiful web application dashboard complete with JavaScript-driven charts and graphs base on a suplied graphic mockup. This was a front end project onlythat required to create the responsive layout in HTML and CSS with added JavaScript functionality. Flexbox and Sass proved to be invaluable tools.", preview: "proj9", tech: ["html", "css", "sass", "js", "github"]
 	}
 
 	,
 	{
-		name: "Public API galley", url: "http://webdesignertroy.github.io/techdegree/proj10", github: "https://github.com/webdesignertroy/Techdegree-Project-10", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "proj10.jpg", tech: ["html", "css", "sass", "js", "jquery", "github"]
+		name: "Public API galley", url: "http://webdesignertroy.github.io/techdegree/proj10", github: "https://github.com/webdesignertroy/Techdegree-Project-10", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "proj10", tech: ["html", "css", "sass", "js", "jquery", "github"]
 	}
 ] 
 $(document).ready(function(){
@@ -43,6 +43,8 @@ $(document).ready(function(){
 	var mq = window.matchMedia('all and (max-width: 769px)');
 	var menuLength = 0;
 
+	var $porfolio = $(".port-col");
+
 	/************************
 		FUNCTION EXPRESSION
 	*************************/
@@ -58,9 +60,14 @@ $(document).ready(function(){
 	};
 	// Function: scrolls to 'targeted id' on page
 	var $scroll = function($hash, menuCount) {
-		$('html, body').animate({
-			scrollTop: $( $hash ).offset().top - 10 * menuCount -20
-		}, 500, "swing");
+		if( $(this).scrollTop() < 424 && $hash === "#portfolio" && menuCount !== 0) {
+			$('html, body').animate({
+				scrollTop: $( $hash ).offset().top -  menuCount - 245
+			}, 500, "swing");		} else {
+			$('html, body').animate({
+				scrollTop: $( $hash ).offset().top -  menuCount - 48
+			}, 500, "swing");
+		} 
 	};
 
  	/************************
@@ -76,16 +83,6 @@ $(document).ready(function(){
  		// defines the href of the'targeted id' I'm looking for
  		var $link = $(this).attr("href");
  		$scroll($link, 0);
-
- 		// counts menu items to determine menu height
-		mq.addListener(function(changed) {
-			if(changed.matches) {
-				menuLength = $menuLi.length;
-			} else {
-				$menuReveal.hide();
-				menuLength = 0;
-			}
-		});
 
 		// invokes hideMenu()
 		if (mq.matches) {
@@ -105,16 +102,6 @@ $(document).ready(function(){
 
  	 	// defines the href of the 'targeted id' I'm looking for
  	 	var $link = $(this).attr("href");
-
-		// counts menu items to determine menu height
-		mq.addListener(function(changed) {
-			if(changed.matches) {
-				menuLength = $menuLi.length;
-			} else {
-				$menuReveal.hide();
-				menuLength = 0;
-			}
-		});
 
 		// invokes hideMenu()
 		if (mq.matches) {
@@ -184,13 +171,12 @@ $(document).ready(function(){
 		$(window).on("scroll", function(){
 		 	var scrollWin = $(this).scrollTop();
 		 	if ( scrollWin > 200 ) {
-		 		$("#back-top").removeClass("hide-div");
+		 		$("#back-top").addClass("fade-in");
 		 	} else {
-		 		$("#back-top").addClass("hide-div");
-
+		 		$("#back-top").removeClass("fade-in");
 		 	}
 		});
-	}
+	}  
 
 
  	/************************
@@ -233,7 +219,7 @@ $(document).ready(function(){
 		for ( var t="",  i=0; i < projects.length; i++ ) 
 			t+='<div class="port-col">',
 			t+="<h3>"+projects[i].name+"</h3>",
-			t+='<div class="project-preview"><img src="img/projects/'+projects[i].preview+'" alt=""></div>',
+			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
 			t+="</div>";
 
 		$(".project-details").html(t);
@@ -241,6 +227,11 @@ $(document).ready(function(){
 
 	// Invoke function
 	renderProjectDetails();
+
+	// Open overlay on click
+	$(".project-details").on("click", ".port-col", function(){
+		
+	});
 
 
 
