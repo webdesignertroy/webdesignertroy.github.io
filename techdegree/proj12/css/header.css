@@ -9,7 +9,7 @@
 		width: 400px;
 	}
 }
-@keyframes unreveal-leftside {
+@keyframes unreveal-leftside {f
 	from {
 		width: 400px;
 	}
@@ -86,7 +86,8 @@
 	height: 319px;
 	margin-left: 5px;
 }
-#base {
+#base, 
+#base-mobile {
 	z-index: 1;
 	width: 100%;
 	padding-left: 5px;
@@ -95,7 +96,8 @@
 
 #left,
 #right,
-#base {
+#base,
+#base-mobile {
 	position: absolute;
 	margin: 0 auto;
 	height: 319px;
@@ -156,7 +158,8 @@
 	.logo-image-mobile {
 		width: 400px;
 	}
-	#base {
+	#base,
+	#base-mobile {
 		width: 400px;
 	}
 	#header {
