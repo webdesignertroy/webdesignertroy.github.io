@@ -195,16 +195,15 @@ $(document).ready(function(){
 	   FOR PORTFOLIO INTERACTIVE
 	*******************************/
 
-var link = "https://andystoica.github.io/"; // This is just a link to site for codepen purposes
+	var link = "https://andystoica.github.io/"; // This is just a link to site for codepen purposes
 
 
-	// Create "for loop" with HTML code mixed with variables
-	    // (For assignement only) Not best practice because there's no 'separation of concerns'
+	// Create "for loop" with HTML code mixed with variables 
 	function renderProjectDetails(e) {
 		for ( var t="",  i=0; i < projects.length; i++ ) 
 
 			t+="<h3>"+projects[i].name+"</h3>",
-			t+='<div class="project-preview"><img src='+link+'images/'+projects[i].preview+' alt=""></div>',
+			t+='<div class="project-preview"><img src="img/projects/'+projects[i].preview+'" alt=""></div>',
 			t+='<div class="project-links">',
 			t+='  <a href="'+projects[i].url+'" target="_blank" class="btn-project-view">Demo</a>',
 			t+='  <a href="'+projects[i].github+'" target="_blank" class="btn-project-github">GitHub</a>',
@@ -218,6 +217,7 @@ var link = "https://andystoica.github.io/"; // This is just a link to site for c
 
 	// Invoke function
 	renderProjectDetails();
+
 
 
 });
