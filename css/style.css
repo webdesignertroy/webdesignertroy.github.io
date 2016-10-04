@@ -594,7 +594,7 @@ img {
 .reveal-left{
 	animation-name: reveal-leftside;
 	animation-duration: 0.75s;
-	animation-delay: 0.75s;
+	/*animation-delay: 0.75s;*/
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
@@ -609,7 +609,7 @@ img {
 .reveal-right {
 	animation-name: reveal-rightside;
 	animation-duration: 0.75s;
-	animation-delay: 0.75s;
+	/*animation-delay: 0.75s;*/
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
@@ -684,7 +684,7 @@ img {
 		justify-content: center;
 	}
 	#left-button {
-		padding: 50px 22px;
+		padding: 50px 18px;
 	}
 	#right-button {
 		padding: 50px 27px;
@@ -727,9 +727,7 @@ img {
     background: rgba(247,153, 42,0.3);
     transition: 0.5s ease-out;
 }
-#nav #main li:hover,
-#nav #main li:visited,
-#nav #main li:focus {
+#nav #main li:hover {
     background: rgba(175, 95, 0,0.8);
 }
 #nav #main li a {
@@ -797,12 +795,10 @@ img {
     transition: 0.5s ease-out;
 	}
 	#nav #main li a {
-	    color: #f2f2f2;
+	    color: #2f2f2f;
 	}
-	#nav #main li a:hover,
-	#nav #main li a:visited,
-	#nav #main li a:focus{
-		color: #2f2f2f;
+	#nav #main li a:hover{
+		color: #f2f2f2;
 	}
 } 
 /*  Main body  */

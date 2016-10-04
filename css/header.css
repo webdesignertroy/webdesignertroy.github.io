@@ -120,7 +120,7 @@
 .reveal-left{
 	animation-name: reveal-leftside;
 	animation-duration: 0.75s;
-	animation-delay: 0.75s;
+	/*animation-delay: 0.75s;*/
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
@@ -135,7 +135,7 @@
 .reveal-right {
 	animation-name: reveal-rightside;
 	animation-duration: 0.75s;
-	animation-delay: 0.75s;
+	/*animation-delay: 0.75s;*/
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
 }
@@ -210,7 +210,7 @@
 		justify-content: center;
 	}
 	#left-button {
-		padding: 50px 22px;
+		padding: 50px 18px;
 	}
 	#right-button {
 		padding: 50px 27px;
