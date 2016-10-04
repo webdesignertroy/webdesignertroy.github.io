@@ -231,16 +231,10 @@ $(document).ready(function(){
 	// Create "for loop" with HTML code mixed with variables 
 	function renderProjectDetails(e) {
 		for ( var t="",  i=0; i < projects.length; i++ ) 
-
+			t+='<div class="port-col">',
 			t+="<h3>"+projects[i].name+"</h3>",
 			t+='<div class="project-preview"><img src="img/projects/'+projects[i].preview+'" alt=""></div>',
-			t+='<div class="project-links">',
-			t+='  <a href="'+projects[i].url+'" target="_blank" class="btn-project-view">Demo</a>',
-			t+='  <a href="'+projects[i].github+'" target="_blank" class="btn-project-github">GitHub</a>',
-			t+="</div>",
-			t+="<p>"+projects[i].description+"</p>",
-			t+='<ul class="skills">',
-			t+="</ul>";
+			t+="</div>";
 
 		$(".project-details").html(t);
 	}

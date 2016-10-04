@@ -19,7 +19,15 @@
 .project-details {
 	max-width: 960px;
 	margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .project-links {
 	text-align: center;
 }  
+.port-col {
+	display: inline-block;
+	max-width: 300px;
+	margin: 0 auto;
+}
