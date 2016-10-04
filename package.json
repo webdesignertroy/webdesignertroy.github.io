@@ -1,0 +1,32 @@
+{
+  "name": "techdegree-project-12",
+  "version": "1.0.0",
+  "description": "Troy Rowtham's Portfolio",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webdesignertroy/Techdegree-Project-12.git"
+  },
+  "keywords": [
+    "troy",
+    "rowtham",
+    "online",
+    "portfolio"
+  ],
+  "author": "Troy Rowtham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webdesignertroy/Techdegree-Project-12/issues"
+  },
+  "homepage": "https://github.com/webdesignertroy/Techdegree-Project-12#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uglifycss": "^1.0.6"
+  }
+}
