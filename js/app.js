@@ -37,7 +37,12 @@ var projects=[ {
 
 	,
 	{
-		name: "Writer's Site", url: "http://2questionsformrright.com.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp2", tech: ["wordpress", "html", "css", "js", "jquery"]
+		name: "Writer's Page", url: "http://2questionsformrright.com.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp2", tech: ["wordpress", "html", "css", "js", "jquery"]
+	}
+
+	,
+	{
+		name: "Actor's Site", url: "http://jamaicafarewelltheplay.com.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp3", tech: ["wordpress", "html", "css", "js", "jquery"]
 	}
 ] 
 
