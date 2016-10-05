@@ -839,8 +839,59 @@ img {
     color: #666666;
     max-width: 1000px;
     margin: 0 auto;
-
 }
+.quote {
+    text-align: center;
+    position: relative;
+    width: auto;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    margin: 2em auto 3em auto;
+    padding: 0 7px;
+    max-width: 680px;
+    color: #949494;
+}
+.quote:before {
+    content: url(../img/icons/quotes.png);
+    position: absolute;
+    top: 0;
+    left: 12px;
+    z-index: -1;
+}
+.quote span {
+    position: absolute;
+    bottom: -33px;
+    right: 12px;
+    font-size: 0.6em;
+    font-style: italic;
+    color: #8c8c8c;
+}
+.seperator {
+    border: 1px solid #ececec;
+    width: 231px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+}
+.statement {
+    font-size: 1.33rem;
+    line-height: 2.3rem;
+    margin: 50px 0;
+}
+.final-statement {
+    font-size: 1.33rem;
+    text-align: center;
+}
+.final-statement .contact-info a {
+    text-decoration: none;
+    color: #d77705;
+}
+.final-statement .contact-info a:hover {
+    color: #AF5F00;
+}
+
+
 /*  Portfolio Style  */
 
 /*  Thumbs  */
@@ -1021,6 +1072,9 @@ img {
 }
 #sass {
 	background-position: -36px 68px;
+}
+#wordpress {
+  background-position: -36px 32px;
 }
 /*  Lightbox Navigation  */
 
