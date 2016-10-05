@@ -546,7 +546,6 @@ img {
 .logo-image-mobile {
 	width: 100%;
 }
-
 #left {
 	z-index: 2;
 	width: 0;
@@ -595,7 +594,7 @@ img {
 /* Animation Behavior for left-side image*/
 .reveal-left{
 	animation-name: reveal-leftside;
-	animation-duration: 0.75s;
+	animation-duration: 1.2s;
 	animation-delay: 0.15s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
@@ -610,7 +609,7 @@ img {
 /* Animation Behavior for right-side image*/
 .reveal-right {
 	animation-name: reveal-rightside;
-	animation-duration: 0.75s;
+	animation-duration: 1.2s;
 	animation-delay: 0.15s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: both;
@@ -714,6 +713,24 @@ img {
 	display: inline-block;
 	padding-top: 0;
     z-index: 90;
+}
+#sm-logo {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    font-family: 'Comfortaa',sans-serif;
+    z-index: 91;
+    color: #d77705;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: .5s all ease-in-out;
+    transform: translateX(-20px);
+}
+.show-logo {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
 }
 #nav #main {
 	padding: 0;
@@ -827,7 +844,7 @@ img {
 /*  Portfolio Style  */
 
 /*  Thumbs  */
-#portfolio {
+#projects {
 	width: 100%;
 	margin-top: 30px;
 }
@@ -835,13 +852,13 @@ img {
 	max-width: 550px;
 	margin: 0 auto;
 }
-#portfolio h3 {
+#projects h3 {
 	text-align: center;
     text-transform: uppercase;
     font-size: 0.85rem;
     position: relative;
 }
-#portfolio p{
+#projects p{
 	text-align: left;
 }
 .project-details-dom {
@@ -1005,6 +1022,26 @@ img {
 #sass {
 	background-position: -36px 68px;
 }
+/*  Lightbox Navigation  */
+
+#arrow-left {
+  left: 10px;
+  background: url(../img/icons/left-arrow42x63.png);
+}
+#arrow-right {
+  right: 10px;
+  background: url(../img/icons/right-arrow42x63.png);
+}
+#arrow-left, #arrow-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 52px;
+  cursor: pointer;
+  z-index: 103;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 /*  Media Queries  */
 @media screen and (min-width: 769px){
@@ -1017,6 +1054,30 @@ img {
 	#project-image {
 		margin-top: 0;
 	}
+}
+/*  Skills Style  */
+
+#skill-details {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 60px;
+}
+.skill {
+	position: relative;
+	margin-bottom: 90px;
+}
+.skill canvas {
+	margin: 0 20px;
+}
+.skill .label {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #9c9c9c;
 }
 /* Footer Style */
 

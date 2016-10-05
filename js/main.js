@@ -5,6 +5,7 @@ $(document).ready(function(){
 	*************************/
 
 	var $wrapper = $("#wrapper");
+	var $smLogo = $("#sm-logo");
 	var $navDiv = $("#nav");
 	var $navBar = $("#main");
 	var $menuLi = $("#main li a");
@@ -21,6 +22,10 @@ $(document).ready(function(){
 	var $projectTech = $('<div id="project-tech"></div>'); 
 	var $cursorBorderLeft = $('<div id="cursor-border-left"></div>');
 	var $cursorBorderRight = $('<div id="cursor-border-right"></div>');
+	var $arrowLeft = $('<div id="arrow-left"></div>');
+	var $arrowRight = $('<div id="arrow-right"></div>');
+
+	var $skills = $('.skill');
 
 	/************************
 		FUNCTION EXPRESSION
@@ -35,9 +40,10 @@ $(document).ready(function(){
 	var showMenu = function() {
 		$navBar.slideDown(700, "swing");
 	};
+
 	// Function: scrolls to 'targeted id' on page
 	var $scroll = function($hash, menuCount) {
-		if( $(this).scrollTop() < 424 && $hash === "#portfolio" && menuCount !== 0) {
+		if( $(this).scrollTop() < 424 && $hash === "#projects" && menuCount !== 0) {
 			$('html, body').animate({
 				scrollTop: $( $hash ).offset().top -  menuCount - 245
 			}, 500, "swing");		} else {
@@ -45,7 +51,47 @@ $(document).ready(function(){
 				scrollTop: $( $hash ).offset().top -  menuCount - 48
 			}, 500, "swing");
 		} 
-	};
+	}; // end scroll function
+	
+	// Find correct data in project details array
+		var findData = function(index) {
+			var imageHTML = "";
+			var detailHTML = "";
+			var skillsHTML = "";
+			$.each(projects, function(i, data){
+				if (index  === i) {
+					// build image div
+					imageHTML += '<div class="image-details" data-image-index="'+ i +'">';
+					imageHTML += '<img src="img/projects/' + data.preview + '.jpg"/>';
+					imageHTML += '</div>'
+
+					// build description div
+					detailHTML += '<div class="layout-details">';
+					detailHTML += '<h3>' + data.name +'</h3>';
+					detailHTML +=  '<p class="btn-container">'
+					detailHTML += '<a href="' + data.url + '" class="btn" target="_blank">Visit Site</a>';
+					if ( data.github !== "" ) {
+						detailHTML += '<a href="' + data.github + '" class="btn" target="_blank"> Visit GitHub</a>';
+					}
+					detailHTML += '</p>';
+					detailHTML += '<p>' + data.description + '</p>';
+					detailHTML +='</div>';
+
+					// build skills badges div
+					skillsHTML += '<div class="layout-skills">';
+					for ( i = 0; i < data.tech.length; i++ ) {
+						skillsHTML += '<div id="' + data.tech[i] + '" class="badge">';
+						skillsHTML += data.tech[i];
+						skillsHTML += '</div>';
+					}
+					skillsHTML += '</div>'
+				}
+				document.getElementById("project-tech").innerHTML = skillsHTML;
+				document.getElementById("project-image").innerHTML = imageHTML;
+				document.getElementById("project-details").innerHTML = detailHTML;
+
+			}); // end Find correct data
+		};  // end findData function
 
  	/************************
 	   NAVIGATION
@@ -69,7 +115,7 @@ $(document).ready(function(){
 		// invokes $scroll()
  	 	$scroll($link, menuLength);
 
- 	});
+ 	}); // end  menu item click
 
  	// On #back-top click, scroll to 'targeted id'
  	 $backTop.on("click", function(e){
@@ -87,7 +133,8 @@ $(document).ready(function(){
 
 		// invokes $scroll()
  	 	$scroll($link, menuLength);
- 	 });
+
+ 	 }); // end #back-top click
 
 	// if javascript works, hide/show appropriate menus
 	if (mq.matches) {
@@ -97,7 +144,9 @@ $(document).ready(function(){
 	} else {
 		$menuReveal.hide();
 		menuLength = 0;
-	}
+	} // end hide/show menus when appropriate
+
+	// small logo loads to sticky menu
 
  	/************************
 	   EVENT LISTENERS
@@ -111,7 +160,7 @@ $(document).ready(function(){
 		} else {
 			hideMenu();
 		}
-	});
+	}); // end #menu-reveal click
 
 	// If javascript is on and the media window changes, 
 	//    hide/show appropriate menus
@@ -135,14 +184,17 @@ $(document).ready(function(){
 		 		$navDiv.addClass("fix-menu");
 		 		$wrapper.addClass("add-lost-height");
 		 		$("#back-top").removeClass("hide-div");
+		 		$smLogo.addClass("show-logo");
+
 		 	} else {
 		 		$navDiv.removeClass("fix-menu");
 		 		$wrapper.removeClass("add-lost-height");
 		 		$("#back-top").addClass("hide-div");
-
+		 		$smLogo.removeClass("show-logo");
 		 	}
 		});
-	}
+	} // end scroll pass 440px
+
 	// Listen for scroll pass 100px then fix #back-top
 	if( $(window).height() !== $(document).height() ) {
 		$(window).on("scroll", function(){
@@ -153,7 +205,7 @@ $(document).ready(function(){
 		 		$("#back-top").removeClass("fade-in");
 		 	}
 		});
-	}  
+	} // end scroll pass 100px
 
 
  	/************************
@@ -188,9 +240,6 @@ $(document).ready(function(){
 	   FOR PORTFOLIO INTERACTIVE
 	*******************************/
 
-	var link = "https://andystoica.github.io/"; // This is just a link to site for codepen purposes
-
-
 	// Create "for loop" with HTML code mixed with variables 
 	function renderProjectDetails(e) {
 		for ( var t="",  i=0; i < projects.length; i++ ) 
@@ -210,9 +259,6 @@ $(document).ready(function(){
 
 		// variables
 		var $projectIndex = parseInt($(this).attr("data-index")); 
-		var imageHTML = "";
-		var detailHTML = "";
-		var skillsHTML = "";
 
 		// Append overlay/wrapper and show
 		$projectImage.appendTo($overlay);
@@ -221,41 +267,11 @@ $(document).ready(function(){
 		$projectTech.appendTo($wrapper);
 		$cursorBorderLeft.appendTo($wrapper);
 		$cursorBorderRight.appendTo($wrapper);
+		$arrowRight.appendTo($wrapper);
+		$arrowLeft.appendTo($wrapper);
 
-		// Find correct data in project details array
-		$.each(projects, function(i, data){
-			if ( $projectIndex === i) {
-				// build image div
-				imageHTML += '<div class="image-details">';
-				imageHTML += '<img src="img/projects/' + data.preview + '.jpg"/>';
-				imageHTML += '</div>'
-
-				// build description div
-				detailHTML += '<div class="layout-details">';
-				detailHTML += '<h3>' + data.name +'</h3>';
-				detailHTML +=  '<p class="btn-container">'
-				detailHTML += '<a href="' + data.url + '" class="btn" target="_blank">Visit Site</a>';
-				if ( data.github !== "" ) {
-					detailHTML += '<a href="' + data.github + '" class="btn" target="_blank"> Visit GitHub</a>';
-				}
-				detailHTML += '</p>';
-				detailHTML += '<p>' + data.description + '</p>';
-				detailHTML +='</div>';
-
-				// build skills badges div
-				skillsHTML += '<div class="layout-skills">';
-				for ( i = 0; i < data.tech.length; i++ ) {
-					skillsHTML += '<div id="' + data.tech[i] + '" class="badge">';
-					skillsHTML += data.tech[i];
-					skillsHTML += '</div>';
-				}
-				skillsHTML += '</div>'
-			}
-		});
-
-			document.getElementById("project-tech").innerHTML = skillsHTML;
-			document.getElementById("project-image").innerHTML = imageHTML;
-			document.getElementById("project-details").innerHTML = detailHTML;
+		// Invoke findData() to Find Correct Data
+		findData($projectIndex);
 
 		// Fade-in overlay
 		$overlay.animate({
@@ -296,9 +312,79 @@ $(document).ready(function(){
 			$projectTech.remove();
 			$cursorBorderRight.remove();
 			$cursorBorderLeft.remove();
+			$arrowRight.remove();
+			$arrowLeft.remove();
 		});
-
 
 	});  //end Close overlay on click
 
+	/*  Arrow Navigation  */
+
+	// On right arrow click (bubbling event issues)
+	$wrapper.on("click", "#arrow-right", function(){
+		var detailsIndex = parseInt($(".image-details").attr("data-image-index"));
+		if ( detailsIndex < projects.length - 1 ) {
+			findData(detailsIndex +1);
+		} else {
+			findData(0);
+		}
+	});
+
+	// On left arrow click (bubbling event issues)
+	$wrapper.on("click", "#arrow-left", function(){
+		var detailsIndex = parseInt($(".image-details").attr("data-image-index"));
+		if ( detailsIndex > 0 ) {
+			findData(detailsIndex - 1);
+		} else {
+			findData(projects.length - 1);
+		}
+	});
+
+	/*  Accessibility: Keyboard  */
+
+	$(this).keyup(function(e){
+		"use strict";
+		switch(e.keyCode) {
+			case 27:
+				//Fade out overlay when[ESC=27] is keyed.
+				$overlay.trigger("click");
+			break;
+			case 37:
+				//Advances slideshow left on left-arrow [37] key.
+				$("#arrow-left").trigger("click");			
+			break;
+			case 39:
+				//Advances slideshow right on right-arrow [39] key.
+				$("#arrow-right").trigger("click");
+			break;
+		}
+	});
+
+ 	/*******************************
+	   SKILL DOUGHNUT GRAPHS
+	*******************************/
+
+	// Invoke HTML
+		skillLevel.html();
+
+	// Invoke CSS
+		skillLevel.css();
+
+	// Invoke JavaScript
+		skillLevel.js();
+
+	// Invoke jQuery
+		skillLevel.jquery();
+
+	// Invoke WordPress
+		skillLevel.wordpress();
+
+	// Invoke Sass
+		skillLevel.sass();
+
+	// Invoke Gulp
+		skillLevel.gulp();
+
+	// Invoke GitHub
+		skillLevel.github();
 });

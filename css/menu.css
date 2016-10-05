@@ -6,6 +6,24 @@
 	padding-top: 0;
     z-index: 90;
 }
+#sm-logo {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    font-family: 'Comfortaa',sans-serif;
+    z-index: 91;
+    color: #d77705;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: .5s all ease-in-out;
+    transform: translateX(-20px);
+}
+.show-logo {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
 #nav #main {
 	padding: 0;
 	margin: 0;

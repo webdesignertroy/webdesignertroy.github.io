@@ -1,0 +1,24 @@
+/*  Skills Style  */
+
+#skill-details {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 60px;
+}
+.skill {
+	position: relative;
+	margin-bottom: 90px;
+}
+.skill canvas {
+	margin: 0 20px;
+}
+.skill .label {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #9c9c9c;
+}

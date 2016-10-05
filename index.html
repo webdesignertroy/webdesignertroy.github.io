@@ -14,7 +14,7 @@ Portfolio was checked on the following browsers:
 	<title>Troy Rowtham's Portfolio</title>
 
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:700%7cPT+Sans:400,400i,700" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <div id="wrapper">
@@ -49,23 +49,55 @@ Portfolio was checked on the following browsers:
             <div id="menu-reveal"><span></span></div>
             <ul id="main">
                 <li><a href="#header">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contacts">Contacts</a></li>
 
             </ul>
         </nav>
         <div class="clearfix"></div>
-        <div id="portfolio" class="col">
-            <h2> Portfolio </h2>
+        <div id="projects" class="col">
+            <h2> Projects </h2>
             <div class="project-details-dom">
 </div>
         </div>
         <div class="clearfix"></div>
         <div id="skills" class="col">
             <h2>Skills</h2>
-            Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.
-            </div>
+            <div id="skill-details">
+                <div class="skill">
+                    <div class="label">HTML</div>
+                    <canvas id="html" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">CSS</div>
+                    <canvas id="css" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">JavaScript</div>
+                    <canvas id="js" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">jQuery</div>
+                    <canvas id="jquery" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">Sass</div>
+                    <canvas id="sass" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">Gulp</div>
+                    <canvas id="gulp" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">GitHub</div>
+                    <canvas id="github" width="135" height="135"></canvas>
+                </div>
+                <div class="skill">
+                    <div class="label">WordPress</div>
+                    <canvas id="wordpress" width="135" height="135"></canvas>
+                </div>
+        </div>
         <div class="clearfix"></div>
         <div id="contacts" class="col">
             <h2>Contacts</h2>
@@ -83,8 +115,10 @@ Portfolio was checked on the following browsers:
 
  <div id="back-top" class="hide-div"><a href="#header">Top</a></div>
 <div id="overlay"></div> 
+<div id="sm-logo" class="hide-logo">Troy Rowtham</div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 <script src="js/app.min.js"></script>
 <script>
 //Preload Images

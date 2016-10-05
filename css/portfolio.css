@@ -1,7 +1,7 @@
 /*  Portfolio Style  */
 
 /*  Thumbs  */
-#portfolio {
+#projects {
 	width: 100%;
 	margin-top: 30px;
 }
@@ -9,13 +9,13 @@
 	max-width: 550px;
 	margin: 0 auto;
 }
-#portfolio h3 {
+#projects h3 {
 	text-align: center;
     text-transform: uppercase;
     font-size: 0.85rem;
     position: relative;
 }
-#portfolio p{
+#projects p{
 	text-align: left;
 }
 .project-details-dom {
@@ -178,6 +178,26 @@
 }
 #sass {
 	background-position: -36px 68px;
+}
+/*  Lightbox Navigation  */
+
+#arrow-left {
+  left: 10px;
+  background: url(../img/icons/left-arrow42x63.png);
+}
+#arrow-right {
+  right: 10px;
+  background: url(../img/icons/right-arrow42x63.png);
+}
+#arrow-left, #arrow-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 52px;
+  cursor: pointer;
+  z-index: 103;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*  Media Queries  */
