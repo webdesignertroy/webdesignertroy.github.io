@@ -18,6 +18,7 @@ $(document).ready(function(){
 	var $overlay = $("#overlay");
 	var $projectImage = $('<div id="project-image"></div>');
 	var $projectDetails = $('<div id="project-details"></div>');
+	var $projectTech = $('<div id="project-tech"></div>'); 
 	var $cursorBorderLeft = $('<div id="cursor-border-left"></div>');
 	var $cursorBorderRight = $('<div id="cursor-border-right"></div>');
 
@@ -211,11 +212,13 @@ $(document).ready(function(){
 		var $projectIndex = parseInt($(this).attr("data-index")); 
 		var imageHTML = "";
 		var detailHTML = "";
+		var skillsHTML = "";
 
 		// Append overlay/wrapper and show
 		$projectImage.appendTo($overlay);
 		$overlay.addClass("show");
 		$projectDetails.appendTo($wrapper);
+		$projectTech.appendTo($wrapper);
 		$cursorBorderLeft.appendTo($wrapper);
 		$cursorBorderRight.appendTo($wrapper);
 
@@ -239,8 +242,18 @@ $(document).ready(function(){
 				detailHTML += '<p>' + data.description + '</p>';
 				detailHTML +='</div>';
 
+				// build skills badges div
+				skillsHTML += '<div class="layout-skills">';
+				for ( i = 0; i < data.tech.length; i++ ) {
+					skillsHTML += '<div id="' + data.tech[i] + '" class="badge">';
+					skillsHTML += data.tech[i];
+					skillsHTML += '</div>';
+				}
+				skillsHTML += '</div>'
 			}
 		});
+
+			document.getElementById("project-tech").innerHTML = skillsHTML;
 			document.getElementById("project-image").innerHTML = imageHTML;
 			document.getElementById("project-details").innerHTML = detailHTML;
 
@@ -254,6 +267,11 @@ $(document).ready(function(){
 			opacity: 1
 		},500);
 
+		// Fade-in project-skills
+		$projectTech.animate({
+			opacity: 1
+		},500);
+
 	});  // end Open overlay on click
 
 	// Close overlay and project details on click
@@ -264,12 +282,18 @@ $(document).ready(function(){
 			opacity: 0
 		}, 500)
 
+		// Fade-out project details
+		$projectTech.animate({
+			opacity: 0
+		}, 500)
+
 		// Fade-out overlay
 		$overlay.animate({
 			opacity: 0
 		}, 500, function(){
 			$overlay.removeClass("show");
 			$projectDetails.remove();
+			$projectTech.remove();
 			$cursorBorderRight.remove();
 			$cursorBorderLeft.remove();
 		});
