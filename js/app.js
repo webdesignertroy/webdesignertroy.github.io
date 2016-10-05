@@ -43,7 +43,7 @@ $(document).ready(function(){
 	var mq = window.matchMedia('all and (max-width: 769px)');
 	var menuLength = 0;
 
-	var $portfolio = $(".project-details");
+	var $portfolio = $(".project-details-dom");
 
 	var $overlay = $("#overlay");
 	var $projectImage = $('<div id="project-image"></div>');
@@ -228,14 +228,14 @@ $(document).ready(function(){
 			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
 			t+="</div>";
 
-		$(".project-details").html(t);
+		$(".project-details-dom").html(t);
 	}
 
 	// Invoke function
 	renderProjectDetails();
 
 	// Open overlay on click
-	$(".project-details").on("click", ".port-col", function(){
+	$(".project-details-dom").on("click", ".port-col", function(){
 
 		// variables
 		var $projectIndex = parseInt($(this).attr("data-index")); 
