@@ -1,4 +1,6 @@
 /*  Portfolio Style  */
+
+/*  Thumbs  */
 #portfolio {
 	width: 100%;
 	margin-top: 30px;
@@ -9,16 +11,12 @@
 }
 #portfolio h3 {
 	text-align: center;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    position: relative;
 }
 #portfolio p{
 	text-align: left;
-}
-.project-details {
-	max-width: 960px;
-	margin: 20px auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 .project-links {
 	text-align: center;
@@ -35,7 +33,101 @@
 	background: rgba(247,153,42, 0.18);
 	border-radius: 5px;
 }
-
+/*  Lightbox  */
+#overlay {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+ -webkit-opacity: 0;
+ -moz-opacity: 0;
+  opacity: 0;
+  cursor: url(../img/icons/close-icon.png), crosshair;
+}
+.show {
+	display: -ms-flexbox !important;
+	display: flex !important;
+}
+#cursor-border-left, #cursor-border-right {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  width: 25px;
+  height: 100%;
+  z-index: 101;
+  cursor: default;
+}
+#cursor-border-right {
+  right: 0;
+}
+#cursor-border-left {
+  left: 0;
+}
+.image-details img {
+	max-width: 1050px;
+	margin: 0 auto;
+}
+#project-image {
+	display: flex;
+	justify-content: center;
+}
+#project-details {
+	position: fixed;
+	bottom: 0;
+	left: 0 ;
+	width: 100%;
+	height: auto;
+	background: #2f2f2f;
+	z-index: 102;
+	color: #f2f2f2;
+	opacity: 0;
+}
+.layout-details .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.layout-details .btn {
+    display: inline-block;
+    background: #c00;
+    margin: 5px 8px;
+    font-size: .7rem;
+    font-family: 'PT Sans',sans-serif !important;
+    font-weight: 300;
+    padding: 2px 7px 0 7px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #f2f2f2;
+}
+.layout-details {
+	padding: 20px 5px 10px 5px;
+}
+.layout-details p,
+.layout-details h3 {
+	max-width: 900px;
+	text-align: center;
+	margin: 0 auto;
+}
+.layout-details p {
+	line-height: 1.5em;
+}
+.layout-details h3 {	
+	text-transform: uppercase;
+	letter-spacing: 0.7px;
+	margin-bottom: 7px;
+}
+/*  Media Queries  */
 @media screen and (min-width: 769px){
 	.port-col {
 		max-width: 300px;

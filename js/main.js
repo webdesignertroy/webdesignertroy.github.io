@@ -13,7 +13,13 @@ $(document).ready(function(){
 	var mq = window.matchMedia('all and (max-width: 769px)');
 	var menuLength = 0;
 
-	var $porfolio = $(".port-col");
+	var $portfolio = $(".project-details");
+
+	var $overlay = $("#overlay");
+	var $projectImage = $('<div id="project-image"></div>');
+	var $projectDetails = $('<div id="project-details"></div>');
+	var $cursorBorderLeft = $('<div id="cursor-border-left"></div>');
+	var $cursorBorderRight = $('<div id="cursor-border-right"></div>');
 
 	/************************
 		FUNCTION EXPRESSION
@@ -187,7 +193,7 @@ $(document).ready(function(){
 	// Create "for loop" with HTML code mixed with variables 
 	function renderProjectDetails(e) {
 		for ( var t="",  i=0; i < projects.length; i++ ) 
-			t+='<div class="port-col">',
+			t+='<div class="port-col" data-index="' + i + '">',
 			t+="<h3>"+projects[i].name+"</h3>",
 			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
 			t+="</div>";
@@ -200,9 +206,75 @@ $(document).ready(function(){
 
 	// Open overlay on click
 	$(".project-details").on("click", ".port-col", function(){
-		
-	});
+
+		// variables
+		var $projectIndex = parseInt($(this).attr("data-index")); 
+		var imageHTML = "";
+		var detailHTML = "";
+
+		// Append overlay/wrapper and show
+		$projectImage.appendTo($overlay);
+		$overlay.addClass("show");
+		$projectDetails.appendTo($wrapper);
+		$cursorBorderLeft.appendTo($wrapper);
+		$cursorBorderRight.appendTo($wrapper);
+
+		// Find correct data in project details array
+		$.each(projects, function(i, data){
+			if ( $projectIndex === i) {
+				// build image div
+				imageHTML += '<div class="image-details">';
+				imageHTML += '<img src="img/projects/' + data.preview + '.jpg"/>';
+				imageHTML += '</div>'
+
+				// build description div
+				detailHTML += '<div class="layout-details">';
+				detailHTML += '<h3>' + data.name +'</h3>';
+				detailHTML +=  '<p class="btn-container">'
+				detailHTML += '<a href="' + data.url + '" class="btn" target="_blank">Visit Site</a>';
+				if ( data.github !== "" ) {
+					detailHTML += '<a href="' + data.github + '" class="btn" target="_blank"> Visit GitHub</a>';
+				}
+				detailHTML += '</p>';
+				detailHTML += '<p>' + data.description + '</p>';
+				detailHTML +='</div>';
+
+			}
+		});
+			document.getElementById("project-image").innerHTML = imageHTML;
+			document.getElementById("project-details").innerHTML = detailHTML;
+
+		// Fade-in overlay
+		$overlay.animate({
+			opacity: 1
+		}, 500);
+
+		// Fade-in project-details
+		$projectDetails.animate({
+			opacity: 1
+		},500);
+
+	});  // end Open overlay on click
+
+	// Close overlay and project details on click
+	$overlay.on("click", function(){
+
+		// Fade-out project details
+		$projectDetails.animate({
+			opacity: 0
+		}, 500)
+
+		// Fade-out overlay
+		$overlay.animate({
+			opacity: 0
+		}, 500, function(){
+			$overlay.removeClass("show");
+			$projectDetails.remove();
+			$cursorBorderRight.remove();
+			$cursorBorderLeft.remove();
+		});
 
 
+	});  //end Close overlay on click
 
 });
