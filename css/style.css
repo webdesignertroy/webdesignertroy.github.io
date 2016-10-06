@@ -902,6 +902,18 @@ img {
 .project-preview {
 	max-width: 550px;
 	margin: 0 auto;
+  position: relative;
+}
+.project-preview span {
+  content: url(../img/icons/link-icon-20x20.png);
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  transition: .25s all;
+  transform: rotate(0deg);
+}
+.project-preview:hover span {
+  transform: rotate(-90deg);
 }
 #projects h3 {
 	text-align: center;
@@ -988,7 +1000,7 @@ img {
 	left: 0 ;
 	width: 100%;
 	height: auto;
-	background: #2f2f2f;
+	background: rgba(47, 47, 47, 0.85);
 	z-index: 102;
 	color: #f2f2f2;
 	opacity: 0;
@@ -1016,6 +1028,7 @@ img {
 }
 .layout-details .btn:hover {
 	background: #AF5F00;
+  color: #f2f2f2;
 }
 .layout-details {
 	padding: 20px 5px 10px 5px;
@@ -1028,6 +1041,15 @@ img {
 }
 .layout-details p {
 	line-height: 1.5em;
+  font-size: 0.85em;
+  padding: 0 5px;
+}
+.layout-details p a {
+  color: #d77705;
+  text-decoration: none;
+}
+.layout-details p a:hover {
+  color: #af5f00;
 }
 .layout-details h3 {	
 	text-transform: uppercase;

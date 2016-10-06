@@ -2,47 +2,47 @@
    PROJECTS DATA
 *******************************/
 var projects=[ {
-		name: "Responsive registration form", url: "http://webdesignertroy.github.io/techdegree/proj3/", github: "https://github.com/webdesignertroy/Techdegreee-Project-3", description: 'In this project I built a responsive, mobile-friendly registration form using a wide variety of HTML form input types and attributes. Using the supplied mockup file as a guide, I created repsonsive mobile, tablet and desktop versions of the form using CSS media queries and a "mobile-first" approach as well as implementing custom form controls.', preview: "proj3", tech: ["html", "css", "github"]
+		name: "Responsive Registration Form", url: "http://webdesignertroy.github.io/techdegree/proj3/", github: "https://github.com/webdesignertroy/Techdegreee-Project-3", description: 'This third project challenge from <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program</a> asked students to construct a responsive online form from scratch. I used HTML and CSS to build a mock newsletter contact form consisting of basic input fields from text boxes to pull-down menus.  Validation functions ensure that visitors fill out required fields completely and correctly.  The form comes complete with a reset button.  Although not a fully functioning form, this exercise still taught me the values of considering user experience and accessibility while building a form interface.', preview: "proj3", tech: ["html", "css", "github"]
 	}
 
 	,
 	{
-		name: "Interactive photo gallery", url: "http://webdesignertroy.github.io/techdegree/proj4/", github: "https://github.com/webdesignertroy/Techdegree-Project-4", description: "This project was about creating an interactive photo gallery using JavaScript and jQuery. Thumbnails and photos were be provided with descriptions. User intraction with the search box will cause images in the gallery to be filtered based on the input. Clicking on thumbnails, opens up a lighbox showing a larger version of each photo and allows keyboard navigation.", preview: "proj4", tech: ["html", "css", "js", "jquery", "github"]
+		name: "Interactive Image Gallery", url: "http://webdesignertroy.github.io/techdegree/proj4/", github: "https://github.com/webdesignertroy/Techdegree-Project-4", description: 'This fourth challenging project presented to students by <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program</a> asked students to build an interactive photo gallery complete with lightbox. Students were not allowed to use plugins.  So, it appeared that my introduction to programming would be harrowing to say the least. Armed with JavaScript, jQuery, HTML, CSS and my imagination, I constructed a small thumb image gallery. When a visitor clicks on a thumb image, he or she is presented with an interactive lightbox holding an image or video.', preview: "proj4", tech: ["html", "css", "js", "jquery", "github"]
 	}
 
 	,
 	{
-		name: "Responsive layouts with Sass", url: "http://webdesignertroy.github.io/techdegree/proj5/", github: "https://github.com/webdesignertroy/Techdegree-Project-5", description: "This project was about refactoring a previous project originally written in CSS, to Sass. I used the oportunity to redesign the layout using Flexbox instead of floating divs. I also took advantage of many Sass features such as support for partials, variables, extends, and mixins to write modular, more maintainable code.", preview: "proj5", tech: ["html", "css","js","jquery", "sass", "github"]
+		name: "Building Layouts with Sass", url: "http://webdesignertroy.github.io/techdegree/proj5/", github: "https://github.com/webdesignertroy/Techdegree-Project-5", description: 'Before <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program</a> introduced this fifth challenge to me, I never even heard of Sass. Now, I see how applications like Sass can be invaluable to a company’s workflow.  The project asked students to refactor a previous project with Sass.  I learned how to break very large scripts into manageable smaller ones.  Sass would work hard to recompile them to ensure an optimal online experience.', preview: "proj5", tech: ["html", "css","js","jquery", "sass", "github"]
 	}
 
 	,
 	{
-		name: "Interactive video player", url: "http://webdesignertroy.github.io/techdegree/proj7", github: "https://github.com/webdesignertroy/Techdegree-Project-7", description: "This is an HTML5 video player featuring custom control elements, written in JavaScript using the HTML5 Video API. Using the supplied mockups, video files, and transcript, I wrote an interactive video player that synchronizes the video and the transcript. The transcript is highlighting as the video progresses.", preview: "proj7", tech: ["html", "css", "js", "jquery", "github"]
+		name: "HTML5 Video Player", url: "http://webdesignertroy.github.io/techdegree/proj7", github: "https://github.com/webdesignertroy/Techdegree-Project-7", description: 'I worked with HTML5 video players before, but never to the degree that <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program</a> requested in this 7th project.  In my introduction to Object-Oriented Programming, the task asked us to create an interactive video interface from a mockup.  Using JavaScript, jQuery, HTML and CSS, I constructed a video player complete with multiple functions such as a progress bar and two variations of closed captions.', preview: "proj7", tech: ["html", "css", "js", "jquery", "github"]
 	}
 
 	,
 	{
-		name: "Web application dashboard", url: "http://webdesignertroy.github.io/techdegree/proj9", github: "https://github.com/webdesignertroy/Techdegree-Project-9", description: "This project was about building a beautiful web application dashboard complete with JavaScript-driven charts and graphs base on a suplied graphic mockup. This was a front end project onlythat required to create the responsive layout in HTML and CSS with added JavaScript functionality. Flexbox and Sass proved to be invaluable tools.", preview: "proj9", tech: ["html", "css", "js", "jquery", "github"]
+		name: "Web App Dashboard", url: "http://webdesignertroy.github.io/techdegree/proj9", github: "https://github.com/webdesignertroy/Techdegree-Project-9", description: 'The web application challenge given to me by <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program</a> as the 9th project was by far the most challenging.  The course gave students a mockup of a web app that consisted of charts, pop-ups, tables and finally a form and told to make it interactive using only JavaScript, jQuery, HTML and CSS.  Specifically, working with a third-party plugin chart maker proved difficult.  Documentation was sparse and explanations by the community was few and wide-spread. But, I met the the challenge with wonderful results and growth.', preview: "proj9", tech: ["html", "css", "js", "jquery", "github"]
+	} 
+
+	,
+	{
+		name: "Public API Galley", url: "http://webdesignertroy.github.io/techdegree/proj10", github: "https://github.com/webdesignertroy/Techdegree-Project-10", description: 'I personally found <a href="https://teamtreehouse.com/techdegree" target="_blank">Treehouse\'s Techdegree Program\'s</a> 10th project the most rewarding and useful. Students generated a public API call from at least two sources using only JavaScript, jQuery, HTML and CSS.  Building functional, interactive sites that visitors could actually use was why I started the Program.  This app called on iTunes\' and YouTube\'s APIs to generate a movie and show search library. Results from the API mismatch generates great fun.', preview: "proj10", tech: ["html", "css", "js", "jquery", "github"]
 	}
 
 	,
 	{
-		name: "Public API galley", url: "http://webdesignertroy.github.io/techdegree/proj10", github: "https://github.com/webdesignertroy/Techdegree-Project-10", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "proj10", tech: ["html", "css", "js", "jquery", "github"]
+		name: "General Contractor Site", url: "http://2mgconstruction.com/", github: "", description: 'I refactored 2MGconstruction to keep up with mobile requests. The old site was outdated, so I started from scratch. I kept the traditional menu, but augmented it with a pull-down version for mobile devices. I replaced slideshows with image grids to give the visitor upfront choices all at once. I added a review section where <em>happy</em> clients could comment on the work completed by 2MGconstruction.', preview: "wp1", tech: ["wordpress", "html", "css", "js", "jquery"]
 	}
 
 	,
 	{
-		name: "General Contractor Site", url: "http://2mgconstruction.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp1", tech: ["wordpress", "html", "css", "js", "jquery"]
+		name: "Writer's Page", url: "http://questionsformrright.com", github: "", description: 'Andrea Guzman - Writer\'s Page was created to promote Andrea\'s guide to a healthy relationship, <em>20 Questions for Mr. Right</em>. I created a clean, simple design with call-to-action tools and buttons that focused on prodding the visitor to select links to shops where they could purchase the guide. Among the tools was a promotional video in which Andrea discussed why she wrote her guide and why the visitor should buy it. I also provided Andrea with a blog to keep her socially connected to her audience.', preview: "wp2", tech: ["wordpress", "html", "css", "js", "jquery"]
 	}
 
 	,
 	{
-		name: "Writer's Page", url: "http://2questionsformrright.com.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp2", tech: ["wordpress", "html", "css", "js", "jquery"]
-	}
-
-	,
-	{
-		name: "Actor's Site", url: "http://jamaicafarewelltheplay.com.com", github: "", description: "This project was about using at least one of the provided APIs to grab, fromat and present data from that API. Items had to be presented on a page in an attractive gallery of images or titles. Clicking an image opens a lightbox prodiving detailed information about that item. This project included Ajax calls using jQuery, pasring and formatting JSON with Javascript and a bit of CSS magic.", preview: "wp3", tech: ["wordpress", "html", "css", "js", "jquery"]
+		name: "Actor's Site", url: "http://jamaicafarewelltheplay.com", github: "", description: 'In designing this simple site, I wanted to create a dark, cool theatrical appeal. I went with full-width images that took up the entire screen to mimic the feeling of sitting in an open forum. I kept the navigation simple and the call-to-action abundant in order to focus the visitor on the message we were trying to convey, which was "Buy Tickets." I added an audience review form, a calendar of Upcoming Shows and tried to be very helpful with the information we projected. Besides basic show information, I included a Google map with an option for driving instructions and the ability to add the website calendar information to Google Calendars or iCal.', preview: "wp3", tech: ["wordpress", "html", "css", "js", "jquery"]
 	}
 ] 
 
@@ -448,7 +448,7 @@ $(document).ready(function(){
 		for ( var t="",  i=0; i < projects.length; i++ ) 
 			t+='<div class="port-col" data-index="' + i + '">',
 			t+="<h3>"+projects[i].name+"</h3>",
-			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
+			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""><span></span></div>',
 			t+="</div>";
 
 		$(".project-details-dom").html(t);

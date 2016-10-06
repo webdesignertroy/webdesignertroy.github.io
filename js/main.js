@@ -245,7 +245,7 @@ $(document).ready(function(){
 		for ( var t="",  i=0; i < projects.length; i++ ) 
 			t+='<div class="port-col" data-index="' + i + '">',
 			t+="<h3>"+projects[i].name+"</h3>",
-			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""></div>',
+			t+='<div class="project-preview"><img src="img/projects/thumbs/'+projects[i].preview+'.png" alt=""><span></span></div>',
 			t+="</div>";
 
 		$(".project-details-dom").html(t);
