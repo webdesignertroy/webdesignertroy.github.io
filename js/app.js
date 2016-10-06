@@ -177,7 +177,7 @@ var skillLevel = {
 			} 
 		]; 
 
-		var canvas = document.querySelector("#github");
+		var canvas = document.querySelector("#github2");
 		skillLevel.drawDoughnutChart(level, canvas);
 	},
 
