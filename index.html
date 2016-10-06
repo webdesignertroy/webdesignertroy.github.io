@@ -123,10 +123,10 @@ Portfolio was checked on the following browsers:
 //Preload Images
 function preloader() {
 
-    var imageFolder = ['bonsai-flat-right.png', 'bonsai-flat-left.png']; //manually add  images
+    var imageFolder = ['header/bonsai-flat-right.png', 'header/bonsai-flat-left.png','projects/thumbs/proj3.png','projects/thumbs/proj4.png','projects/thumbs/proj5.png','projects/thumbs/proj7.png','projects/thumbs/proj9.png','projects/thumbs/proj10.png','projects/thumbs/wp1.png','projects/thumbs/wp2.png','projects/thumbs/wp3.png','projects/proj3.jpg','projects/proj4.jpg','projects/proj5.jpg','projects/proj7.jpg','projects/proj9.jpg','projects/proj10.jpg','projects/wp1.jpg','projects/wp2.jpg','projects/wp3.jpg']; //manually add  images
     for( var i = 0; i < imageFolder.length; i++){                   
         var img  = new Image();
-        img.src = "img/header/" + imageFolder[i];        
+        img.src = "img/" + imageFolder[i];        
     }
 }
 function addLoadEvent(func) {
