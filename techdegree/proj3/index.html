@@ -48,7 +48,7 @@
                         <div class="row-container">
                             <label for="state">State</label>
                             <div class="pull-down">
-                                <select class="shared-style" id="state" name="user_state"> 
+                                <select class="shared-style" id="state" name="user_state" tabindex="6"> 
                                     <option selected disabled>- Choose State -</option>
                                     <option value="Alabama">Alabama</option> 
                                     <option value="Alaska">Alaska</option>
@@ -113,55 +113,55 @@
                          </div>
                         <div class="row-container">
                             <label for="zip-code">Zip Code</label>
-                            <input class="shared-style" type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value="" tabindex="6"/>
+                            <input class="shared-style" type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value="" tabindex="7"/>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
-                    <fieldset class="secondary">
+                    <fieldset class="secondary" >
                         <legend>Newsletter</legend>
                         <div class="col">
                             <h3>Select the newsletters you would like to receive</h3>
-                            <input type="checkbox" id="html-news" name="user_html_news" tabindex="7" />
-                            <label for="html-news">HTML News</label> 
-                            <input type="checkbox" id="css" name="user_css" />               
-                            <label for="css">CSS News</label>                   
+                            <input type="checkbox" id="html-news" name="user_html_news" />
+                            <label for="html-news"  tabindex="8">HTML News</label> 
+                            <input type="checkbox" id="css" name="user_css"/>               
+                            <label for="css" tabindex="9">CSS News</label>                   
                             <input type="checkbox" id="js" name="user_js" />
-                            <label for="js">Javascript News</label> 
+                            <label for="js" tabindex="10">Javascript News</label> 
                         </div>
                         <div class="col">
                             <h3>Newsletter format</h3>
-                            <input type="radio" id="html-format" name="format"  tabindex="8"/>
-                            <label for="html-format">HTML</label>
+                            <input type="radio" id="html-format" name="format" />
+                            <label for="html-format" tabindex="11">HTML</label>
                             <input type="radio" id="plain" name="format" />
-                            <label for="plain">Plain Text</label>
+                            <label for="plain" tabindex="12">Plain Text</label>
                         </div>
                         <div class="row-container">
                             <label for="topics">Other topics you'd like to hear about</label>
-                            <textarea class="shared-style" id="topics" name="user_topics" tabindex="9"></textarea>
+                            <textarea class="shared-style" id="topics" name="user_topics" tabindex="12"></textarea>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
                     <fieldset class="tiertary">
                         <div class="col">
                             <h3>How did you learn about us?</h3>
-                            <input type="radio" id="internet" name="user_learn"  tabindex="10"/>
-                            <label for="internet">Google Ads</label>
-                            <input type="radio" id="newspaper" name="user_learn"  tabindex="11"/>
-                            <label for="newspaper">Los Angeles Times</label>
-                            <input type="radio" id="friend" name="user_learn"  tabindex="12"/>
-                            <label for="friend">Through a Friend</label>
-                            <input type="radio" id="other" name="user_learn"  tabindex="13"/>
-                            <label for="other">Other</label>
+                            <input type="radio" id="internet" name="user_learn" />
+                            <label for="internet" tabindex="13">Google Ads</label>
+                            <input type="radio" id="newspaper" name="user_learn" />
+                            <label for="newspaper" tabindex="14">Los Angeles Times</label>
+                            <input type="radio" id="friend" name="user_learn" />
+                            <label for="friend" tabindex="15">Through a Friend</label>
+                            <input type="radio" id="other" name="user_learn" />
+                            <label for="other" tabindex="16">Other</label>
                             <div id="show-other" class="row-container">
                                 <label for="other-explained">If you chose <strong>Other</strong>, please explain</label>
-                                <textarea class="shared-style" id="other-explained" name="user_other_explained" tabindex="14"></textarea>
+                                <textarea class="shared-style" id="other-explained" name="user_other_explained" tabindex="17"></textarea>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="buttons"> 
                         <div class="col">
-                            <input class="shared-style" type="submit" value="Sign Up" name="user_sumbit"  tabindex="15"> 
-                            <input class="shared-style" type="reset" value="Reset Form" name="user_sumbit"  tabindex="16"> 
+                            <input class="shared-style" type="submit" value="Sign Up" name="user_sumbit"  tabindex="18"> 
+                            <input class="shared-style" type="reset" value="Reset Form" name="user_sumbit"  tabindex="19	"> 
                         </div>
                      </fieldset>
                 </form>
