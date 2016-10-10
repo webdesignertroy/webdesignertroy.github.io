@@ -25,25 +25,25 @@
                         <legend><span class="">Contact Information</span></legend>
                         <div class="row-container">
                             <label for="full-name">Full Name</label>
-                            <input class="shared-style" type="text" id="full-name" placeholder="(e.g. Joan Smith)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_name" required aria-describedby="name-format" aria-required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="Format: first_name last_name"/>          		
+                            <input class="shared-style" type="text" id="full-name" placeholder="(e.g. Joan Smith)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_name" required aria-describedby="name-format" aria-required="true" pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+" title="Format: first_name last_name" tabindex="1"/>          		
                         <span id="name-format" class="help">Format: first_name last_name</span>	
                         </div>
                         <div class="row-container">
                              <label for="mail">Email Address</label>
-                             <input class="shared-style" type="email" id="mail" placeholder="(e.g. joan89@gmail.com)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_email" required aria-describedby="email-format" aria-required="true" >
+                             <input class="shared-style" type="email" id="mail" placeholder="(e.g. joan89@gmail.com)&nbsp;&nbsp;&nbsp;-required-" value="" name="user_email" required aria-describedby="email-format" aria-required="true"  tabindex="2" />
                              <span id="email-format" class="help">Format: email@domain.com</span>
                          </div>
                         <div class="row-container">
                             <label for="phone">Phone Number</label>
-                            <input class="shared-style" type="tel" id="phone"  name="user_phone" placeholder="(e.g. 555-555-5555)" value=""/>
+                            <input class="shared-style" type="tel" id="phone"  name="user_phone" placeholder="(e.g. 555-555-5555)" value="" tabindex="3"/>
                         </div>
                             <div class="row-container">
                             <label for="address">Street Address</label>
-                            <input class="shared-style" type="text" id="address"  name="user_address" placeholder="(e.g. 125 E. Oak Street)" value=""/>
+                            <input class="shared-style" type="text" id="address"  name="user_address" placeholder="(e.g. 125 E. Oak Street)" value="" tabindex="4"/>
                         </div>
                         <div class="row-container">
                             <label for="city">City</label>
-                            <input class="shared-style" type="text" id="city" name="user_city" placeholder="(e.g. Los Angeles)" value="" />
+                            <input class="shared-style" type="text" id="city" name="user_city" placeholder="(e.g. Los Angeles)" value=""  tabindex="5"/>
                         </div>
                         <div class="row-container">
                             <label for="state">State</label>
@@ -113,7 +113,7 @@
                          </div>
                         <div class="row-container">
                             <label for="zip-code">Zip Code</label>
-                            <input class="shared-style" type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value=""/>
+                            <input class="shared-style" type="text" id="zip-code"  name="user_postal_code" placeholder="(e.g. 90250)" value="" tabindex="6"/>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
@@ -121,7 +121,7 @@
                         <legend>Newsletter</legend>
                         <div class="col">
                             <h3>Select the newsletters you would like to receive</h3>
-                            <input type="checkbox" id="html-news" name="user_html_news" />
+                            <input type="checkbox" id="html-news" name="user_html_news" tabindex="7" />
                             <label for="html-news">HTML News</label> 
                             <input type="checkbox" id="css" name="user_css" />               
                             <label for="css">CSS News</label>                   
@@ -130,38 +130,38 @@
                         </div>
                         <div class="col">
                             <h3>Newsletter format</h3>
-                            <input type="radio" id="html-format" name="format" />
+                            <input type="radio" id="html-format" name="format"  tabindex="8"/>
                             <label for="html-format">HTML</label>
                             <input type="radio" id="plain" name="format" />
                             <label for="plain">Plain Text</label>
                         </div>
                         <div class="row-container">
                             <label for="topics">Other topics you'd like to hear about</label>
-                            <textarea class="shared-style" id="topics" name="user_topics"></textarea>
+                            <textarea class="shared-style" id="topics" name="user_topics" tabindex="9"></textarea>
                         </div>
                     </fieldset>
                     <div class="separator-2">&nbsp;</div>
                     <fieldset class="tiertary">
                         <div class="col">
                             <h3>How did you learn about us?</h3>
-                            <input type="radio" id="internet" name="user_learn" />
+                            <input type="radio" id="internet" name="user_learn"  tabindex="10"/>
                             <label for="internet">Google Ads</label>
-                            <input type="radio" id="newspaper" name="user_learn" />
+                            <input type="radio" id="newspaper" name="user_learn"  tabindex="11"/>
                             <label for="newspaper">Los Angeles Times</label>
-                            <input type="radio" id="friend" name="user_learn" />
+                            <input type="radio" id="friend" name="user_learn"  tabindex="12"/>
                             <label for="friend">Through a Friend</label>
-                            <input type="radio" id="other" name="user_learn" />
+                            <input type="radio" id="other" name="user_learn"  tabindex="13"/>
                             <label for="other">Other</label>
                             <div id="show-other" class="row-container">
                                 <label for="other-explained">If you chose <strong>Other</strong>, please explain</label>
-                                <textarea class="shared-style" id="other-explained" name="user_other_explained"></textarea>
+                                <textarea class="shared-style" id="other-explained" name="user_other_explained" tabindex="14"></textarea>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="buttons"> 
                         <div class="col">
-                            <input class="shared-style" type="submit" value="Sign Up" name="user_sumbit" > 
-                            <input class="shared-style" type="reset" value="Reset Form" name="user_sumbit" > 
+                            <input class="shared-style" type="submit" value="Sign Up" name="user_sumbit"  tabindex="15"> 
+                            <input class="shared-style" type="reset" value="Reset Form" name="user_sumbit"  tabindex="16"> 
                         </div>
                      </fieldset>
                 </form>
